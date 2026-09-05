@@ -1,592 +1,1508 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Anas Ayman | Official Website</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: #050505;
-            color: #ffffff;
-            font-family: Arial, Helvetica, sans-serif;
-            line-height: 1.6;
-        }
-
-        /* ================= NAVBAR ================= */
-
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px 40px;
-            background: rgba(5, 5, 5, 0.92);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #222;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            color: #00ff88;
-            font-size: 22px;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 25px;
-        }
-
-        .nav-links a {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 14px;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #00ff88;
-        }
-
-
-        /* ================= HERO ================= */
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 120px 30px 70px;
-        }
-
-        .hero-container {
-            max-width: 1200px;
-            width: 100%;
-            margin: auto;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            gap: 70px;
-        }
-
-        .hero-text {
-            flex: 1;
-        }
-
-        .hero-text h1 {
-            font-size: clamp(55px, 8vw, 100px);
-            line-height: 0.95;
-            letter-spacing: -4px;
-            margin-bottom: 30px;
-
-            /* BOTH WORDS GREEN */
-            color: #00ff88;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .hero-text p {
-            color: #aaaaaa;
-            font-size: 21px;
-            margin-bottom: 35px;
-        }
+<title>Anas Ayman — Official</title>
 
-        .green {
-            color: #00ff88;
-        }
+<meta name="description"
+content="Anas Ayman — Actor, Creative and Computer Science Student. Official portfolio, performances, theatre, philosophy and creative work.">
 
-        .button {
-            display: inline-block;
-            padding: 15px 30px;
+<style>
 
-            background: #00ff88;
-            color: #000000;
+/* =========================================================
+   RESET
+========================================================= */
 
-            text-decoration: none;
-            font-weight: bold;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-            border-radius: 6px;
+html {
+    scroll-behavior: smooth;
+}
 
-            transition: 0.3s;
-        }
+body {
+    background: #050505;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
 
-        .button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.25);
-        }
+/* =========================================================
+   VARIABLES
+========================================================= */
 
+:root {
+    --green: #00ff88;
+    --green-dark: #00b865;
+    --black: #050505;
+    --dark: #0a0a0a;
+    --gray: #9b9b9b;
+    --border: rgba(255,255,255,0.10);
+}
 
-        /* ================= MAIN IMAGE ================= */
+/* =========================================================
+   CURSOR GLOW
+========================================================= */
 
-        .hero-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-        }
+.cursor-glow {
+    position: fixed;
+    width: 350px;
+    height: 350px;
 
-        .hero-image img {
-            width: 100%;
-            max-width: 470px;
+    background: radial-gradient(
+        circle,
+        rgba(0,255,136,0.08),
+        transparent 65%
+    );
 
-            display: block;
+    border-radius: 50%;
 
-            border-radius: 20px;
-            border: 2px solid #00ff88;
+    pointer-events: none;
 
-            box-shadow:
-                0 0 40px rgba(0, 255, 136, 0.08);
+    transform: translate(-50%, -50%);
 
-            transition: 0.4s;
-        }
+    z-index: 0;
+}
 
-        .hero-image img:hover {
-            transform: scale(1.02);
-            box-shadow:
-                0 0 60px rgba(0, 255, 136, 0.15);
-        }
+/* =========================================================
+   FILM GRAIN
+========================================================= */
 
+.grain {
+    position: fixed;
+    inset: 0;
 
-        /* ================= GENERAL SECTIONS ================= */
+    pointer-events: none;
 
-        section {
-            max-width: 1200px;
-            margin: auto;
-            padding: 110px 30px;
-        }
+    z-index: 9999;
 
-        .section-title {
-            font-size: 48px;
-            color: #00ff88;
-            margin-bottom: 15px;
-        }
+    opacity: 0.045;
 
-        .line {
-            width: 65px;
-            height: 4px;
-            background: #00ff88;
-            margin-bottom: 30px;
-        }
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
 
-        .section-text {
-            max-width: 850px;
-            color: #aaaaaa;
-            font-size: 18px;
-        }
+    animation: grain 0.25s steps(2) infinite;
+}
 
+@keyframes grain {
+    0% { transform: translate(0,0); }
+    25% { transform: translate(-2%,2%); }
+    50% { transform: translate(2%,-1%); }
+    75% { transform: translate(-1%,-2%); }
+    100% { transform: translate(0,0); }
+}
 
-        /* ================= STATS ================= */
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
-        .stats {
-            max-width: 1200px;
-            margin: auto;
+nav {
+    position: fixed;
 
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
+    top: 0;
+    left: 0;
 
-            border-top: 1px solid #222;
-            border-bottom: 1px solid #222;
-        }
+    width: 100%;
 
-        .stat {
-            padding: 40px 20px;
-            text-align: center;
-            border-right: 1px solid #222;
-        }
+    padding: 25px 50px;
 
-        .stat:last-child {
-            border-right: none;
-        }
+    z-index: 1000;
 
-        .stat-number {
-            color: #00ff88;
-            font-size: 40px;
-            font-weight: bold;
-        }
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.85),
+        transparent
+    );
 
-        .stat-label {
-            color: #777;
-            margin-top: 5px;
-        }
+    transition: 0.4s;
+}
 
+nav.scrolled {
+    background: rgba(5,5,5,0.90);
 
-        /* ================= GALLERY ================= */
+    backdrop-filter: blur(20px);
 
-        .gallery {
-            margin-top: 45px;
+    border-bottom: 1px solid var(--border);
 
-            display: grid;
-            grid-template-columns:
-                repeat(auto-fit, minmax(250px, 1fr));
+    padding: 18px 50px;
+}
 
-            gap: 20px;
-        }
+.nav-container {
+    max-width: 1400px;
 
-        .gallery img {
-            width: 100%;
-            height: 300px;
+    margin: auto;
 
-            object-fit: cover;
+    display: flex;
 
-            border-radius: 15px;
-            border: 1px solid #222;
+    justify-content: space-between;
 
-            transition: 0.4s;
-        }
+    align-items: center;
+}
 
-        .gallery img:hover {
-            transform: translateY(-5px);
-            border-color: #00ff88;
-        }
+.logo {
+    font-size: 19px;
 
+    font-weight: 900;
 
-        /* ================= VIDEOS ================= */
+    letter-spacing: 4px;
 
-        .videos {
-            margin-top: 45px;
+    color: white;
+}
 
-            display: grid;
-            grid-template-columns:
-                repeat(auto-fit, minmax(320px, 1fr));
+.logo span {
+    color: var(--green);
+}
 
-            gap: 25px;
-        }
+.nav-links {
+    display: flex;
 
-        video {
-            width: 100%;
+    gap: 32px;
+}
 
-            border-radius: 15px;
-            background: #111;
+.nav-links a {
+    color: #ddd;
 
-            border: 1px solid #222;
-        }
+    text-decoration: none;
 
+    font-size: 12px;
 
-        /* ================= PHILOSOPHY ================= */
+    text-transform: uppercase;
 
-        .philosophy-box {
-            max-width: 900px;
+    letter-spacing: 2px;
 
-            padding: 40px;
+    position: relative;
 
-            margin-top: 40px;
+    transition: 0.3s;
+}
 
-            background: #0b0b0b;
+.nav-links a::after {
+    content: "";
 
-            border-left: 4px solid #00ff88;
+    position: absolute;
 
-            color: #bbbbbb;
+    left: 0;
+    bottom: -8px;
 
-            font-size: 20px;
+    width: 0;
+    height: 1px;
 
-            line-height: 1.9;
-        }
+    background: var(--green);
 
+    transition: 0.3s;
+}
 
-        /* ================= CREATIVE MARKET ================= */
+.nav-links a:hover {
+    color: var(--green);
+}
 
-        .products {
-            margin-top: 45px;
+.nav-links a:hover::after {
+    width: 100%;
+}
 
-            display: grid;
+/* =========================================================
+   HERO
+========================================================= */
 
-            grid-template-columns:
-                repeat(auto-fit, minmax(230px, 1fr));
+.hero {
+    min-height: 100vh;
 
-            gap: 25px;
-        }
+    position: relative;
 
-        .product {
-            background: #0b0b0b;
+    display: flex;
 
-            border: 1px solid #222;
+    align-items: center;
 
-            border-radius: 15px;
+    overflow: hidden;
 
-            overflow: hidden;
+    padding: 100px 7%;
+}
 
-            transition: 0.3s;
-        }
+.hero-bg {
+    position: absolute;
 
-        .product:hover {
-            transform: translateY(-6px);
-            border-color: #00ff88;
-        }
+    inset: 0;
 
-        .product img {
-            width: 100%;
-            height: 230px;
+    background:
+        radial-gradient(
+            circle at 70% 45%,
+            rgba(0,255,136,0.09),
+            transparent 35%
+        ),
 
-            object-fit: cover;
-        }
+        linear-gradient(
+            120deg,
+            #050505 30%,
+            #07130e 100%
+        );
 
-        .product-info {
-            padding: 20px;
-        }
+    z-index: -2;
+}
 
-        .product-info h3 {
-            margin-bottom: 8px;
-        }
+.hero-lines {
+    position: absolute;
 
-        .price {
-            color: #00ff88;
-            font-weight: bold;
-            margin-top: 10px;
-        }
+    inset: 0;
 
+    opacity: 0.12;
 
-        /* ================= CONTACT ================= */
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.04) 1px,
+            transparent 1px
+        );
 
-        .contact-box {
-            margin-top: 40px;
+    background-size: 100% 80px;
 
-            padding: 40px;
+    z-index: -1;
+}
 
-            background: #0b0b0b;
+.hero-container {
+    width: 100%;
+    max-width: 1500px;
 
-            border: 1px solid #222;
+    margin: auto;
 
-            border-radius: 15px;
-        }
+    display: grid;
 
-        .contact-box p {
-            color: #aaa;
-            margin-bottom: 10px;
-        }
+    grid-template-columns: 1.1fr 0.9fr;
 
-        .contact-box a {
-            color: #00ff88;
-            text-decoration: none;
-        }
+    gap: 80px;
 
+    align-items: center;
+}
 
-        /* ================= FOOTER ================= */
+.hero-text {
+    position: relative;
 
-        footer {
-            padding: 50px 20px;
+    z-index: 2;
+}
 
-            text-align: center;
+.eyebrow {
+    color: var(--green);
 
-            border-top: 1px solid #222;
+    text-transform: uppercase;
 
-            color: #666;
-        }
+    letter-spacing: 5px;
 
-        footer strong {
-            color: #00ff88;
-        }
+    font-size: 11px;
 
+    margin-bottom: 30px;
 
-        /* ================= MOBILE ================= */
+    animation: fadeUp 1s ease forwards;
+}
 
-        @media (max-width: 800px) {
+.hero h1 {
+    font-size: clamp(70px, 10vw, 170px);
 
-            nav {
-                padding: 18px 15px;
-            }
+    line-height: 0.80;
 
-            .nav-container {
-                flex-direction: column;
-                gap: 15px;
-            }
+    letter-spacing: -8px;
 
-            .nav-links {
-                gap: 12px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
+    text-transform: uppercase;
 
-            .hero-container {
-                flex-direction: column;
-                text-align: center;
-            }
+    margin-bottom: 40px;
 
-            .hero-text h1 {
-                font-size: 55px;
-                letter-spacing: -2px;
-            }
+    animation: heroTitle 1.2s cubic-bezier(.16,1,.3,1) forwards;
+}
 
-            .hero-text p {
-                font-size: 17px;
-            }
+.hero h1 .green {
+    color: var(--green);
+}
 
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
+.hero-description {
+    max-width: 560px;
 
-            .stat:nth-child(2) {
-                border-right: none;
-            }
+    color: #aaa;
 
-            .stat:nth-child(3),
-            .stat:nth-child(4) {
-                border-top: 1px solid #222;
-            }
+    font-size: 19px;
 
-            section {
-                padding: 80px 20px;
-            }
+    line-height: 1.7;
 
-            .section-title {
-                font-size: 38px;
-            }
-        }
-    </style>
+    margin-bottom: 40px;
+
+    animation: fadeUp 1s 0.3s ease both;
+}
+
+.hero-buttons {
+    display: flex;
+
+    gap: 15px;
+
+    animation: fadeUp 1s 0.5s ease both;
+}
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 16px 30px;
+
+    text-decoration: none;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    transition: 0.4s;
+}
+
+.btn-primary {
+    background: var(--green);
+
+    color: black;
+}
+
+.btn-primary:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 15px 50px rgba(0,255,136,0.25);
+}
+
+.btn-outline {
+    border: 1px solid #444;
+
+    color: white;
+}
+
+.btn-outline:hover {
+    border-color: var(--green);
+
+    color: var(--green);
+}
+
+/* =========================================================
+   HERO IMAGE
+========================================================= */
+
+.hero-visual {
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    animation: imageReveal 1.4s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+.hero-visual::before {
+    content: "";
+
+    position: absolute;
+
+    width: 90%;
+
+    height: 90%;
+
+    background: var(--green);
+
+    filter: blur(100px);
+
+    opacity: 0.08;
+
+    z-index: -1;
+}
+
+.hero-visual img {
+    width: 100%;
+
+    max-width: 560px;
+
+    aspect-ratio: 4 / 5;
+
+    object-fit: cover;
+
+    border-radius: 2px;
+
+    border: 1px solid rgba(0,255,136,0.3);
+
+    box-shadow:
+        30px 30px 0 rgba(0,255,136,0.04),
+        0 40px 100px rgba(0,0,0,0.8);
+
+    transition: 0.8s;
+}
+
+.hero-visual img:hover {
+    transform: scale(1.025);
+
+    border-color: var(--green);
+}
+
+.hero-number {
+    position: absolute;
+
+    bottom: -30px;
+    right: -30px;
+
+    font-size: 100px;
+
+    font-weight: 900;
+
+    color: rgba(255,255,255,0.035);
+
+    line-height: 1;
+}
+
+/* =========================================================
+   SCROLL INDICATOR
+========================================================= */
+
+.scroll-indicator {
+    position: absolute;
+
+    bottom: 35px;
+    left: 7%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    color: #666;
+
+    font-size: 9px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+}
+
+.scroll-line {
+    width: 50px;
+    height: 1px;
+
+    background: var(--green);
+}
+
+/* =========================================================
+   MARQUEE
+========================================================= */
+
+.marquee {
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    border-top: 1px solid var(--border);
+
+    border-bottom: 1px solid var(--border);
+
+    padding: 20px 0;
+
+    background: #080808;
+}
+
+.marquee-track {
+    display: inline-block;
+
+    animation: marquee 25s linear infinite;
+}
+
+.marquee span {
+    font-size: 14px;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    letter-spacing: 5px;
+
+    margin-right: 60px;
+
+    color: #666;
+}
+
+.marquee .accent {
+    color: var(--green);
+}
+
+@keyframes marquee {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+
+}
+
+/* =========================================================
+   GENERAL
+========================================================= */
+
+section {
+    max-width: 1400px;
+
+    margin: auto;
+
+    padding: 150px 7%;
+
+    position: relative;
+}
+
+.section-header {
+    margin-bottom: 70px;
+}
+
+.kicker {
+    color: var(--green);
+
+    text-transform: uppercase;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: clamp(50px, 7vw, 100px);
+
+    line-height: 0.9;
+
+    letter-spacing: -5px;
+
+    text-transform: uppercase;
+}
+
+.section-title span {
+    color: var(--green);
+}
+
+.section-description {
+    max-width: 700px;
+
+    color: #888;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    margin-top: 30px;
+}
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 100px;
+
+    align-items: center;
+}
+
+.about-big {
+    font-size: clamp(30px, 4vw, 55px);
+
+    line-height: 1.15;
+
+    letter-spacing: -2px;
+}
+
+.about-big span {
+    color: var(--green);
+}
+
+.about-copy {
+    color: #888;
+
+    font-size: 17px;
+
+    line-height: 1.9;
+}
+
+.about-copy p {
+    margin-bottom: 25px;
+}
+
+.signature {
+    margin-top: 40px;
+
+    color: var(--green);
+
+    font-size: 24px;
+
+    font-style: italic;
+
+    font-family: Georgia, serif;
+}
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats {
+    max-width: 1400px;
+
+    margin: auto;
+
+    padding: 0 7%;
+
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    border-top: 1px solid var(--border);
+
+    border-bottom: 1px solid var(--border);
+}
+
+.stat {
+    padding: 50px 25px;
+
+    border-right: 1px solid var(--border);
+}
+
+.stat:last-child {
+    border-right: none;
+}
+
+.stat-number {
+    font-size: 48px;
+
+    font-weight: 900;
+
+    color: var(--green);
+
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 10px;
+
+    color: #666;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+}
+
+/* =========================================================
+   ACTING
+========================================================= */
+
+.acting-section {
+    background:
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(0,255,136,0.05),
+            transparent 30%
+        );
+}
+
+.film-intro {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 80px;
+
+    align-items: end;
+
+    margin-bottom: 70px;
+}
+
+.film-label {
+    color: #555;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+}
+
+.film-statement {
+    font-size: 30px;
+
+    line-height: 1.4;
+
+    color: #ccc;
+}
+
+.film-statement span {
+    color: var(--green);
+}
+
+.videos {
+    display: grid;
+
+    grid-template-columns: repeat(2,1fr);
+
+    gap: 30px;
+}
+
+.video-card {
+    position: relative;
+
+    overflow: hidden;
+
+    background: #0b0b0b;
+
+    border: 1px solid var(--border);
+}
+
+.video-card video {
+    width: 100%;
+
+    display: block;
+
+    aspect-ratio: 16/9;
+
+    object-fit: cover;
+
+    transition: 0.7s;
+}
+
+.video-card:hover video {
+    transform: scale(1.04);
+}
+
+.video-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    padding: 25px;
+
+    background:
+        linear-gradient(
+            transparent 45%,
+            rgba(0,0,0,0.85)
+        );
+
+    pointer-events: none;
+}
+
+.video-overlay span {
+    color: white;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+    font-size: 10px;
+}
+
+/* =========================================================
+   THEATRE
+========================================================= */
+
+.theatre-grid {
+    display: grid;
+
+    grid-template-columns: 1.4fr 0.6fr;
+
+    gap: 30px;
+}
+
+.theatre-main {
+    position: relative;
+
+    overflow: hidden;
+
+    height: 600px;
+}
+
+.theatre-main img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter: grayscale(20%);
+
+    transition: 0.8s;
+}
+
+.theatre-main:hover img {
+    transform: scale(1.04);
+
+    filter: grayscale(0%);
+}
+
+.theatre-caption {
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    padding: 40px;
+
+    width: 100%;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0,0,0,0.9)
+        );
+}
+
+.theatre-caption h3 {
+    font-size: 40px;
+
+    text-transform: uppercase;
+
+    letter-spacing: -2px;
+}
+
+.theatre-caption p {
+    color: #aaa;
+
+    margin-top: 8px;
+}
+
+.theatre-side {
+    display: grid;
+
+    grid-template-rows: 1fr 1fr;
+
+    gap: 30px;
+}
+
+.theatre-side img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: 0.6s;
+}
+
+.theatre-side img:hover {
+    transform: scale(1.03);
+}
+
+/* =========================================================
+   PHILOSOPHY
+========================================================= */
+
+.philosophy-section {
+    background: #080808;
+
+    max-width: none;
+}
+
+.philosophy-inner {
+    max-width: 1400px;
+
+    margin: auto;
+
+    padding: 0 7%;
+}
+
+.manifesto {
+    max-width: 1100px;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(32px, 5vw, 70px);
+
+    line-height: 1.15;
+
+    color: #ddd;
+
+    margin: 80px 0;
+}
+
+.manifesto span {
+    color: var(--green);
+}
+
+.manifesto-small {
+    max-width: 700px;
+
+    color: #777;
+
+    font-size: 17px;
+
+    line-height: 1.9;
+}
+
+/* =========================================================
+   PHILOSOPHY IMAGES
+========================================================= */
+
+.philosophy-gallery {
+    margin-top: 80px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+
+    gap: 20px;
+}
+
+.philosophy-gallery img {
+    width: 100%;
+
+    height: 450px;
+
+    object-fit: cover;
+
+    transition: 0.6s;
+
+    filter: grayscale(30%);
+}
+
+.philosophy-gallery img:hover {
+    transform: translateY(-10px);
+
+    filter: grayscale(0%);
+}
+
+/* =========================================================
+   CREATIVE MARKET
+========================================================= */
+
+.products {
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 25px;
+}
+
+.product {
+    position: relative;
+
+    background: #0a0a0a;
+
+    border: 1px solid var(--border);
+
+    overflow: hidden;
+
+    transition: 0.5s;
+}
+
+.product:hover {
+    transform: translateY(-10px);
+
+    border-color: var(--green);
+}
+
+.product img {
+    width: 100%;
+
+    height: 360px;
+
+    object-fit: cover;
+
+    transition: 0.7s;
+}
+
+.product:hover img {
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding: 25px;
+}
+
+.product-info h3 {
+    font-size: 21px;
+
+    margin-bottom: 10px;
+}
+
+.product-info p {
+    color: #777;
+
+    font-size: 14px;
+}
+
+.price {
+    color: var(--green);
+
+    font-weight: bold;
+
+    margin-top: 20px;
+
+    font-size: 15px;
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-section {
+    min-height: 80vh;
+
+    display: flex;
+
+    align-items: center;
+}
+
+.contact-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 100px;
+
+    align-items: end;
+}
+
+.contact-title {
+    font-size: clamp(65px, 10vw, 150px);
+
+    line-height: 0.8;
+
+    letter-spacing: -8px;
+
+    text-transform: uppercase;
+}
+
+.contact-title span {
+    color: var(--green);
+}
+
+.contact-right {
+    border-top: 1px solid var(--border);
+
+    padding-top: 30px;
+}
+
+.contact-item {
+    padding: 25px 0;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.contact-item small {
+    display: block;
+
+    color: #555;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+    font-size: 9px;
+
+    margin-bottom: 8px;
+}
+
+.contact-item a {
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 21px;
+
+    transition: 0.3s;
+}
+
+.contact-item a:hover {
+    color: var(--green);
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    padding: 35px 7%;
+
+    border-top: 1px solid var(--border);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    color: #555;
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+}
+
+footer strong {
+    color: var(--green);
+}
+
+/* =========================================================
+   REVEAL ANIMATIONS
+========================================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(60px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s cubic-bezier(.16,1,.3,1);
+}
+
+.reveal.active {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+@keyframes heroTitle {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(80px)
+            skewY(4deg);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            skewY(0);
+    }
+
+}
+
+@keyframes imageReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(80px)
+            scale(0.94);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    nav {
+        padding: 18px 20px;
+    }
+
+    nav.scrolled {
+        padding: 15px 20px;
+    }
+
+    .nav-container {
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-links a {
+        font-size: 9px;
+    }
+
+    .hero {
+        padding:
+            150px
+            20px
+            100px;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+
+        gap: 70px;
+
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 70px;
+
+        letter-spacing: -4px;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    .hero-visual img {
+        max-width: 430px;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+
+    section {
+        padding:
+            100px
+            20px;
+    }
+
+    .section-title {
+        font-size: 55px;
+
+        letter-spacing: -3px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+    .stats {
+        padding: 0 20px;
+
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stat {
+        padding: 35px 15px;
+
+        border-bottom: 1px solid var(--border);
+    }
+
+    .stat:nth-child(2) {
+        border-right: none;
+    }
+
+    .stat-number {
+        font-size: 35px;
+    }
+
+    .film-intro {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+    .videos {
+        grid-template-columns: 1fr;
+    }
+
+    .theatre-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .theatre-main {
+        height: 450px;
+    }
+
+    .theatre-side {
+        height: 500px;
+    }
+
+    .philosophy-inner {
+        padding: 0 20px;
+    }
+
+    .philosophy-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .philosophy-gallery img {
+        height: 400px;
+    }
+
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+
+        gap: 70px;
+    }
+
+    .contact-title {
+        font-size: 75px;
+
+        letter-spacing: -4px;
+    }
+
+    footer {
+        flex-direction: column;
+
+        gap: 15px;
+
+        text-align: center;
+    }
+
+}
+
+</style>
 </head>
 
 
 <body>
 
+<!-- FILM GRAIN -->
+<div class="grain"></div>
 
-    <!-- ================= NAVIGATION ================= -->
+<!-- CURSOR GLOW -->
+<div class="cursor-glow" id="cursorGlow"></div>
 
-    <nav>
 
-        <div class="nav-container">
+<!-- ========================================================
+     NAVIGATION
+========================================================= -->
 
-            <div class="logo">
-                ANAS AYMAN
-            </div>
+<nav id="navbar">
 
-            <div class="nav-links">
+    <div class="nav-container">
 
-                <a href="#about">About</a>
+        <div class="logo">
+            ANAS <span>AYMAN</span>
+        </div>
 
-                <a href="#acting">Acting</a>
+        <div class="nav-links">
 
-                <a href="#theatre">Theatre</a>
+            <a href="#about">About</a>
 
-                <a href="#philosophy">Philosophy</a>
+            <a href="#acting">Acting</a>
 
-                <a href="#design">Design</a>
+            <a href="#theatre">Theatre</a>
 
-                <a href="#contact">Contact</a>
+            <a href="#philosophy">Mind</a>
 
-            </div>
+            <a href="#design">Studio</a>
+
+            <a href="#contact">Contact</a>
 
         </div>
 
-    </nav>
+    </div>
+
+</nav>
 
 
 
-    <!-- ================= HERO ================= -->
+<!-- ========================================================
+     HERO
+========================================================= -->
 
-    <header class="hero">
+<header class="hero">
 
-        <div class="hero-container">
+    <div class="hero-bg"></div>
 
+    <div class="hero-lines"></div>
 
-            <div class="hero-text">
+    <div class="hero-container">
 
-                <!-- BOTH WORDS ARE GREEN -->
+        <div class="hero-text">
 
-                <h1>
-                    Anas Ayman
-                </h1>
+            <div class="eyebrow">
+                Actor • Creative • Storyteller
+            </div>
 
+            <h1>
+                ANAS<br>
+                <span class="green">AYMAN</span>
+            </h1>
 
-                <p>
-                    Actor • Creative • Computer Science Student
-                </p>
+            <p class="hero-description">
+                An emerging actor and creative mind building
+                a personal world between cinema, theatre,
+                technology, design and ideas.
+            </p>
 
+            <div class="hero-buttons">
 
-                <a href="#about" class="button">
-                    Discover My World
+                <a
+                    href="#acting"
+                    class="btn btn-primary"
+                >
+                    Enter The World
+                </a>
+
+                <a
+                    href="#about"
+                    class="btn btn-outline"
+                >
+                    The Story
                 </a>
 
             </div>
 
-
-
-            <div class="hero-image">
-
-                <!-- MAIN PHOTO -->
-
-                <img
-                    src="images/1788621714358.png"
-                    alt="Anas Ayman"
-                >
-
-            </div>
-
-
         </div>
 
-    </header>
 
+        <div class="hero-visual">
 
+            <img
+                src="images/1788621714358.png"
+                alt="Anas Ayman"
+            >
 
-    <!-- ================= STATS ================= -->
-
-    <div class="stats">
-
-        <div class="stat">
-
-            <div class="stat-number">
+            <div class="hero-number">
                 01
-            </div>
-
-            <div class="stat-label">
-                Creative Journey
-            </div>
-
-        </div>
-
-
-        <div class="stat">
-
-            <div class="stat-number">
-                CS
-            </div>
-
-            <div class="stat-label">
-                Computer Science
-            </div>
-
-        </div>
-
-
-        <div class="stat">
-
-            <div class="stat-number">
-                O6U
-            </div>
-
-            <div class="stat-label">
-                University
-            </div>
-
-        </div>
-
-
-        <div class="stat">
-
-            <div class="stat-number">
-                ∞
-            </div>
-
-            <div class="stat-label">
-                Possibilities
             </div>
 
         </div>
@@ -594,60 +1510,232 @@
     </div>
 
 
+    <div class="scroll-indicator">
 
-    <!-- ================= ABOUT ================= -->
+        <div class="scroll-line"></div>
 
-    <section id="about">
+        Scroll to explore
+
+    </div>
+
+</header>
+
+
+
+<!-- ========================================================
+     MARQUEE
+========================================================= -->
+
+<div class="marquee">
+
+    <div class="marquee-track">
+
+        <span>ANAS AYMAN</span>
+
+        <span class="accent">ACTOR</span>
+
+        <span>CREATIVE</span>
+
+        <span class="accent">THEATRE</span>
+
+        <span>PHILOSOPHY</span>
+
+        <span class="accent">DESIGN</span>
+
+        <span>ANAS AYMAN</span>
+
+        <span class="accent">ACTOR</span>
+
+        <span>CREATIVE</span>
+
+        <span class="accent">THEATRE</span>
+
+        <span>PHILOSOPHY</span>
+
+        <span class="accent">DESIGN</span>
+
+    </div>
+
+</div>
+
+
+
+<!-- ========================================================
+     ABOUT
+========================================================= -->
+
+<section id="about">
+
+    <div class="section-header reveal">
+
+        <div class="kicker">
+            01 — Identity
+        </div>
 
         <h2 class="section-title">
-            About Me
+            The <span>Story</span>
         </h2>
 
-        <div class="line"></div>
+    </div>
 
 
-        <p class="section-text">
+    <div class="about-grid">
 
-            I am Anas Ayman — a Computer Science student,
-            aspiring actor and creative mind.
+        <div class="about-big reveal">
+
+            More than a name.
 
             <br><br>
 
-            My interests exist between technology,
-            acting, theatre, visual design and philosophy.
+            A <span>world</span>
+            still being built.
 
-            <br><br>
-
-            This website is my personal space —
-            a place where I can present my work,
-            my ideas and the journey behind my creative identity.
-
-        </p>
-
-    </section>
+        </div>
 
 
+        <div class="about-copy reveal">
 
-    <!-- ================= ACTING ================= -->
+            <p>
+                I am Anas Ayman — an aspiring actor,
+                creative and Computer Science student.
+            </p>
 
-    <section id="acting">
+            <p>
+                My world exists where technology meets
+                performance, where theatre meets cinema,
+                and where ideas become part of identity.
+            </p>
+
+            <p>
+                This website is not simply a portfolio.
+                It is the beginning of a personal brand —
+                a place to document the work, the experiments,
+                the performances and the journey.
+            </p>
+
+            <div class="signature">
+                — Anas Ayman
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ========================================================
+     STATS
+========================================================= -->
+
+<div class="stats">
+
+    <div class="stat reveal">
+
+        <div class="stat-number">
+            01
+        </div>
+
+        <div class="stat-label">
+            Creative Journey
+        </div>
+
+    </div>
+
+
+    <div class="stat reveal">
+
+        <div class="stat-number">
+            CS
+        </div>
+
+        <div class="stat-label">
+            Computer Science
+        </div>
+
+    </div>
+
+
+    <div class="stat reveal">
+
+        <div class="stat-number">
+            O6U
+        </div>
+
+        <div class="stat-label">
+            University
+        </div>
+
+    </div>
+
+
+    <div class="stat reveal">
+
+        <div class="stat-number">
+            ∞
+        </div>
+
+        <div class="stat-label">
+            Possibilities
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ========================================================
+     ACTING
+========================================================= -->
+
+<section
+    id="acting"
+    class="acting-section"
+>
+
+    <div class="section-header reveal">
+
+        <div class="kicker">
+            02 — Performance
+        </div>
 
         <h2 class="section-title">
-            Acting
+            <span>Acting</span>
         </h2>
 
-        <div class="line"></div>
-
-
-        <p class="section-text">
-
-            Selected acting scenes and performances.
-
+        <p class="section-description">
+            Character. Emotion. Presence.
+            The camera captures the moment —
+            the actor creates it.
         </p>
 
+    </div>
 
-        <div class="videos">
 
+    <div class="film-intro reveal">
+
+        <div class="film-label">
+            Selected Performances
+        </div>
+
+        <div class="film-statement">
+
+            Every character is another life.
+
+            <span>
+                Every scene is another world.
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="videos">
+
+        <div class="video-card reveal">
 
             <video controls>
 
@@ -656,10 +1744,20 @@
                     type="video/mp4"
                 >
 
-                Your browser does not support video.
-
             </video>
 
+            <div class="video-overlay">
+
+                <span>
+                    Performance — 01
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="video-card reveal">
 
             <video controls>
 
@@ -668,367 +1766,592 @@
                     type="video/mp4"
                 >
 
-                Your browser does not support video.
-
             </video>
 
+            <div class="video-overlay">
+
+                <span>
+                    Performance — 02
+                </span>
+
+            </div>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
 
-    <!-- ================= THEATRE ================= -->
+<!-- ========================================================
+     THEATRE
+========================================================= -->
 
-    <section id="theatre">
+<section id="theatre">
+
+    <div class="section-header reveal">
+
+        <div class="kicker">
+            03 — Stage
+        </div>
 
         <h2 class="section-title">
-            University Theatre
+            University <span>Theatre</span>
         </h2>
 
-        <div class="line"></div>
-
-
-        <p class="section-text">
-
-            My university theatre journey,
-            performances and experiences on stage.
-
+        <p class="section-description">
+            The stage is where an actor learns presence,
+            discipline and the power of being watched.
         </p>
 
+    </div>
 
-        <div class="gallery">
 
+    <div class="theatre-grid">
+
+        <div class="theatre-main reveal">
 
             <img
                 src="images/o6u-1.jpg"
-                alt="University Theatre"
+                alt="Anas Ayman University Theatre"
             >
 
+            <div class="theatre-caption">
 
-            <img
-                src="images/o6u-2.jpg"
-                alt="University Theatre"
-            >
+                <h3>
+                    On Stage
+                </h3>
 
+                <p>
+                    University Theatre
+                </p>
+
+            </div>
 
         </div>
 
 
-        <div class="videos">
+        <div class="theatre-side">
 
+            <div class="reveal">
 
-            <video controls>
-
-                <source
-                    src="videos/theatre-1.mp4"
-                    type="video/mp4"
+                <img
+                    src="images/o6u-2.jpg"
+                    alt="University Theatre"
                 >
 
-            </video>
+            </div>
 
 
-            <video controls>
+            <div class="video-card reveal">
 
-                <source
-                    src="videos/theatre-2.mp4"
-                    type="video/mp4"
-                >
+                <video controls>
 
-            </video>
+                    <source
+                        src="videos/theatre-1.mp4"
+                        type="video/mp4"
+                    >
 
+                </video>
+
+            </div>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
 
-    <!-- ================= PHILOSOPHY ================= -->
+<!-- ========================================================
+     PHILOSOPHY
+========================================================= -->
 
-    <section id="philosophy">
+<section
+    id="philosophy"
+    class="philosophy-section"
+>
 
-        <h2 class="section-title">
-            Philosophy
-        </h2>
+    <div class="philosophy-inner">
 
-        <div class="line"></div>
+        <div class="section-header reveal">
+
+            <div class="kicker">
+                04 — Mind
+            </div>
+
+            <h2 class="section-title">
+                The <span>Mind</span>
+            </h2>
+
+        </div>
 
 
-        <p class="section-text">
+        <div class="manifesto reveal">
 
-            Ideas, thoughts and reflections about life,
-            creativity and the human experience.
+            "We are all swimmers in the sea of life,
+            looking toward the sun while trying to
+            understand the waves beneath us."
+
+        </div>
+
+
+        <p class="manifesto-small reveal">
+
+            Philosophy for me is not simply about reading
+            the ideas of people who came before us.
+
+            <br><br>
+
+            It is about observing life.
+            Questioning things.
+            Understanding people.
+            Losing.
+            Growing.
+            And discovering meaning.
 
         </p>
 
 
-        <div class="philosophy-box">
-
-            "We are all swimmers in the sea of life,
-            looking toward the sun while trying to understand
-            the waves beneath us."
-
-            <br><br>
-
-            Philosophy for me is not only about reading.
-            It is about observing life, questioning things,
-            understanding people and discovering meaning.
-
-        </div>
-
-
-        <div class="gallery">
-
+        <div class="philosophy-gallery">
 
             <img
+                class="reveal"
                 src="images/philosophy-1.jpg"
                 alt="Philosophy"
             >
 
-
             <img
+                class="reveal"
                 src="images/philosophy-2.jpg"
                 alt="Philosophy"
             >
 
-
             <img
+                class="reveal"
                 src="images/philosophy-3.jpg"
                 alt="Philosophy"
             >
 
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ========================================================
+     CREATIVE STUDIO
+========================================================= -->
+
+<section id="design">
+
+    <div class="section-header reveal">
+
+        <div class="kicker">
+            05 — Creative Studio
+        </div>
+
+        <h2 class="section-title">
+            Creative <span>Market</span>
+        </h2>
+
+        <p class="section-description">
+            A space connecting creative ideas,
+            visual design and talented artists.
+        </p>
+
+    </div>
+
+
+    <div class="products">
+
+        <div class="product reveal">
 
             <img
-                src="images/philosophy-4.jpg"
-                alt="Philosophy"
+                src="images/design-1.jpg"
+                alt="Save Trees Save Earth"
             >
 
+            <div class="product-info">
+
+                <h3>
+                    Save Trees, Save Earth
+                </h3>
+
+                <p>
+                    Environmental poster design.
+                </p>
+
+                <div class="price">
+                    EGP 250
+                </div>
+
+            </div>
 
         </div>
 
-    </section>
 
+        <div class="product reveal">
 
+            <img
+                src="images/design-2.jpg"
+                alt="Calligraphy Collection"
+            >
 
-    <!-- ================= DESIGN ================= -->
+            <div class="product-info">
 
-    <section id="design">
+                <h3>
+                    Calligraphy Collection
+                </h3>
 
-        <h2 class="section-title">
-            Creative Market
-        </h2>
+                <p>
+                    Artistic calligraphy artwork.
+                </p>
 
-        <div class="line"></div>
-
-
-        <p class="section-text">
-
-            Creative products and visual designs
-            created by talented artists and designers.
-
-        </p>
-
-
-        <div class="products">
-
-
-            <div class="product">
-
-                <img
-                    src="images/design-1.jpg"
-                    alt="Save Trees Save Earth"
-                >
-
-                <div class="product-info">
-
-                    <h3>
-                        Save Trees, Save Earth
-                    </h3>
-
-                    <p class="section-text">
-                        Environmental poster design.
-                    </p>
-
-                    <div class="price">
-                        EGP 250
-                    </div>
-
+                <div class="price">
+                    EGP 300
                 </div>
 
             </div>
-
-
-
-            <div class="product">
-
-                <img
-                    src="images/design-2.jpg"
-                    alt="Calligraphy Collection"
-                >
-
-                <div class="product-info">
-
-                    <h3>
-                        Calligraphy Collection
-                    </h3>
-
-                    <p class="section-text">
-                        Artistic calligraphy artwork.
-                    </p>
-
-                    <div class="price">
-                        EGP 300
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="product">
-
-                <img
-                    src="images/design-3.jpg"
-                    alt="Neon Floral Design"
-                >
-
-                <div class="product-info">
-
-                    <h3>
-                        Neon Floral Design
-                    </h3>
-
-                    <p class="section-text">
-                        Modern colorful artwork.
-                    </p>
-
-                    <div class="price">
-                        EGP 350
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="product">
-
-                <img
-                    src="images/design-4.jpg"
-                    alt="Abstract Gradient"
-                >
-
-                <div class="product-info">
-
-                    <h3>
-                        Abstract Gradient
-                    </h3>
-
-                    <p class="section-text">
-                        Contemporary abstract design.
-                    </p>
-
-                    <div class="price">
-                        EGP 400
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="product">
-
-                <img
-                    src="images/design-5.jpg"
-                    alt="Butterfly Dream"
-                >
-
-                <div class="product-info">
-
-                    <h3>
-                        Butterfly Dream
-                    </h3>
-
-                    <p class="section-text">
-                        Artistic butterfly composition.
-                    </p>
-
-                    <div class="price">
-                        EGP 280
-                    </div>
-
-                </div>
-
-            </div>
-
 
         </div>
 
-    </section>
+
+        <div class="product reveal">
+
+            <img
+                src="images/design-3.jpg"
+                alt="Neon Floral Design"
+            >
+
+            <div class="product-info">
+
+                <h3>
+                    Neon Floral Design
+                </h3>
+
+                <p>
+                    Modern colorful artwork.
+                </p>
+
+                <div class="price">
+                    EGP 350
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="product reveal">
+
+            <img
+                src="images/design-4.jpg"
+                alt="Abstract Gradient"
+            >
+
+            <div class="product-info">
+
+                <h3>
+                    Abstract Gradient
+                </h3>
+
+                <p>
+                    Contemporary abstract design.
+                </p>
+
+                <div class="price">
+                    EGP 400
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="product reveal">
+
+            <img
+                src="images/design-5.jpg"
+                alt="Butterfly Dream"
+            >
+
+            <div class="product-info">
+
+                <h3>
+                    Butterfly Dream
+                </h3>
+
+                <p>
+                    Artistic butterfly composition.
+                </p>
+
+                <div class="price">
+                    EGP 280
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 
 
-    <!-- ================= CONTACT ================= -->
+<!-- ========================================================
+     CONTACT
+========================================================= -->
 
-    <section id="contact">
+<section
+    id="contact"
+    class="contact-section"
+>
 
-        <h2 class="section-title">
-            Contact
-        </h2>
+    <div class="contact-grid">
 
-        <div class="line"></div>
+        <div class="reveal">
+
+            <div class="kicker">
+                06 — Connect
+            </div>
+
+            <h2 class="contact-title">
+
+                Let's<br>
+
+                <span>Work.</span>
+
+            </h2>
+
+        </div>
 
 
-        <p class="section-text">
+        <div class="contact-right reveal">
 
-            For collaborations, acting opportunities,
-            creative projects and design work.
+            <div class="contact-item">
 
-        </p>
+                <small>
+                    Instagram
+                </small>
 
-
-        <div class="contact-box">
-
-            <p>
-                Instagram:
-                <a href="#">
+                <a
+                    href="https://instagram.com/anas.ayman.19"
+                    target="_blank"
+                >
                     @anas.ayman.19
                 </a>
-            </p>
+
+            </div>
 
 
-            <p>
-                Email:
-                <a href="mailto:your@email.com">
+            <div class="contact-item">
+
+                <small>
+                    Email
+                </small>
+
+                <a
+                    href="mailto:your@email.com"
+                >
                     your@email.com
                 </a>
-            </p>
 
+            </div>
+
+
+            <div class="contact-item">
+
+                <small>
+                    Available For
+                </small>
+
+                <a href="#contact">
+                    Acting • Collaborations • Creative Projects
+                </a>
+
+            </div>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
 
-    <!-- ================= FOOTER ================= -->
+<!-- ========================================================
+     FOOTER
+========================================================= -->
 
-    <footer>
+<footer>
 
-        <p>
-            © 2026
-            <strong>Anas Ayman</strong>
-            — All Rights Reserved.
-        </p>
+    <div>
+        © 2026 <strong>ANAS AYMAN</strong>
+    </div>
 
-    </footer>
+    <div>
+        ACTOR • CREATIVE • STORYTELLER
+    </div>
+
+</footer>
+
+
+
+<!-- ========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 80) {
+
+        navbar.classList.add("scrolled");
+
+    } else {
+
+        navbar.classList.remove("scrolled");
+
+    }
+
+});
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const reveals =
+    document.querySelectorAll(".reveal");
+
+const observer =
+    new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("active");
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.12
+        }
+
+    );
+
+reveals.forEach(element => {
+
+    observer.observe(element);
+
+});
+
+
+/* =========================================================
+   CURSOR GLOW
+========================================================= */
+
+const glow =
+    document.getElementById("cursorGlow");
+
+document.addEventListener("mousemove", (event) => {
+
+    glow.style.left =
+        event.clientX + "px";
+
+    glow.style.top =
+        event.clientY + "px";
+
+});
+
+
+/* =========================================================
+   HERO PARALLAX
+========================================================= */
+
+const heroImage =
+    document.querySelector(".hero-visual img");
+
+document.addEventListener("mousemove", (event) => {
+
+    if (!heroImage) return;
+
+    const x =
+        (window.innerWidth / 2 - event.clientX) / 70;
+
+    const y =
+        (window.innerHeight / 2 - event.clientY) / 70;
+
+    heroImage.style.transform =
+        `translate(${x}px, ${y}px)`;
+
+});
+
+
+/* =========================================================
+   SMOOTH INTERNAL LINKS
+========================================================= */
+
+document.querySelectorAll('a[href^="#"]')
+.forEach(link => {
+
+    link.addEventListener("click", function(event) {
+
+        const target =
+            document.querySelector(
+                this.getAttribute("href")
+            );
+
+        if (target) {
+
+            event.preventDefault();
+
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+    });
+
+});
+
+
+/* =========================================================
+   PAGE LOAD
+========================================================= */
+
+window.addEventListener("load", () => {
+
+    document.body.classList.add("loaded");
+
+});
+
+</script>
 
 
 </body>
 </html>
+```
