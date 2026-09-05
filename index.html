@@ -1,2486 +1,1578 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Anas Ayman Brand</title>
-
-<meta name="description"
-content="ANAS AYMAN BRAND — Acting, Marketing, Creativity, Technology and Philosophy.">
-
-<style>
-
-:root{
-    --black:#030303;
-    --black2:#080808;
-    --black3:#0d0d0d;
-    --green:#00ff66;
-    --green2:#00c853;
-    --white:#f5f5f5;
-    --gray:#888;
-    --line:rgba(0,255,102,.20);
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:var(--black);
-    color:var(--white);
-    font-family:Arial,Helvetica,sans-serif;
-    overflow-x:hidden;
-}
-
-a{
-    color:inherit;
-    text-decoration:none;
-}
-
-img{
-    max-width:100%;
-    display:block;
-}
-
-::selection{
-    background:var(--green);
-    color:var(--black);
-}
-
-.container{
-    width:min(1500px,92%);
-    margin:auto;
-}
-
-section{
-    position:relative;
-}
-
-.green{
-    color:var(--green);
-}
-
-.eyebrow{
-    color:var(--green);
-    font-size:11px;
-    letter-spacing:5px;
-    font-weight:bold;
-    text-transform:uppercase;
-}
-
-.section{
-    padding:150px 0;
-}
-
-.section-heading{
-    font-size:clamp(55px,9vw,150px);
-    line-height:.80;
-    letter-spacing:-8px;
-    font-weight:900;
-    text-transform:uppercase;
-}
-
-.section-heading span{
-    color:var(--green);
-}
-
-.divider{
-    width:100%;
-    height:1px;
-    background:var(--line);
-    margin:45px 0;
-}
-
-
-/* =====================================================
-   NAVBAR
-   ===================================================== */
-
-.navbar{
-    position:fixed;
-    z-index:9999;
-    top:0;
-    left:0;
-    width:100%;
-    padding:24px 0;
-    background:rgba(3,3,3,.72);
-    backdrop-filter:blur(18px);
-    border-bottom:1px solid rgba(0,255,102,.08);
-}
-
-.nav-inner{
-    width:min(1600px,94%);
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.logo{
-    font-size:22px;
-    font-weight:900;
-    letter-spacing:2px;
-}
-
-.logo span{
-    color:var(--green);
-}
-
-.nav-links{
-    display:flex;
-    gap:28px;
-    list-style:none;
-}
-
-.nav-links a{
-    font-size:10px;
-    letter-spacing:2px;
-    color:#aaa;
-    transition:.3s;
-}
-
-.nav-links a:hover{
-    color:var(--green);
-}
-
-
-/* =====================================================
-   HERO
-   ===================================================== */
-
-.hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    padding-top:120px;
-    overflow:hidden;
-
-    background:
-        radial-gradient(
-            circle at 75% 45%,
-            rgba(0,255,102,.08),
-            transparent 30%
-        ),
-        #030303;
-}
-
-.hero::before{
-    content:"";
-    position:absolute;
-    width:900px;
-    height:900px;
-    border:1px solid rgba(0,255,102,.08);
-    border-radius:50%;
-    right:-450px;
-    top:-100px;
-}
-
-.hero::after{
-    content:"";
-    position:absolute;
-    width:500px;
-    height:500px;
-    border:1px solid rgba(0,255,102,.05);
-    border-radius:50%;
-    left:-300px;
-    bottom:-300px;
-}
-
-.hero-inner{
-    position:relative;
-    z-index:2;
-}
-
-.hero-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:end;
-    margin-bottom:25px;
-}
-
-.hero-year{
-    color:#555;
-    font-size:11px;
-    letter-spacing:4px;
-}
-
-.hero-title{
-    font-size:clamp(75px,15vw,250px);
-    line-height:.72;
-    letter-spacing:-15px;
-    font-weight:900;
-    text-transform:uppercase;
-}
-
-.hero-title .outline{
-    color:transparent;
-    -webkit-text-stroke:1px var(--green);
-}
-
-.hero-bottom{
-    display:grid;
-    grid-template-columns:1fr .55fr;
-    gap:100px;
-    align-items:end;
-    margin-top:70px;
-}
-
-.hero-description{
-    max-width:650px;
-    color:#999;
-    font-size:19px;
-    line-height:1.8;
-}
-
-.hero-description strong{
-    color:white;
-}
-
-.hero-buttons{
-    display:flex;
-    gap:12px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    display:inline-block;
-    padding:17px 28px;
-    border:1px solid var(--green);
-    color:var(--green);
-    font-size:10px;
-    font-weight:bold;
-    letter-spacing:3px;
-    text-transform:uppercase;
-    transition:.3s;
-}
-
-.btn:hover{
-    background:var(--green);
-    color:#000;
-}
-
-.btn-solid{
-    background:var(--green);
-    color:#000;
-}
-
-
-/* =====================================================
-   MARQUEE
-   ===================================================== */
-
-.marquee{
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-    overflow:hidden;
-    white-space:nowrap;
-    padding:25px 0;
-    background:#050505;
-}
-
-.marquee-track{
-    display:inline-block;
-    animation:move 22s linear infinite;
-}
-
-.marquee span{
-    margin-right:60px;
-    font-size:13px;
-    font-weight:bold;
-    letter-spacing:5px;
-    text-transform:uppercase;
-}
-
-.marquee .green{
-    color:var(--green);
-}
-
-@keyframes move{
-    from{
-        transform:translateX(0);
-    }
-
-    to{
-        transform:translateX(-50%);
-    }
-}
-
-
-/* =====================================================
-   IDENTITY
-   ===================================================== */
-
-.identity{
-    min-height:80vh;
-    display:flex;
-    align-items:center;
-}
-
-.identity-grid{
-    display:grid;
-    grid-template-columns:.8fr 1.2fr;
-    gap:100px;
-    align-items:center;
-}
-
-.identity-number{
-    font-size:260px;
-    line-height:.7;
-    color:rgba(0,255,102,.06);
-    font-weight:900;
-}
-
-.identity-text h2{
-    font-size:clamp(50px,7vw,110px);
-    line-height:.85;
-    letter-spacing:-5px;
-    text-transform:uppercase;
-    margin:25px 0 35px;
-}
-
-.identity-text p{
-    color:#888;
-    max-width:750px;
-    line-height:1.9;
-    font-size:18px;
-    margin-bottom:20px;
-}
-
-.identity-text strong{
-    color:white;
-}
-
-
-/* =====================================================
-   ACTING
-   ===================================================== */
-
-.actor-section{
-    background:#070707;
-}
-
-.actor-header{
-    display:flex;
-    justify-content:space-between;
-    gap:30px;
-    align-items:end;
-}
-
-.actor-header p{
-    max-width:500px;
-    color:#777;
-    line-height:1.8;
-}
-
-.video-grid{
-    margin-top:70px;
-    display:grid;
-    grid-template-columns:1.5fr 1fr;
-    gap:20px;
-}
-
-.video-card{
-    background:#050505;
-    border:1px solid var(--line);
-    overflow:hidden;
-}
-
-.video-card.large{
-    min-height:650px;
-}
-
-.video-card.small{
-    min-height:310px;
-}
-
-.video-placeholder{
-    height:100%;
-    min-height:320px;
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(0,255,102,.15),
-            transparent 30%
-        ),
-        linear-gradient(135deg,#050505,#111);
-}
-
-.video-placeholder::before{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    background:
-        repeating-linear-gradient(
-            90deg,
-            transparent 0 70px,
-            rgba(0,255,102,.025) 71px 72px
-        );
-}
-
-.play-button{
-    width:100px;
-    height:100px;
-    border-radius:50%;
-    border:1px solid var(--green);
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    color:var(--green);
-    font-size:30px;
-
-    position:relative;
-    z-index:2;
-
-    transition:.3s;
-}
-
-.video-card:hover .play-button{
-    background:var(--green);
-    color:#000;
-    transform:scale(1.08);
-}
-
-.video-info{
-    padding:25px;
-    border-top:1px solid var(--line);
-}
-
-.video-info small{
-    color:var(--green);
-    letter-spacing:3px;
-}
-
-.video-info h3{
-    font-size:27px;
-    text-transform:uppercase;
-    margin:12px 0;
-}
-
-.video-info p{
-    color:#777;
-    line-height:1.6;
-}
-
-
-/* =====================================================
-   O6U
-   ===================================================== */
-
-.o6u{
-    margin-top:25px;
-    border:1px solid var(--green);
-    min-height:400px;
-
-    display:grid;
-    grid-template-columns:1fr 1fr;
-}
-
-.o6u-content{
-    padding:55px;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-}
-
-.o6u-content h3{
-    font-size:clamp(60px,10vw,150px);
-    line-height:.75;
-    font-weight:900;
-}
-
-.o6u-content p{
-    margin-top:30px;
-    max-width:550px;
-    color:#888;
-    line-height:1.8;
-}
-
-.o6u-visual{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(0,255,102,.22),
-            transparent 35%
-        ),
-        #050505;
-
-    border-left:1px solid var(--green);
-}
-
-.o6u-visual span{
-    font-size:80px;
-    color:var(--green);
-    font-weight:900;
-    letter-spacing:-5px;
-}
-
-
-/* =====================================================
-   MARKETING
-   ===================================================== */
-
-.marketing{
-    background:#030303;
-}
-
-.marketing-intro{
-    max-width:800px;
-    color:#888;
-    font-size:20px;
-    line-height:1.8;
-    margin-top:35px;
-}
-
-.marketing-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-    margin-top:70px;
-}
-
-.marketing-card{
-    min-height:500px;
-    border:1px solid var(--line);
-    padding:30px;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-
-    position:relative;
-    overflow:hidden;
-
-    background:#070707;
-    transition:.4s;
-}
-
-.marketing-card:hover{
-    border-color:var(--green);
-    transform:translateY(-8px);
-}
-
-.marketing-card::after{
-    content:"";
-    position:absolute;
-    width:250px;
-    height:250px;
-    border-radius:50%;
-    background:rgba(0,255,102,.05);
-    right:-100px;
-    top:-100px;
-}
-
-.card-number{
-    color:var(--green);
-    font-size:11px;
-    letter-spacing:4px;
-}
-
-.marketing-card h3{
-    font-size:42px;
-    line-height:.9;
-    text-transform:uppercase;
-}
-
-.marketing-card p{
-    color:#777;
-    line-height:1.7;
-    margin-top:20px;
-}
-
-.card-link{
-    color:var(--green);
-    font-size:10px;
-    letter-spacing:3px;
-    margin-top:30px;
-}
-
-
-/* =====================================================
-   PARTNERS
-   ===================================================== */
-
-.partners{
-    background:#070707;
-}
-
-.partner-list{
-    margin-top:70px;
-    border-top:1px solid var(--line);
-}
-
-.partner-row{
-    display:grid;
-    grid-template-columns:80px 1fr 1fr;
-    gap:30px;
-
-    padding:35px 0;
-
-    border-bottom:1px solid var(--line);
-
-    align-items:center;
-    transition:.3s;
-}
-
-.partner-row:hover{
-    padding-left:20px;
-}
-
-.partner-row .number{
-    color:var(--green);
-    font-size:11px;
-}
-
-.partner-row h3{
-    font-size:35px;
-    text-transform:uppercase;
-}
-
-.partner-row p{
-    color:#777;
-    line-height:1.6;
-}
-
-
-/* =====================================================
-   PHILOSOPHY
-   ===================================================== */
-
-.philosophy{
-    overflow:hidden;
-}
-
-.philosophy-intro{
-    margin-top:45px;
-    max-width:950px;
-}
-
-.philosophy-intro p{
-    color:#aaa;
-    font-size:25px;
-    line-height:1.8;
-}
-
-
-/* =====================================================
-   PHILOSOPHY IMAGE GALLERY
-   ===================================================== */
-
-.philosophy-visuals{
-    display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:10px;
-
-    margin-top:80px;
-}
-
-.philo-card{
-    height:500px;
-
-    border:1px solid var(--line);
-
-    position:relative;
-    overflow:hidden;
-
-    background:#050505;
-}
-
-.philo-card img{
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    transition:
-        transform .7s ease,
-        filter .7s ease;
-}
-
-.philo-card:hover img{
-    transform:scale(1.08);
-    filter:brightness(1.15);
-}
-
-.philo-overlay{
-    position:absolute;
-
-    left:0;
-    right:0;
-    bottom:0;
-
-    padding:30px;
-
-    background:
-        linear-gradient(
-            transparent,
-            rgba(0,0,0,.95)
-        );
-
-    z-index:2;
-}
-
-.philo-overlay h3{
-    color:white;
-    font-size:27px;
-    text-transform:uppercase;
-    letter-spacing:1px;
-}
-
-.philo-overlay span{
-    display:block;
-    margin-top:8px;
-
-    color:var(--green);
-
-    font-size:10px;
-    letter-spacing:3px;
-}
-
-
-/* =====================================================
-   PHILOSOPHY TEXT
-   ===================================================== */
-
-.philosophy-text{
-    margin-top:80px;
-
-    display:grid;
-    grid-template-columns:1fr 1fr;
-
-    gap:80px;
-}
-
-.philosophy-column{
-    border-left:2px solid var(--green);
-    padding-left:30px;
-}
-
-.philosophy-column h3{
-    color:var(--green);
-    font-size:12px;
-    letter-spacing:4px;
-    margin-bottom:25px;
-}
-
-.philosophy-column p{
-    color:#888;
-    line-height:1.9;
-    font-size:17px;
-    margin-bottom:20px;
-}
-
-
-/* =====================================================
-   PRINCIPLES
-   ===================================================== */
-
-.principles{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:10px;
-}
-
-.principle{
-    padding:40px 25px;
-
-    border-top:2px solid var(--green);
-
-    background:#080808;
-}
-
-.principle h3{
-    font-size:35px;
-}
-
-.principle p{
-    color:#777;
-    line-height:1.6;
-    margin-top:20px;
-}
-
-
-/* =====================================================
-   WORK
-   ===================================================== */
-
-.work{
-    background:#070707;
-}
-
-.work-grid{
-    margin-top:70px;
-
-    display:grid;
-    grid-template-columns:1.4fr .6fr;
-
-    gap:15px;
-}
-
-.work-main{
-    min-height:600px;
-
-    border:1px solid var(--green);
-
-    padding:50px;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-}
-
-.work-main h3{
-    font-size:clamp(45px,7vw,100px);
-    line-height:.85;
-    text-transform:uppercase;
-}
-
-.work-main p{
-    max-width:600px;
-    color:#777;
-    line-height:1.8;
-}
-
-.work-side{
-    display:grid;
-    gap:15px;
-}
-
-.work-small{
-    border:1px solid var(--line);
-    padding:35px;
-}
-
-.work-small h3{
-    font-size:30px;
-    text-transform:uppercase;
-}
-
-.work-small p{
-    color:#777;
-    line-height:1.6;
-    margin-top:15px;
-}
-
-
-/* =====================================================
-   MINDSET
-   ===================================================== */
-
-.mindset{
-    background:var(--green);
-    color:#000;
-}
-
-.mindset .eyebrow{
-    color:#000;
-}
-
-.mindset h2{
-    font-size:clamp(55px,10vw,160px);
-    line-height:.75;
-    letter-spacing:-8px;
-    font-weight:900;
-    margin-top:30px;
-}
-
-.mindset p{
-    max-width:700px;
-    font-size:20px;
-    line-height:1.7;
-    margin-top:40px;
-}
-
-
-/* =====================================================
-   INSTAPAY
-   ===================================================== */
-
-.support{
-    background:#050505;
-}
-
-.support-box{
-    border:1px solid var(--green);
-
-    padding:70px;
-
-    text-align:center;
-
-    max-width:950px;
-
-    margin:auto;
-
-    position:relative;
-    overflow:hidden;
-}
-
-.support-box::before{
-    content:"";
-
-    position:absolute;
-
-    width:500px;
-    height:500px;
-
-    border-radius:50%;
-
-    border:1px solid rgba(0,255,102,.07);
-
-    left:50%;
-    top:50%;
-
-    transform:translate(-50%,-50%);
-}
-
-.support-box>*{
-    position:relative;
-    z-index:2;
-}
-
-.support-box h2{
-    font-size:clamp(50px,8vw,100px);
-    line-height:.8;
-    text-transform:uppercase;
-    margin-top:25px;
-}
-
-.support-box p{
-    max-width:650px;
-    margin:30px auto;
-
-    color:#888;
-    line-height:1.8;
-}
-
-.instapay-label{
-    color:var(--green);
-
-    font-size:11px;
-
-    letter-spacing:4px;
-
-    margin-top:40px;
-}
-
-.instapay-number{
-    margin:20px auto;
-
-    display:inline-block;
-
-    font-size:clamp(28px,5vw,60px);
-
-    font-weight:900;
-
-    letter-spacing:3px;
-
-    color:white;
-
-    border:1px solid var(--line);
-
-    padding:20px 30px;
-
-    cursor:pointer;
-
-    transition:.3s;
-}
-
-.instapay-number:hover{
-    border-color:var(--green);
-    color:var(--green);
-}
-
-.copy-note{
-    color:#555;
-    font-size:11px;
-    letter-spacing:2px;
-}
-
-
-/* =====================================================
-   CONTACT
-   ===================================================== */
-
-.contact{
-    text-align:center;
-}
-
-.contact h2{
-    font-size:clamp(65px,14vw,220px);
-    line-height:.7;
-    letter-spacing:-12px;
-    font-weight:900;
-}
-
-.contact h2 span{
-    color:var(--green);
-}
-
-.contact p{
-    max-width:650px;
-    margin:45px auto;
-
-    color:#777;
-    line-height:1.8;
-}
-
-.socials{
-    display:flex;
-    justify-content:center;
-    gap:12px;
-    flex-wrap:wrap;
-}
-
-.social{
-    border:1px solid var(--line);
-
-    padding:17px 28px;
-
-    color:var(--green);
-
-    font-size:10px;
-    letter-spacing:3px;
-
-    transition:.3s;
-}
-
-.social:hover{
-    background:var(--green);
-    color:#000;
-}
-
-
-/* =====================================================
-   FOOTER
-   ===================================================== */
-
-footer{
-    border-top:1px solid var(--line);
-    padding:30px 0;
-}
-
-.footer{
-    display:flex;
-    justify-content:space-between;
-
-    color:#444;
-
-    font-size:10px;
-    letter-spacing:3px;
-}
-
-
-/* =====================================================
-   RESPONSIVE
-   ===================================================== */
-
-@media(max-width:1000px){
-
-    .nav-links{
-        display:none;
-    }
-
-    .hero-bottom,
-    .identity-grid,
-    .o6u,
-    .philosophy-text,
-    .work-grid{
-        grid-template-columns:1fr;
-    }
-
-    .video-grid{
-        grid-template-columns:1fr;
-    }
-
-    .marketing-grid{
-        grid-template-columns:1fr;
-    }
-
-    .principles{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .philosophy-visuals{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .o6u-visual{
-        min-height:300px;
-        border-left:0;
-        border-top:1px solid var(--green);
-    }
-
-    .hero-title{
-        letter-spacing:-8px;
-    }
-
-    .partner-row{
-        grid-template-columns:50px 1fr;
-    }
-
-    .partner-row p{
-        grid-column:2;
-    }
-
-}
-
-
-@media(max-width:600px){
-
-    .section{
-        padding:95px 0;
-    }
-
-    .hero{
-        padding-top:110px;
-    }
-
-    .hero-title{
-        font-size:70px;
-        letter-spacing:-5px;
-    }
-
-    .hero-bottom{
-        gap:40px;
-        margin-top:50px;
-    }
-
-    .hero-description{
-        font-size:16px;
-    }
-
-    .identity-number{
-        font-size:150px;
-    }
-
-    .section-heading{
-        letter-spacing:-4px;
-    }
-
-    .video-card.large{
-        min-height:450px;
-    }
-
-    .video-card.small{
-        min-height:350px;
-    }
-
-    .marketing-card{
-        min-height:400px;
-    }
-
-    .philosophy-visuals{
-        grid-template-columns:1fr;
-    }
-
-    .philo-card{
-        height:400px;
-    }
-
-    .philosophy-text{
-        gap:45px;
-    }
-
-    .principles{
-        grid-template-columns:1fr;
-    }
-
-    .support-box{
-        padding:40px 20px;
-    }
-
-    .instapay-number{
-        font-size:25px;
-        padding:15px;
-    }
-
-    .contact h2{
-        letter-spacing:-5px;
-    }
-
-    .footer{
-        flex-direction:column;
-        gap:15px;
-    }
-
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ANAS AYMAN — Brand</title>
+
+    <meta name="description"
+        content="Anas Ayman — Actor, Creative, Marketer and Founder of a personal global brand.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #050505;
+            --black-2: #0b0b0b;
+            --green: #00ff66;
+            --green-dark: #073d20;
+            --white: #f5f5f5;
+            --gray: #999;
+            --line: rgba(255,255,255,0.10);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--black);
+            color: var(--white);
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 6%;
+            z-index: 1000;
+            background: rgba(5,5,5,0.82);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: 900;
+            letter-spacing: 5px;
+        }
+
+        .logo span {
+            color: var(--green);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #aaa;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--green);
+        }
+
+        /* =========================
+           GLOBAL UTILITIES
+        ========================= */
+
+        .container {
+            width: 88%;
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        section {
+            padding: 150px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .eyebrow {
+            color: var(--green);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: clamp(45px, 8vw, 110px);
+            line-height: 0.9;
+            letter-spacing: -5px;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .section-title span {
+            color: var(--green);
+        }
+
+        .description {
+            max-width: 650px;
+            color: #aaa;
+            font-size: 17px;
+            line-height: 1.8;
+            margin-top: 35px;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-end;
+            padding: 150px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 650px;
+            height: 650px;
+            border-radius: 50%;
+            right: -250px;
+            top: 100px;
+            background: radial-gradient(
+                circle,
+                rgba(0,255,102,0.16),
+                transparent 68%
+            );
+            filter: blur(20px);
+        }
+
+        .hero::after {
+            content: "AA";
+            position: absolute;
+            right: 4%;
+            bottom: -90px;
+            font-size: clamp(250px, 35vw, 600px);
+            font-weight: 900;
+            color: rgba(0,255,102,0.035);
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-small {
+            font-size: 12px;
+            letter-spacing: 5px;
+            color: var(--green);
+            font-weight: 800;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            font-size: clamp(70px, 14vw, 220px);
+            line-height: 0.78;
+            letter-spacing: -11px;
+            font-weight: 900;
+            text-transform: uppercase;
+            max-width: 1200px;
+        }
+
+        .hero h1 span {
+            display: block;
+            color: transparent;
+            -webkit-text-stroke: 1px #555;
+        }
+
+        .hero-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 80px;
+            gap: 40px;
+        }
+
+        .hero-tagline {
+            max-width: 500px;
+            font-size: 18px;
+            line-height: 1.7;
+            color: #aaa;
+        }
+
+        .hero-tagline strong {
+            color: white;
+        }
+
+        .hero-number {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #666;
+        }
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 35px;
+            padding: 18px 30px;
+            border: 1px solid var(--green);
+            color: var(--green);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: var(--green);
+            color: black;
+            transform: translateY(-3px);
+        }
+
+        .button-solid {
+            background: var(--green);
+            color: black;
+        }
+
+        .button-solid:hover {
+            background: white;
+            border-color: white;
+        }
+
+        /* =========================
+           IDENTITY
+        ========================= */
+
+        .identity-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 100px;
+            margin-top: 80px;
+        }
+
+        .identity-number {
+            font-size: 140px;
+            font-weight: 900;
+            line-height: 0.8;
+            color: var(--green);
+        }
+
+        .identity-text {
+            font-size: 28px;
+            line-height: 1.45;
+            font-weight: 600;
+        }
+
+        .identity-text span {
+            color: var(--green);
+        }
+
+        /* =========================
+           STAT BAR
+        ========================= */
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .stat {
+            padding: 45px 25px;
+            border-right: 1px solid var(--line);
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 900;
+        }
+
+        .stat-label {
+            margin-top: 8px;
+            color: #777;
+            font-size: 10px;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        /* =========================
+           ACTING
+        ========================= */
+
+        .acting-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 50px;
+        }
+
+        .acting-header p {
+            max-width: 400px;
+            color: #888;
+            line-height: 1.7;
+        }
+
+        .reel-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            margin-top: 80px;
+        }
+
+        .reel {
+            height: 480px;
+            background:
+                linear-gradient(
+                    145deg,
+                    #111 0%,
+                    #071d12 50%,
+                    #050505 100%
+                );
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #151515;
+        }
+
+        .reel::before {
+            content: "";
+            position: absolute;
+            inset: 25px;
+            border: 1px solid rgba(0,255,102,0.15);
+        }
+
+        .reel-number {
+            position: absolute;
+            top: 35px;
+            left: 35px;
+            font-size: 11px;
+            color: var(--green);
+            letter-spacing: 3px;
+        }
+
+        .play {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 75px;
+            height: 75px;
+            border: 1px solid var(--green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--green);
+            font-size: 20px;
+        }
+
+        .reel-info {
+            position: absolute;
+            left: 35px;
+            bottom: 35px;
+        }
+
+        .reel-info h3 {
+            font-size: 25px;
+            text-transform: uppercase;
+        }
+
+        .reel-info p {
+            color: #777;
+            font-size: 11px;
+            letter-spacing: 2px;
+            margin-top: 8px;
+        }
+
+        /* =========================
+           O6U
+        ========================= */
+
+        .o6u {
+            background: #070707;
+        }
+
+        .o6u-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 100px;
+            align-items: center;
+            margin-top: 80px;
+        }
+
+        .o6u-box {
+            min-height: 420px;
+            border: 1px solid #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background:
+                linear-gradient(
+                    135deg,
+                    #080808,
+                    #0b2516
+                );
+        }
+
+        .o6u-box::after {
+            content: "O6U";
+            font-size: 150px;
+            font-weight: 900;
+            color: rgba(0,255,102,0.08);
+        }
+
+        .o6u-content h3 {
+            font-size: 45px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .o6u-content p {
+            color: #888;
+            line-height: 1.8;
+        }
+
+        /* =========================
+           MARKETING
+        ========================= */
+
+        .marketing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            margin-top: 80px;
+        }
+
+        .marketing-card {
+            min-height: 380px;
+            padding: 45px;
+            border: 1px solid #161616;
+            position: relative;
+            background: #080808;
+            transition: 0.4s;
+        }
+
+        .marketing-card:hover {
+            background: #0b1a11;
+            transform: translateY(-8px);
+            border-color: rgba(0,255,102,0.4);
+        }
+
+        .marketing-icon {
+            font-size: 45px;
+            color: var(--green);
+            font-weight: 900;
+        }
+
+        .marketing-card h3 {
+            position: absolute;
+            bottom: 75px;
+            left: 45px;
+            font-size: 30px;
+            text-transform: uppercase;
+        }
+
+        .marketing-card p {
+            position: absolute;
+            bottom: 35px;
+            left: 45px;
+            color: #666;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        /* =========================
+           PARTNERS
+        ========================= */
+
+        .partners {
+            text-align: center;
+        }
+
+        .partner-list {
+            margin-top: 80px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid var(--line);
+            border-left: 1px solid var(--line);
+        }
+
+        .partner {
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-right: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            font-size: 16px;
+            letter-spacing: 3px;
+            color: #666;
+            font-weight: 800;
+            transition: 0.3s;
+        }
+
+        .partner:hover {
+            color: var(--green);
+            background: #08120c;
+        }
+
+        /* =========================
+           PHILOSOPHY
+        ========================= */
+
+        .philosophy {
+            background:
+                radial-gradient(
+                    circle at 50% 50%,
+                    rgba(0,255,102,0.06),
+                    transparent 45%
+                ),
+                #050505;
+        }
+
+        .philosophy-intro {
+            max-width: 900px;
+            margin-top: 60px;
+            font-size: clamp(25px, 4vw, 55px);
+            line-height: 1.2;
+            font-weight: 700;
+            letter-spacing: -2px;
+        }
+
+        .philosophy-intro span {
+            color: var(--green);
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2px;
+            margin-top: 100px;
+        }
+
+        .philosophy-card {
+            min-height: 300px;
+            padding: 35px;
+            background: #080808;
+            border: 1px solid #151515;
+            position: relative;
+        }
+
+        .philosophy-card .symbol {
+            font-size: 55px;
+            font-weight: 900;
+            color: var(--green);
+        }
+
+        .philosophy-card h3 {
+            position: absolute;
+            bottom: 60px;
+            font-size: 22px;
+            letter-spacing: 2px;
+        }
+
+        .philosophy-card p {
+            position: absolute;
+            bottom: 30px;
+            color: #666;
+            font-size: 10px;
+            letter-spacing: 2px;
+        }
+
+        .philosophy-text {
+            max-width: 950px;
+            margin-top: 100px;
+            color: #aaa;
+            font-size: 18px;
+            line-height: 2;
+        }
+
+        .philosophy-text strong {
+            color: white;
+        }
+
+        /* =========================
+           PRINCIPLES
+        ========================= */
+
+        .principles {
+            margin-top: 90px;
+            border-top: 1px solid var(--line);
+        }
+
+        .principle {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 35px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .principle-number {
+            color: var(--green);
+            font-size: 11px;
+            letter-spacing: 3px;
+        }
+
+        .principle h3 {
+            font-size: clamp(30px, 5vw, 65px);
+            text-transform: uppercase;
+        }
+
+        /* =========================
+           WORK
+        ========================= */
+
+        .work-card {
+            margin-top: 80px;
+            padding: 55px;
+            border: 1px solid #222;
+            background:
+                linear-gradient(
+                    120deg,
+                    #080808,
+                    #0a1c11
+                );
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .work-card h3 {
+            font-size: clamp(30px, 5vw, 65px);
+            text-transform: uppercase;
+        }
+
+        .work-card p {
+            color: #777;
+            margin-top: 12px;
+        }
+
+        /* =========================
+           MINDSET
+        ========================= */
+
+        .mindset {
+            text-align: center;
+        }
+
+        .quote {
+            max-width: 1000px;
+            margin: 80px auto 0;
+            font-size: clamp(35px, 6vw, 85px);
+            line-height: 1;
+            letter-spacing: -4px;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .quote span {
+            color: var(--green);
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            text-align: center;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-inner {
+            width: 100%;
+        }
+
+        .contact h2 {
+            font-size: clamp(60px, 13vw, 190px);
+            line-height: 0.8;
+            letter-spacing: -10px;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        .contact h2 span {
+            color: var(--green);
+        }
+
+        .contact-subtitle {
+            color: #777;
+            margin-top: 45px;
+            font-size: 14px;
+            letter-spacing: 3px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .contact-link {
+            padding: 15px 22px;
+            border: 1px solid #222;
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: #888;
+            transition: 0.3s;
+        }
+
+        .contact-link:hover {
+            color: var(--green);
+            border-color: var(--green);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 35px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--line);
+            color: #555;
+            font-size: 10px;
+            letter-spacing: 2px;
+        }
+
+        footer strong {
+            color: var(--green);
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            section {
+                padding: 100px 0;
+            }
+
+            .hero h1 {
+                letter-spacing: -5px;
+            }
+
+            .hero-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .identity-grid,
+            .o6u-layout {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat:nth-child(2) {
+                border-right: none;
+            }
+
+            .reel-grid,
+            .marketing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .philosophy-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .partner-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .work-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .container {
+                width: 90%;
+            }
+
+            .navbar {
+                padding: 0 5%;
+            }
+
+            .hero {
+                padding-bottom: 50px;
+            }
+
+            .hero h1 {
+                font-size: 20vw;
+            }
+
+            .section-title {
+                letter-spacing: -3px;
+            }
+
+            .identity-number {
+                font-size: 100px;
+            }
+
+            .identity-text {
+                font-size: 22px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .stat {
+                border-right: none;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .philosophy-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .partner-list {
+                grid-template-columns: 1fr;
+            }
+
+            .contact h2 {
+                font-size: 19vw;
+                letter-spacing: -5px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
-
 
 <body>
 
+    <!-- =========================
+         NAVBAR
+    ========================= -->
 
-<!-- =====================================================
-     NAVIGATION
-     ===================================================== -->
-
-<nav class="navbar">
-
-    <div class="nav-inner">
-
-        <a href="#home" class="logo">
-            ANAS<span>AYMAN</span>
+    <nav class="navbar">
+        <a href="#top" class="logo">
+            ANAS<span>.</span>
         </a>
 
         <ul class="nav-links">
-
+            <li><a href="#identity">IDENTITY</a></li>
             <li><a href="#acting">ACTING</a></li>
-
             <li><a href="#marketing">MARKETING</a></li>
-
-            <li><a href="#partners">PARTNERS</a></li>
-
             <li><a href="#philosophy">PHILOSOPHY</a></li>
-
             <li><a href="#work">WORK</a></li>
-
-            <li><a href="#support">SUPPORT</a></li>
-
             <li><a href="#contact">CONTACT</a></li>
-
         </ul>
+    </nav>
 
-    </div>
 
-</nav>
+    <!-- =========================
+         HERO
+    ========================= -->
 
+    <main id="top">
 
-<!-- =====================================================
-     HERO
-     ===================================================== -->
+        <section class="hero">
+            <div class="container hero-content">
 
-<section class="hero" id="home">
-
-    <div class="container hero-inner">
-
-        <div class="hero-top">
-
-            <div class="eyebrow">
-                ANAS AYMAN BRAND
-            </div>
-
-            <div class="hero-year">
-                EST. 2026
-            </div>
-
-        </div>
-
-
-        <h1 class="hero-title">
-
-            ANAS<br>
-
-            <span class="outline">
-                AYMAN
-            </span>
-
-        </h1>
-
-
-        <div class="hero-bottom">
-
-            <div>
-
-                <p class="hero-description">
-
-                    <strong>
-                        ACTOR. CREATOR. MARKETER. THINKER.
-                    </strong>
-
-                    <br><br>
-
-                    A personal brand built around acting,
-                    creativity, technology, marketing,
-                    partnerships and a philosophy of life.
-
-                </p>
-
-            </div>
-
-
-            <div class="hero-buttons">
-
-                <a href="#acting" class="btn btn-solid">
-                    ENTER THE BRAND
-                </a>
-
-                <a href="#philosophy" class="btn">
-                    PHILOSOPHY
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     MARQUEE
-     ===================================================== -->
-
-<div class="marquee">
-
-    <div class="marquee-track">
-
-        <span class="green">ANAS AYMAN BRAND</span>
-
-        <span>ACTING</span>
-
-        <span class="green">MARKETING</span>
-
-        <span>CREATIVITY</span>
-
-        <span class="green">PHILOSOPHY</span>
-
-        <span>O6U</span>
-
-        <span class="green">AMBITION</span>
-
-
-        <span class="green">ANAS AYMAN BRAND</span>
-
-        <span>ACTING</span>
-
-        <span class="green">MARKETING</span>
-
-        <span>CREATIVITY</span>
-
-        <span class="green">PHILOSOPHY</span>
-
-        <span>O6U</span>
-
-        <span class="green">AMBITION</span>
-
-    </div>
-
-</div>
-
-
-<!-- =====================================================
-     IDENTITY
-     ===================================================== -->
-
-<section class="section identity">
-
-    <div class="container identity-grid">
-
-        <div class="identity-number">
-            01
-        </div>
-
-        <div class="identity-text">
-
-            <div class="eyebrow">
-                THE IDENTITY
-            </div>
-
-            <h2>
-
-                NOT JUST<br>
-
-                <span class="green">
-                    A WEBSITE.
-                </span>
-
-            </h2>
-
-            <p>
-                ANAS AYMAN BRAND is designed as a complete
-                personal-brand ecosystem.
-            </p>
-
-            <p>
-                Acting becomes content.
-                Creativity becomes collaboration.
-                Marketing becomes opportunity.
-                Philosophy becomes identity.
-                Technology becomes another tool.
-            </p>
-
-            <p>
-                Everything connects to one name:
-                <strong>ANAS AYMAN.</strong>
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     ACTING
-     ===================================================== -->
-
-<section class="section actor-section" id="acting">
-
-    <div class="container">
-
-        <div class="actor-header">
-
-            <div>
-
-                <div class="eyebrow">
-                    02 / ACTING
+                <div class="hero-small">
+                    ANAS AYMAN / PERSONAL BRAND
                 </div>
 
-                <h2 class="section-heading">
+                <h1>
+                    ANAS
+                    <span>AYMAN</span>
+                </h1>
 
-                    THE<br>
+                <div class="hero-bottom">
 
-                    <span>
-                        ACTOR.
-                    </span>
+                    <p class="hero-tagline">
+                        <strong>Actor. Creative. Marketer.</strong><br>
+                        Building a personal brand around performance,
+                        creativity, ideas and influence.
+                    </p>
 
+                    <div class="hero-number">
+                        EST. 2026
+                    </div>
+
+                </div>
+
+                <a href="#acting" class="button button-solid">
+                    EXPLORE THE BRAND
+                </a>
+
+            </div>
+        </section>
+
+
+        <!-- =========================
+             IDENTITY
+        ========================= -->
+
+        <section id="identity">
+            <div class="container">
+
+                <div class="eyebrow">01 — IDENTITY</div>
+
+                <h2 class="section-title">
+                    BUILT<br>
+                    TO <span>CREATE.</span>
                 </h2>
 
-            </div>
+                <div class="identity-grid">
 
-            <p>
-                A growing archive for acting performances,
-                university theatre, short films, scenes,
-                characters and future screen work.
-            </p>
+                    <div class="identity-number">
+                        01
+                    </div>
 
-        </div>
+                    <div class="identity-text">
+                        ANAS AYMAN IS MORE THAN A NAME.
+                        <span>IT IS A BRAND.</span>
 
+                        <br><br>
 
-        <div class="video-grid">
-
-
-            <div class="video-card large">
-
-                <div class="video-placeholder">
-
-                    <div class="play-button">
-                        ▶
+                        A platform for acting, creative work,
+                        marketing, philosophy and collaboration.
                     </div>
 
                 </div>
 
-                <div class="video-info">
+            </div>
+        </section>
 
-                    <small>
-                        ACTING / 01
-                    </small>
 
-                    <h3>
-                        Main Acting Reel
-                    </h3>
+        <!-- =========================
+             STATS
+        ========================= -->
+
+        <section style="padding:0;">
+
+            <div class="stats">
+
+                <div class="stat">
+                    <div class="stat-number">01</div>
+                    <div class="stat-label">PERSONAL BRAND</div>
+                </div>
+
+                <div class="stat">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">CREATIVE POTENTIAL</div>
+                </div>
+
+                <div class="stat">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">MINDSET</div>
+                </div>
+
+                <div class="stat">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">VISION</div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ACTING
+        ========================= -->
+
+        <section id="acting">
+
+            <div class="container">
+
+                <div class="eyebrow">02 — PERFORMANCE</div>
+
+                <div class="acting-header">
+
+                    <h2 class="section-title">
+                        ACTING<br>
+                        <span>REELS.</span>
+                    </h2>
 
                     <p>
-                        Your strongest acting video goes here.
+                        Performance is one of the core pillars
+                        of the Anas Ayman brand.
+                        This section is designed for acting reels,
+                        scenes, university theatre and future screen work.
                     </p>
 
                 </div>
 
-            </div>
 
+                <div class="reel-grid">
 
-            <div>
+                    <div class="reel">
+                        <div class="reel-number">REEL / 01</div>
+                        <div class="play">▶</div>
 
-
-                <div class="video-card small">
-
-                    <div class="video-placeholder">
-
-                        <div class="play-button">
-                            ▶
+                        <div class="reel-info">
+                            <h3>Acting Reel</h3>
+                            <p>VIDEO PLACEHOLDER</p>
                         </div>
-
                     </div>
 
-                    <div class="video-info">
 
-                        <small>
-                            ACTING / 02
-                        </small>
+                    <div class="reel">
+                        <div class="reel-number">REEL / 02</div>
+                        <div class="play">▶</div>
 
-                        <h3>
-                            University Scene
-                        </h3>
-
-                        <p>
-                            A dedicated place for your acting work.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <br>
-
-
-                <div class="video-card small">
-
-                    <div class="video-placeholder">
-
-                        <div class="play-button">
-                            ▶
+                        <div class="reel-info">
+                            <h3>O6U Theatre</h3>
+                            <p>VIDEO PLACEHOLDER</p>
                         </div>
-
                     </div>
 
-                    <div class="video-info">
 
-                        <small>
-                            ACTING / 03
-                        </small>
+                    <div class="reel">
+                        <div class="reel-number">REEL / 03</div>
+                        <div class="play">▶</div>
 
-                        <h3>
-                            Character Work
-                        </h3>
-
-                        <p>
-                            Future characters and performances.
-                        </p>
-
+                        <div class="reel-info">
+                            <h3>Future Work</h3>
+                            <p>VIDEO PLACEHOLDER</p>
+                        </div>
                     </div>
 
                 </div>
 
             </div>
 
-        </div>
+        </section>
 
 
-        <!-- O6U -->
+        <!-- =========================
+             O6U
+        ========================= -->
 
-        <div class="o6u">
+        <section id="o6u" class="o6u">
 
-            <div class="o6u-content">
+            <div class="container">
+
+                <div class="eyebrow">03 — UNIVERSITY</div>
+
+                <h2 class="section-title">
+                    O6U<br>
+                    <span>CHAPTER.</span>
+                </h2>
+
+                <div class="o6u-layout">
+
+                    <div class="o6u-box"></div>
+
+                    <div class="o6u-content">
+
+                        <h3>
+                            THE<br>
+                            BEGINNING.
+                        </h3>
+
+                        <p>
+                            University is not only an academic chapter.
+                            It is also a space for performance,
+                            networking, experimentation and building
+                            the next stage of the brand.
+                        </p>
+
+                        <a href="#contact" class="button">
+                            WORK WITH ME
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             MARKETING
+        ========================= -->
+
+        <section id="marketing">
+
+            <div class="container">
+
+                <div class="eyebrow">04 — CREATIVE BUSINESS</div>
+
+                <h2 class="section-title">
+                    PEOPLE<br>
+                    <span>+ BRANDS.</span>
+                </h2>
+
+                <p class="description">
+                    Connecting creative people with audiences.
+                    The brand also works around marketing,
+                    promotion and collaboration.
+                </p>
+
+
+                <div class="marketing-grid">
+
+                    <div class="marketing-card">
+
+                        <div class="marketing-icon">
+                            GD
+                        </div>
+
+                        <h3>
+                            Graphic<br>
+                            Designers
+                        </h3>
+
+                        <p>
+                            CREATIVE COLLABORATION
+                        </p>
+
+                    </div>
+
+
+                    <div class="marketing-card">
+
+                        <div class="marketing-icon">
+                            AA
+                        </div>
+
+                        <h3>
+                            Applied<br>
+                            Arts
+                        </h3>
+
+                        <p>
+                            CREATIVE PRODUCTS
+                        </p>
+
+                    </div>
+
+
+                    <div class="marketing-card">
+
+                        <div class="marketing-icon">
+                            FM
+                        </div>
+
+                        <h3>
+                            Fashion<br>
+                            Models
+                        </h3>
+
+                        <p>
+                            FASHION & BRANDING
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PARTNERS
+        ========================= -->
+
+        <section class="partners">
+
+            <div class="container">
 
                 <div class="eyebrow">
-                    UNIVERSITY / ACTING
+                    05 — COLLABORATION
                 </div>
 
-                <h3>
-                    O6U
-                </h3>
-
-                <p>
-                    A dedicated archive for acting videos,
-                    theatre projects and creative work
-                    from October 6 University.
-                </p>
-
-            </div>
-
-            <div class="o6u-visual">
-
-                <span>
-                    O6U
-                </span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     MARKETING
-     ===================================================== -->
-
-<section class="section marketing" id="marketing">
-
-    <div class="container">
-
-        <div class="eyebrow">
-            03 / MARKETING
-        </div>
-
-        <h2 class="section-heading">
-
-            YOUR<br>
-
-            <span>
-                WORK.
-            </span>
-
-        </h2>
-
-        <p class="marketing-intro">
-
-            I collaborate with talented people and help
-            turn their creative work into something people
-            can discover, remember and engage with.
-
-        </p>
-
-
-        <div class="marketing-grid">
-
-
-            <div class="marketing-card">
-
-                <div class="card-number">
-                    01 / DESIGN
-                </div>
-
-                <div>
-
-                    <h3>
-                        Graphic<br>
-                        Designers
-                    </h3>
-
-                    <p>
-                        Promotional campaigns and marketing
-                        spaces for graphic designers and their
-                        visual creations.
-                    </p>
-
-                </div>
-
-                <div class="card-link">
-                    CREATIVE PARTNERSHIP →
-                </div>
-
-            </div>
-
-
-            <div class="marketing-card">
-
-                <div class="card-number">
-                    02 / APPLIED ARTS
-                </div>
-
-                <div>
-
-                    <h3>
-                        Applied<br>
-                        Arts
-                    </h3>
-
-                    <p>
-                        A platform for talented designers,
-                        makers and creatives from applied arts.
-                    </p>
-
-                </div>
-
-                <div class="card-link">
-                    CREATIVE PARTNERSHIP →
-                </div>
-
-            </div>
-
-
-            <div class="marketing-card">
-
-                <div class="card-number">
-                    03 / FASHION
-                </div>
-
-                <div>
-
-                    <h3>
-                        Fashion<br>
-                        Models
-                    </h3>
-
-                    <p>
-                        Marketing and promotional opportunities
-                        for fashion models and fashion-related
-                        creative projects.
-                    </p>
-
-                </div>
-
-                <div class="card-link">
-                    CREATIVE PARTNERSHIP →
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     PARTNERS
-     ===================================================== -->
-
-<section class="section partners" id="partners">
-
-    <div class="container">
-
-        <div class="eyebrow">
-            04 / NETWORK
-        </div>
-
-        <h2 class="section-heading">
-
-            THE<br>
-
-            <span>
-                PEOPLE.
-            </span>
-
-        </h2>
-
-
-        <div class="partner-list">
-
-
-            <div class="partner-row">
-
-                <div class="number">
-                    01
-                </div>
-
-                <h3>
-                    Graphic Designers
-                </h3>
-
-                <p>
-                    Visual identity, artwork and creative
-                    product design.
-                </p>
-
-            </div>
-
-
-            <div class="partner-row">
-
-                <div class="number">
-                    02
-                </div>
-
-                <h3>
-                    Applied Arts
-                </h3>
-
-                <p>
-                    Creative products and design concepts.
-                </p>
-
-            </div>
-
-
-            <div class="partner-row">
-
-                <div class="number">
-                    03
-                </div>
-
-                <h3>
-                    Fashion Models
-                </h3>
-
-                <p>
-                    Fashion campaigns and promotional work.
-                </p>
-
-            </div>
-
-
-            <div class="partner-row">
-
-                <div class="number">
-                    04
-                </div>
-
-                <h3>
-                    Actors
-                </h3>
-
-                <p>
-                    Acting collaborations, scenes and
-                    future productions.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     PHILOSOPHY
-     ===================================================== -->
-
-<section class="section philosophy" id="philosophy">
-
-    <div class="container">
-
-        <div class="eyebrow">
-            05 / PHILOSOPHY
-        </div>
-
-        <h2 class="section-heading">
-
-            THE<br>
-
-            <span>
-                SEA.
-            </span>
-
-        </h2>
-
-
-        <div class="philosophy-intro">
-
-            <p>
-                We are all swimmers in the sea of life,
-                looking toward the sun.
-            </p>
-
-            <p style="margin-top:25px;">
-
-                We keep swimming toward perfection,
-                knowing that death is ultimately the ending
-                of life — while absolute perfection belongs
-                only to the Creator.
-
-            </p>
-
-        </div>
-
-
-        <!-- =================================================
-             YOUR FOUR PHILOSOPHY IMAGES
-             ================================================= -->
-
-        <div class="philosophy-visuals">
-
-
-            <!-- IMAGE 1 -->
-
-            <div class="philo-card">
-
-                <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT51JOSY4zomCCOatsn1L0Wgd_tnUNkgV3o0gnJw7GduA&s=10"
-                    alt="Philosophy image 1"
-                >
-
-                <div class="philo-overlay">
-
-                    <h3>
-                        THE SEA
-                    </h3>
-
-                    <span>
-                        LIFE / DEPTH
-                    </span>
+                <h2 class="section-title">
+                    CREATIVE<br>
+                    <span>NETWORK.</span>
+                </h2>
+
+                <div class="partner-list">
+
+                    <div class="partner">DESIGN</div>
+                    <div class="partner">FASHION</div>
+                    <div class="partner">ART</div>
+                    <div class="partner">MEDIA</div>
+                    <div class="partner">CREATIVE</div>
+                    <div class="partner">MARKETING</div>
+                    <div class="partner">PERFORMANCE</div>
+                    <div class="partner">CULTURE</div>
 
                 </div>
 
             </div>
 
-
-            <!-- IMAGE 2 -->
-
-            <div class="philo-card">
-
-                <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRabe5Lk4jcqx7VB6lTxZfBCAigWAQrggu-pjtszgyLg&s=10"
-                    alt="Philosophy image 2"
-                >
-
-                <div class="philo-overlay">
-
-                    <h3>
-                        THE WAVES
-                    </h3>
-
-                    <span>
-                        POWER / MOVEMENT
-                    </span>
-
-                </div>
-
-            </div>
+        </section>
 
 
-            <!-- IMAGE 3 -->
+        <!-- =========================
+             PHILOSOPHY
+        ========================= -->
 
-            <div class="philo-card">
+        <section id="philosophy" class="philosophy">
 
-                <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA9r7SxFlXD51FuZEwCgLCwYQK97uUrkhKDrQMN-LTRw&s=10"
-                    alt="Philosophy image 3"
-                >
+            <div class="container">
 
-                <div class="philo-overlay">
+                <div class="eyebrow">06 — PHILOSOPHY</div>
 
-                    <h3>
-                        ADAPTATION
-                    </h3>
-
-                    <span>
-                        LIZARD / SURVIVAL
-                    </span>
-
-                </div>
-
-            </div>
+                <h2 class="section-title">
+                    THE ANAS<br>
+                    <span>PHILOSOPHY.</span>
+                </h2>
 
 
-            <!-- IMAGE 4 -->
-
-            <div class="philo-card">
-
-                <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR0ResjUoOkHt8gZY49EovYtNZr27sIni_1Elkta3FhA&s"
-                    alt="Philosophy image 4"
-                >
-
-                <div class="philo-overlay">
-
-                    <h3>
-                        THE SUN
-                    </h3>
-
-                    <span>
-                        PERFECTION / DESTINATION
-                    </span>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-        <!-- =================================================
-             PHILOSOPHY TEXT
-             ================================================= -->
-
-        <div class="philosophy-text">
-
-
-            <div class="philosophy-column">
-
-                <h3>
-                    PART I — THE MEANING OF LIFE
-                </h3>
-
-                <p>
-                    We are all swimmers in the sea of life,
-                    looking toward the sun.
+                <p class="philosophy-intro">
+                    WE ARE ALL
+                    <span>SWIMMERS</span>
+                    IN THE SEA OF LIFE.
                 </p>
 
-                <p>
-                    Every one of us carries the certainty that
-                    if we keep swimming, one day we will reach
-                    the sun — the sun being perfection.
-                </p>
 
-                <p>
-                    But eventually the distance between us
-                    and the sun becomes fixed.
-                </p>
+                <div class="philosophy-grid">
 
-                <p>
-                    Our arms become exhausted and eventually
-                    we drown.
-                </p>
+                    <div class="philosophy-card">
+                        <div class="symbol">≈</div>
 
-                <p>
-                    In both cases, death is the ending.
-                    And this is where the meaning of life begins.
-                </p>
+                        <h3>THE SEA</h3>
 
-                <p>
-                    The only one capable of conquering life
-                    and reaching the sun is the Creator of
-                    life Himself — God.
-                </p>
-
-            </div>
-
-
-            <div class="philosophy-column">
-
-                <h3>
-                    PART II — BE WATER
-                </h3>
-
-                <p>
-                    You must learn to adapt.
-                    Be like water.
-                </p>
-
-                <p>
-                    Water changes its shape from one container
-                    to another without losing what it fundamentally
-                    is.
-                </p>
-
-                <p>
-                    Water gives life when you drink it.
-                    But if you underestimate its power,
-                    it can drown you.
-                </p>
-
-                <p>
-                    Waves represent movement.
-                    The tsunami represents overwhelming power.
-                    The lizard represents adaptation.
-                    The sun represents perfection.
-                    The sea represents life.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     PRINCIPLES
-     ===================================================== -->
-
-<section class="section">
-
-    <div class="container">
-
-        <div class="eyebrow">
-            06 / PRINCIPLES
-        </div>
-
-        <h2 class="section-heading">
-
-            FOUR<br>
-
-            <span>
-                WORDS.
-            </span>
-
-        </h2>
-
-
-        <div class="divider"></div>
-
-
-        <div class="principles">
-
-
-            <div class="principle">
-
-                <h3>
-                    VALUE
-                </h3>
-
-                <p>
-                    Know your value.
-                    Build it through action.
-                </p>
-
-            </div>
-
-
-            <div class="principle">
-
-                <h3>
-                    DEPTH
-                </h3>
-
-                <p>
-                    Look beyond appearances.
-                    Search for meaning.
-                </p>
-
-            </div>
-
-
-            <div class="principle">
-
-                <h3>
-                    POWER
-                </h3>
-
-                <p>
-                    Strength with control.
-                    Presence without noise.
-                </p>
-
-            </div>
-
-
-            <div class="principle">
-
-                <h3>
-                    ADAPT
-                </h3>
-
-                <p>
-                    Change your form without
-                    losing your identity.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     WORK
-     ===================================================== -->
-
-<section class="section work" id="work">
-
-    <div class="container">
-
-        <div class="eyebrow">
-            07 / WORK
-        </div>
-
-        <h2 class="section-heading">
-
-            BUILD<br>
-
-            <span>
-                MORE.
-            </span>
-
-        </h2>
-
-
-        <div class="work-grid">
-
-
-            <div class="work-main">
-
-                <div>
-
-                    <div class="eyebrow">
-                        COMPUTER SCIENCE
+                        <p>LIFE / EXISTENCE</p>
                     </div>
 
-                    <h3>
 
-                        Student<br>
-                        Management<br>
-                        System
+                    <div class="philosophy-card">
+                        <div class="symbol">〰</div>
 
-                    </h3>
+                        <h3>THE WAVES</h3>
+
+                        <p>POWER / FORCE</p>
+                    </div>
+
+
+                    <div class="philosophy-card">
+                        <div class="symbol">◈</div>
+
+                        <h3>ADAPTATION</h3>
+
+                        <p>WATER / LIZARD</p>
+                    </div>
+
+
+                    <div class="philosophy-card">
+                        <div class="symbol">☼</div>
+
+                        <h3>THE SUN</h3>
+
+                        <p>PERFECTION / IDEAL</p>
+                    </div>
 
                 </div>
 
-                <p>
 
-                    A C++ project using programming fundamentals,
-                    file handling and structured logic to manage
-                    student records.
+                <div class="philosophy-text">
 
+                    <p>
+                        We are all, my friend, simply swimmers in the
+                        sea of life, looking toward the sun.
+                        Every one of us carries the certainty that
+                        if we keep swimming, one day we will reach
+                        the sun — the sun being perfection.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        But the truth is that the distance between
+                        us and perfection may never completely disappear.
+                        We continue swimming until our strength runs out.
+                        In both possibilities, death is the ending.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        And this is where the meaning of life begins.
+                        The meaning of life is represented in the ending
+                        of life itself — death.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        The only one capable of conquering life and
+                        reaching absolute perfection is the Creator
+                        of life Himself — <strong>God.</strong>
+                    </p>
+
+                    <br>
+
+                    <p>
+                        The second half of my philosophy is about
+                        adaptation.
+                        Be like <strong>water</strong>.
+                        Water changes its shape from one container
+                        to another without losing what it fundamentally is.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        Be adaptable.
+                        Be deep.
+                        Know your value.
+                        Understand your strength.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        Water gives life.
+                        Water can also overwhelm.
+                        Waves can become enormous.
+                        A tsunami can transform the entire landscape.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        All of this is simply <strong>H₂O.</strong>
+                    </p>
+
+                    <br>
+
+                    <p>
+                        My philosophy combines self-worth,
+                        danger, strength, depth and the ability
+                        to adapt.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        Influenced by Nietzsche, Sartre and Bruce Lee,
+                        I have combined these ideas into something personal:
+                        <strong>the philosophy of Anas Ayman.</strong>
+                    </p>
+
+                </div>
+
+
+                <div class="principles">
+
+                    <div class="principle">
+                        <span class="principle-number">01</span>
+                        <h3>Value</h3>
+                    </div>
+
+                    <div class="principle">
+                        <span class="principle-number">02</span>
+                        <h3>Depth</h3>
+                    </div>
+
+                    <div class="principle">
+                        <span class="principle-number">03</span>
+                        <h3>Power</h3>
+                    </div>
+
+                    <div class="principle">
+                        <span class="principle-number">04</span>
+                        <h3>Adapt</h3>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             WORK
+        ========================= -->
+
+        <section id="work">
+
+            <div class="container">
+
+                <div class="eyebrow">07 — PROJECTS</div>
+
+                <h2 class="section-title">
+                    BUILT<br>
+                    <span>IN CODE.</span>
+                </h2>
+
+                <p class="description">
+                    Technology is another part of the creative identity.
+                    From programming projects to digital experiences,
+                    the goal is to keep building.
                 </p>
 
-                <a href="#" class="btn">
-                    VIEW GITHUB
-                </a>
 
-            </div>
+                <div class="work-card">
 
+                    <div>
 
-            <div class="work-side">
+                        <h3>
+                            Student<br>
+                            Management<br>
+                            System
+                        </h3>
 
+                        <p>
+                            C++ / Console Application / GitHub Project
+                        </p>
 
-                <div class="work-small">
+                    </div>
 
-                    <h3>
-                        Programming
-                    </h3>
-
-                    <p>
-                        C++, computer science and problem solving.
-                    </p>
-
-                </div>
-
-
-                <div class="work-small">
-
-                    <h3>
-                        Brand Building
-                    </h3>
-
-                    <p>
-                        Creating a recognizable identity around
-                        the name ANAS AYMAN.
-                    </p>
-
-                </div>
-
-
-                <div class="work-small">
-
-                    <h3>
-                        Future
-                    </h3>
-
-                    <p>
-                        Acting, technology, marketing,
-                        collaborations and bigger productions.
-                    </p>
+                    <a href="#" class="button">
+                        VIEW PROJECT
+                    </a>
 
                 </div>
 
             </div>
 
-        </div>
-
-    </div>
-
-</section>
+        </section>
 
 
-<!-- =====================================================
-     MINDSET
-     ===================================================== -->
+        <!-- =========================
+             MINDSET
+        ========================= -->
 
-<section class="section mindset">
+        <section class="mindset">
 
-    <div class="container">
+            <div class="container">
 
-        <div class="eyebrow">
-            THE MINDSET
-        </div>
+                <div class="eyebrow">08 — MINDSET</div>
 
-        <h2>
+                <h2 class="section-title">
+                    THE<br>
+                    <span>MINDSET.</span>
+                </h2>
 
-            I DON'T<br>
-            WANT TO<br>
-            WIN ONCE.
-
-        </h2>
-
-        <p>
-
-            I want to become someone capable of winning again.
-            Discipline. Resilience. Ambition. Adaptation.
-
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     INSTAPAY
-     ===================================================== -->
-
-<section class="section support" id="support">
-
-    <div class="container">
-
-        <div class="support-box">
-
-            <div class="eyebrow">
-                SUPPORT THE BRAND
-            </div>
-
-            <h2>
-
-                SUPPORT<br>
-
-                <span class="green">
-                    ANAS.
-                </span>
-
-            </h2>
-
-            <p>
-
-                If you want to support the development of
-                ANAS AYMAN BRAND and future creative projects,
-                you can use InstaPay.
-
-            </p>
-
-
-            <div class="instapay-label">
-                INSTAPAY NUMBER
-            </div>
-
-
-            <div
-                class="instapay-number"
-                id="instapayNumber"
-                onclick="copyInstapay()"
-            >
-
-                01080128925
+                <div class="quote">
+                    DON'T FOLLOW<br>
+                    THE <span>NOISE.</span><br>
+                    BUILD THE<br>
+                    <span>NAME.</span>
+                </div>
 
             </div>
 
+        </section>
 
-            <div
-                class="copy-note"
-                id="copyNote"
-            >
 
-                CLICK THE NUMBER TO COPY
+        <!-- =========================
+             CONTACT
+        ========================= -->
+
+        <section id="contact" class="contact">
+
+            <div class="container contact-inner">
+
+                <div class="eyebrow">
+                    09 — CONTACT
+                </div>
+
+                <h2>
+                    LET'S<br>
+                    <span>WORK.</span>
+                </h2>
+
+                <p class="contact-subtitle">
+                    ACTING / MARKETING / CREATIVE COLLABORATION
+                </p>
+
+                <div class="contact-links">
+
+                    <a href="#" class="contact-link">
+                        INSTAGRAM
+                    </a>
+
+                    <a href="#" class="contact-link">
+                        GITHUB
+                    </a>
+
+                    <a href="#" class="contact-link">
+                        BUSINESS
+                    </a>
+
+                </div>
 
             </div>
 
-        </div>
+        </section>
 
-    </div>
-
-</section>
+    </main>
 
 
-<!-- =====================================================
-     CONTACT
-     ===================================================== -->
+    <!-- =========================
+         FOOTER
+    ========================= -->
 
-<section class="section contact" id="contact">
-
-    <div class="container">
-
-        <div class="eyebrow">
-            WORK / COLLABORATE / CONNECT
-        </div>
-
-        <h2>
-
-            ANAS<br>
-
-            <span>
-                AYMAN.
-            </span>
-
-        </h2>
-
-        <p>
-
-            Acting collaborations.
-            Creative partnerships.
-            Marketing.
-            Design.
-            Fashion.
-            Technology.
-            Future productions.
-
-        </p>
-
-
-        <div class="socials">
-
-            <a href="#" class="social">
-                INSTAGRAM
-            </a>
-
-            <a href="#" class="social">
-                GITHUB
-            </a>
-
-            <a href="tel:01080128925" class="social">
-                CONTACT
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     FOOTER
-     ===================================================== -->
-
-<footer>
-
-    <div class="container footer">
+    <footer>
 
         <div>
-            © 2026 ANAS AYMAN
+            © 2026 <strong>ANAS AYMAN</strong>
         </div>
 
         <div>
-            ANAS AYMAN BRAND
+            PERSONAL BRAND / GLOBAL VISION
         </div>
 
-        <div>
-            BUILT WITH AMBITION
-        </div>
-
-    </div>
-
-</footer>
-
-
-<!-- =====================================================
-     JAVASCRIPT
-     ===================================================== -->
-
-<script>
-
-function copyInstapay(){
-
-    const number = "01080128925";
-
-    navigator.clipboard.writeText(number)
-        .then(function(){
-
-            document.getElementById("copyNote").innerText =
-                "COPIED TO CLIPBOARD ✓";
-
-            setTimeout(function(){
-
-                document.getElementById("copyNote").innerText =
-                    "CLICK THE NUMBER TO COPY";
-
-            },2000);
-
-        });
-
-}
-
-</script>
-
+    </footer>
 
 </body>
 </html>
