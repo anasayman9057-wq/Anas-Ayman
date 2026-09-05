@@ -1,2357 +1,372 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Anas Ayman — Official</title>
-
-<meta name="description"
-content="Anas Ayman — Actor, Creative and Computer Science Student. Official portfolio, performances, theatre, philosophy and creative work.">
-
-<style>
-
-/* =========================================================
-   RESET
-========================================================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background: #050505;
-    color: #ffffff;
-    font-family: Arial, Helvetica, sans-serif;
-    overflow-x: hidden;
-}
-
-/* =========================================================
-   VARIABLES
-========================================================= */
-
-:root {
-    --green: #00ff88;
-    --green-dark: #00b865;
-    --black: #050505;
-    --dark: #0a0a0a;
-    --gray: #9b9b9b;
-    --border: rgba(255,255,255,0.10);
-}
-
-/* =========================================================
-   CURSOR GLOW
-========================================================= */
-
-.cursor-glow {
-    position: fixed;
-    width: 350px;
-    height: 350px;
-
-    background: radial-gradient(
-        circle,
-        rgba(0,255,136,0.08),
-        transparent 65%
-    );
-
-    border-radius: 50%;
-
-    pointer-events: none;
-
-    transform: translate(-50%, -50%);
-
-    z-index: 0;
-}
-
-/* =========================================================
-   FILM GRAIN
-========================================================= */
-
-.grain {
-    position: fixed;
-    inset: 0;
-
-    pointer-events: none;
-
-    z-index: 9999;
-
-    opacity: 0.045;
-
-    background-image:
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
-
-    animation: grain 0.25s steps(2) infinite;
-}
-
-@keyframes grain {
-    0% { transform: translate(0,0); }
-    25% { transform: translate(-2%,2%); }
-    50% { transform: translate(2%,-1%); }
-    75% { transform: translate(-1%,-2%); }
-    100% { transform: translate(0,0); }
-}
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
-nav {
-    position: fixed;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-
-    padding: 25px 50px;
-
-    z-index: 1000;
-
-    background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.85),
-        transparent
-    );
-
-    transition: 0.4s;
-}
-
-nav.scrolled {
-    background: rgba(5,5,5,0.90);
-
-    backdrop-filter: blur(20px);
-
-    border-bottom: 1px solid var(--border);
-
-    padding: 18px 50px;
-}
-
-.nav-container {
-    max-width: 1400px;
-
-    margin: auto;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-}
-
-.logo {
-    font-size: 19px;
-
-    font-weight: 900;
-
-    letter-spacing: 4px;
-
-    color: white;
-}
-
-.logo span {
-    color: var(--green);
-}
-
-.nav-links {
-    display: flex;
-
-    gap: 32px;
-}
-
-.nav-links a {
-    color: #ddd;
-
-    text-decoration: none;
-
-    font-size: 12px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 2px;
-
-    position: relative;
-
-    transition: 0.3s;
-}
-
-.nav-links a::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    bottom: -8px;
-
-    width: 0;
-    height: 1px;
-
-    background: var(--green);
-
-    transition: 0.3s;
-}
-
-.nav-links a:hover {
-    color: var(--green);
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero {
-    min-height: 100vh;
-
-    position: relative;
-
-    display: flex;
-
-    align-items: center;
-
-    overflow: hidden;
-
-    padding: 100px 7%;
-}
-
-.hero-bg {
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        radial-gradient(
-            circle at 70% 45%,
-            rgba(0,255,136,0.09),
-            transparent 35%
-        ),
-
-        linear-gradient(
-            120deg,
-            #050505 30%,
-            #07130e 100%
-        );
-
-    z-index: -2;
-}
-
-.hero-lines {
-    position: absolute;
-
-    inset: 0;
-
-    opacity: 0.12;
-
-    background-image:
-        linear-gradient(
-            rgba(255,255,255,0.04) 1px,
-            transparent 1px
-        );
-
-    background-size: 100% 80px;
-
-    z-index: -1;
-}
-
-.hero-container {
-    width: 100%;
-    max-width: 1500px;
-
-    margin: auto;
-
-    display: grid;
-
-    grid-template-columns: 1.1fr 0.9fr;
-
-    gap: 80px;
-
-    align-items: center;
-}
-
-.hero-text {
-    position: relative;
-
-    z-index: 2;
-}
-
-.eyebrow {
-    color: var(--green);
-
-    text-transform: uppercase;
-
-    letter-spacing: 5px;
-
-    font-size: 11px;
-
-    margin-bottom: 30px;
-
-    animation: fadeUp 1s ease forwards;
-}
-
-.hero h1 {
-    font-size: clamp(70px, 10vw, 170px);
-
-    line-height: 0.80;
-
-    letter-spacing: -8px;
-
-    text-transform: uppercase;
-
-    margin-bottom: 40px;
-
-    animation: heroTitle 1.2s cubic-bezier(.16,1,.3,1) forwards;
-}
-
-.hero h1 .green {
-    color: var(--green);
-}
-
-.hero-description {
-    max-width: 560px;
-
-    color: #aaa;
-
-    font-size: 19px;
-
-    line-height: 1.7;
-
-    margin-bottom: 40px;
-
-    animation: fadeUp 1s 0.3s ease both;
-}
-
-.hero-buttons {
-    display: flex;
-
-    gap: 15px;
-
-    animation: fadeUp 1s 0.5s ease both;
-}
-
-.btn {
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding: 16px 30px;
-
-    text-decoration: none;
-
-    text-transform: uppercase;
-
-    letter-spacing: 2px;
-
-    font-size: 11px;
-
-    font-weight: bold;
-
-    transition: 0.4s;
-}
-
-.btn-primary {
-    background: var(--green);
-
-    color: black;
-}
-
-.btn-primary:hover {
-    transform: translateY(-5px);
-
-    box-shadow:
-        0 15px 50px rgba(0,255,136,0.25);
-}
-
-.btn-outline {
-    border: 1px solid #444;
-
-    color: white;
-}
-
-.btn-outline:hover {
-    border-color: var(--green);
-
-    color: var(--green);
-}
-
-/* =========================================================
-   HERO IMAGE
-========================================================= */
-
-.hero-visual {
-    position: relative;
-
-    display: flex;
-
-    justify-content: center;
-
-    animation: imageReveal 1.4s cubic-bezier(.16,1,.3,1) forwards;
-}
-
-.hero-visual::before {
-    content: "";
-
-    position: absolute;
-
-    width: 90%;
-
-    height: 90%;
-
-    background: var(--green);
-
-    filter: blur(100px);
-
-    opacity: 0.08;
-
-    z-index: -1;
-}
-
-.hero-visual img {
-    width: 100%;
-
-    max-width: 560px;
-
-    aspect-ratio: 4 / 5;
-
-    object-fit: cover;
-
-    border-radius: 2px;
-
-    border: 1px solid rgba(0,255,136,0.3);
-
-    box-shadow:
-        30px 30px 0 rgba(0,255,136,0.04),
-        0 40px 100px rgba(0,0,0,0.8);
-
-    transition: 0.8s;
-}
-
-.hero-visual img:hover {
-    transform: scale(1.025);
-
-    border-color: var(--green);
-}
-
-.hero-number {
-    position: absolute;
-
-    bottom: -30px;
-    right: -30px;
-
-    font-size: 100px;
-
-    font-weight: 900;
-
-    color: rgba(255,255,255,0.035);
-
-    line-height: 1;
-}
-
-/* =========================================================
-   SCROLL INDICATOR
-========================================================= */
-
-.scroll-indicator {
-    position: absolute;
-
-    bottom: 35px;
-    left: 7%;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 15px;
-
-    color: #666;
-
-    font-size: 9px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 3px;
-}
-
-.scroll-line {
-    width: 50px;
-    height: 1px;
-
-    background: var(--green);
-}
-
-/* =========================================================
-   MARQUEE
-========================================================= */
-
-.marquee {
-    overflow: hidden;
-
-    white-space: nowrap;
-
-    border-top: 1px solid var(--border);
-
-    border-bottom: 1px solid var(--border);
-
-    padding: 20px 0;
-
-    background: #080808;
-}
-
-.marquee-track {
-    display: inline-block;
-
-    animation: marquee 25s linear infinite;
-}
-
-.marquee span {
-    font-size: 14px;
-
-    font-weight: bold;
-
-    text-transform: uppercase;
-
-    letter-spacing: 5px;
-
-    margin-right: 60px;
-
-    color: #666;
-}
-
-.marquee .accent {
-    color: var(--green);
-}
-
-@keyframes marquee {
-
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(-50%);
-    }
-
-}
-
-/* =========================================================
-   GENERAL
-========================================================= */
-
-section {
-    max-width: 1400px;
-
-    margin: auto;
-
-    padding: 150px 7%;
-
-    position: relative;
-}
-
-.section-header {
-    margin-bottom: 70px;
-}
-
-.kicker {
-    color: var(--green);
-
-    text-transform: uppercase;
-
-    font-size: 10px;
-
-    letter-spacing: 4px;
-
-    margin-bottom: 20px;
-}
-
-.section-title {
-    font-size: clamp(50px, 7vw, 100px);
-
-    line-height: 0.9;
-
-    letter-spacing: -5px;
-
-    text-transform: uppercase;
-}
-
-.section-title span {
-    color: var(--green);
-}
-
-.section-description {
-    max-width: 700px;
-
-    color: #888;
-
-    font-size: 18px;
-
-    line-height: 1.8;
-
-    margin-top: 30px;
-}
-
-/* =========================================================
-   ABOUT
-========================================================= */
-
-.about-grid {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 100px;
-
-    align-items: center;
-}
-
-.about-big {
-    font-size: clamp(30px, 4vw, 55px);
-
-    line-height: 1.15;
-
-    letter-spacing: -2px;
-}
-
-.about-big span {
-    color: var(--green);
-}
-
-.about-copy {
-    color: #888;
-
-    font-size: 17px;
-
-    line-height: 1.9;
-}
-
-.about-copy p {
-    margin-bottom: 25px;
-}
-
-.signature {
-    margin-top: 40px;
-
-    color: var(--green);
-
-    font-size: 24px;
-
-    font-style: italic;
-
-    font-family: Georgia, serif;
-}
-
-/* =========================================================
-   STATS
-========================================================= */
-
-.stats {
-    max-width: 1400px;
-
-    margin: auto;
-
-    padding: 0 7%;
-
-    display: grid;
-
-    grid-template-columns: repeat(4,1fr);
-
-    border-top: 1px solid var(--border);
-
-    border-bottom: 1px solid var(--border);
-}
-
-.stat {
-    padding: 50px 25px;
-
-    border-right: 1px solid var(--border);
-}
-
-.stat:last-child {
-    border-right: none;
-}
-
-.stat-number {
-    font-size: 48px;
-
-    font-weight: 900;
-
-    color: var(--green);
-
-    margin-bottom: 8px;
-}
-
-.stat-label {
-    font-size: 10px;
-
-    color: #666;
-
-    text-transform: uppercase;
-
-    letter-spacing: 3px;
-}
-
-/* =========================================================
-   ACTING
-========================================================= */
-
-.acting-section {
-    background:
-        radial-gradient(
-            circle at 80% 50%,
-            rgba(0,255,136,0.05),
-            transparent 30%
-        );
-}
-
-.film-intro {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 80px;
-
-    align-items: end;
-
-    margin-bottom: 70px;
-}
-
-.film-label {
-    color: #555;
-
-    font-size: 11px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 3px;
-}
-
-.film-statement {
-    font-size: 30px;
-
-    line-height: 1.4;
-
-    color: #ccc;
-}
-
-.film-statement span {
-    color: var(--green);
-}
-
-.videos {
-    display: grid;
-
-    grid-template-columns: repeat(2,1fr);
-
-    gap: 30px;
-}
-
-.video-card {
-    position: relative;
-
-    overflow: hidden;
-
-    background: #0b0b0b;
-
-    border: 1px solid var(--border);
-}
-
-.video-card video {
-    width: 100%;
-
-    display: block;
-
-    aspect-ratio: 16/9;
-
-    object-fit: cover;
-
-    transition: 0.7s;
-}
-
-.video-card:hover video {
-    transform: scale(1.04);
-}
-
-.video-overlay {
-    position: absolute;
-
-    inset: 0;
-
-    display: flex;
-
-    align-items: flex-end;
-
-    padding: 25px;
-
-    background:
-        linear-gradient(
-            transparent 45%,
-            rgba(0,0,0,0.85)
-        );
-
-    pointer-events: none;
-}
-
-.video-overlay span {
-    color: white;
-
-    text-transform: uppercase;
-
-    letter-spacing: 3px;
-
-    font-size: 10px;
-}
-
-/* =========================================================
-   THEATRE
-========================================================= */
-
-.theatre-grid {
-    display: grid;
-
-    grid-template-columns: 1.4fr 0.6fr;
-
-    gap: 30px;
-}
-
-.theatre-main {
-    position: relative;
-
-    overflow: hidden;
-
-    height: 600px;
-}
-
-.theatre-main img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    filter: grayscale(20%);
-
-    transition: 0.8s;
-}
-
-.theatre-main:hover img {
-    transform: scale(1.04);
-
-    filter: grayscale(0%);
-}
-
-.theatre-caption {
-    position: absolute;
-
-    bottom: 0;
-    left: 0;
-
-    padding: 40px;
-
-    width: 100%;
-
-    background:
-        linear-gradient(
-            transparent,
-            rgba(0,0,0,0.9)
-        );
-}
-
-.theatre-caption h3 {
-    font-size: 40px;
-
-    text-transform: uppercase;
-
-    letter-spacing: -2px;
-}
-
-.theatre-caption p {
-    color: #aaa;
-
-    margin-top: 8px;
-}
-
-.theatre-side {
-    display: grid;
-
-    grid-template-rows: 1fr 1fr;
-
-    gap: 30px;
-}
-
-.theatre-side img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    transition: 0.6s;
-}
-
-.theatre-side img:hover {
-    transform: scale(1.03);
-}
-
-/* =========================================================
-   PHILOSOPHY
-========================================================= */
-
-.philosophy-section {
-    background: #080808;
-
-    max-width: none;
-}
-
-.philosophy-inner {
-    max-width: 1400px;
-
-    margin: auto;
-
-    padding: 0 7%;
-}
-
-.manifesto {
-    max-width: 1100px;
-
-    font-family: Georgia, serif;
-
-    font-size: clamp(32px, 5vw, 70px);
-
-    line-height: 1.15;
-
-    color: #ddd;
-
-    margin: 80px 0;
-}
-
-.manifesto span {
-    color: var(--green);
-}
-
-.manifesto-small {
-    max-width: 700px;
-
-    color: #777;
-
-    font-size: 17px;
-
-    line-height: 1.9;
-}
-
-/* =========================================================
-   PHILOSOPHY IMAGES
-========================================================= */
-
-.philosophy-gallery {
-    margin-top: 80px;
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr 1fr;
-
-    gap: 20px;
-}
-
-.philosophy-gallery img {
-    width: 100%;
-
-    height: 450px;
-
-    object-fit: cover;
-
-    transition: 0.6s;
-
-    filter: grayscale(30%);
-}
-
-.philosophy-gallery img:hover {
-    transform: translateY(-10px);
-
-    filter: grayscale(0%);
-}
-
-/* =========================================================
-   CREATIVE MARKET
-========================================================= */
-
-.products {
-    display: grid;
-
-    grid-template-columns: repeat(3,1fr);
-
-    gap: 25px;
-}
-
-.product {
-    position: relative;
-
-    background: #0a0a0a;
-
-    border: 1px solid var(--border);
-
-    overflow: hidden;
-
-    transition: 0.5s;
-}
-
-.product:hover {
-    transform: translateY(-10px);
-
-    border-color: var(--green);
-}
-
-.product img {
-    width: 100%;
-
-    height: 360px;
-
-    object-fit: cover;
-
-    transition: 0.7s;
-}
-
-.product:hover img {
-    transform: scale(1.05);
-}
-
-.product-info {
-    padding: 25px;
-}
-
-.product-info h3 {
-    font-size: 21px;
-
-    margin-bottom: 10px;
-}
-
-.product-info p {
-    color: #777;
-
-    font-size: 14px;
-}
-
-.price {
-    color: var(--green);
-
-    font-weight: bold;
-
-    margin-top: 20px;
-
-    font-size: 15px;
-}
-
-/* =========================================================
-   CONTACT
-========================================================= */
-
-.contact-section {
-    min-height: 80vh;
-
-    display: flex;
-
-    align-items: center;
-}
-
-.contact-grid {
-    width: 100%;
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 100px;
-
-    align-items: end;
-}
-
-.contact-title {
-    font-size: clamp(65px, 10vw, 150px);
-
-    line-height: 0.8;
-
-    letter-spacing: -8px;
-
-    text-transform: uppercase;
-}
-
-.contact-title span {
-    color: var(--green);
-}
-
-.contact-right {
-    border-top: 1px solid var(--border);
-
-    padding-top: 30px;
-}
-
-.contact-item {
-    padding: 25px 0;
-
-    border-bottom: 1px solid var(--border);
-}
-
-.contact-item small {
-    display: block;
-
-    color: #555;
-
-    text-transform: uppercase;
-
-    letter-spacing: 3px;
-
-    font-size: 9px;
-
-    margin-bottom: 8px;
-}
-
-.contact-item a {
-    color: white;
-
-    text-decoration: none;
-
-    font-size: 21px;
-
-    transition: 0.3s;
-}
-
-.contact-item a:hover {
-    color: var(--green);
-}
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer {
-    padding: 35px 7%;
-
-    border-top: 1px solid var(--border);
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    color: #555;
-
-    font-size: 10px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 2px;
-}
-
-footer strong {
-    color: var(--green);
-}
-
-/* =========================================================
-   REVEAL ANIMATIONS
-========================================================= */
-
-.reveal {
-    opacity: 0;
-
-    transform: translateY(60px);
-
-    transition:
-        opacity 1s ease,
-        transform 1s cubic-bezier(.16,1,.3,1);
-}
-
-.reveal.active {
-    opacity: 1;
-
-    transform: translateY(0);
-}
-
-@keyframes heroTitle {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(80px)
-            skewY(4deg);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0)
-            skewY(0);
-    }
-
-}
-
-@keyframes imageReveal {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(80px)
-            scale(0.94);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
-    }
-
-}
-
-@keyframes fadeUp {
-
-    from {
-        opacity: 0;
-
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform: translateY(0);
-    }
-
-}
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 900px) {
-
-    nav {
-        padding: 18px 20px;
-    }
-
-    nav.scrolled {
-        padding: 15px 20px;
-    }
-
-    .nav-container {
-        flex-direction: column;
-
-        gap: 15px;
-    }
-
-    .nav-links {
-        gap: 15px;
-    }
-
-    .nav-links a {
-        font-size: 9px;
-    }
-
-    .hero {
-        padding:
-            150px
-            20px
-            100px;
-    }
-
-    .hero-container {
-        grid-template-columns: 1fr;
-
-        gap: 70px;
-
-        text-align: center;
-    }
-
-    .hero h1 {
-        font-size: 70px;
-
-        letter-spacing: -4px;
-    }
-
-    .hero-description {
-        margin-left: auto;
-        margin-right: auto;
-
-        font-size: 16px;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-
-        flex-wrap: wrap;
-    }
-
-    .hero-visual img {
-        max-width: 430px;
-    }
-
-    .scroll-indicator {
-        display: none;
-    }
-
-    section {
-        padding:
-            100px
-            20px;
-    }
-
-    .section-title {
-        font-size: 55px;
-
-        letter-spacing: -3px;
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
-
-        gap: 50px;
-    }
-
-    .stats {
-        padding: 0 20px;
-
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .stat {
-        padding: 35px 15px;
-
-        border-bottom: 1px solid var(--border);
-    }
-
-    .stat:nth-child(2) {
-        border-right: none;
-    }
-
-    .stat-number {
-        font-size: 35px;
-    }
-
-    .film-intro {
-        grid-template-columns: 1fr;
-
-        gap: 30px;
-    }
-
-    .videos {
-        grid-template-columns: 1fr;
-    }
-
-    .theatre-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .theatre-main {
-        height: 450px;
-    }
-
-    .theatre-side {
-        height: 500px;
-    }
-
-    .philosophy-inner {
-        padding: 0 20px;
-    }
-
-    .philosophy-gallery {
-        grid-template-columns: 1fr;
-    }
-
-    .philosophy-gallery img {
-        height: 400px;
-    }
-
-    .products {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-grid {
-        grid-template-columns: 1fr;
-
-        gap: 70px;
-    }
-
-    .contact-title {
-        font-size: 75px;
-
-        letter-spacing: -4px;
-    }
-
-    footer {
-        flex-direction: column;
-
-        gap: 15px;
-
-        text-align: center;
-    }
-
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Anas Ayman</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #050505;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: rgba(5, 5, 5, 0.95);
+            border-bottom: 1px solid #222;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #00ff88;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 30px 50px;
+        }
+
+        .hero-container {
+            width: 100%;
+            max-width: 1100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 75px;
+            line-height: 1;
+            margin-bottom: 25px;
+            color: #00ff88;
+            letter-spacing: -3px;
+        }
+
+        .hero-text h1 span {
+            color: #00ff88;
+        }
+
+        .hero-text p {
+            color: #aaa;
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #00ff88;
+            color: #000;
+            padding: 14px 28px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* IMAGE */
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            display: block;
+            margin: auto;
+            border-radius: 20px;
+            border: 3px solid #00ff88;
+        }
+
+        /* SECTIONS */
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 100px 30px;
+        }
+
+        h2 {
+            font-size: 45px;
+            color: #00ff88;
+            margin-bottom: 20px;
+        }
+
+        .line {
+            width: 60px;
+            height: 4px;
+            background: #00ff88;
+            margin-bottom: 30px;
+        }
+
+        .text {
+            color: #aaa;
+            font-size: 18px;
+            max-width: 800px;
+        }
+
+        /* GALLERY */
+        .gallery {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 15px;
+            border: 1px solid #222;
+        }
+
+        /* VIDEOS */
+        .videos {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        video {
+            width: 100%;
+            border-radius: 15px;
+            background: #111;
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px;
+            border-top: 1px solid #222;
+            color: #777;
+        }
+
+        /* MOBILE */
+        @media (max-width: 700px) {
+
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 50px;
+            }
+
+            nav a {
+                margin: 0 7px;
+                font-size: 13px;
+            }
+        }
+    </style>
 </head>
-
 
 <body>
 
-<!-- FILM GRAIN -->
-<div class="grain"></div>
-
-<!-- CURSOR GLOW -->
-<div class="cursor-glow" id="cursorGlow"></div>
-
-
-<!-- ========================================================
-     NAVIGATION
-========================================================= -->
-
-<nav id="navbar">
-
-    <div class="nav-container">
-
-        <div class="logo">
-            ANAS <span>AYMAN</span>
-        </div>
-
-        <div class="nav-links">
-
-            <a href="#about">About</a>
-
-            <a href="#acting">Acting</a>
-
-            <a href="#theatre">Theatre</a>
-
-            <a href="#philosophy">Mind</a>
-
-            <a href="#design">Studio</a>
-
-            <a href="#contact">Contact</a>
-
-        </div>
-
-    </div>
-
-</nav>
-
-
-
-<!-- ========================================================
-     HERO
-========================================================= -->
-
-<header class="hero">
-
-    <div class="hero-bg"></div>
-
-    <div class="hero-lines"></div>
-
-    <div class="hero-container">
-
-        <div class="hero-text">
-
-            <div class="eyebrow">
-                Actor • Creative • Storyteller
-            </div>
-
-            <h1>
-                ANAS<br>
-                <span class="green">AYMAN</span>
-            </h1>
-
-            <p class="hero-description">
-                An emerging actor and creative mind building
-                a personal world between cinema, theatre,
-                technology, design and ideas.
-            </p>
-
-            <div class="hero-buttons">
-
-                <a
-                    href="#acting"
-                    class="btn btn-primary"
-                >
-                    Enter The World
-                </a>
-
-                <a
-                    href="#about"
-                    class="btn btn-outline"
-                >
-                    The Story
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div class="hero-visual">
-
-            <img
-                src="images/1788621714358.png"
-                alt="Anas Ayman"
-            >
-
-            <div class="hero-number">
-                01
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="scroll-indicator">
-
-        <div class="scroll-line"></div>
-
-        Scroll to explore
-
-    </div>
-
-</header>
-
-
-
-<!-- ========================================================
-     MARQUEE
-========================================================= -->
-
-<div class="marquee">
-
-    <div class="marquee-track">
-
-        <span>ANAS AYMAN</span>
-
-        <span class="accent">ACTOR</span>
-
-        <span>CREATIVE</span>
-
-        <span class="accent">THEATRE</span>
-
-        <span>PHILOSOPHY</span>
-
-        <span class="accent">DESIGN</span>
-
-        <span>ANAS AYMAN</span>
-
-        <span class="accent">ACTOR</span>
-
-        <span>CREATIVE</span>
-
-        <span class="accent">THEATRE</span>
-
-        <span>PHILOSOPHY</span>
-
-        <span class="accent">DESIGN</span>
-
-    </div>
-
-</div>
-
-
-
-<!-- ========================================================
-     ABOUT
-========================================================= -->
-
-<section id="about">
-
-    <div class="section-header reveal">
-
-        <div class="kicker">
-            01 — Identity
-        </div>
-
-        <h2 class="section-title">
-            The <span>Story</span>
-        </h2>
-
-    </div>
-
-
-    <div class="about-grid">
-
-        <div class="about-big reveal">
-
-            More than a name.
-
-            <br><br>
-
-            A <span>world</span>
-            still being built.
-
-        </div>
-
-
-        <div class="about-copy reveal">
-
-            <p>
-                I am Anas Ayman — an aspiring actor,
-                creative and Computer Science student.
-            </p>
-
-            <p>
-                My world exists where technology meets
-                performance, where theatre meets cinema,
-                and where ideas become part of identity.
-            </p>
-
-            <p>
-                This website is not simply a portfolio.
-                It is the beginning of a personal brand —
-                a place to document the work, the experiments,
-                the performances and the journey.
-            </p>
-
-            <div class="signature">
-                — Anas Ayman
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ========================================================
-     STATS
-========================================================= -->
-
-<div class="stats">
-
-    <div class="stat reveal">
-
-        <div class="stat-number">
-            01
-        </div>
-
-        <div class="stat-label">
-            Creative Journey
-        </div>
-
-    </div>
-
-
-    <div class="stat reveal">
-
-        <div class="stat-number">
-            CS
-        </div>
-
-        <div class="stat-label">
-            Computer Science
-        </div>
-
-    </div>
-
-
-    <div class="stat reveal">
-
-        <div class="stat-number">
-            O6U
-        </div>
-
-        <div class="stat-label">
-            University
-        </div>
-
-    </div>
-
-
-    <div class="stat reveal">
-
-        <div class="stat-number">
-            ∞
-        </div>
-
-        <div class="stat-label">
-            Possibilities
-        </div>
-
-    </div>
-
-</div>
-
-
-
-<!-- ========================================================
-     ACTING
-========================================================= -->
-
-<section
-    id="acting"
-    class="acting-section"
->
-
-    <div class="section-header reveal">
-
-        <div class="kicker">
-            02 — Performance
-        </div>
-
-        <h2 class="section-title">
-            <span>Acting</span>
-        </h2>
-
-        <p class="section-description">
-            Character. Emotion. Presence.
-            The camera captures the moment —
-            the actor creates it.
-        </p>
-
-    </div>
-
-
-    <div class="film-intro reveal">
-
-        <div class="film-label">
-            Selected Performances
-        </div>
-
-        <div class="film-statement">
-
-            Every character is another life.
-
-            <span>
-                Every scene is another world.
-            </span>
-
-        </div>
-
-    </div>
-
-
-    <div class="videos">
-
-        <div class="video-card reveal">
-
-            <video controls>
-
-                <source
-                    src="videos/acting-1.mp4"
-                    type="video/mp4"
-                >
-
-            </video>
-
-            <div class="video-overlay">
-
-                <span>
-                    Performance — 01
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <div class="video-card reveal">
-
-            <video controls>
-
-                <source
-                    src="videos/acting-2.mp4"
-                    type="video/mp4"
-                >
-
-            </video>
-
-            <div class="video-overlay">
-
-                <span>
-                    Performance — 02
-                </span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ========================================================
-     THEATRE
-========================================================= -->
-
-<section id="theatre">
-
-    <div class="section-header reveal">
-
-        <div class="kicker">
-            03 — Stage
-        </div>
-
-        <h2 class="section-title">
-            University <span>Theatre</span>
-        </h2>
-
-        <p class="section-description">
-            The stage is where an actor learns presence,
-            discipline and the power of being watched.
-        </p>
-
-    </div>
-
-
-    <div class="theatre-grid">
-
-        <div class="theatre-main reveal">
-
-            <img
-                src="images/o6u-1.jpg"
-                alt="Anas Ayman University Theatre"
-            >
-
-            <div class="theatre-caption">
-
-                <h3>
-                    On Stage
-                </h3>
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#design">Design</a>
+        <a href="#acting">Acting</a>
+        <a href="#theatre">Theatre</a>
+        <a href="#philosophy">Philosophy</a>
+    </nav>
+
+
+    <!-- HERO -->
+    <header class="hero">
+
+        <div class="hero-container">
+
+            <div class="hero-text">
+
+                <!-- BOTH WORDS ARE GREEN -->
+                <h1>
+                    Anas Ayman
+                </h1>
 
                 <p>
-                    University Theatre
+                    Acting • Design • Theatre • Philosophy
                 </p>
+
+                <a href="#about" class="button">
+                    Discover More
+                </a>
 
             </div>
 
-        </div>
 
+            <div class="hero-image">
 
-        <div class="theatre-side">
-
-            <div class="reveal">
-
+                <!-- MAIN PHOTO -->
                 <img
-                    src="images/o6u-2.jpg"
-                    alt="University Theatre"
+                    src="./images/1788621714358.png"
+                    alt="Anas Ayman"
                 >
 
             </div>
 
-
-            <div class="video-card reveal">
-
-                <video controls>
-
-                    <source
-                        src="videos/theatre-1.mp4"
-                        type="video/mp4"
-                    >
-
-                </video>
-
-            </div>
-
         </div>
 
-    </div>
-
-</section>
+    </header>
 
 
+    <!-- ABOUT -->
+    <section id="about">
 
-<!-- ========================================================
-     PHILOSOPHY
-========================================================= -->
+        <h2>About Me</h2>
 
-<section
-    id="philosophy"
-    class="philosophy-section"
->
+        <div class="line"></div>
 
-    <div class="philosophy-inner">
-
-        <div class="section-header reveal">
-
-            <div class="kicker">
-                04 — Mind
-            </div>
-
-            <h2 class="section-title">
-                The <span>Mind</span>
-            </h2>
-
-        </div>
-
-
-        <div class="manifesto reveal">
-
-            "We are all swimmers in the sea of life,
-            looking toward the sun while trying to
-            understand the waves beneath us."
-
-        </div>
-
-
-        <p class="manifesto-small reveal">
-
-            Philosophy for me is not simply about reading
-            the ideas of people who came before us.
-
-            <br><br>
-
-            It is about observing life.
-            Questioning things.
-            Understanding people.
-            Losing.
-            Growing.
-            And discovering meaning.
-
+        <p class="text">
+            I am Anas Ayman, a Computer Science student passionate
+            about acting, theatre, creativity, design and philosophy.
+            This website represents my personal brand and creative journey.
         </p>
 
-
-        <div class="philosophy-gallery">
-
-            <img
-                class="reveal"
-                src="images/philosophy-1.jpg"
-                alt="Philosophy"
-            >
-
-            <img
-                class="reveal"
-                src="images/philosophy-2.jpg"
-                alt="Philosophy"
-            >
-
-            <img
-                class="reveal"
-                src="images/philosophy-3.jpg"
-                alt="Philosophy"
-            >
-
-        </div>
-
-    </div>
-
-</section>
+    </section>
 
 
+    <!-- DESIGN -->
+    <section id="design">
 
-<!-- ========================================================
-     CREATIVE STUDIO
-========================================================= -->
+        <h2>Design</h2>
 
-<section id="design">
+        <div class="line"></div>
 
-    <div class="section-header reveal">
-
-        <div class="kicker">
-            05 — Creative Studio
-        </div>
-
-        <h2 class="section-title">
-            Creative <span>Market</span>
-        </h2>
-
-        <p class="section-description">
-            A space connecting creative ideas,
-            visual design and talented artists.
+        <p class="text">
+            Creative visual work and designs.
         </p>
 
-    </div>
+        <div class="gallery">
 
-
-    <div class="products">
-
-        <div class="product reveal">
-
-            <img
-                src="images/design-1.jpg"
-                alt="Save Trees Save Earth"
-            >
-
-            <div class="product-info">
-
-                <h3>
-                    Save Trees, Save Earth
-                </h3>
-
-                <p>
-                    Environmental poster design.
-                </p>
-
-                <div class="price">
-                    EGP 250
-                </div>
-
-            </div>
+            <img src="./images/design-1.jpg" alt="Design 1">
+            <img src="./images/design-2.jpg" alt="Design 2">
+            <img src="./images/design-3.jpg" alt="Design 3">
+            <img src="./images/design-4.jpg" alt="Design 4">
+            <img src="./images/design-5.jpg" alt="Design 5">
 
         </div>
 
-
-        <div class="product reveal">
-
-            <img
-                src="images/design-2.jpg"
-                alt="Calligraphy Collection"
-            >
-
-            <div class="product-info">
-
-                <h3>
-                    Calligraphy Collection
-                </h3>
-
-                <p>
-                    Artistic calligraphy artwork.
-                </p>
-
-                <div class="price">
-                    EGP 300
-                </div>
-
-            </div>
-
-        </div>
+    </section>
 
 
-        <div class="product reveal">
+    <!-- ACTING -->
+    <section id="acting">
 
-            <img
-                src="images/design-3.jpg"
-                alt="Neon Floral Design"
-            >
+        <h2>Acting</h2>
 
-            <div class="product-info">
+        <div class="line"></div>
 
-                <h3>
-                    Neon Floral Design
-                </h3>
+        <p class="text">
+            Acting scenes and performances.
+        </p>
 
-                <p>
-                    Modern colorful artwork.
-                </p>
+        <div class="videos">
 
-                <div class="price">
-                    EGP 350
-                </div>
+            <video controls>
+                <source src="./videos/acting-1.mp4" type="video/mp4">
+            </video>
 
-            </div>
+            <video controls>
+                <source src="./videos/acting-2.mp4" type="video/mp4">
+            </video>
 
         </div>
 
+    </section>
 
-        <div class="product reveal">
 
-            <img
-                src="images/design-4.jpg"
-                alt="Abstract Gradient"
-            >
+    <!-- UNIVERSITY THEATRE -->
+    <section id="theatre">
 
-            <div class="product-info">
+        <h2>University Theatre</h2>
 
-                <h3>
-                    Abstract Gradient
-                </h3>
+        <div class="line"></div>
 
-                <p>
-                    Contemporary abstract design.
-                </p>
+        <p class="text">
+            My university theatre experience and performances.
+        </p>
 
-                <div class="price">
-                    EGP 400
-                </div>
+        <div class="gallery">
 
-            </div>
+            <img src="./images/o6u-1.jpg" alt="University Theatre">
+            <img src="./images/o6u-2.jpg" alt="University Theatre">
 
         </div>
 
+        <div class="videos">
 
-        <div class="product reveal">
+            <video controls>
+                <source src="./videos/theatre-1.mp4" type="video/mp4">
+            </video>
 
-            <img
-                src="images/design-5.jpg"
-                alt="Butterfly Dream"
-            >
-
-            <div class="product-info">
-
-                <h3>
-                    Butterfly Dream
-                </h3>
-
-                <p>
-                    Artistic butterfly composition.
-                </p>
-
-                <div class="price">
-                    EGP 280
-                </div>
-
-            </div>
+            <video controls>
+                <source src="./videos/theatre-2.mp4" type="video/mp4">
+            </video>
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
+    <!-- PHILOSOPHY -->
+    <section id="philosophy">
 
-<!-- ========================================================
-     CONTACT
-========================================================= -->
+        <h2>Philosophy</h2>
 
-<section
-    id="contact"
-    class="contact-section"
->
+        <div class="line"></div>
 
-    <div class="contact-grid">
+        <p class="text">
+            Philosophy, ideas, reflection and thoughts about life,
+            creativity and the human experience.
+        </p>
 
-        <div class="reveal">
+        <div class="gallery">
 
-            <div class="kicker">
-                06 — Connect
-            </div>
-
-            <h2 class="contact-title">
-
-                Let's<br>
-
-                <span>Work.</span>
-
-            </h2>
+            <img src="./images/philosophy-1.jpg" alt="Philosophy 1">
+            <img src="./images/philosophy-2.jpg" alt="Philosophy 2">
+            <img src="./images/philosophy-3.jpg" alt="Philosophy 3">
+            <img src="./images/philosophy-4.jpg" alt="Philosophy 4">
 
         </div>
 
+    </section>
 
-        <div class="contact-right reveal">
 
-            <div class="contact-item">
-
-                <small>
-                    Instagram
-                </small>
-
-                <a
-                    href="https://instagram.com/anas.ayman.19"
-                    target="_blank"
-                >
-                    @anas.ayman.19
-                </a>
-
-            </div>
-
-
-            <div class="contact-item">
-
-                <small>
-                    Email
-                </small>
-
-                <a
-                    href="mailto:your@email.com"
-                >
-                    your@email.com
-                </a>
-
-            </div>
-
-
-            <div class="contact-item">
-
-                <small>
-                    Available For
-                </small>
-
-                <a href="#contact">
-                    Acting • Collaborations • Creative Projects
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ========================================================
-     FOOTER
-========================================================= -->
-
-<footer>
-
-    <div>
-        © 2026 <strong>ANAS AYMAN</strong>
-    </div>
-
-    <div>
-        ACTOR • CREATIVE • STORYTELLER
-    </div>
-
-</footer>
-
-
-
-<!-- ========================================================
-     JAVASCRIPT
-========================================================= -->
-
-<script>
-
-/* =========================================================
-   NAVBAR
-========================================================= */
-
-const navbar = document.getElementById("navbar");
-
-window.addEventListener("scroll", () => {
-
-    if (window.scrollY > 80) {
-
-        navbar.classList.add("scrolled");
-
-    } else {
-
-        navbar.classList.remove("scrolled");
-
-    }
-
-});
-
-
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
-
-const reveals =
-    document.querySelectorAll(".reveal");
-
-const observer =
-    new IntersectionObserver(
-
-        entries => {
-
-            entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.classList.add("active");
-
-                    observer.unobserve(entry.target);
-
-                }
-
-            });
-
-        },
-
-        {
-            threshold: 0.12
-        }
-
-    );
-
-reveals.forEach(element => {
-
-    observer.observe(element);
-
-});
-
-
-/* =========================================================
-   CURSOR GLOW
-========================================================= */
-
-const glow =
-    document.getElementById("cursorGlow");
-
-document.addEventListener("mousemove", (event) => {
-
-    glow.style.left =
-        event.clientX + "px";
-
-    glow.style.top =
-        event.clientY + "px";
-
-});
-
-
-/* =========================================================
-   HERO PARALLAX
-========================================================= */
-
-const heroImage =
-    document.querySelector(".hero-visual img");
-
-document.addEventListener("mousemove", (event) => {
-
-    if (!heroImage) return;
-
-    const x =
-        (window.innerWidth / 2 - event.clientX) / 70;
-
-    const y =
-        (window.innerHeight / 2 - event.clientY) / 70;
-
-    heroImage.style.transform =
-        `translate(${x}px, ${y}px)`;
-
-});
-
-
-/* =========================================================
-   SMOOTH INTERNAL LINKS
-========================================================= */
-
-document.querySelectorAll('a[href^="#"]')
-.forEach(link => {
-
-    link.addEventListener("click", function(event) {
-
-        const target =
-            document.querySelector(
-                this.getAttribute("href")
-            );
-
-        if (target) {
-
-            event.preventDefault();
-
-            target.scrollIntoView({
-                behavior: "smooth"
-            });
-
-        }
-
-    });
-
-});
-
-
-/* =========================================================
-   PAGE LOAD
-========================================================= */
-
-window.addEventListener("load", () => {
-
-    document.body.classList.add("loaded");
-
-});
-
-</script>
-
+    <!-- FOOTER -->
+    <footer>
+        © 2026 Anas Ayman — All Rights Reserved.
+    </footer>
 
 </body>
 </html>
-```
