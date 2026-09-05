@@ -11,12 +11,6 @@ content="ANAS AYMAN BRAND — Acting, Marketing, Creativity, Technology and Phil
 
 <style>
 
-/* =========================================================
-   ANAS AYMAN BRAND
-   CINEMATIC ACTOR / CREATOR STYLE
-   BLACK + GREEN
-   ========================================================= */
-
 :root{
     --black:#030303;
     --black2:#080808;
@@ -50,14 +44,15 @@ a{
     text-decoration:none;
 }
 
+img{
+    max-width:100%;
+    display:block;
+}
+
 ::selection{
     background:var(--green);
     color:var(--black);
 }
-
-/* =========================================================
-   GLOBAL
-   ========================================================= */
 
 .container{
     width:min(1500px,92%);
@@ -96,10 +91,6 @@ section{
     color:var(--green);
 }
 
-.muted{
-    color:var(--gray);
-}
-
 .divider{
     width:100%;
     height:1px;
@@ -107,9 +98,10 @@ section{
     margin:45px 0;
 }
 
-/* =========================================================
+
+/* =====================================================
    NAVBAR
-   ========================================================= */
+   ===================================================== */
 
 .navbar{
     position:fixed;
@@ -158,9 +150,10 @@ section{
     color:var(--green);
 }
 
-/* =========================================================
+
+/* =====================================================
    HERO
-   ========================================================= */
+   ===================================================== */
 
 .hero{
     min-height:100vh;
@@ -168,8 +161,13 @@ section{
     align-items:center;
     padding-top:120px;
     overflow:hidden;
+
     background:
-        radial-gradient(circle at 75% 45%,rgba(0,255,102,.08),transparent 30%),
+        radial-gradient(
+            circle at 75% 45%,
+            rgba(0,255,102,.08),
+            transparent 30%
+        ),
         #030303;
 }
 
@@ -273,9 +271,10 @@ section{
     color:#000;
 }
 
-/* =========================================================
+
+/* =====================================================
    MARQUEE
-   ========================================================= */
+   ===================================================== */
 
 .marquee{
     border-top:1px solid var(--line);
@@ -307,14 +306,16 @@ section{
     from{
         transform:translateX(0);
     }
+
     to{
         transform:translateX(-50%);
     }
 }
 
-/* =========================================================
+
+/* =====================================================
    IDENTITY
-   ========================================================= */
+   ===================================================== */
 
 .identity{
     min-height:80vh;
@@ -336,11 +337,12 @@ section{
     font-weight:900;
 }
 
-.identity-text h3{
-    font-size:clamp(35px,5vw,80px);
-    line-height:.95;
+.identity-text h2{
+    font-size:clamp(50px,7vw,110px);
+    line-height:.85;
+    letter-spacing:-5px;
     text-transform:uppercase;
-    margin-bottom:30px;
+    margin:25px 0 35px;
 }
 
 .identity-text p{
@@ -351,9 +353,14 @@ section{
     margin-bottom:20px;
 }
 
-/* =========================================================
-   ACTOR SECTION
-   ========================================================= */
+.identity-text strong{
+    color:white;
+}
+
+
+/* =====================================================
+   ACTING
+   ===================================================== */
 
 .actor-section{
     background:#070707;
@@ -401,8 +408,13 @@ section{
     align-items:center;
     justify-content:center;
     overflow:hidden;
+
     background:
-        radial-gradient(circle at center,rgba(0,255,102,.15),transparent 30%),
+        radial-gradient(
+            circle at center,
+            rgba(0,255,102,.15),
+            transparent 30%
+        ),
         linear-gradient(135deg,#050505,#111);
 }
 
@@ -410,6 +422,7 @@ section{
     content:"";
     position:absolute;
     inset:0;
+
     background:
         repeating-linear-gradient(
             90deg,
@@ -423,13 +436,17 @@ section{
     height:100px;
     border-radius:50%;
     border:1px solid var(--green);
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     color:var(--green);
     font-size:30px;
+
     position:relative;
     z-index:2;
+
     transition:.3s;
 }
 
@@ -460,20 +477,23 @@ section{
     line-height:1.6;
 }
 
-/* =========================================================
+
+/* =====================================================
    O6U
-   ========================================================= */
+   ===================================================== */
 
 .o6u{
     margin-top:25px;
     border:1px solid var(--green);
     min-height:400px;
+
     display:grid;
     grid-template-columns:1fr 1fr;
 }
 
 .o6u-content{
     padding:55px;
+
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -496,9 +516,15 @@ section{
     display:flex;
     align-items:center;
     justify-content:center;
+
     background:
-        radial-gradient(circle,rgba(0,255,102,.22),transparent 35%),
+        radial-gradient(
+            circle,
+            rgba(0,255,102,.22),
+            transparent 35%
+        ),
         #050505;
+
     border-left:1px solid var(--green);
 }
 
@@ -509,9 +535,10 @@ section{
     letter-spacing:-5px;
 }
 
-/* =========================================================
+
+/* =====================================================
    MARKETING
-   ========================================================= */
+   ===================================================== */
 
 .marketing{
     background:#030303;
@@ -536,11 +563,14 @@ section{
     min-height:500px;
     border:1px solid var(--line);
     padding:30px;
+
     display:flex;
     flex-direction:column;
     justify-content:space-between;
+
     position:relative;
     overflow:hidden;
+
     background:#070707;
     transition:.4s;
 }
@@ -586,9 +616,10 @@ section{
     margin-top:30px;
 }
 
-/* =========================================================
+
+/* =====================================================
    PARTNERS
-   ========================================================= */
+   ===================================================== */
 
 .partners{
     background:#070707;
@@ -603,8 +634,11 @@ section{
     display:grid;
     grid-template-columns:80px 1fr 1fr;
     gap:30px;
+
     padding:35px 0;
+
     border-bottom:1px solid var(--line);
+
     align-items:center;
     transition:.3s;
 }
@@ -628,9 +662,10 @@ section{
     line-height:1.6;
 }
 
-/* =========================================================
+
+/* =====================================================
    PHILOSOPHY
-   ========================================================= */
+   ===================================================== */
 
 .philosophy{
     overflow:hidden;
@@ -647,109 +682,95 @@ section{
     line-height:1.8;
 }
 
+
+/* =====================================================
+   PHILOSOPHY IMAGE GALLERY
+   ===================================================== */
+
 .philosophy-visuals{
     display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:8px;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:10px;
+
     margin-top:80px;
 }
 
 .philo-card{
-    height:470px;
+    height:500px;
+
     border:1px solid var(--line);
+
     position:relative;
     overflow:hidden;
-    display:flex;
-    align-items:end;
-    padding:25px;
+
     background:#050505;
 }
 
-.philo-card::before{
-    content:"";
+.philo-card img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:
+        transform .7s ease,
+        filter .7s ease;
+}
+
+.philo-card:hover img{
+    transform:scale(1.08);
+    filter:brightness(1.15);
+}
+
+.philo-overlay{
     position:absolute;
-    inset:0;
-}
 
-/* waves */
+    left:0;
+    right:0;
+    bottom:0;
 
-.waves::before{
-    background:
-        repeating-radial-gradient(
-            ellipse at 50% 100%,
-            transparent 0 18px,
-            rgba(0,255,102,.16) 19px 21px
-        );
-}
+    padding:30px;
 
-/* tsunami */
-
-.tsunami::before{
     background:
         linear-gradient(
-            150deg,
-            transparent 25%,
-            rgba(0,255,102,.12) 26%,
-            rgba(0,255,102,.45) 45%,
-            transparent 62%
+            transparent,
+            rgba(0,0,0,.95)
         );
-    transform:scale(1.5);
-}
 
-/* lizard */
-
-.lizard::before{
-    background:
-        repeating-linear-gradient(
-            45deg,
-            rgba(0,255,102,.02) 0 12px,
-            rgba(0,255,102,.13) 13px 16px
-        );
-}
-
-/* sun */
-
-.sun::before{
-    background:
-        radial-gradient(
-            circle at 50% 40%,
-            rgba(0,255,102,.85),
-            rgba(0,255,102,.22) 15%,
-            transparent 43%
-        );
-}
-
-/* sea sunset */
-
-.sea::before{
-    background:
-        radial-gradient(
-            circle at 50% 38%,
-            rgba(0,255,102,.45),
-            transparent 18%
-        ),
-        repeating-linear-gradient(
-            175deg,
-            rgba(0,255,102,.12) 0 2px,
-            transparent 3px 28px
-        );
-}
-
-.philo-card h3{
-    position:relative;
     z-index:2;
-    font-size:30px;
-    text-transform:uppercase;
 }
 
-/* =========================================================
+.philo-overlay h3{
+    color:white;
+    font-size:27px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.philo-overlay span{
+    display:block;
+    margin-top:8px;
+
+    color:var(--green);
+
+    font-size:10px;
+    letter-spacing:3px;
+}
+
+
+/* =====================================================
    PHILOSOPHY TEXT
-   ========================================================= */
+   ===================================================== */
 
 .philosophy-text{
     margin-top:80px;
+
     display:grid;
     grid-template-columns:1fr 1fr;
+
     gap:80px;
 }
 
@@ -772,9 +793,10 @@ section{
     margin-bottom:20px;
 }
 
-/* =========================================================
-   BRAND PRINCIPLES
-   ========================================================= */
+
+/* =====================================================
+   PRINCIPLES
+   ===================================================== */
 
 .principles{
     display:grid;
@@ -784,7 +806,9 @@ section{
 
 .principle{
     padding:40px 25px;
+
     border-top:2px solid var(--green);
+
     background:#080808;
 }
 
@@ -798,9 +822,10 @@ section{
     margin-top:20px;
 }
 
-/* =========================================================
+
+/* =====================================================
    WORK
-   ========================================================= */
+   ===================================================== */
 
 .work{
     background:#070707;
@@ -808,15 +833,20 @@ section{
 
 .work-grid{
     margin-top:70px;
+
     display:grid;
     grid-template-columns:1.4fr .6fr;
+
     gap:15px;
 }
 
 .work-main{
     min-height:600px;
+
     border:1px solid var(--green);
+
     padding:50px;
+
     display:flex;
     flex-direction:column;
     justify-content:space-between;
@@ -855,9 +885,10 @@ section{
     margin-top:15px;
 }
 
-/* =========================================================
+
+/* =====================================================
    MINDSET
-   ========================================================= */
+   ===================================================== */
 
 .mindset{
     background:var(--green);
@@ -883,9 +914,10 @@ section{
     margin-top:40px;
 }
 
-/* =========================================================
+
+/* =====================================================
    INSTAPAY
-   ========================================================= */
+   ===================================================== */
 
 .support{
     background:#050505;
@@ -893,23 +925,34 @@ section{
 
 .support-box{
     border:1px solid var(--green);
+
     padding:70px;
+
     text-align:center;
+
     max-width:950px;
+
     margin:auto;
+
     position:relative;
     overflow:hidden;
 }
 
 .support-box::before{
     content:"";
+
     position:absolute;
+
     width:500px;
     height:500px;
+
     border-radius:50%;
+
     border:1px solid rgba(0,255,102,.07);
+
     left:50%;
     top:50%;
+
     transform:translate(-50%,-50%);
 }
 
@@ -922,32 +965,52 @@ section{
     font-size:clamp(50px,8vw,100px);
     line-height:.8;
     text-transform:uppercase;
+    margin-top:25px;
 }
 
 .support-box p{
     max-width:650px;
     margin:30px auto;
+
     color:#888;
     line-height:1.8;
 }
 
 .instapay-label{
     color:var(--green);
+
     font-size:11px;
+
     letter-spacing:4px;
+
     margin-top:40px;
 }
 
 .instapay-number{
     margin:20px auto;
+
     display:inline-block;
+
     font-size:clamp(28px,5vw,60px);
+
     font-weight:900;
+
     letter-spacing:3px;
+
     color:white;
+
     border:1px solid var(--line);
+
     padding:20px 30px;
+
     cursor:pointer;
+
+    transition:.3s;
+}
+
+.instapay-number:hover{
+    border-color:var(--green);
+    color:var(--green);
 }
 
 .copy-note{
@@ -956,9 +1019,10 @@ section{
     letter-spacing:2px;
 }
 
-/* =========================================================
+
+/* =====================================================
    CONTACT
-   ========================================================= */
+   ===================================================== */
 
 .contact{
     text-align:center;
@@ -978,6 +1042,7 @@ section{
 .contact p{
     max-width:650px;
     margin:45px auto;
+
     color:#777;
     line-height:1.8;
 }
@@ -991,10 +1056,14 @@ section{
 
 .social{
     border:1px solid var(--line);
+
     padding:17px 28px;
+
     color:var(--green);
+
     font-size:10px;
     letter-spacing:3px;
+
     transition:.3s;
 }
 
@@ -1003,9 +1072,10 @@ section{
     color:#000;
 }
 
-/* =========================================================
+
+/* =====================================================
    FOOTER
-   ========================================================= */
+   ===================================================== */
 
 footer{
     border-top:1px solid var(--line);
@@ -1015,14 +1085,17 @@ footer{
 .footer{
     display:flex;
     justify-content:space-between;
+
     color:#444;
+
     font-size:10px;
     letter-spacing:3px;
 }
 
-/* =========================================================
+
+/* =====================================================
    RESPONSIVE
-   ========================================================= */
+   ===================================================== */
 
 @media(max-width:1000px){
 
@@ -1071,7 +1144,9 @@ footer{
     .partner-row p{
         grid-column:2;
     }
+
 }
+
 
 @media(max-width:600px){
 
@@ -1122,7 +1197,7 @@ footer{
     }
 
     .philo-card{
-        height:330px;
+        height:400px;
     }
 
     .philosophy-text{
@@ -1156,6 +1231,7 @@ footer{
 </style>
 </head>
 
+
 <body>
 
 
@@ -1174,11 +1250,17 @@ footer{
         <ul class="nav-links">
 
             <li><a href="#acting">ACTING</a></li>
+
             <li><a href="#marketing">MARKETING</a></li>
+
             <li><a href="#partners">PARTNERS</a></li>
+
             <li><a href="#philosophy">PHILOSOPHY</a></li>
+
             <li><a href="#work">WORK</a></li>
+
             <li><a href="#support">SUPPORT</a></li>
+
             <li><a href="#contact">CONTACT</a></li>
 
         </ul>
@@ -1269,19 +1351,32 @@ footer{
     <div class="marquee-track">
 
         <span class="green">ANAS AYMAN BRAND</span>
+
         <span>ACTING</span>
+
         <span class="green">MARKETING</span>
+
         <span>CREATIVITY</span>
+
         <span class="green">PHILOSOPHY</span>
+
         <span>O6U</span>
+
         <span class="green">AMBITION</span>
 
+
         <span class="green">ANAS AYMAN BRAND</span>
+
         <span>ACTING</span>
+
         <span class="green">MARKETING</span>
+
         <span>CREATIVITY</span>
+
         <span class="green">PHILOSOPHY</span>
+
         <span>O6U</span>
+
         <span class="green">AMBITION</span>
 
     </div>
@@ -1308,8 +1403,13 @@ footer{
             </div>
 
             <h2>
+
                 NOT JUST<br>
-                <span class="green">A WEBSITE.</span>
+
+                <span class="green">
+                    A WEBSITE.
+                </span>
+
             </h2>
 
             <p>
@@ -1354,8 +1454,13 @@ footer{
                 </div>
 
                 <h2 class="section-heading">
+
                     THE<br>
-                    <span>ACTOR.</span>
+
+                    <span>
+                        ACTOR.
+                    </span>
+
                 </h2>
 
             </div>
@@ -1370,6 +1475,7 @@ footer{
 
 
         <div class="video-grid">
+
 
             <div class="video-card large">
 
@@ -1401,6 +1507,7 @@ footer{
 
 
             <div>
+
 
                 <div class="video-card small">
 
@@ -1519,7 +1626,10 @@ footer{
         <h2 class="section-heading">
 
             YOUR<br>
-            <span>WORK.</span>
+
+            <span>
+                WORK.
+            </span>
 
         </h2>
 
@@ -1533,6 +1643,7 @@ footer{
 
 
         <div class="marketing-grid">
+
 
             <div class="marketing-card">
 
@@ -1638,12 +1749,16 @@ footer{
         <h2 class="section-heading">
 
             THE<br>
-            <span>PEOPLE.</span>
+
+            <span>
+                PEOPLE.
+            </span>
 
         </h2>
 
 
         <div class="partner-list">
+
 
             <div class="partner-row">
 
@@ -1736,7 +1851,10 @@ footer{
         <h2 class="section-heading">
 
             THE<br>
-            <span>SEA.</span>
+
+            <span>
+                SEA.
+            </span>
 
         </h2>
 
@@ -1749,41 +1867,129 @@ footer{
             </p>
 
             <p style="margin-top:25px;">
+
                 We keep swimming toward perfection,
                 knowing that death is ultimately the ending
                 of life — while absolute perfection belongs
                 only to the Creator.
+
             </p>
 
         </div>
 
 
+        <!-- =================================================
+             YOUR FOUR PHILOSOPHY IMAGES
+             ================================================= -->
+
         <div class="philosophy-visuals">
 
-            <div class="philo-card waves">
-                <h3>Waves</h3>
+
+            <!-- IMAGE 1 -->
+
+            <div class="philo-card">
+
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT51JOSY4zomCCOatsn1L0Wgd_tnUNkgV3o0gnJw7GduA&s=10"
+                    alt="Philosophy image 1"
+                >
+
+                <div class="philo-overlay">
+
+                    <h3>
+                        THE SEA
+                    </h3>
+
+                    <span>
+                        LIFE / DEPTH
+                    </span>
+
+                </div>
+
             </div>
 
-            <div class="philo-card tsunami">
-                <h3>Tsunami</h3>
+
+            <!-- IMAGE 2 -->
+
+            <div class="philo-card">
+
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRabe5Lk4jcqx7VB6lTxZfBCAigWAQrggu-pjtszgyLg&s=10"
+                    alt="Philosophy image 2"
+                >
+
+                <div class="philo-overlay">
+
+                    <h3>
+                        THE WAVES
+                    </h3>
+
+                    <span>
+                        POWER / MOVEMENT
+                    </span>
+
+                </div>
+
             </div>
 
-            <div class="philo-card lizard">
-                <h3>Lizard</h3>
+
+            <!-- IMAGE 3 -->
+
+            <div class="philo-card">
+
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA9r7SxFlXD51FuZEwCgLCwYQK97uUrkhKDrQMN-LTRw&s=10"
+                    alt="Philosophy image 3"
+                >
+
+                <div class="philo-overlay">
+
+                    <h3>
+                        ADAPTATION
+                    </h3>
+
+                    <span>
+                        LIZARD / SURVIVAL
+                    </span>
+
+                </div>
+
             </div>
 
-            <div class="philo-card sun">
-                <h3>Sun</h3>
+
+            <!-- IMAGE 4 -->
+
+            <div class="philo-card">
+
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR0ResjUoOkHt8gZY49EovYtNZr27sIni_1Elkta3FhA&s"
+                    alt="Philosophy image 4"
+                >
+
+                <div class="philo-overlay">
+
+                    <h3>
+                        THE SUN
+                    </h3>
+
+                    <span>
+                        PERFECTION / DESTINATION
+                    </span>
+
+                </div>
+
             </div>
 
-            <div class="philo-card sea">
-                <h3>Sea</h3>
-            </div>
 
         </div>
 
 
+        <!-- =================================================
+             PHILOSOPHY TEXT
+             ================================================= -->
+
         <div class="philosophy-text">
+
 
             <div class="philosophy-column">
 
@@ -1881,7 +2087,10 @@ footer{
         <h2 class="section-heading">
 
             FOUR<br>
-            <span>WORDS.</span>
+
+            <span>
+                WORDS.
+            </span>
 
         </h2>
 
@@ -1890,6 +2099,7 @@ footer{
 
 
         <div class="principles">
+
 
             <div class="principle">
 
@@ -1968,12 +2178,16 @@ footer{
         <h2 class="section-heading">
 
             BUILD<br>
-            <span>MORE.</span>
+
+            <span>
+                MORE.
+            </span>
 
         </h2>
 
 
         <div class="work-grid">
+
 
             <div class="work-main">
 
@@ -1984,17 +2198,21 @@ footer{
                     </div>
 
                     <h3>
+
                         Student<br>
                         Management<br>
                         System
+
                     </h3>
 
                 </div>
 
                 <p>
+
                     A C++ project using programming fundamentals,
                     file handling and structured logic to manage
                     student records.
+
                 </p>
 
                 <a href="#" class="btn">
@@ -2005,6 +2223,7 @@ footer{
 
 
             <div class="work-side">
+
 
                 <div class="work-small">
 
@@ -2068,14 +2287,18 @@ footer{
         </div>
 
         <h2>
+
             I DON'T<br>
             WANT TO<br>
             WIN ONCE.
+
         </h2>
 
         <p>
+
             I want to become someone capable of winning again.
             Discipline. Resilience. Ambition. Adaptation.
+
         </p>
 
     </div>
@@ -2084,7 +2307,7 @@ footer{
 
 
 <!-- =====================================================
-     INSTAPAY / SUPPORT
+     INSTAPAY
      ===================================================== -->
 
 <section class="section support" id="support">
@@ -2098,14 +2321,21 @@ footer{
             </div>
 
             <h2>
+
                 SUPPORT<br>
-                <span class="green">ANAS.</span>
+
+                <span class="green">
+                    ANAS.
+                </span>
+
             </h2>
 
             <p>
+
                 If you want to support the development of
                 ANAS AYMAN BRAND and future creative projects,
                 you can use InstaPay.
+
             </p>
 
 
@@ -2119,12 +2349,19 @@ footer{
                 id="instapayNumber"
                 onclick="copyInstapay()"
             >
+
                 01080128925
+
             </div>
 
 
-            <div class="copy-note" id="copyNote">
+            <div
+                class="copy-note"
+                id="copyNote"
+            >
+
                 CLICK THE NUMBER TO COPY
+
             </div>
 
         </div>
@@ -2147,11 +2384,17 @@ footer{
         </div>
 
         <h2>
+
             ANAS<br>
-            <span>AYMAN.</span>
+
+            <span>
+                AYMAN.
+            </span>
+
         </h2>
 
         <p>
+
             Acting collaborations.
             Creative partnerships.
             Marketing.
@@ -2159,6 +2402,7 @@ footer{
             Fashion.
             Technology.
             Future productions.
+
         </p>
 
 
@@ -2218,19 +2462,20 @@ function copyInstapay(){
 
     const number = "01080128925";
 
-    navigator.clipboard.writeText(number).then(function(){
-
-        document.getElementById("copyNote").innerText =
-            "COPIED TO CLIPBOARD ✓";
-
-        setTimeout(function(){
+    navigator.clipboard.writeText(number)
+        .then(function(){
 
             document.getElementById("copyNote").innerText =
-                "CLICK THE NUMBER TO COPY";
+                "COPIED TO CLIPBOARD ✓";
 
-        },2000);
+            setTimeout(function(){
 
-    });
+                document.getElementById("copyNote").innerText =
+                    "CLICK THE NUMBER TO COPY";
+
+            },2000);
+
+        });
 
 }
 
