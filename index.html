@@ -2,28 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ANAS AYMAN — Brand</title>
-
     <meta name="description"
-        content="Anas Ayman — Actor, Creative, Marketer and Founder of a personal global brand.">
+        content="Anas Ayman — Acting, University Theatre, Fashion, Creative Direction and Brand Collaboration.">
+
+    <meta name="theme-color" content="#050505">
+
+    <title>ANAS AYMAN — ACTING & CREATIVE</title>
 
     <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        :root {
-            --black: #050505;
-            --black-2: #0b0b0b;
-            --green: #00ff66;
-            --green-dark: #073d20;
-            --white: #f5f5f5;
-            --gray: #999;
-            --line: rgba(255,255,255,0.10);
         }
 
         html {
@@ -31,10 +29,16 @@
         }
 
         body {
-            background: var(--black);
-            color: var(--white);
+            background: #050505;
+            color: #f4f4f4;
             font-family: Arial, Helvetica, sans-serif;
             overflow-x: hidden;
+            line-height: 1.5;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
         }
 
         a {
@@ -46,81 +50,71 @@
             font-family: inherit;
         }
 
-        /* =========================
-           NAVIGATION
-        ========================= */
 
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 78px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 6%;
-            z-index: 1000;
-            background: rgba(5,5,5,0.82);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--line);
+        /* =====================================================
+           VARIABLES
+        ===================================================== */
+
+        :root {
+            --black: #050505;
+            --black-soft: #0a0a0a;
+            --black-card: #0d0d0d;
+
+            --green: #00ff66;
+            --green-soft: rgba(0, 255, 102, 0.12);
+
+            --white: #f4f4f4;
+            --gray: #999;
+            --gray-dark: #5f5f5f;
+
+            --border: rgba(255,255,255,0.10);
+
+            --max-width: 1400px;
         }
 
-        .logo {
-            font-size: 21px;
-            font-weight: 900;
-            letter-spacing: 5px;
-        }
 
-        .logo span {
-            color: var(--green);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: #aaa;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--green);
-        }
-
-        /* =========================
-           GLOBAL UTILITIES
-        ========================= */
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
 
         .container {
-            width: 88%;
-            max-width: 1400px;
-            margin: auto;
+            width: min(90%, var(--max-width));
+            margin: 0 auto;
         }
 
         section {
-            padding: 150px 0;
-            border-bottom: 1px solid var(--line);
+            position: relative;
+            padding: 120px 0;
+            border-bottom: 1px solid var(--border);
         }
 
         .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
             color: var(--green);
+
             font-size: 11px;
             font-weight: 800;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
             margin-bottom: 25px;
         }
 
+        .eyebrow::before {
+            content: "";
+            width: 35px;
+            height: 1px;
+            background: var(--green);
+        }
+
         .section-title {
-            font-size: clamp(45px, 8vw, 110px);
-            line-height: 0.9;
-            letter-spacing: -5px;
+            font-size: clamp(48px, 7vw, 100px);
+            line-height: 0.95;
+            letter-spacing: -4px;
             font-weight: 900;
             text-transform: uppercase;
         }
@@ -129,709 +123,1199 @@
             color: var(--green);
         }
 
-        .description {
+        .section-description {
             max-width: 650px;
-            color: #aaa;
+
+            margin-top: 30px;
+
+            color: var(--gray);
+
             font-size: 17px;
             line-height: 1.8;
-            margin-top: 35px;
         }
 
-        /* =========================
+
+        /* =====================================================
+           NAVIGATION
+        ===================================================== */
+
+        .navbar {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 76px;
+
+            z-index: 999;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 5%;
+
+            background: rgba(5,5,5,0.88);
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-size: 19px;
+            font-weight: 900;
+
+            letter-spacing: 4px;
+        }
+
+        .logo span {
+            color: var(--green);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #999;
+
+            font-size: 10px;
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--green);
+        }
+
+
+        /* =====================================================
+           BUTTONS
+        ===================================================== */
+
+        .button {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            min-height: 50px;
+
+            padding: 0 26px;
+
+            border: 1px solid var(--green);
+
+            color: var(--green);
+
+            font-size: 10px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            transition: 0.3s ease;
+        }
+
+        .button:hover {
+            background: var(--green);
+            color: #000;
+
+            transform: translateY(-2px);
+        }
+
+        .button-solid {
+            background: var(--green);
+            color: #000;
+        }
+
+        .button-solid:hover {
+            background: #fff;
+            border-color: #fff;
+        }
+
+
+        /* =====================================================
            HERO
-        ========================= */
+        ===================================================== */
 
         .hero {
             min-height: 100vh;
+
             display: flex;
-            align-items: flex-end;
-            padding: 150px 0 80px;
-            position: relative;
+            align-items: center;
+
+            padding: 150px 0 100px;
+
             overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 80% 35%,
+                    rgba(0,255,102,0.13),
+                    transparent 28%
+                ),
+                linear-gradient(
+                    120deg,
+                    #050505 0%,
+                    #050505 65%,
+                    #08150d 100%
+                );
         }
 
         .hero::before {
             content: "";
+
             position: absolute;
-            width: 650px;
-            height: 650px;
+
+            width: 700px;
+            height: 700px;
+
+            right: -350px;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            border: 1px solid rgba(0,255,102,0.08);
+
             border-radius: 50%;
-            right: -250px;
-            top: 100px;
-            background: radial-gradient(
-                circle,
-                rgba(0,255,102,0.16),
-                transparent 68%
-            );
-            filter: blur(20px);
         }
 
         .hero::after {
-            content: "AA";
+            content: "";
+
             position: absolute;
-            right: 4%;
-            bottom: -90px;
-            font-size: clamp(250px, 35vw, 600px);
-            font-weight: 900;
-            color: rgba(0,255,102,0.035);
-            line-height: 1;
-            pointer-events: none;
+
+            width: 500px;
+            height: 500px;
+
+            right: -250px;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            border: 1px solid rgba(0,255,102,0.05);
+
+            border-radius: 50%;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
+
+            max-width: 1100px;
         }
 
-        .hero-small {
-            font-size: 12px;
-            letter-spacing: 5px;
+        .welcome {
             color: var(--green);
+
+            font-size: 11px;
             font-weight: 800;
-            margin-bottom: 30px;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 25px;
+
+            text-transform: uppercase;
         }
 
         .hero h1 {
-            font-size: clamp(70px, 14vw, 220px);
-            line-height: 0.78;
-            letter-spacing: -11px;
+            max-width: 1050px;
+
+            font-size: clamp(58px, 10vw, 145px);
+
+            line-height: 0.86;
+
+            letter-spacing: -7px;
+
             font-weight: 900;
+
             text-transform: uppercase;
-            max-width: 1200px;
         }
 
         .hero h1 span {
-            display: block;
             color: transparent;
-            -webkit-text-stroke: 1px #555;
+
+            -webkit-text-stroke: 1px #666;
+        }
+
+        .hero-message {
+            max-width: 600px;
+
+            margin-top: 45px;
+
+            color: #aaa;
+
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .hero-message strong {
+            color: #fff;
+        }
+
+        .hero-actions {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin-top: 35px;
         }
 
         .hero-bottom {
+            position: absolute;
+
+            bottom: 35px;
+            left: 5%;
+
+            right: 5%;
+
             display: flex;
             justify-content: space-between;
-            align-items: flex-end;
-            margin-top: 80px;
-            gap: 40px;
-        }
 
-        .hero-tagline {
-            max-width: 500px;
-            font-size: 18px;
-            line-height: 1.7;
-            color: #aaa;
-        }
+            color: #555;
 
-        .hero-tagline strong {
-            color: white;
-        }
+            font-size: 9px;
+            font-weight: 700;
 
-        .hero-number {
-            font-size: 11px;
             letter-spacing: 3px;
-            color: #666;
+
+            text-transform: uppercase;
         }
 
-        /* =========================
-           BUTTONS
-        ========================= */
 
-        .button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 35px;
-            padding: 18px 30px;
-            border: 1px solid var(--green);
-            color: var(--green);
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            transition: 0.3s;
-        }
+        /* =====================================================
+           INTRO
+        ===================================================== */
 
-        .button:hover {
-            background: var(--green);
-            color: black;
-            transform: translateY(-3px);
-        }
-
-        .button-solid {
-            background: var(--green);
-            color: black;
-        }
-
-        .button-solid:hover {
-            background: white;
-            border-color: white;
-        }
-
-        /* =========================
-           IDENTITY
-        ========================= */
-
-        .identity-grid {
+        .intro-grid {
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
+
+            grid-template-columns: 0.8fr 1.2fr;
+
             gap: 100px;
-            margin-top: 80px;
+
+            margin-top: 70px;
         }
 
-        .identity-number {
-            font-size: 140px;
+        .intro-number {
+            font-size: 150px;
+
             font-weight: 900;
-            line-height: 0.8;
+
+            line-height: 0.75;
+
             color: var(--green);
         }
 
-        .identity-text {
+        .intro-text {
+            max-width: 720px;
+
             font-size: 28px;
+
             line-height: 1.45;
+
             font-weight: 600;
         }
 
-        .identity-text span {
+        .intro-text span {
             color: var(--green);
         }
 
-        /* =========================
-           STAT BAR
-        ========================= */
 
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            border-top: 1px solid var(--line);
-            border-bottom: 1px solid var(--line);
-        }
-
-        .stat {
-            padding: 45px 25px;
-            border-right: 1px solid var(--line);
-        }
-
-        .stat:last-child {
-            border-right: none;
-        }
-
-        .stat-number {
-            font-size: 48px;
-            font-weight: 900;
-        }
-
-        .stat-label {
-            margin-top: 8px;
-            color: #777;
-            font-size: 10px;
-            letter-spacing: 2px;
-            font-weight: 700;
-        }
-
-        /* =========================
+        /* =====================================================
            ACTING
-        ========================= */
+        ===================================================== */
+
+        .acting {
+            background: #070707;
+        }
 
         .acting-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            gap: 50px;
-        }
-
-        .acting-header p {
-            max-width: 400px;
-            color: #888;
-            line-height: 1.7;
-        }
-
-        .reel-grid {
             display: grid;
+
+            grid-template-columns: 1fr 0.7fr;
+
+            gap: 80px;
+
+            align-items: end;
+        }
+
+        .acting-header-text {
+            color: #888;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+        }
+
+        .reels {
+            display: grid;
+
             grid-template-columns: repeat(3, 1fr);
+
             gap: 2px;
-            margin-top: 80px;
+
+            margin-top: 70px;
         }
 
         .reel {
-            height: 480px;
+            min-height: 480px;
+
+            position: relative;
+
+            overflow: hidden;
+
             background:
+                radial-gradient(
+                    circle at 50% 45%,
+                    rgba(0,255,102,0.12),
+                    transparent 30%
+                ),
                 linear-gradient(
                     145deg,
-                    #111 0%,
-                    #071d12 50%,
-                    #050505 100%
+                    #111,
+                    #07140d
                 );
-            position: relative;
-            overflow: hidden;
-            border: 1px solid #151515;
+
+            border: 1px solid #181818;
+
+            transition: 0.4s ease;
+        }
+
+        .reel:hover {
+            border-color: rgba(0,255,102,0.4);
+
+            transform: translateY(-7px);
         }
 
         .reel::before {
             content: "";
+
             position: absolute;
+
             inset: 25px;
-            border: 1px solid rgba(0,255,102,0.15);
+
+            border: 1px solid rgba(255,255,255,0.08);
         }
 
         .reel-number {
             position: absolute;
-            top: 35px;
-            left: 35px;
-            font-size: 11px;
+
+            top: 38px;
+            left: 38px;
+
             color: var(--green);
+
+            font-size: 10px;
+
             letter-spacing: 3px;
         }
 
-        .play {
+        .play-button {
             position: absolute;
+
             top: 50%;
             left: 50%;
+
             transform: translate(-50%, -50%);
-            width: 75px;
-            height: 75px;
-            border: 1px solid var(--green);
-            border-radius: 50%;
+
+            width: 76px;
+            height: 76px;
+
             display: flex;
+
             align-items: center;
             justify-content: center;
+
+            border: 1px solid var(--green);
+
+            border-radius: 50%;
+
             color: var(--green);
-            font-size: 20px;
+
+            font-size: 19px;
+
+            transition: 0.3s;
         }
 
-        .reel-info {
+        .reel:hover .play-button {
+            background: var(--green);
+
+            color: #000;
+        }
+
+        .reel-content {
             position: absolute;
-            left: 35px;
-            bottom: 35px;
+
+            left: 38px;
+            right: 38px;
+            bottom: 38px;
         }
 
-        .reel-info h3 {
+        .reel-content h3 {
             font-size: 25px;
+
+            line-height: 1.1;
+
             text-transform: uppercase;
         }
 
-        .reel-info p {
-            color: #777;
-            font-size: 11px;
+        .reel-content p {
+            margin-top: 10px;
+
+            color: #666;
+
+            font-size: 9px;
+
             letter-spacing: 2px;
-            margin-top: 8px;
+
+            text-transform: uppercase;
         }
 
-        /* =========================
-           O6U
-        ========================= */
 
-        .o6u {
-            background: #070707;
-        }
+        /* =====================================================
+           THEATRE
+        ===================================================== */
 
-        .o6u-layout {
+        .theatre-layout {
             display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 100px;
-            align-items: center;
+
+            grid-template-columns: 1.15fr 0.85fr;
+
+            gap: 80px;
+
             margin-top: 80px;
+
+            align-items: center;
         }
 
-        .o6u-box {
-            min-height: 420px;
-            border: 1px solid #222;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .stage {
+            min-height: 540px;
+
             position: relative;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    ellipse at 50% 25%,
+                    rgba(0,255,102,0.16),
+                    transparent 38%
+                ),
+                linear-gradient(
+                    180deg,
+                    #101010,
+                    #050505
+                );
+
+            border: 1px solid #1b1b1b;
+        }
+
+        .stage::before {
+            content: "";
+
+            position: absolute;
+
+            left: 15%;
+            right: 15%;
+
+            bottom: 0;
+
+            height: 65%;
+
             background:
                 linear-gradient(
-                    135deg,
-                    #080808,
-                    #0b2516
+                    90deg,
+                    transparent,
+                    rgba(0,255,102,0.08),
+                    transparent
                 );
+
+            border-left: 1px solid rgba(0,255,102,0.15);
+            border-right: 1px solid rgba(0,255,102,0.15);
+
+            transform: perspective(500px) rotateX(18deg);
+
+            transform-origin: bottom;
         }
 
-        .o6u-box::after {
-            content: "O6U";
-            font-size: 150px;
-            font-weight: 900;
-            color: rgba(0,255,102,0.08);
+        .stage-light {
+            position: absolute;
+
+            top: -120px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            width: 230px;
+            height: 500px;
+
+            background: linear-gradient(
+                180deg,
+                rgba(0,255,102,0.12),
+                transparent
+            );
+
+            clip-path: polygon(
+                35% 0,
+                65% 0,
+                100% 100%,
+                0 100%
+            );
         }
 
-        .o6u-content h3 {
-            font-size: 45px;
-            text-transform: uppercase;
-            margin-bottom: 25px;
+        .stage-label {
+            position: absolute;
+
+            left: 40px;
+            bottom: 40px;
+
+            z-index: 3;
         }
 
-        .o6u-content p {
-            color: #888;
-            line-height: 1.8;
-        }
+        .stage-label small {
+            display: block;
 
-        /* =========================
-           MARKETING
-        ========================= */
-
-        .marketing-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2px;
-            margin-top: 80px;
-        }
-
-        .marketing-card {
-            min-height: 380px;
-            padding: 45px;
-            border: 1px solid #161616;
-            position: relative;
-            background: #080808;
-            transition: 0.4s;
-        }
-
-        .marketing-card:hover {
-            background: #0b1a11;
-            transform: translateY(-8px);
-            border-color: rgba(0,255,102,0.4);
-        }
-
-        .marketing-icon {
-            font-size: 45px;
             color: var(--green);
-            font-weight: 900;
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 10px;
         }
 
-        .marketing-card h3 {
-            position: absolute;
-            bottom: 75px;
-            left: 45px;
-            font-size: 30px;
+        .stage-label h3 {
+            font-size: 42px;
+
             text-transform: uppercase;
         }
 
-        .marketing-card p {
-            position: absolute;
-            bottom: 35px;
-            left: 45px;
-            color: #666;
+        .theatre-text h3 {
+            font-size: 42px;
+
+            line-height: 1.05;
+
+            text-transform: uppercase;
+        }
+
+        .theatre-text p {
+            margin-top: 25px;
+
+            color: #888;
+
+            line-height: 1.8;
+
+            font-size: 16px;
+        }
+
+        .scene-list {
+            margin-top: 35px;
+
+            border-top: 1px solid var(--border);
+        }
+
+        .scene {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 0;
+
+            border-bottom: 1px solid var(--border);
+
             font-size: 11px;
+
             letter-spacing: 1px;
         }
 
-        /* =========================
-           PARTNERS
-        ========================= */
-
-        .partners {
-            text-align: center;
-        }
-
-        .partner-list {
-            margin-top: 80px;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            border-top: 1px solid var(--line);
-            border-left: 1px solid var(--line);
-        }
-
-        .partner {
-            min-height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-right: 1px solid var(--line);
-            border-bottom: 1px solid var(--line);
-            font-size: 16px;
-            letter-spacing: 3px;
-            color: #666;
-            font-weight: 800;
-            transition: 0.3s;
-        }
-
-        .partner:hover {
-            color: var(--green);
-            background: #08120c;
-        }
-
-        /* =========================
-           PHILOSOPHY
-        ========================= */
-
-        .philosophy {
-            background:
-                radial-gradient(
-                    circle at 50% 50%,
-                    rgba(0,255,102,0.06),
-                    transparent 45%
-                ),
-                #050505;
-        }
-
-        .philosophy-intro {
-            max-width: 900px;
-            margin-top: 60px;
-            font-size: clamp(25px, 4vw, 55px);
-            line-height: 1.2;
-            font-weight: 700;
-            letter-spacing: -2px;
-        }
-
-        .philosophy-intro span {
-            color: var(--green);
-        }
-
-        .philosophy-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2px;
-            margin-top: 100px;
-        }
-
-        .philosophy-card {
-            min-height: 300px;
-            padding: 35px;
-            background: #080808;
-            border: 1px solid #151515;
-            position: relative;
-        }
-
-        .philosophy-card .symbol {
-            font-size: 55px;
-            font-weight: 900;
-            color: var(--green);
-        }
-
-        .philosophy-card h3 {
-            position: absolute;
-            bottom: 60px;
-            font-size: 22px;
-            letter-spacing: 2px;
-        }
-
-        .philosophy-card p {
-            position: absolute;
-            bottom: 30px;
-            color: #666;
-            font-size: 10px;
-            letter-spacing: 2px;
-        }
-
-        .philosophy-text {
-            max-width: 950px;
-            margin-top: 100px;
+        .scene span:first-child {
             color: #aaa;
-            font-size: 18px;
-            line-height: 2;
         }
 
-        .philosophy-text strong {
-            color: white;
-        }
-
-        /* =========================
-           PRINCIPLES
-        ========================= */
-
-        .principles {
-            margin-top: 90px;
-            border-top: 1px solid var(--line);
-        }
-
-        .principle {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 35px 0;
-            border-bottom: 1px solid var(--line);
-        }
-
-        .principle-number {
+        .scene span:last-child {
             color: var(--green);
-            font-size: 11px;
-            letter-spacing: 3px;
         }
 
-        .principle h3 {
-            font-size: clamp(30px, 5vw, 65px);
+
+        /* =====================================================
+           O6U
+        ===================================================== */
+
+        .o6u {
+            background: #080808;
+        }
+
+        .o6u-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 70px;
+
+            margin-top: 75px;
+
+            align-items: center;
+        }
+
+        .o6u-image {
+            width: 100%;
+
+            aspect-ratio: 16 / 10;
+
+            object-fit: cover;
+
+            border: 1px solid #222;
+
+            filter: saturate(0.85);
+
+            transition: 0.4s ease;
+        }
+
+        .o6u-image:hover {
+            filter: saturate(1);
+        }
+
+        .o6u-content h3 {
+            font-size: 50px;
+
+            line-height: 0.95;
+
             text-transform: uppercase;
         }
 
-        /* =========================
-           WORK
-        ========================= */
+        .o6u-content h3 span {
+            color: var(--green);
+        }
 
-        .work-card {
-            margin-top: 80px;
-            padding: 55px;
+        .o6u-content p {
+            margin-top: 25px;
+
+            color: #888;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+        }
+
+        .o6u-tag {
+            display: inline-block;
+
+            margin-top: 30px;
+
+            padding: 10px 14px;
+
             border: 1px solid #222;
+
+            color: var(--green);
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+        }
+
+
+        /* =====================================================
+           CREATIVE WORK
+        ===================================================== */
+
+        .creative-intro {
+            display: grid;
+
+            grid-template-columns: 1fr 0.7fr;
+
+            gap: 80px;
+
+            align-items: end;
+        }
+
+        .creative-intro p {
+            color: #888;
+
+            line-height: 1.8;
+        }
+
+        .creative-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 2px;
+
+            margin-top: 70px;
+        }
+
+        .creative-card {
+            min-height: 430px;
+
+            position: relative;
+
+            padding: 45px;
+
+            overflow: hidden;
+
+            background: #090909;
+
+            border: 1px solid #161616;
+
+            transition: 0.4s ease;
+        }
+
+        .creative-card:hover {
+            background: #0a160f;
+
+            border-color: rgba(0,255,102,0.35);
+        }
+
+        .creative-card::after {
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+            height: 300px;
+
+            right: -150px;
+            bottom: -150px;
+
+            border: 1px solid rgba(0,255,102,0.08);
+
+            border-radius: 50%;
+        }
+
+        .creative-number {
+            color: var(--green);
+
+            font-size: 11px;
+
+            letter-spacing: 3px;
+        }
+
+        .creative-symbol {
+            margin-top: 45px;
+
+            color: var(--green);
+
+            font-size: 70px;
+
+            font-weight: 900;
+        }
+
+        .creative-card h3 {
+            position: absolute;
+
+            left: 45px;
+            bottom: 75px;
+
+            font-size: 34px;
+
+            line-height: 1;
+
+            text-transform: uppercase;
+        }
+
+        .creative-card p {
+            position: absolute;
+
+            left: 45px;
+            bottom: 40px;
+
+            color: #666;
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+        }
+
+
+        /* =====================================================
+           FASHION
+        ===================================================== */
+
+        .fashion {
             background:
                 linear-gradient(
                     120deg,
-                    #080808,
-                    #0a1c11
+                    #050505,
+                    #07120c
                 );
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 40px;
         }
 
-        .work-card h3 {
-            font-size: clamp(30px, 5vw, 65px);
-            text-transform: uppercase;
+        .fashion-header {
+            display: grid;
+
+            grid-template-columns: 1fr 0.8fr;
+
+            gap: 80px;
+
+            align-items: end;
         }
 
-        .work-card p {
-            color: #777;
-            margin-top: 12px;
+        .fashion-header p {
+            color: #888;
+
+            font-size: 16px;
+
+            line-height: 1.8;
         }
 
-        /* =========================
-           MINDSET
-        ========================= */
+        .fashion-grid {
+            display: grid;
 
-        .mindset {
-            text-align: center;
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 2px;
+
+            margin-top: 70px;
         }
 
-        .quote {
-            max-width: 1000px;
-            margin: 80px auto 0;
-            font-size: clamp(35px, 6vw, 85px);
-            line-height: 1;
-            letter-spacing: -4px;
-            font-weight: 900;
-            text-transform: uppercase;
+        .fashion-card {
+            min-height: 360px;
+
+            padding: 35px;
+
+            position: relative;
+
+            border: 1px solid #1a1a1a;
+
+            background: #080808;
+
+            transition: 0.4s;
         }
 
-        .quote span {
+        .fashion-card:hover {
+            border-color: rgba(0,255,102,0.35);
+
+            transform: translateY(-6px);
+        }
+
+        .fashion-card-number {
             color: var(--green);
-        }
 
-        /* =========================
-           CONTACT
-        ========================= */
+            font-size: 10px;
 
-        .contact {
-            text-align: center;
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-        }
-
-        .contact-inner {
-            width: 100%;
-        }
-
-        .contact h2 {
-            font-size: clamp(60px, 13vw, 190px);
-            line-height: 0.8;
-            letter-spacing: -10px;
-            text-transform: uppercase;
-            font-weight: 900;
-        }
-
-        .contact h2 span {
-            color: var(--green);
-        }
-
-        .contact-subtitle {
-            color: #777;
-            margin-top: 45px;
-            font-size: 14px;
             letter-spacing: 3px;
         }
 
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 40px;
+        .fashion-card h3 {
+            position: absolute;
+
+            left: 35px;
+            bottom: 70px;
+
+            font-size: 29px;
+
+            line-height: 1;
+
+            text-transform: uppercase;
         }
 
-        .contact-link {
-            padding: 15px 22px;
-            border: 1px solid #222;
-            font-size: 11px;
+        .fashion-card p {
+            position: absolute;
+
+            left: 35px;
+            bottom: 35px;
+
+            color: #666;
+
+            font-size: 9px;
+
             letter-spacing: 2px;
-            color: #888;
+        }
+
+
+        /* =====================================================
+           SERVICES
+        ===================================================== */
+
+        .services {
+            background: #050505;
+        }
+
+        .service-list {
+            margin-top: 70px;
+
+            border-top: 1px solid var(--border);
+        }
+
+        .service {
+            display: grid;
+
+            grid-template-columns: 80px 1fr auto;
+
+            gap: 30px;
+
+            align-items: center;
+
+            padding: 30px 0;
+
+            border-bottom: 1px solid var(--border);
+
             transition: 0.3s;
         }
 
-        .contact-link:hover {
-            color: var(--green);
-            border-color: var(--green);
+        .service:hover {
+            padding-left: 15px;
         }
 
-        /* =========================
+        .service-number {
+            color: var(--green);
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+        }
+
+        .service h3 {
+            font-size: clamp(22px, 3vw, 38px);
+
+            text-transform: uppercase;
+        }
+
+        .service p {
+            color: #666;
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =====================================================
+           COLLABORATION
+        ===================================================== */
+
+        .collaboration {
+            text-align: center;
+
+            background: #080808;
+        }
+
+        .collaboration .section-description {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .collab-grid {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            margin-top: 70px;
+
+            border-top: 1px solid var(--border);
+
+            border-left: 1px solid var(--border);
+        }
+
+        .collab-item {
+            min-height: 150px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            border-right: 1px solid var(--border);
+
+            border-bottom: 1px solid var(--border);
+
+            color: #666;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            transition: 0.3s;
+        }
+
+        .collab-item:hover {
+            color: var(--green);
+
+            background: #09150e;
+        }
+
+
+        /* =====================================================
+           CTA
+        ===================================================== */
+
+        .cta {
+            min-height: 75vh;
+
+            display: flex;
+
+            align-items: center;
+
+            text-align: center;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(0,255,102,0.10),
+                    transparent 35%
+                );
+        }
+
+        .cta-content {
+            width: 100%;
+        }
+
+        .cta h2 {
+            font-size: clamp(65px, 12vw, 175px);
+
+            line-height: 0.82;
+
+            letter-spacing: -8px;
+
+            font-weight: 900;
+
+            text-transform: uppercase;
+        }
+
+        .cta h2 span {
+            color: var(--green);
+        }
+
+        .cta p {
+            margin-top: 35px;
+
+            color: #777;
+
+            font-size: 12px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+        }
+
+        .cta .button {
+            margin-top: 35px;
+        }
+
+
+        /* =====================================================
            FOOTER
-        ========================= */
+        ===================================================== */
 
         footer {
-            padding: 35px 6%;
+            min-height: 80px;
+
             display: flex;
-            justify-content: space-between;
+
             align-items: center;
-            border-top: 1px solid var(--line);
+
+            justify-content: space-between;
+
+            padding: 0 5%;
+
+            border-top: 1px solid var(--border);
+
             color: #555;
-            font-size: 10px;
+
+            font-size: 9px;
+
+            font-weight: 700;
+
             letter-spacing: 2px;
+
+            text-transform: uppercase;
         }
 
         footer strong {
             color: var(--green);
         }
 
-        /* =========================
-           RESPONSIVE
-        ========================= */
 
-        @media (max-width: 900px) {
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media (max-width: 950px) {
 
             .nav-links {
                 display: none;
             }
 
             section {
-                padding: 100px 0;
+                padding: 95px 0;
             }
 
-            .hero h1 {
-                letter-spacing: -5px;
-            }
-
-            .hero-bottom {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .identity-grid,
-            .o6u-layout {
+            .intro-grid {
                 grid-template-columns: 1fr;
+
                 gap: 50px;
             }
 
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
+            .intro-number {
+                font-size: 100px;
             }
 
-            .stat:nth-child(2) {
-                border-right: none;
+            .acting-header,
+            .theatre-layout,
+            .o6u-grid,
+            .creative-intro,
+            .fashion-header {
+                grid-template-columns: 1fr;
+
+                gap: 45px;
             }
 
-            .reel-grid,
-            .marketing-grid {
+            .reels {
                 grid-template-columns: 1fr;
             }
 
-            .philosophy-grid {
+            .reel {
+                min-height: 400px;
+            }
+
+            .creative-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .fashion-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .collab-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .partner-list {
-                grid-template-columns: repeat(2, 1fr);
+            .service {
+                grid-template-columns: 55px 1fr;
             }
 
-            .work-card {
-                flex-direction: column;
-                align-items: flex-start;
+            .service p {
+                grid-column: 2;
             }
         }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
 
         @media (max-width: 600px) {
 
@@ -840,200 +1324,252 @@
             }
 
             .navbar {
-                padding: 0 5%;
+                height: 68px;
+            }
+
+            .logo {
+                font-size: 16px;
+                letter-spacing: 3px;
             }
 
             .hero {
-                padding-bottom: 50px;
+                min-height: 100svh;
+
+                padding-top: 130px;
+                padding-bottom: 80px;
             }
 
             .hero h1 {
-                font-size: 20vw;
+                font-size: 18vw;
+
+                letter-spacing: -4px;
+            }
+
+            .hero-message {
+                font-size: 15px;
+            }
+
+            .hero-bottom {
+                display: none;
             }
 
             .section-title {
+                font-size: 13vw;
+
                 letter-spacing: -3px;
             }
 
-            .identity-number {
-                font-size: 100px;
-            }
-
-            .identity-text {
+            .intro-text {
                 font-size: 22px;
             }
 
-            .stats {
+            .stage {
+                min-height: 400px;
+            }
+
+            .stage-label h3 {
+                font-size: 30px;
+            }
+
+            .o6u-content h3 {
+                font-size: 38px;
+            }
+
+            .creative-card {
+                min-height: 340px;
+            }
+
+            .fashion-card {
+                min-height: 320px;
+            }
+
+            .service {
+                gap: 15px;
+            }
+
+            .collab-grid {
                 grid-template-columns: 1fr;
             }
 
-            .stat {
-                border-right: none;
-                border-bottom: 1px solid var(--line);
-            }
+            .cta h2 {
+                font-size: 20vw;
 
-            .philosophy-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .partner-list {
-                grid-template-columns: 1fr;
-            }
-
-            .contact h2 {
-                font-size: 19vw;
                 letter-spacing: -5px;
             }
 
             footer {
+                min-height: 110px;
+
                 flex-direction: column;
+
+                justify-content: center;
+
                 gap: 15px;
+
                 text-align: center;
             }
         }
+
     </style>
 </head>
 
+
 <body>
 
-    <!-- =========================
-         NAVBAR
-    ========================= -->
+
+    <!-- =====================================================
+         NAVIGATION
+    ===================================================== -->
 
     <nav class="navbar">
+
         <a href="#top" class="logo">
             ANAS<span>.</span>
         </a>
 
         <ul class="nav-links">
-            <li><a href="#identity">IDENTITY</a></li>
-            <li><a href="#acting">ACTING</a></li>
-            <li><a href="#marketing">MARKETING</a></li>
-            <li><a href="#philosophy">PHILOSOPHY</a></li>
-            <li><a href="#work">WORK</a></li>
-            <li><a href="#contact">CONTACT</a></li>
+
+            <li>
+                <a href="#acting">ACTING</a>
+            </li>
+
+            <li>
+                <a href="#theatre">THEATRE</a>
+            </li>
+
+            <li>
+                <a href="#o6u">O6U</a>
+            </li>
+
+            <li>
+                <a href="#fashion">FASHION</a>
+            </li>
+
+            <li>
+                <a href="#creative">CREATIVE</a>
+            </li>
+
+            <li>
+                <a href="#contact">CONTACT</a>
+            </li>
+
         </ul>
+
     </nav>
 
 
-    <!-- =========================
+    <!-- =====================================================
          HERO
-    ========================= -->
+    ===================================================== -->
 
     <main id="top">
 
         <section class="hero">
+
             <div class="container hero-content">
 
-                <div class="hero-small">
-                    ANAS AYMAN / PERSONAL BRAND
+                <div class="welcome">
+                    Welcome
                 </div>
 
                 <h1>
-                    ANAS
-                    <span>AYMAN</span>
+                    ENTER THE
+                    <span>STAGE.</span>
                 </h1>
 
-                <div class="hero-bottom">
+                <p class="hero-message">
+                    Welcome to a creative space built around
+                    <strong>acting, performance, fashion and collaboration.</strong>
+                    Explore the work, the people and the projects
+                    behind the brand.
+                </p>
 
-                    <p class="hero-tagline">
-                        <strong>Actor. Creative. Marketer.</strong><br>
-                        Building a personal brand around performance,
-                        creativity, ideas and influence.
-                    </p>
+                <div class="hero-actions">
 
-                    <div class="hero-number">
-                        EST. 2026
-                    </div>
+                    <a href="#acting" class="button button-solid">
+                        Explore Acting
+                    </a>
+
+                    <a href="#creative" class="button">
+                        Explore Creative Work
+                    </a>
 
                 </div>
 
-                <a href="#acting" class="button button-solid">
-                    EXPLORE THE BRAND
-                </a>
+            </div>
+
+            <div class="hero-bottom">
+
+                <span>ACTING</span>
+
+                <span>FASHION</span>
+
+                <span>CREATIVE</span>
+
+                <span>2026</span>
 
             </div>
+
         </section>
 
 
-        <!-- =========================
-             IDENTITY
-        ========================= -->
+        <!-- =================================================
+             INTRO
+        ================================================= -->
 
-        <section id="identity">
+        <section>
+
             <div class="container">
 
-                <div class="eyebrow">01 — IDENTITY</div>
+                <div class="eyebrow">
+                    01 — THE BRAND
+                </div>
 
                 <h2 class="section-title">
-                    BUILT<br>
-                    TO <span>CREATE.</span>
+                    MORE THAN<br>
+                    A <span>PORTFOLIO.</span>
                 </h2>
 
-                <div class="identity-grid">
+                <div class="intro-grid">
 
-                    <div class="identity-number">
+                    <div class="intro-number">
                         01
                     </div>
 
-                    <div class="identity-text">
-                        ANAS AYMAN IS MORE THAN A NAME.
-                        <span>IT IS A BRAND.</span>
+                    <div class="intro-text">
+
+                        A creative platform connecting
+                        <span>performance</span>,
+                        <span>fashion</span>,
+                        <span>design</span>
+                        and people.
 
                         <br><br>
 
-                        A platform for acting, creative work,
-                        marketing, philosophy and collaboration.
+                        The goal is simple:
+                        create work worth seeing,
+                        remember and sharing.
+
                     </div>
 
                 </div>
 
             </div>
-        </section>
-
-
-        <!-- =========================
-             STATS
-        ========================= -->
-
-        <section style="padding:0;">
-
-            <div class="stats">
-
-                <div class="stat">
-                    <div class="stat-number">01</div>
-                    <div class="stat-label">PERSONAL BRAND</div>
-                </div>
-
-                <div class="stat">
-                    <div class="stat-number">∞</div>
-                    <div class="stat-label">CREATIVE POTENTIAL</div>
-                </div>
-
-                <div class="stat">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label">MINDSET</div>
-                </div>
-
-                <div class="stat">
-                    <div class="stat-number">∞</div>
-                    <div class="stat-label">VISION</div>
-                </div>
-
-            </div>
 
         </section>
 
 
-        <!-- =========================
+        <!-- =================================================
              ACTING
-        ========================= -->
+        ================================================= -->
 
-        <section id="acting">
+        <section id="acting" class="acting">
 
             <div class="container">
 
-                <div class="eyebrow">02 — PERFORMANCE</div>
+                <div class="eyebrow">
+                    02 — PERFORMANCE
+                </div>
 
                 <div class="acting-header">
 
@@ -1042,48 +1578,186 @@
                         <span>REELS.</span>
                     </h2>
 
-                    <p>
-                        Performance is one of the core pillars
-                        of the Anas Ayman brand.
-                        This section is designed for acting reels,
-                        scenes, university theatre and future screen work.
+                    <p class="acting-header-text">
+                        Performance is at the center of the
+                        creative direction. This space is designed
+                        for acting reels, dramatic scenes,
+                        character work and future screen projects.
                     </p>
 
                 </div>
 
 
-                <div class="reel-grid">
+                <div class="reels">
 
-                    <div class="reel">
-                        <div class="reel-number">REEL / 01</div>
-                        <div class="play">▶</div>
+                    <!-- REEL 01 -->
 
-                        <div class="reel-info">
-                            <h3>Acting Reel</h3>
-                            <p>VIDEO PLACEHOLDER</p>
+                    <article class="reel">
+
+                        <div class="reel-number">
+                            REEL / 01
                         </div>
+
+                        <div class="play-button">
+                            ▶
+                        </div>
+
+                        <div class="reel-content">
+
+                            <h3>
+                                Main<br>
+                                Acting Reel
+                            </h3>
+
+                            <p>
+                                Video placeholder
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- REEL 02 -->
+
+                    <article class="reel">
+
+                        <div class="reel-number">
+                            REEL / 02
+                        </div>
+
+                        <div class="play-button">
+                            ▶
+                        </div>
+
+                        <div class="reel-content">
+
+                            <h3>
+                                Dramatic<br>
+                                Scene
+                            </h3>
+
+                            <p>
+                                Video placeholder
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- REEL 03 -->
+
+                    <article class="reel">
+
+                        <div class="reel-number">
+                            REEL / 03
+                        </div>
+
+                        <div class="play-button">
+                            ▶
+                        </div>
+
+                        <div class="reel-content">
+
+                            <h3>
+                                Character<br>
+                                Performance
+                            </h3>
+
+                            <p>
+                                Video placeholder
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             UNIVERSITY THEATRE
+        ================================================= -->
+
+        <section id="theatre">
+
+            <div class="container">
+
+                <div class="eyebrow">
+                    03 — UNIVERSITY THEATRE
+                </div>
+
+                <h2 class="section-title">
+                    FROM THE<br>
+                    <span>STAGE.</span>
+                </h2>
+
+                <div class="theatre-layout">
+
+                    <div class="stage">
+
+                        <div class="stage-light"></div>
+
+                        <div class="stage-label">
+
+                            <small>
+                                UNIVERSITY PERFORMANCE
+                            </small>
+
+                            <h3>
+                                THE<br>
+                                STAGE
+                            </h3>
+
+                        </div>
+
                     </div>
 
 
-                    <div class="reel">
-                        <div class="reel-number">REEL / 02</div>
-                        <div class="play">▶</div>
+                    <div class="theatre-text">
 
-                        <div class="reel-info">
-                            <h3>O6U Theatre</h3>
-                            <p>VIDEO PLACEHOLDER</p>
+                        <h3>
+                            REAL<br>
+                            PERFORMANCE.
+                        </h3>
+
+                        <p>
+                            University theatre is where
+                            performance becomes real.
+                            Scenes, characters, rehearsals
+                            and live audiences create
+                            a different kind of experience.
+                        </p>
+
+                        <div class="scene-list">
+
+                            <div class="scene">
+                                <span>SCENE 01 — DRAMA</span>
+                                <span>THEATRE</span>
+                            </div>
+
+                            <div class="scene">
+                                <span>SCENE 02 — CHARACTER</span>
+                                <span>PERFORMANCE</span>
+                            </div>
+
+                            <div class="scene">
+                                <span>SCENE 03 — LIVE</span>
+                                <span>STAGE</span>
+                            </div>
+
+                            <div class="scene">
+                                <span>SCENE 04 — REHEARSAL</span>
+                                <span>O6U</span>
+                            </div>
+
                         </div>
-                    </div>
 
-
-                    <div class="reel">
-                        <div class="reel-number">REEL / 03</div>
-                        <div class="play">▶</div>
-
-                        <div class="reel-info">
-                            <h3>Future Work</h3>
-                            <p>VIDEO PLACEHOLDER</p>
-                        </div>
                     </div>
 
                 </div>
@@ -1093,42 +1767,53 @@
         </section>
 
 
-        <!-- =========================
+        <!-- =================================================
              O6U
-        ========================= -->
+        ================================================= -->
 
         <section id="o6u" class="o6u">
 
             <div class="container">
 
-                <div class="eyebrow">03 — UNIVERSITY</div>
+                <div class="eyebrow">
+                    04 — O6U
+                </div>
 
                 <h2 class="section-title">
-                    O6U<br>
+                    THE O6U<br>
                     <span>CHAPTER.</span>
                 </h2>
 
-                <div class="o6u-layout">
+                <div class="o6u-grid">
 
-                    <div class="o6u-box"></div>
+                    <div>
+
+                        <img
+                            class="o6u-image"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3rmPnCUd2sVsW7lspYDjtBaGYTL0du4GOxjR0QKRh8w&s=10"
+                            alt="O6U campus"
+                        >
+
+                    </div>
+
 
                     <div class="o6u-content">
 
                         <h3>
-                            THE<br>
-                            BEGINNING.
+                            A PLACE TO<br>
+                            <span>CREATE.</span>
                         </h3>
 
                         <p>
-                            University is not only an academic chapter.
-                            It is also a space for performance,
-                            networking, experimentation and building
-                            the next stage of the brand.
+                            O6U represents an important part
+                            of the journey — university life,
+                            theatre, people, ideas and the
+                            experiences that shape future work.
                         </p>
 
-                        <a href="#contact" class="button">
-                            WORK WITH ME
-                        </a>
+                        <div class="o6u-tag">
+                            OCTOBER 6 UNIVERSITY
+                        </div>
 
                     </div>
 
@@ -1139,33 +1824,47 @@
         </section>
 
 
-        <!-- =========================
-             MARKETING
-        ========================= -->
+        <!-- =================================================
+             CREATIVE WORK
+        ================================================= -->
 
-        <section id="marketing">
+        <section id="creative">
 
             <div class="container">
 
-                <div class="eyebrow">04 — CREATIVE BUSINESS</div>
+                <div class="eyebrow">
+                    05 — CREATIVE NETWORK
+                </div>
 
-                <h2 class="section-title">
-                    PEOPLE<br>
-                    <span>+ BRANDS.</span>
-                </h2>
+                <div class="creative-intro">
 
-                <p class="description">
-                    Connecting creative people with audiences.
-                    The brand also works around marketing,
-                    promotion and collaboration.
-                </p>
+                    <h2 class="section-title">
+                        PEOPLE<br>
+                        <span>CREATE.</span>
+                    </h2>
+
+                    <p>
+                        Great work is rarely created alone.
+                        The brand connects with designers,
+                        applied-art creatives, fashion models
+                        and other people building something
+                        worth showing.
+                    </p>
+
+                </div>
 
 
-                <div class="marketing-grid">
+                <div class="creative-grid">
 
-                    <div class="marketing-card">
+                    <!-- GRAPHIC DESIGN -->
 
-                        <div class="marketing-icon">
+                    <article class="creative-card">
+
+                        <div class="creative-number">
+                            CREATIVE / 01
+                        </div>
+
+                        <div class="creative-symbol">
                             GD
                         </div>
 
@@ -1175,15 +1874,21 @@
                         </h3>
 
                         <p>
-                            CREATIVE COLLABORATION
+                            DESIGN / VISUAL IDENTITY
                         </p>
 
-                    </div>
+                    </article>
 
 
-                    <div class="marketing-card">
+                    <!-- APPLIED ARTS -->
 
-                        <div class="marketing-icon">
+                    <article class="creative-card">
+
+                        <div class="creative-number">
+                            CREATIVE / 02
+                        </div>
+
+                        <div class="creative-symbol">
                             AA
                         </div>
 
@@ -1193,28 +1898,10 @@
                         </h3>
 
                         <p>
-                            CREATIVE PRODUCTS
+                            ART / PRODUCTS / CREATIVITY
                         </p>
 
-                    </div>
-
-
-                    <div class="marketing-card">
-
-                        <div class="marketing-icon">
-                            FM
-                        </div>
-
-                        <h3>
-                            Fashion<br>
-                            Models
-                        </h3>
-
-                        <p>
-                            FASHION & BRANDING
-                        </p>
-
-                    </div>
+                    </article>
 
                 </div>
 
@@ -1223,262 +1910,182 @@
         </section>
 
 
-        <!-- =========================
-             PARTNERS
-        ========================= -->
+        <!-- =================================================
+             FASHION MODELS
+        ================================================= -->
 
-        <section class="partners">
+        <section id="fashion" class="fashion">
 
             <div class="container">
 
                 <div class="eyebrow">
-                    05 — COLLABORATION
+                    06 — FASHION
+                </div>
+
+                <div class="fashion-header">
+
+                    <h2 class="section-title">
+                        FASHION<br>
+                        <span>PEOPLE.</span>
+                    </h2>
+
+                    <p>
+                        Collaboration with fashion models
+                        and creatives to help present,
+                        promote and build visual identities
+                        around products and brands.
+                    </p>
+
+                </div>
+
+
+                <div class="fashion-grid">
+
+                    <article class="fashion-card">
+
+                        <div class="fashion-card-number">
+                            FASHION / 01
+                        </div>
+
+                        <h3>
+                            Model<br>
+                            Collaborations
+                        </h3>
+
+                        <p>
+                            CREATIVE CAMPAIGNS
+                        </p>
+
+                    </article>
+
+
+                    <article class="fashion-card">
+
+                        <div class="fashion-card-number">
+                            FASHION / 02
+                        </div>
+
+                        <h3>
+                            Product<br>
+                            Promotion
+                        </h3>
+
+                        <p>
+                            BRAND VISIBILITY
+                        </p>
+
+                    </article>
+
+
+                    <article class="fashion-card">
+
+                        <div class="fashion-card-number">
+                            FASHION / 03
+                        </div>
+
+                        <h3>
+                            Visual<br>
+                            Campaigns
+                        </h3>
+
+                        <p>
+                            FASHION / MEDIA
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             WORK
+        ================================================= -->
+
+        <section class="services">
+
+            <div class="container">
+
+                <div class="eyebrow">
+                    07 — WHAT WE DO
                 </div>
 
                 <h2 class="section-title">
                     CREATIVE<br>
-                    <span>NETWORK.</span>
+                    <span>WORK.</span>
                 </h2>
 
-                <div class="partner-list">
+                <div class="service-list">
 
-                    <div class="partner">DESIGN</div>
-                    <div class="partner">FASHION</div>
-                    <div class="partner">ART</div>
-                    <div class="partner">MEDIA</div>
-                    <div class="partner">CREATIVE</div>
-                    <div class="partner">MARKETING</div>
-                    <div class="partner">PERFORMANCE</div>
-                    <div class="partner">CULTURE</div>
+                    <div class="service">
 
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             PHILOSOPHY
-        ========================= -->
-
-        <section id="philosophy" class="philosophy">
-
-            <div class="container">
-
-                <div class="eyebrow">06 — PHILOSOPHY</div>
-
-                <h2 class="section-title">
-                    THE ANAS<br>
-                    <span>PHILOSOPHY.</span>
-                </h2>
-
-
-                <p class="philosophy-intro">
-                    WE ARE ALL
-                    <span>SWIMMERS</span>
-                    IN THE SEA OF LIFE.
-                </p>
-
-
-                <div class="philosophy-grid">
-
-                    <div class="philosophy-card">
-                        <div class="symbol">≈</div>
-
-                        <h3>THE SEA</h3>
-
-                        <p>LIFE / EXISTENCE</p>
-                    </div>
-
-
-                    <div class="philosophy-card">
-                        <div class="symbol">〰</div>
-
-                        <h3>THE WAVES</h3>
-
-                        <p>POWER / FORCE</p>
-                    </div>
-
-
-                    <div class="philosophy-card">
-                        <div class="symbol">◈</div>
-
-                        <h3>ADAPTATION</h3>
-
-                        <p>WATER / LIZARD</p>
-                    </div>
-
-
-                    <div class="philosophy-card">
-                        <div class="symbol">☼</div>
-
-                        <h3>THE SUN</h3>
-
-                        <p>PERFECTION / IDEAL</p>
-                    </div>
-
-                </div>
-
-
-                <div class="philosophy-text">
-
-                    <p>
-                        We are all, my friend, simply swimmers in the
-                        sea of life, looking toward the sun.
-                        Every one of us carries the certainty that
-                        if we keep swimming, one day we will reach
-                        the sun — the sun being perfection.
-                    </p>
-
-                    <br>
-
-                    <p>
-                        But the truth is that the distance between
-                        us and perfection may never completely disappear.
-                        We continue swimming until our strength runs out.
-                        In both possibilities, death is the ending.
-                    </p>
-
-                    <br>
-
-                    <p>
-                        And this is where the meaning of life begins.
-                        The meaning of life is represented in the ending
-                        of life itself — death.
-                    </p>
-
-                    <br>
-
-                    <p>
-                        The only one capable of conquering life and
-                        reaching absolute perfection is the Creator
-                        of life Himself — <strong>God.</strong>
-                    </p>
-
-                    <br>
-
-                    <p>
-                        The second half of my philosophy is about
-                        adaptation.
-                        Be like <strong>water</strong>.
-                        Water changes its shape from one container
-                        to another without losing what it fundamentally is.
-                    </p>
-
-                    <br>
-
-                    <p>
-                        Be adaptable.
-                        Be deep.
-                        Know your value.
-                        Understand your strength.
-                    </p>
-
-                    <br>
-
-                    <p>
-                        Water gives life.
-                        Water can also overwhelm.
-                        Waves can become enormous.
-                        A tsunami can transform the entire landscape.
-                    </p>
-
-                    <br>
-
-                    <p>
-                        All of this is simply <strong>H₂O.</strong>
-                    </p>
-
-                    <br>
-
-                    <p>
-                        My philosophy combines self-worth,
-                        danger, strength, depth and the ability
-                        to adapt.
-                    </p>
-
-                    <br>
-
-                    <p>
-                        Influenced by Nietzsche, Sartre and Bruce Lee,
-                        I have combined these ideas into something personal:
-                        <strong>the philosophy of Anas Ayman.</strong>
-                    </p>
-
-                </div>
-
-
-                <div class="principles">
-
-                    <div class="principle">
-                        <span class="principle-number">01</span>
-                        <h3>Value</h3>
-                    </div>
-
-                    <div class="principle">
-                        <span class="principle-number">02</span>
-                        <h3>Depth</h3>
-                    </div>
-
-                    <div class="principle">
-                        <span class="principle-number">03</span>
-                        <h3>Power</h3>
-                    </div>
-
-                    <div class="principle">
-                        <span class="principle-number">04</span>
-                        <h3>Adapt</h3>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             WORK
-        ========================= -->
-
-        <section id="work">
-
-            <div class="container">
-
-                <div class="eyebrow">07 — PROJECTS</div>
-
-                <h2 class="section-title">
-                    BUILT<br>
-                    <span>IN CODE.</span>
-                </h2>
-
-                <p class="description">
-                    Technology is another part of the creative identity.
-                    From programming projects to digital experiences,
-                    the goal is to keep building.
-                </p>
-
-
-                <div class="work-card">
-
-                    <div>
+                        <div class="service-number">
+                            01
+                        </div>
 
                         <h3>
-                            Student<br>
-                            Management<br>
-                            System
+                            Acting & Performance
                         </h3>
 
                         <p>
-                            C++ / Console Application / GitHub Project
+                            Screen / Theatre
                         </p>
 
                     </div>
 
-                    <a href="#" class="button">
-                        VIEW PROJECT
-                    </a>
+
+                    <div class="service">
+
+                        <div class="service-number">
+                            02
+                        </div>
+
+                        <h3>
+                            Fashion Collaboration
+                        </h3>
+
+                        <p>
+                            Models / Campaigns
+                        </p>
+
+                    </div>
+
+
+                    <div class="service">
+
+                        <div class="service-number">
+                            03
+                        </div>
+
+                        <h3>
+                            Graphic Design Promotion
+                        </h3>
+
+                        <p>
+                            Designers / Visuals
+                        </p>
+
+                    </div>
+
+
+                    <div class="service">
+
+                        <div class="service-number">
+                            04
+                        </div>
+
+                        <h3>
+                            Creative Marketing
+                        </h3>
+
+                        <p>
+                            People / Products / Brands
+                        </p>
+
+                    </div>
 
                 </div>
 
@@ -1487,26 +2094,63 @@
         </section>
 
 
-        <!-- =========================
-             MINDSET
-        ========================= -->
+        <!-- =================================================
+             COLLABORATION
+        ================================================= -->
 
-        <section class="mindset">
+        <section class="collaboration">
 
             <div class="container">
 
-                <div class="eyebrow">08 — MINDSET</div>
+                <div class="eyebrow" style="justify-content:center;">
+                    08 — COLLABORATION
+                </div>
 
                 <h2 class="section-title">
-                    THE<br>
-                    <span>MINDSET.</span>
+                    BUILD WITH<br>
+                    <span>PEOPLE.</span>
                 </h2>
 
-                <div class="quote">
-                    DON'T FOLLOW<br>
-                    THE <span>NOISE.</span><br>
-                    BUILD THE<br>
-                    <span>NAME.</span>
+                <p class="section-description">
+                    A creative network built around people
+                    who have something to show.
+                </p>
+
+
+                <div class="collab-grid">
+
+                    <div class="collab-item">
+                        ACTORS
+                    </div>
+
+                    <div class="collab-item">
+                        MODELS
+                    </div>
+
+                    <div class="collab-item">
+                        DESIGNERS
+                    </div>
+
+                    <div class="collab-item">
+                        ARTISTS
+                    </div>
+
+                    <div class="collab-item">
+                        FASHION
+                    </div>
+
+                    <div class="collab-item">
+                        MEDIA
+                    </div>
+
+                    <div class="collab-item">
+                        MARKETING
+                    </div>
+
+                    <div class="collab-item">
+                        CREATIVE
+                    </div>
+
                 </div>
 
             </div>
@@ -1514,42 +2158,30 @@
         </section>
 
 
-        <!-- =========================
+        <!-- =================================================
              CONTACT
-        ========================= -->
+        ================================================= -->
 
-        <section id="contact" class="contact">
+        <section id="contact" class="cta">
 
-            <div class="container contact-inner">
+            <div class="container cta-content">
 
-                <div class="eyebrow">
+                <div class="eyebrow" style="justify-content:center;">
                     09 — CONTACT
                 </div>
 
                 <h2>
                     LET'S<br>
-                    <span>WORK.</span>
+                    <span>CREATE.</span>
                 </h2>
 
-                <p class="contact-subtitle">
-                    ACTING / MARKETING / CREATIVE COLLABORATION
+                <p>
+                    Acting / Fashion / Design / Creative Collaboration
                 </p>
 
-                <div class="contact-links">
-
-                    <a href="#" class="contact-link">
-                        INSTAGRAM
-                    </a>
-
-                    <a href="#" class="contact-link">
-                        GITHUB
-                    </a>
-
-                    <a href="#" class="contact-link">
-                        BUSINESS
-                    </a>
-
-                </div>
+                <a href="#" class="button button-solid">
+                    Start A Collaboration
+                </a>
 
             </div>
 
@@ -1558,9 +2190,9 @@
     </main>
 
 
-    <!-- =========================
+    <!-- =====================================================
          FOOTER
-    ========================= -->
+    ===================================================== -->
 
     <footer>
 
@@ -1569,10 +2201,11 @@
         </div>
 
         <div>
-            PERSONAL BRAND / GLOBAL VISION
+            ACTING — FASHION — CREATIVE
         </div>
 
     </footer>
+
 
 </body>
 </html>
