@@ -1,60 +1,37 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <title>Anas Ayman</title>
 
-    <meta name="description"
-          content="Anas Ayman — Actor, Computer Science Student, Theatre Performer and Creative Brand.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <meta name="author"
-          content="Anas Ayman">
-
-    <title>ANAS AYMAN — Official Brand</title>
-
-
-    <!-- GOOGLE FONTS -->
-
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap"
-          rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
     <style>
 
-        /* =====================================================
+        /* =========================
            GLOBAL
-        ===================================================== */
+        ========================= */
+
+        :root {
+            --black: #050505;
+            --dark: #0a0a0a;
+            --dark2: #111111;
+            --green: #00ff88;
+            --green-dark: #00b862;
+            --white: #ffffff;
+            --gray: #999999;
+            --border: rgba(255,255,255,0.10);
+        }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        :root {
-            --black: #050505;
-            --black-light: #0b0b0b;
-            --black-card: #101010;
-
-            --green: #00ff88;
-            --green-dark: #00b866;
-
-            --white: #f5f5f5;
-            --gray: #888;
-            --gray-light: #aaa;
-
-            --border: rgba(0,255,136,.18);
         }
 
         html {
@@ -64,2009 +41,1245 @@
         body {
             background: var(--black);
             color: var(--white);
-
             font-family: "Inter", sans-serif;
-
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
-        body::before {
-            content: "";
-
-            position: fixed;
-
-            width: 600px;
-            height: 600px;
-
-            top: -250px;
-            right: -200px;
-
-            background: rgba(0,255,136,.055);
-
-            filter: blur(130px);
-
-            border-radius: 50%;
-
-            pointer-events: none;
-
-            z-index: -2;
+        body.cart-open {
+            overflow: hidden;
         }
 
-        body::after {
-            content: "";
-
-            position: fixed;
-
-            width: 450px;
-            height: 450px;
-
-            bottom: -200px;
-            left: -150px;
-
-            background: rgba(0,255,136,.035);
-
-            filter: blur(120px);
-
-            border-radius: 50%;
-
-            pointer-events: none;
-
-            z-index: -2;
+        a {
+            text-decoration: none;
+            color: inherit;
         }
 
-
-        /* =====================================================
-           CUSTOM SCROLLBAR
-        ===================================================== */
-
-        ::-webkit-scrollbar {
-            width: 7px;
+        img,
+        video {
+            max-width: 100%;
+            display: block;
         }
 
-        ::-webkit-scrollbar-track {
-            background: #050505;
+        button {
+            font-family: inherit;
         }
 
-        ::-webkit-scrollbar-thumb {
-            background: var(--green);
+        .container {
+            width: min(1200px, 90%);
+            margin: auto;
+        }
+
+        .green {
+            color: var(--green);
+        }
+
+        .section {
+            padding: 120px 0;
+        }
+
+        .section-title {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(40px, 6vw, 75px);
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            color: var(--gray);
+            max-width: 650px;
+            margin-bottom: 60px;
+            font-size: 17px;
         }
 
 
-        /* =====================================================
-           LOADING SCREEN
-        ===================================================== */
+        /* =========================
+           LOADER
+        ========================= */
 
         #loader {
             position: fixed;
-
             inset: 0;
-
-            background: #050505;
-
-            z-index: 9999;
-
+            background: var(--black);
+            z-index: 99999;
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
-            flex-direction: column;
-
-            transition: opacity .7s ease,
-                        visibility .7s ease;
+            transition: opacity .8s ease, visibility .8s ease;
         }
 
-        #loader.hide {
+        #loader.hidden {
             opacity: 0;
             visibility: hidden;
         }
 
-        .loader-logo {
-            font-size: 25px;
-
-            font-weight: 900;
-
-            letter-spacing: 7px;
-
-            text-transform: uppercase;
-        }
-
-        .loader-logo span {
+        .loader-name {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(35px, 8vw, 80px);
             color: var(--green);
+            animation: pulse 1.5s infinite;
         }
 
-        .loader-line {
-            width: 160px;
-
-            height: 1px;
-
-            background: #222;
-
-            margin-top: 25px;
-
-            overflow: hidden;
-        }
-
-        .loader-line::after {
-            content: "";
-
-            display: block;
-
-            height: 100%;
-
-            width: 50%;
-
-            background: var(--green);
-
-            animation: loading 1.2s infinite ease-in-out;
-        }
-
-        @keyframes loading {
-
-            0% {
-                transform: translateX(-100%);
+        @keyframes pulse {
+            0%,100% {
+                opacity: .4;
             }
 
-            100% {
-                transform: translateX(300%);
+            50% {
+                opacity: 1;
             }
-
         }
 
 
-        /* =====================================================
-           NAVIGATION
-        ===================================================== */
+        /* =========================
+           NAVBAR
+        ========================= */
 
         nav {
-
             position: fixed;
-
             top: 0;
             left: 0;
-
             width: 100%;
-
-            height: 80px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            padding: 0 6%;
-
             z-index: 1000;
+            background: rgba(5,5,5,.88);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
+        }
 
-            background: rgba(5,5,5,.7);
-
-            backdrop-filter: blur(18px);
-
-            border-bottom:
-                1px solid rgba(255,255,255,.05);
-
+        .nav-container {
+            width: min(1250px, 92%);
+            height: 80px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .logo {
-
-            color: white;
-
-            text-decoration: none;
-
-            font-weight: 900;
-
-            letter-spacing: 3px;
-
-            font-size: 16px;
-
-        }
-
-        .logo span {
+            font-family: "Playfair Display", serif;
+            font-size: 27px;
+            font-weight: 700;
             color: var(--green);
         }
 
         .nav-links {
-
             display: flex;
-
             gap: 30px;
-
             list-style: none;
-
+            align-items: center;
         }
 
         .nav-links a {
-
-            color: #ccc;
-
-            text-decoration: none;
-
-            text-transform: uppercase;
-
-            font-size: 10px;
-
-            letter-spacing: 1.8px;
-
+            color: #ddd;
+            font-size: 14px;
             transition: .3s;
-
         }
 
         .nav-links a:hover {
             color: var(--green);
         }
 
-        .menu {
-
+        .menu-btn {
             display: none;
-
-            color: var(--green);
-
-            font-size: 25px;
-
+            border: 0;
+            background: none;
+            color: white;
+            font-size: 30px;
             cursor: pointer;
+        }
 
+        .cart-nav-button {
+            border: 1px solid var(--green);
+            color: var(--green) !important;
+            padding: 8px 13px;
+            cursor: pointer;
+        }
+
+        .cart-nav-button:hover {
+            background: var(--green);
+            color: black !important;
+        }
+
+        #cartCount {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 20px;
+            height: 20px;
+            margin-left: 5px;
+            padding: 0 5px;
+            border-radius: 50px;
+            background: var(--green);
+            color: black;
+            font-size: 11px;
+            font-weight: 800;
         }
 
 
-        /* =====================================================
+        /* =========================
            HERO
-        ===================================================== */
+        ========================= */
 
         .hero {
-
             min-height: 100vh;
-
-            display: grid;
-
-            grid-template-columns: 1.1fr .9fr;
-
+            display: flex;
             align-items: center;
-
-            gap: 50px;
-
-            padding:
-                130px 8%
-                80px;
-
             position: relative;
-
+            overflow: hidden;
         }
 
-        .hero-text {
-
-            animation:
-                heroText 1.2s ease forwards;
-
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            right: -250px;
+            top: 10%;
+            background: var(--green);
+            opacity: .08;
+            filter: blur(100px);
+            border-radius: 50%;
         }
 
-        @keyframes heroText {
-
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 60px;
+            align-items: center;
+            padding-top: 80px;
         }
 
-        .eyebrow {
-
+        .hero-small {
             color: var(--green);
-
+            font-size: 13px;
+            letter-spacing: 4px;
             text-transform: uppercase;
-
-            letter-spacing: 5px;
-
-            font-size: 10px;
-
-            margin-bottom: 25px;
-
+            margin-bottom: 20px;
         }
 
         .hero h1 {
-
-            font-size:
-                clamp(60px, 9vw, 140px);
-
-            line-height: .82;
-
-            letter-spacing: -7px;
-
-            font-weight: 900;
-
-            text-transform: uppercase;
-
+            font-family: "Playfair Display", serif;
+            font-size: clamp(65px, 10vw, 145px);
+            line-height: .88;
+            margin-bottom: 30px;
         }
 
-        .hero h1 .outline {
-
-            color: transparent;
-
-            -webkit-text-stroke:
-                1px #777;
-
-        }
-
-        .hero h1 .green {
+        .hero h1 .name-green {
             color: var(--green);
+            display: block;
         }
 
         .hero-description {
-
-            max-width: 580px;
-
-            margin-top: 35px;
-
-            color: #999;
-
-            font-size: 14px;
-
-            line-height: 1.9;
-
+            color: #aaa;
+            max-width: 600px;
+            font-size: 18px;
+            margin-bottom: 35px;
         }
 
         .hero-buttons {
-
             display: flex;
-
-            gap: 14px;
-
-            margin-top: 35px;
-
+            gap: 15px;
             flex-wrap: wrap;
-
         }
 
         .btn {
-
-            display: inline-block;
-
-            padding:
-                15px 25px;
-
-            text-decoration: none;
-
-            text-transform: uppercase;
-
-            font-size: 10px;
-
-            font-weight: 800;
-
-            letter-spacing: 1.5px;
-
-            transition: .35s;
-
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 25px;
             border: 1px solid var(--green);
-
+            transition: .3s;
+            font-weight: 600;
+            cursor: pointer;
         }
 
         .btn-primary {
-
             background: var(--green);
-
             color: black;
-
         }
 
         .btn-primary:hover {
-
-            transform: translateY(-4px);
-
-            box-shadow:
-                0 0 35px
-                rgba(0,255,136,.3);
-
+            background: transparent;
+            color: var(--green);
         }
 
         .btn-outline {
-
-            color: white;
-
-            background: transparent;
-
+            color: var(--green);
         }
 
         .btn-outline:hover {
-
             background: var(--green);
-
             color: black;
-
         }
-
-
-        /* HERO IMAGE */
 
         .hero-image {
-
             position: relative;
-
-            display: flex;
-
-            justify-content: center;
-
-            animation:
-                heroImage 1.4s ease forwards;
-
         }
 
-        @keyframes heroImage {
-
-            from {
-                opacity: 0;
-                transform:
-                    translateX(50px)
-                    scale(.95);
-            }
-
-            to {
-                opacity: 1;
-                transform:
-                    translateX(0)
-                    scale(1);
-            }
-
-        }
-
-        .portrait {
-
-            width:
-                min(430px, 80vw);
-
-            aspect-ratio:
-                3 / 4;
-
-            object-fit: cover;
-
-            filter:
-                grayscale(100%)
-                contrast(1.1);
-
-            border:
-                1px solid
-                rgba(0,255,136,.4);
-
-            box-shadow:
-
-                22px 22px 0
-                rgba(0,255,136,.08),
-
-                0 0 90px
-                rgba(0,255,136,.12);
-
-            transition:
-                .7s ease;
-
-        }
-
-        .portrait:hover {
-
-            filter:
-                grayscale(0%)
-                contrast(1.05);
-
-            transform:
-                translate(-8px,-8px);
-
-            box-shadow:
-
-                28px 28px 0
-                rgba(0,255,136,.13),
-
-                0 0 100px
-                rgba(0,255,136,.2);
-
-        }
-
-
-        /* =====================================================
-           SCROLL INDICATOR
-        ===================================================== */
-
-        .scroll {
-
-            position: absolute;
-
-            bottom: 30px;
-            left: 8%;
-
-            color: #666;
-
-            font-size: 9px;
-
-            text-transform: uppercase;
-
-            letter-spacing: 4px;
-
-        }
-
-        .scroll::after {
-
+        .hero-image::before {
             content: "";
+            position: absolute;
+            inset: -15px;
+            border: 1px solid var(--green);
+            transform: rotate(4deg);
+            opacity: .4;
+        }
 
-            display: inline-block;
-
-            width: 45px;
-
-            height: 1px;
-
-            background:
-                var(--green);
-
-            vertical-align: middle;
-
-            margin-left: 12px;
-
+        .hero-image img {
+            width: 100%;
+            height: 650px;
+            object-fit: cover;
+            position: relative;
         }
 
 
-        /* =====================================================
-           SECTIONS
-        ===================================================== */
-
-        section {
-
-            padding:
-                120px 8%;
-
-        }
-
-        .section-label {
-
-            color: var(--green);
-
-            font-size: 10px;
-
-            text-transform: uppercase;
-
-            letter-spacing: 4px;
-
-            margin-bottom: 15px;
-
-        }
-
-        .section-title {
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size:
-                clamp(42px, 6vw, 82px);
-
-            font-weight: 500;
-
-            line-height: .95;
-
-            margin-bottom: 55px;
-
-        }
-
-        .section-title em {
-
-            color: var(--green);
-
-        }
-
-
-        /* =====================================================
+        /* =========================
            STATS
-        ===================================================== */
+        ========================= */
 
         .stats {
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 35px 0;
+        }
 
-            border-top:
-                1px solid var(--border);
-
-            border-bottom:
-                1px solid var(--border);
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(3,1fr);
-
-            padding:
-                35px 0;
-
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            text-align: center;
         }
 
         .stat {
-
-            text-align: center;
-
-            border-right:
-                1px solid var(--border);
-
+            border-right: 1px solid var(--border);
         }
 
         .stat:last-child {
-            border: none;
+            border-right: none;
         }
 
-        .stat h3 {
-
+        .stat-number {
             color: var(--green);
-
-            font-size: 34px;
-
-            font-weight: 800;
-
+            font-size: 35px;
+            font-weight: 700;
         }
 
-        .stat p {
-
-            color: #777;
-
-            margin-top: 8px;
-
-            font-size: 9px;
-
+        .stat-label {
+            color: var(--gray);
+            font-size: 13px;
             text-transform: uppercase;
-
             letter-spacing: 2px;
-
         }
 
 
-        /* =====================================================
+        /* =========================
            ABOUT
-        ===================================================== */
+        ========================= */
 
-        .about {
-
+        .about-grid {
             display: grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
+            grid-template-columns: .8fr 1.2fr;
             gap: 80px;
-
             align-items: center;
-
         }
 
-        .about-big {
-
-            font-size:
-                clamp(30px,4vw,55px);
-
-            line-height: 1.1;
-
-            font-weight: 600;
-
+        .about-image img {
+            width: 100%;
+            height: 550px;
+            object-fit: cover;
         }
 
-        .about-big span {
-            color: var(--green);
+        .about-text p {
+            color: #aaa;
+            margin-bottom: 20px;
+            font-size: 17px;
         }
 
-        .about-text {
-
-            color: #888;
-
-            font-size: 14px;
-
-            line-height: 2;
-
-        }
-
-        .about-text strong {
-            color: white;
+        .about-highlight {
+            border-left: 3px solid var(--green);
+            padding-left: 25px;
+            margin-top: 30px;
+            font-family: "Playfair Display", serif;
+            font-size: 25px;
         }
 
 
-        /* =====================================================
-           ACTING
-        ===================================================== */
+        /* =========================
+           VIDEOS
+        ========================= */
 
         .video-grid {
-
             display: grid;
-
-            grid-template-columns:
-                repeat(2,1fr);
-
-            gap: 22px;
-
+            grid-template-columns: repeat(2,1fr);
+            gap: 25px;
         }
 
         .video-card {
-
-            background:
-                var(--black-card);
-
-            border:
-                1px solid
-                rgba(255,255,255,.07);
-
+            background: var(--dark2);
+            border: 1px solid var(--border);
             overflow: hidden;
-
-            transition:
-                .5s ease;
-
+            transition: .4s;
         }
 
         .video-card:hover {
-
-            border-color:
-                var(--green);
-
-            transform:
-                translateY(-8px);
-
+            transform: translateY(-8px);
+            border-color: var(--green);
         }
 
         .video-card video {
-
-            display: block;
-
             width: 100%;
-
-            aspect-ratio:
-                16 / 9;
-
+            aspect-ratio: 16/9;
             object-fit: cover;
-
             background: black;
-
         }
 
         .video-info {
-
-            padding:
-                23px;
-
-        }
-
-        .video-info span {
-
-            color: var(--green);
-
-            font-size: 9px;
-
-            letter-spacing: 2px;
-
-            text-transform: uppercase;
-
+            padding: 22px;
         }
 
         .video-info h3 {
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size: 27px;
-
-            font-weight: 500;
-
-            margin:
-                9px 0;
-
+            margin-bottom: 8px;
         }
 
         .video-info p {
-
-            color: #777;
-
-            font-size: 12px;
-
-            line-height: 1.7;
-
-        }
-
-
-        /* =====================================================
-           UNIVERSITY
-        ===================================================== */
-
-        .university {
-
-            display: grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            gap: 25px;
-
-        }
-
-        .university img {
-
-            width: 100%;
-
-            height: 400px;
-
-            object-fit: cover;
-
-            filter:
-                grayscale(45%);
-
-            border:
-                1px solid
-                rgba(255,255,255,.08);
-
-            transition: .6s;
-
-        }
-
-        .university img:hover {
-
-            filter:
-                grayscale(0%);
-
-            transform:
-                scale(1.015);
-
-        }
-
-        .uni-text {
-
-            grid-column:
-                1 / -1;
-
-            padding-top:
-                30px;
-
-            max-width:
-                800px;
-
-        }
-
-        .uni-text h3 {
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size: 43px;
-
-            font-weight: 500;
-
-            margin-bottom: 18px;
-
-        }
-
-        .uni-text p {
-
-            color: #888;
-
-            line-height: 2;
-
+            color: var(--gray);
             font-size: 14px;
+        }
 
+
+        /* =========================
+           UNIVERSITY
+        ========================= */
+
+        .university-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .university-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .university-images img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+
+        .university-text p {
+            color: var(--gray);
+            margin-bottom: 20px;
         }
 
         .tag {
-
             display: inline-block;
-
-            color:
-                var(--green);
-
-            border:
-                1px solid
-                var(--green);
-
-            padding:
-                9px 14px;
-
-            margin-top: 20px;
-
-            font-size: 9px;
-
-            text-transform: uppercase;
-
-            letter-spacing: 2px;
-
+            color: var(--green);
+            border: 1px solid var(--green);
+            padding: 7px 13px;
+            font-size: 12px;
+            margin: 5px;
         }
 
 
-        /* =====================================================
+        /* =========================
            PHILOSOPHY
-        ===================================================== */
+        ========================= */
 
         .philosophy {
-
-            background:
-                radial-gradient(
-                    circle at 80% 20%,
-                    rgba(0,255,136,.05),
-                    transparent 35%
-                );
-
-        }
-
-        .philosophy-header {
-
-            display: grid;
-
-            grid-template-columns:
-                1.2fr .8fr;
-
-            gap: 60px;
-
-            align-items: end;
-
-            margin-bottom: 65px;
-
-        }
-
-        .philosophy-intro {
-
-            color: #888;
-
-            line-height: 2;
-
-            font-size: 14px;
-
-            max-width: 430px;
-
+            background: #080808;
         }
 
         .philosophy-gallery {
-
             display: grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            gap: 22px;
-
+            grid-template-columns: repeat(4,1fr);
+            gap: 15px;
+            margin-bottom: 60px;
         }
 
-        .philosophy-card {
-
-            background:
-                #080808;
-
-            border:
-                1px solid
-                rgba(255,255,255,.07);
-
-            overflow: hidden;
-
-            transition:
-                .5s ease;
-
-        }
-
-        .philosophy-card:hover {
-
-            transform:
-                translateY(-8px);
-
-            border-color:
-                rgba(0,255,136,.5);
-
-        }
-
-        .philosophy-wide {
-
-            grid-column:
-                1 / -1;
-
-        }
-
-        .philosophy-image {
-
-            height: 430px;
-
-            position: relative;
-
-            overflow: hidden;
-
-        }
-
-        .philosophy-wide
-        .philosophy-image {
-
-            height: 500px;
-
-        }
-
-        .philosophy-image img {
-
+        .philosophy-gallery img {
             width: 100%;
-
-            height: 100%;
-
+            height: 330px;
             object-fit: cover;
-
-            filter:
-                grayscale(100%)
-                brightness(.75);
-
-            transition:
-                1s ease;
-
+            transition: .5s;
         }
 
-        .philosophy-card:hover
-        .philosophy-image img {
-
-            transform:
-                scale(1.07);
-
-            filter:
-                grayscale(15%)
-                brightness(.9);
-
-        }
-
-        .image-overlay {
-
-            position: absolute;
-
-            inset: 0;
-
-            background:
-                linear-gradient(
-                    to bottom,
-                    transparent 35%,
-                    rgba(0,0,0,.85)
-                );
-
-        }
-
-        .image-number {
-
-            position: absolute;
-
-            top: 20px;
-            left: 20px;
-
-            color:
-                var(--green);
-
-            border:
-                1px solid
-                rgba(0,255,136,.6);
-
-            padding:
-                8px 11px;
-
-            font-size: 9px;
-
-            letter-spacing: 2px;
-
-            background:
-                rgba(0,0,0,.35);
-
-        }
-
-        .philosophy-caption {
-
-            padding:
-                25px 28px 30px;
-
-        }
-
-        .philosophy-caption span {
-
-            color:
-                var(--green);
-
-            font-size: 9px;
-
-            letter-spacing: 3px;
-
-        }
-
-        .philosophy-caption h3 {
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size: 29px;
-
-            font-weight: 500;
-
-            margin:
-                10px 0;
-
-        }
-
-        .philosophy-caption p {
-
-            color: #777;
-
-            font-size: 12px;
-
-            line-height: 1.8;
-
+        .philosophy-gallery img:hover {
+            transform: scale(1.03);
         }
 
         .philosophy-quote {
-
-            margin-top: 90px;
-
-            max-width: 950px;
-
-        }
-
-        .quote-line {
-
-            width: 70px;
-
-            height: 1px;
-
-            background:
-                var(--green);
-
-            margin-bottom: 25px;
-
-        }
-
-        .philosophy-quote p {
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-style: italic;
-
-            font-size:
-                clamp(28px,4vw,55px);
-
-            line-height: 1.2;
-
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(28px,4vw,55px);
+            line-height: 1.3;
         }
 
         .philosophy-quote span {
-
-            display: block;
-
-            margin-top: 25px;
-
-            color:
-                var(--green);
-
-            font-size: 9px;
-
-            letter-spacing: 3px;
-
+            color: var(--green);
         }
 
 
-        /* =====================================================
-           MARKETPLACE
-        ===================================================== */
+        /* =========================
+           CREATIVE MARKET
+        ========================= */
 
-        .market-intro {
+        .market {
+            background: #050505;
+        }
 
-            color: #888;
+        .market-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
 
-            max-width: 650px;
-
-            line-height: 2;
-
-            font-size: 14px;
-
-            margin-top: -25px;
-
-            margin-bottom: 45px;
-
+        .market-header .section-subtitle {
+            margin-bottom: 0;
         }
 
         .market-grid {
-
             display: grid;
-
-            grid-template-columns:
-                repeat(3,1fr);
-
-            gap: 18px;
-
+            grid-template-columns: repeat(3,1fr);
+            gap: 25px;
         }
 
-        .product {
-
-            background:
-                #0b0b0b;
-
-            border:
-                1px solid
-                rgba(255,255,255,.07);
-
+        .market-card {
+            background: #0d0d0d;
+            border: 1px solid var(--border);
+            transition: .4s;
             overflow: hidden;
-
-            transition: .45s;
-
-        }
-
-        .product:hover {
-
-            transform:
-                translateY(-8px);
-
-            border-color:
-                var(--green);
-
-        }
-
-        .product-image {
-
-            height: 300px;
-
             position: relative;
+        }
 
+        .market-card:hover {
+            border-color: var(--green);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,255,136,.08);
+        }
+
+        .market-image-wrapper {
             overflow: hidden;
+            background: white;
+        }
 
+        .market-card img {
+            width: 100%;
+            height: 310px;
+            object-fit: cover;
+            transition: .5s;
+        }
+
+        .market-card:hover img {
+            transform: scale(1.04);
+        }
+
+        .market-content {
+            padding: 25px;
+        }
+
+        .market-category {
+            color: var(--green);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .market-content h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .market-content p {
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .market-bottom {
             display: flex;
-
             align-items: center;
-
-            justify-content: center;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #101010,
-                    #050505
-                );
-
+            justify-content: space-between;
+            gap: 15px;
         }
 
-        .product-image::before {
-
-            content:
-                "PRODUCT";
-
-            color:
-                rgba(0,255,136,.15);
-
-            font-size:
-                35px;
-
-            font-weight:
-                900;
-
-            letter-spacing:
-                5px;
-
+        .price {
+            color: var(--green);
+            font-size: 21px;
+            font-weight: 700;
+            white-space: nowrap;
         }
 
-        .product-info {
-
-            padding:
-                23px;
-
+        .add-cart {
+            border: 1px solid var(--green);
+            background: transparent;
+            color: var(--green);
+            padding: 11px 15px;
+            cursor: pointer;
+            transition: .3s;
+            font-weight: 600;
         }
 
-        .product-info span {
-
-            color:
-                var(--green);
-
-            font-size:
-                9px;
-
-            letter-spacing:
-                2px;
-
-            text-transform:
-                uppercase;
-
+        .add-cart:hover {
+            background: var(--green);
+            color: black;
         }
 
-        .product-info h3 {
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size:
-                26px;
-
-            margin:
-                9px 0;
-
-        }
-
-        .product-info p {
-
-            color:
-                #777;
-
-            font-size:
-                12px;
-
-            line-height:
-                1.7;
-
-        }
-
-        .market-button {
-
-            display:
-                inline-block;
-
-            margin-top:
-                17px;
-
-            color:
-                var(--green);
-
-            text-decoration:
-                none;
-
-            font-size:
-                9px;
-
-            text-transform:
-                uppercase;
-
-            letter-spacing:
-                2px;
-
+        .added-message {
+            display: none;
+            color: var(--green);
+            font-size: 12px;
+            margin-top: 10px;
         }
 
 
-        /* =====================================================
-           CREATIVE NETWORK
-        ===================================================== */
+        /* =========================
+           CART OVERLAY
+        ========================= */
+
+        .cart-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.72);
+            z-index: 1999;
+            opacity: 0;
+            visibility: hidden;
+            transition: .3s;
+        }
+
+        .cart-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .cart-panel {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: min(440px, 92%);
+            height: 100vh;
+            background: #0a0a0a;
+            border-left: 1px solid var(--green);
+            z-index: 2000;
+            transform: translateX(100%);
+            transition: .4s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-panel.active {
+            transform: translateX(0);
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cart-header h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 30px;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .empty-cart {
+            text-align: center;
+            color: var(--gray);
+            padding: 60px 20px;
+        }
+
+        .cart-item {
+            display: grid;
+            grid-template-columns: 75px 1fr auto;
+            gap: 14px;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cart-item img {
+            width: 75px;
+            height: 75px;
+            object-fit: cover;
+        }
+
+        .cart-item-info h4 {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-info span {
+            color: var(--green);
+            font-size: 13px;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .quantity-controls button {
+            width: 25px;
+            height: 25px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: white;
+            cursor: pointer;
+        }
+
+        .quantity-controls button:hover {
+            border-color: var(--green);
+            color: var(--green);
+        }
+
+        .remove-item {
+            border: none;
+            background: transparent;
+            color: #777;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .remove-item:hover {
+            color: #ff5555;
+        }
+
+        .cart-footer {
+            padding: 25px;
+            border-top: 1px solid var(--border);
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .cart-total strong {
+            color: var(--green);
+        }
+
+        .checkout-btn {
+            width: 100%;
+            border: none;
+            padding: 16px;
+            background: var(--green);
+            color: black;
+            font-size: 15px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .checkout-btn:hover {
+            background: white;
+        }
+
+
+        /* =========================
+           NETWORK
+        ========================= */
 
         .network {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(3,1fr);
-
-            gap:
-                18px;
-
+            background: var(--green);
+            color: black;
         }
 
-        .network-card {
-
-            min-height:
-                250px;
-
-            border:
-                1px solid
-                rgba(255,255,255,.08);
-
-            padding:
-                30px;
-
-            background:
-                #080808;
-
-            transition:
-                .4s;
-
+        .network .section-title {
+            color: black;
         }
 
-        .network-card:hover {
-
-            border-color:
-                var(--green);
-
-            transform:
-                translateY(-7px);
-
+        .network .hero-small {
+            color: black;
         }
 
-        .network-number {
-
-            color:
-                var(--green);
-
-            font-size:
-                10px;
-
-            letter-spacing:
-                3px;
-
+        .network p {
+            max-width: 700px;
+            margin-bottom: 35px;
+            font-size: 18px;
         }
 
-        .network-card h3 {
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size:
-                30px;
-
-            margin:
-                45px 0 15px;
-
+        .network .btn {
+            border-color: black;
+            color: black;
         }
 
-        .network-card p {
-
-            color:
-                #777;
-
-            font-size:
-                12px;
-
-            line-height:
-                1.8;
-
+        .network .btn:hover {
+            background: black;
+            color: var(--green);
         }
 
 
-        /* =====================================================
+        /* =========================
            CONTACT
-        ===================================================== */
+        ========================= */
 
-        .contact {
-
-            text-align:
-                center;
-
-            padding-bottom:
-                150px;
-
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
         }
 
-        .contact h2 {
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size:
-                clamp(45px,8vw,100px);
-
-            font-weight:
-                500;
-
-            line-height:
-                .9;
-
-            margin-bottom:
-                30px;
-
+        .contact-text p {
+            color: var(--gray);
+            margin-bottom: 30px;
         }
 
-        .contact h2 span {
-            color:
-                var(--green);
+        .contact-item {
+            margin-bottom: 20px;
         }
 
-        .contact p {
-
-            color:
-                #777;
-
-            max-width:
-                600px;
-
-            margin:
-                auto;
-
-            line-height:
-                1.9;
-
-            font-size:
-                13px;
-
+        .contact-item span {
+            display: block;
+            color: var(--green);
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
-        .contact-buttons {
+        .contact-item a {
+            font-size: 20px;
+        }
 
-            display:
-                flex;
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
 
-            justify-content:
-                center;
+        input,
+        textarea {
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: white;
+            padding: 16px;
+            font-family: inherit;
+            outline: none;
+        }
 
-            gap:
-                15px;
+        input:focus,
+        textarea:focus {
+            border-color: var(--green);
+        }
 
-            flex-wrap:
-                wrap;
-
-            margin-top:
-                35px;
-
+        textarea {
+            min-height: 180px;
+            resize: vertical;
         }
 
 
-        /* =====================================================
+        /* =========================
            FOOTER
-        ===================================================== */
+        ========================= */
 
         footer {
-
-            border-top:
-                1px solid
-                rgba(255,255,255,.07);
-
-            padding:
-                35px 8%;
-
-            display:
-                flex;
-
-            justify-content:
-                space-between;
-
-            align-items:
-                center;
-
-            gap:
-                20px;
-
+            border-top: 1px solid var(--border);
+            padding: 35px 0;
         }
 
-        footer p {
-
-            color:
-                #555;
-
-            font-size:
-                10px;
-
-            letter-spacing:
-                1px;
-
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
         }
 
-        footer strong {
+        .footer-logo {
+            font-family: "Playfair Display", serif;
+            color: var(--green);
+            font-size: 24px;
+        }
 
-            color:
-                var(--green);
+        .socials {
+            display: flex;
+            gap: 20px;
+        }
 
+        .socials a {
+            color: var(--gray);
+        }
+
+        .socials a:hover {
+            color: var(--green);
         }
 
 
-        /* =====================================================
-           SCROLL REVEAL
-        ===================================================== */
+        /* =========================
+           REVEAL
+        ========================= */
 
         .reveal {
-
-            opacity:
-                0;
-
-            transform:
-                translateY(40px);
-
-            transition:
-                opacity .9s ease,
-                transform .9s ease;
-
+            opacity: 0;
+            transform: translateY(40px);
+            transition: 1s ease;
         }
 
         .reveal.active {
-
-            opacity:
-                1;
-
-            transform:
-                translateY(0);
-
+            opacity: 1;
+            transform: translateY(0);
         }
 
 
-        /* =====================================================
-           MOBILE
-        ===================================================== */
+        /* =========================
+           RESPONSIVE
+        ========================= */
 
         @media(max-width: 900px) {
 
             .nav-links {
-
-                position:
-                    fixed;
-
-                top:
-                    80px;
-
-                right:
-                    -100%;
-
-                width:
-                    75%;
-
-                height:
-                    calc(100vh - 80px);
-
-                background:
-                    #050505;
-
-                flex-direction:
-                    column;
-
-                padding:
-                    50px 30px;
-
-                transition:
-                    .4s;
-
-                border-left:
-                    1px solid
-                    var(--border);
-
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: #050505;
+                flex-direction: column;
+                padding: 25px;
+                display: none;
+                align-items: flex-start;
             }
 
-            .nav-links.open {
-                right: 0;
+            .nav-links.active {
+                display: flex;
             }
 
-            .menu {
-                display:
-                    block;
+            .menu-btn {
+                display: block;
             }
 
-            .hero {
-
-                grid-template-columns:
-                    1fr;
-
-                padding-top:
-                    140px;
-
+            .hero-grid,
+            .about-grid,
+            .university-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
             }
 
             .hero-image {
-
-                order:
-                    -1;
-
+                order: -1;
             }
 
-            .hero h1 {
-
-                font-size:
-                    clamp(55px,15vw,95px);
-
+            .hero-image img {
+                height: 500px;
             }
 
-            .about {
-
-                grid-template-columns:
-                    1fr;
-
-                gap:
-                    35px;
-
+            .stats-grid {
+                grid-template-columns: repeat(2,1fr);
+                gap: 30px;
             }
 
-            .university {
-
-                grid-template-columns:
-                    1fr;
-
+            .stat:nth-child(2) {
+                border-right: none;
             }
 
-            .philosophy-header {
-
-                grid-template-columns:
-                    1fr;
-
+            .video-grid {
+                grid-template-columns: 1fr;
             }
 
-            .market-grid,
-            .network {
-
-                grid-template-columns:
-                    1fr 1fr;
-
+            .philosophy-gallery {
+                grid-template-columns: repeat(2,1fr);
             }
 
+            .market-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .market-header {
+                display: block;
+            }
+
+            .market-header .section-subtitle {
+                margin-top: 20px;
+            }
         }
-
 
         @media(max-width: 600px) {
 
-            section {
-
-                padding:
-                    90px 6%;
-
-            }
-
-            nav {
-
-                padding:
-                    0 6%;
-
-            }
-
-            .hero {
-
-                padding:
-                    120px 6% 70px;
-
+            .section {
+                padding: 80px 0;
             }
 
             .hero h1 {
-
-                letter-spacing:
-                    -4px;
-
+                font-size: 65px;
             }
 
-            .stats {
-
-                grid-template-columns:
-                    1fr;
-
-                gap:
-                    25px;
-
+            .hero-image img {
+                height: 400px;
             }
 
-            .stat {
-
-                border-right:
-                    none;
-
-                border-bottom:
-                    1px solid
-                    var(--border);
-
-                padding-bottom:
-                    20px;
-
+            .philosophy-gallery {
+                grid-template-columns: 1fr;
             }
 
-            .stat:last-child {
-
-                border-bottom:
-                    none;
-
-                padding-bottom:
-                    0;
-
+            .university-images {
+                grid-template-columns: 1fr;
             }
 
-            .video-grid,
-            .philosophy-gallery,
-            .market-grid,
-            .network {
-
-                grid-template-columns:
-                    1fr;
-
+            .market-grid {
+                grid-template-columns: 1fr;
             }
 
-            .philosophy-wide {
-
-                grid-column:
-                    auto;
-
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
             }
 
-            .philosophy-image,
-            .philosophy-wide
-            .philosophy-image {
-
-                height:
-                    350px;
-
+            .market-bottom {
+                align-items: flex-start;
+                flex-direction: column;
             }
 
-            .university img {
-
-                height:
-                    280px;
-
+            .add-cart {
+                width: 100%;
             }
-
-            footer {
-
-                flex-direction:
-                    column;
-
-                text-align:
-                    center;
-
-            }
-
         }
 
     </style>
-
 </head>
 
 
 <body>
 
 
-<!-- =========================================================
+<!-- =========================
      LOADER
-========================================================= -->
+========================= -->
 
 <div id="loader">
 
-    <div class="loader-logo">
-        ANAS <span>AYMAN</span>
+    <div class="loader-name">
+        Anas Ayman
     </div>
-
-    <div class="loader-line"></div>
 
 </div>
 
 
-
-<!-- =========================================================
+<!-- =========================
      NAVIGATION
-========================================================= -->
+========================= -->
 
 <nav>
 
-    <a href="#home" class="logo">
-        ANAS <span>AYMAN</span>
-    </a>
+    <div class="nav-container">
 
-    <div class="menu" id="menu">
-        ☰
+        <a href="#home" class="logo">
+            Anas Ayman
+        </a>
+
+        <button
+            class="menu-btn"
+            id="menuBtn">
+            ☰
+        </button>
+
+        <ul
+            class="nav-links"
+            id="navLinks">
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#acting">Acting</a>
+            </li>
+
+            <li>
+                <a href="#theatre">Theatre</a>
+            </li>
+
+            <li>
+                <a href="#philosophy">Philosophy</a>
+            </li>
+
+            <li>
+                <a href="#market">Designs</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+            <li>
+
+                <a
+                    href="javascript:void(0)"
+                    class="cart-nav-button"
+                    onclick="openCart()">
+
+                    Cart
+
+                    <span id="cartCount">
+                        0
+                    </span>
+
+                </a>
+
+            </li>
+
+        </ul>
+
     </div>
-
-    <ul class="nav-links" id="navLinks">
-
-        <li>
-            <a href="#home">Home</a>
-        </li>
-
-        <li>
-            <a href="#about">About</a>
-        </li>
-
-        <li>
-            <a href="#acting">Acting</a>
-        </li>
-
-        <li>
-            <a href="#theatre">Theatre</a>
-        </li>
-
-        <li>
-            <a href="#philosophy">Philosophy</a>
-        </li>
-
-        <li>
-            <a href="#market">Market</a>
-        </li>
-
-        <li>
-            <a href="#contact">Contact</a>
-        </li>
-
-    </ul>
 
 </nav>
 
 
-
-<!-- =========================================================
+<!-- =========================
      HERO
-========================================================= -->
+========================= -->
 
-<main id="home">
+<section
+    class="hero"
+    id="home">
 
-<section class="hero">
+    <div class="container hero-grid">
 
-    <div class="hero-text">
+        <div class="hero-content reveal">
 
-        <p class="eyebrow">
-            Actor • Creative • Computer Science
-        </p>
+            <div class="hero-small">
+                Personal Brand
+            </div>
 
-        <h1>
+            <h1>
 
-            ANAS
+                <span class="name-green">
+                    Anas
+                </span>
 
-            <span class="outline">
-                AYMAN
-            </span>
+                Ayman
 
-            <span class="green">
-                BRAND
-            </span>
+            </h1>
 
-        </h1>
+            <p class="hero-description">
 
-        <p class="hero-description">
+                Computer Science student, actor,
+                theatre performer and creative entrepreneur
+                building a personal brand through technology,
+                performance and creativity.
 
-            A personal creative brand built around acting,
-            theatre, technology, philosophy and creative
-            collaboration.
+            </p>
 
-            <br><br>
+            <div class="hero-buttons">
 
-            <strong>
-                Computer Science Student at O6U.
-            </strong>
+                <a
+                    href="#acting"
+                    class="btn btn-primary">
 
-            Actor. Performer. Creator.
+                    Watch My Work
 
-        </p>
+                </a>
+
+                <a
+                    href="#market"
+                    class="btn btn-outline">
+
+                    Explore Designs
+
+                </a>
+
+            </div>
+
+        </div>
 
 
-        <div class="hero-buttons">
+        <div class="hero-image reveal">
 
-            <a href="#acting"
-               class="btn btn-primary">
-                Watch Showreel
-            </a>
-
-            <a href="#about"
-               class="btn btn-outline">
-                Discover Anas
-            </a>
+            <img
+                src="images/1783955612278.png"
+                alt="Anas Ayman">
 
         </div>
 
     </div>
 
-
-    <div class="hero-image">
-
-        <!-- YOUR MAIN PHOTO -->
-
-        <img
-            src="images/1783955612278.png"
-            alt="Anas Ayman"
-            class="portrait"
-        >
-
-    </div>
-
-
-    <div class="scroll">
-        Scroll to explore
-    </div>
-
 </section>
 
 
-
-<!-- =========================================================
+<!-- =========================
      STATS
-========================================================= -->
+========================= -->
 
-<section>
+<section class="stats">
 
-    <div class="stats reveal">
+    <div class="container stats-grid">
 
         <div class="stat">
 
-            <h3>01</h3>
+            <div class="stat-number">
+                01
+            </div>
 
-            <p>
-                Computer Science Student
-            </p>
+            <div class="stat-label">
+                University Year
+            </div>
 
         </div>
 
 
         <div class="stat">
 
-            <h3>02</h3>
+            <div class="stat-number">
+                CS
+            </div>
 
-            <p>
-                Actor & Theatre Performer
-            </p>
+            <div class="stat-label">
+                Computer Science
+            </div>
 
         </div>
 
 
         <div class="stat">
 
-            <h3>03</h3>
+            <div class="stat-number">
+                O6U
+            </div>
 
-            <p>
-                Creative Brand
-            </p>
+            <div class="stat-label">
+                University
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                ∞
+            </div>
+
+            <div class="stat-label">
+                Ambition
+            </div>
 
         </div>
 
@@ -2075,71 +1288,71 @@
 </section>
 
 
-
-<!-- =========================================================
+<!-- =========================
      ABOUT
-========================================================= -->
+========================= -->
 
-<section id="about">
+<section
+    class="section"
+    id="about">
 
-    <p class="section-label">
-        01 — ABOUT
-    </p>
+    <div class="container about-grid">
 
-    <div class="about reveal">
+        <div class="about-image reveal">
 
-        <div class="about-big">
-
-            Building a brand where
-
-            <span>
-                technology
-            </span>
-
-            meets
-
-            <span>
-                cinema.
-            </span>
+            <img
+                src="images/1783955612278.png"
+                alt="Anas Ayman">
 
         </div>
 
 
-        <div class="about-text">
+        <div class="about-text reveal">
+
+            <div class="hero-small">
+                About Me
+            </div>
+
+            <h2 class="section-title">
+
+                More Than
+                <span class="green">
+                    One Identity.
+                </span>
+
+            </h2>
 
             <p>
 
-                <strong>
-                    Anas Ayman
-                </strong>
-                is building a personal brand that combines
-                creative performance with technology.
+                I am Anas Ayman, a Computer Science
+                student at October 6 University with a strong
+                interest in acting, theatre, technology
+                and creative projects.
 
             </p>
-
-            <br>
 
             <p>
 
-                As a Computer Science student at
-                <strong>
-                    October 6 University
-                </strong>,
-                Anas is developing technical skills while
-                pursuing acting and university theatre.
+                My goal is to build a personal brand that
+                connects technology with entertainment
+                and creativity.
 
             </p>
-
-            <br>
 
             <p>
 
-                The brand also creates a platform for
-                collaboration with fashion models,
-                graphic designers and creative students
-                from Applied Arts.
+                This website represents my journey,
+                acting work, university theatre experience,
+                ideas and creative projects.
 
             </p>
+
+            <div class="about-highlight">
+
+                "Build the identity before
+                the world knows the name."
+
+            </div>
 
         </div>
 
@@ -2148,168 +1361,174 @@
 </section>
 
 
-
-<!-- =========================================================
+<!-- =========================
      ACTING
-========================================================= -->
+========================= -->
 
-<section id="acting">
+<section
+    class="section"
+    id="acting">
 
-    <p class="section-label">
-        02 — ACTING / SHOWREEL
-    </p>
+    <div class="container">
 
-    <h2 class="section-title">
-        THE CAMERA<br>
-        <em>IS ON.</em>
-    </h2>
+        <div class="reveal">
 
+            <div class="hero-small">
+                Acting
+            </div>
 
-    <div class="video-grid reveal">
+            <h2 class="section-title">
 
-
-        <!-- ACTING VIDEO 1 -->
-
-        <article class="video-card">
-
-            <video
-                controls
-                preload="metadata"
-                poster="images/1783955612278.png">
-
-                <source
-                    src="videos/acting-1.mp4"
-                    type="video/mp4">
-
-                Your browser does not support video.
-
-            </video>
-
-
-            <div class="video-info">
-
-                <span>
-                    Acting / 01
+                My
+                <span class="green">
+                    Showreel.
                 </span>
 
-                <h3>
-                    Acting Scene
-                </h3>
+            </h2>
 
-                <p>
-                    A cinematic acting performance
-                    by Anas Ayman.
-                </p>
+            <p class="section-subtitle">
+
+                Selected acting scenes,
+                performances and cinematic experiments
+                documenting my development as an actor.
+
+            </p>
+
+        </div>
+
+
+        <div class="video-grid">
+
+            <div class="video-card reveal">
+
+                <video
+                    controls
+                    preload="metadata">
+
+                    <source
+                        src="videos/acting-1.mp4"
+                        type="video/mp4">
+
+                </video>
+
+                <div class="video-info">
+
+                    <h3>
+                        Acting Scene 01
+                    </h3>
+
+                    <p>
+                        Dramatic performance and character work.
+                    </p>
+
+                </div>
 
             </div>
 
-        </article>
 
+            <div class="video-card reveal">
 
+                <video
+                    controls
+                    preload="metadata">
 
-        <!-- ACTING VIDEO 2 -->
+                    <source
+                        src="videos/acting-2.mp4"
+                        type="video/mp4">
 
-        <article class="video-card">
+                </video>
 
-            <video
-                controls
-                preload="metadata"
-                poster="images/1783955612278.png">
+                <div class="video-info">
 
-                <source
-                    src="videos/acting-2.mp4"
-                    type="video/mp4">
+                    <h3>
+                        Acting Scene 02
+                    </h3>
 
-                Your browser does not support video.
+                    <p>
+                        Character performance and cinematic acting.
+                    </p>
 
-            </video>
-
-
-            <div class="video-info">
-
-                <span>
-                    Acting / 02
-                </span>
-
-                <h3>
-                    Character Performance
-                </h3>
-
-                <p>
-                    Another scene for the
-                    Anas Ayman showreel.
-                </p>
+                </div>
 
             </div>
 
-        </article>
+        </div>
 
     </div>
 
 </section>
 
 
-
-<!-- =========================================================
+<!-- =========================
      UNIVERSITY THEATRE
-========================================================= -->
+========================= -->
 
-<section id="theatre">
+<section
+    class="section"
+    id="theatre">
 
-    <p class="section-label">
-        03 — UNIVERSITY THEATRE
-    </p>
+    <div class="container university-grid">
 
-    <h2 class="section-title">
-        FROM CAMPUS<br>
-        <em>TO STAGE.</em>
-    </h2>
+        <div class="university-images reveal">
 
+            <img
+                src="images/o6u-1.jpg"
+                alt="October 6 University">
 
-    <div class="university reveal">
+            <img
+                src="images/o6u-2.jpg"
+                alt="October 6 University">
 
-        <!-- O6U IMAGE 1 -->
-
-        <img
-            src="images/o6u-1.jpg"
-            alt="October 6 University"
-            loading="lazy"
-        >
+        </div>
 
 
-        <!-- O6U IMAGE 2 -->
+        <div class="university-text reveal">
 
-        <img
-            src="images/o6u-2.jpg"
-            alt="October 6 University"
-            loading="lazy"
-        >
+            <div class="hero-small">
+                University Theatre
+            </div>
 
+            <h2 class="section-title">
 
-        <div class="uni-text">
+                From
+                <span class="green">
+                    Campus
+                </span>
 
-            <h3>
-                October 6 University
-            </h3>
+                To Stage.
+
+            </h2>
 
             <p>
 
-                University is more than classrooms.
+                University theatre is one of the spaces
+                where I want to develop my acting,
+                confidence, teamwork and performance skills.
 
-                It is where ideas, friendships,
-                experiences and performances
-                become part of the story.
+            </p>
 
-                <br><br>
+            <p>
 
-                This section documents the theatre
-                journey and creative experiences
-                at O6U.
+                Theatre is about discipline,
+                communication, emotion, creativity
+                and teamwork.
 
             </p>
 
             <span class="tag">
-                O6U • Computer Science • Theatre
+                Acting
+            </span>
+
+            <span class="tag">
+                Theatre
+            </span>
+
+            <span class="tag">
+                Performance
+            </span>
+
+            <span class="tag">
+                Teamwork
             </span>
 
         </div>
@@ -2317,777 +1536,889 @@
     </div>
 
 
-
-    <!-- THEATRE VIDEOS -->
-
     <div
-        class="video-grid reveal"
-        style="margin-top:45px;">
+        class="container"
+        style="margin-top:70px;">
 
-        <article class="video-card">
+        <div class="video-grid">
 
-            <video controls>
+            <div class="video-card reveal">
 
-                <source
-                    src="videos/theatre-1.mp4"
-                    type="video/mp4">
+                <video controls>
 
-                Your browser does not support video.
+                    <source
+                        src="videos/theatre-1.mp4"
+                        type="video/mp4">
 
-            </video>
+                </video>
 
-            <div class="video-info">
+                <div class="video-info">
 
-                <span>
-                    University Theatre
-                </span>
+                    <h3>
+                        University Theatre — Scene 01
+                    </h3>
 
-                <h3>
-                    Stage Performance
-                </h3>
+                    <p>
+                        Theatre performance and stage experience.
+                    </p>
 
-                <p>
-                    Theatre performance from
-                    the university journey.
-                </p>
+                </div>
 
             </div>
 
-        </article>
 
+            <div class="video-card reveal">
 
-        <article class="video-card">
+                <video controls>
 
-            <video controls>
+                    <source
+                        src="videos/theatre-2.mp4"
+                        type="video/mp4">
 
-                <source
-                    src="videos/theatre-2.mp4"
-                    type="video/mp4">
+                </video>
 
-                Your browser does not support video.
+                <div class="video-info">
 
-            </video>
+                    <h3>
+                        University Theatre — Scene 02
+                    </h3>
 
-            <div class="video-info">
+                    <p>
+                        Performance, character and stage presence.
+                    </p>
 
-                <span>
-                    Behind The Scenes
-                </span>
-
-                <h3>
-                    Theatre Moments
-                </h3>
-
-                <p>
-                    Moments from the creative
-                    process behind the stage.
-                </p>
+                </div>
 
             </div>
 
-        </article>
+        </div>
 
     </div>
 
 </section>
 
 
-
-<!-- =========================================================
+<!-- =========================
      PHILOSOPHY
-========================================================= -->
+========================= -->
 
 <section
-    id="philosophy"
-    class="philosophy">
+    class="section philosophy"
+    id="philosophy">
 
-    <p class="section-label">
-        04 — PHILOSOPHY
-    </p>
+    <div class="container">
+
+        <div class="reveal">
+
+            <div class="hero-small">
+                Philosophy
+            </div>
+
+            <h2 class="section-title">
+
+                The Mind Behind
+                <span class="green">
+                    The Brand.
+                </span>
+
+            </h2>
+
+            <p class="section-subtitle">
+
+                Ideas, thoughts and visual moments
+                that represent the way I see life,
+                ambition and creativity.
+
+            </p>
+
+        </div>
 
 
-    <div class="philosophy-header">
+        <div class="philosophy-gallery reveal">
+
+            <img
+                src="images/philosophy-1.jpg"
+                alt="Philosophy 1">
+
+            <img
+                src="images/philosophy-2.jpg"
+                alt="Philosophy 2">
+
+            <img
+                src="images/philosophy-3.jpg"
+                alt="Philosophy 3">
+
+            <img
+                src="images/philosophy-4.jpg"
+                alt="Philosophy 4">
+
+        </div>
+
+
+        <div class="philosophy-quote reveal">
+
+            We are all swimmers
+            in the sea of life,
+            looking toward the sun,
+            trying to discover
+
+            <span>
+                who we really are.
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CREATIVE MARKET / DESIGNS
+===================================================== -->
+
+<section
+    class="section market"
+    id="market">
+
+    <div class="container">
+
+        <div class="market-header reveal">
+
+            <div>
+
+                <div class="hero-small">
+                    Anas Ayman Creative Market
+                </div>
+
+                <h2 class="section-title">
+
+                    Creative
+                    <span class="green">
+                        Designs.
+                    </span>
+
+                </h2>
+
+            </div>
+
+            <p class="section-subtitle">
+
+                Discover creative artwork, graphic designs
+                and visual concepts from talented designers.
+
+            </p>
+
+        </div>
+
+
+        <div class="market-grid">
+
+
+            <!-- DESIGN 1 -->
+
+            <div class="market-card reveal">
+
+                <div class="market-image-wrapper">
+
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1L95aqZrKI-3jUoR1kqPZgJF5FwfneN1KZpNOjM3M0Q&s=10"
+                        alt="Save Trees Save Earth Design">
+
+                </div>
+
+                <div class="market-content">
+
+                    <div class="market-category">
+                        Environmental Art
+                    </div>
+
+                    <h3>
+                        Save Trees, Save Earth
+                    </h3>
+
+                    <p>
+
+                        A minimalist environmental
+                        artwork focused on nature,
+                        trees and protecting our planet.
+
+                    </p>
+
+                    <div class="market-bottom">
+
+                        <div class="price">
+                            EGP 250
+                        </div>
+
+                        <button
+                            class="add-cart"
+                            onclick="addToCart(
+                                1,
+                                'Save Trees, Save Earth',
+                                250,
+                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1L95aqZrKI-3jUoR1kqPZgJF5FwfneN1KZpNOjM3M0Q&s=10'
+                            )">
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DESIGN 2 -->
+
+            <div class="market-card reveal">
+
+                <div class="market-image-wrapper">
+
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlXhxTbGXVN-Sze45hPf0EivM13U0AIPke3udFmebI8A&s=10"
+                        alt="Calligraphy Collection">
+
+                </div>
+
+                <div class="market-content">
+
+                    <div class="market-category">
+                        Typography
+                    </div>
+
+                    <h3>
+                        Calligraphy Collection
+                    </h3>
+
+                    <p>
+
+                        Decorative typography artwork
+                        combining elegant lettering,
+                        curves and artistic composition.
+
+                    </p>
+
+                    <div class="market-bottom">
+
+                        <div class="price">
+                            EGP 300
+                        </div>
+
+                        <button
+                            class="add-cart"
+                            onclick="addToCart(
+                                2,
+                                'Calligraphy Collection',
+                                300,
+                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlXhxTbGXVN-Sze45hPf0EivM13U0AIPke3udFmebI8A&s=10'
+                            )">
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DESIGN 3 -->
+
+            <div class="market-card reveal">
+
+                <div class="market-image-wrapper">
+
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO6Zp6DX9a7Yc4W5YhPM45JDRa2J-JlfVETf3If-Hbxw&s=10"
+                        alt="Floral Design">
+
+                </div>
+
+                <div class="market-content">
+
+                    <div class="market-category">
+                        Floral Design
+                    </div>
+
+                    <h3>
+                        Neon Floral Design
+                    </h3>
+
+                    <p>
+
+                        Colorful floral line artwork
+                        with a modern neon aesthetic
+                        and expressive composition.
+
+                    </p>
+
+                    <div class="market-bottom">
+
+                        <div class="price">
+                            EGP 350
+                        </div>
+
+                        <button
+                            class="add-cart"
+                            onclick="addToCart(
+                                3,
+                                'Neon Floral Design',
+                                350,
+                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO6Zp6DX9a7Yc4W5YhPM45JDRa2J-JlfVETf3If-Hbxw&s=10'
+                            )">
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DESIGN 4 -->
+
+            <div class="market-card reveal">
+
+                <div class="market-image-wrapper">
+
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR9GE-OK3Vl0Cm96H3OVkELg-SjqztjwXVbyiK1X_jKQ&s=10"
+                        alt="Abstract Gradient Design">
+
+                </div>
+
+                <div class="market-content">
+
+                    <div class="market-category">
+                        Abstract Design
+                    </div>
+
+                    <h3>
+                        Abstract Gradient
+                    </h3>
+
+                    <p>
+
+                        A modern abstract composition
+                        using colorful gradients,
+                        geometric shapes and flowing forms.
+
+                    </p>
+
+                    <div class="market-bottom">
+
+                        <div class="price">
+                            EGP 400
+                        </div>
+
+                        <button
+                            class="add-cart"
+                            onclick="addToCart(
+                                4,
+                                'Abstract Gradient',
+                                400,
+                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR9GE-OK3Vl0Cm96H3OVkELg-SjqztjwXVbyiK1X_jKQ&s=10'
+                            )">
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DESIGN 5 -->
+
+            <div class="market-card reveal">
+
+                <div class="market-image-wrapper">
+
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWykVW-nnr-3l9J04_e8nVQ0fQG2waAvKKOflUxKB2gw&s=10"
+                        alt="Spring Summer Butterfly Design">
+
+                </div>
+
+                <div class="market-content">
+
+                    <div class="market-category">
+                        Spring & Summer
+                    </div>
+
+                    <h3>
+                        Butterfly Dream
+                    </h3>
+
+                    <p>
+
+                        A colorful spring and summer
+                        themed artwork featuring butterflies,
+                        light and vibrant visual energy.
+
+                    </p>
+
+                    <div class="market-bottom">
+
+                        <div class="price">
+                            EGP 280
+                        </div>
+
+                        <button
+                            class="add-cart"
+                            onclick="addToCart(
+                                5,
+                                'Butterfly Dream',
+                                280,
+                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWykVW-nnr-3l9J04_e8nVQ0fQG2waAvKKOflUxKB2gw&s=10'
+                            )">
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CREATIVE NETWORK
+========================= -->
+
+<section class="section network">
+
+    <div class="container reveal">
+
+        <div class="hero-small">
+            Creative Network
+        </div>
 
         <h2 class="section-title">
-            THOUGHTS<br>
-            <em>BEYOND THE FRAME.</em>
+
+            Let's Build
+            Something
+            <strong>Together.</strong>
+
         </h2>
-
-        <p class="philosophy-intro">
-
-            Philosophy is part of the creative identity.
-
-            Thoughts about life, ambition,
-            identity, struggle and becoming
-            are presented alongside visual stories.
-
-        </p>
-
-    </div>
-
-
-    <div class="philosophy-gallery reveal">
-
-
-        <!-- PHILOSOPHY IMAGE 1 -->
-
-        <article class="philosophy-card">
-
-            <div class="philosophy-image">
-
-                <img
-                    src="images/philosophy-1.jpg"
-                    alt="Philosophy"
-                    loading="lazy"
-                >
-
-                <div class="image-overlay"></div>
-
-                <div class="image-number">
-                    01
-                </div>
-
-            </div>
-
-
-            <div class="philosophy-caption">
-
-                <span>
-                    01 / REFLECTION
-                </span>
-
-                <h3>
-                    The Journey
-                </h3>
-
-                <p>
-                    Life is not only about reaching
-                    the destination. It is about
-                    understanding who you become
-                    along the way.
-                </p>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- PHILOSOPHY IMAGE 2 -->
-
-        <article class="philosophy-card">
-
-            <div class="philosophy-image">
-
-                <img
-                    src="images/philosophy-2.jpg"
-                    alt="Philosophy and Life"
-                    loading="lazy"
-                >
-
-                <div class="image-overlay"></div>
-
-                <div class="image-number">
-                    02
-                </div>
-
-            </div>
-
-
-            <div class="philosophy-caption">
-
-                <span>
-                    02 / LIFE
-                </span>
-
-                <h3>
-                    The Storm
-                </h3>
-
-                <p>
-                    Every storm becomes part
-                    of the story.
-                </p>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- PHILOSOPHY IMAGE 3 -->
-
-        <article class="philosophy-card">
-
-            <div class="philosophy-image">
-
-                <img
-                    src="images/philosophy-3.jpg"
-                    alt="Perspective"
-                    loading="lazy"
-                >
-
-                <div class="image-overlay"></div>
-
-                <div class="image-number">
-                    03
-                </div>
-
-            </div>
-
-
-            <div class="philosophy-caption">
-
-                <span>
-                    03 / MIND
-                </span>
-
-                <h3>
-                    Perspective
-                </h3>
-
-                <p>
-                    The world changes when
-                    the way you see it changes.
-                </p>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- PHILOSOPHY IMAGE 4 -->
-
-        <article
-            class="philosophy-card philosophy-wide">
-
-            <div class="philosophy-image">
-
-                <img
-                    src="images/philosophy-4.jpg"
-                    alt="Anas Ayman Philosophy"
-                    loading="lazy"
-                >
-
-                <div class="image-overlay"></div>
-
-                <div class="image-number">
-                    04
-                </div>
-
-            </div>
-
-
-            <div class="philosophy-caption">
-
-                <span>
-                    04 / BECOMING
-                </span>
-
-                <h3>
-                    Become Who You Are
-                </h3>
-
-                <p>
-                    Identity is not something
-                    you simply find. It is something
-                    you build through every experience.
-                </p>
-
-            </div>
-
-        </article>
-
-    </div>
-
-
-
-    <!-- PHILOSOPHY QUOTE -->
-
-    <div class="philosophy-quote reveal">
-
-        <div class="quote-line"></div>
 
         <p>
 
-            "We are all swimmers in the sea
-            of life, looking toward the sun
-            while learning how to survive
-            the waves."
+            Actors. Models. Designers.
+            Photographers. Filmmakers.
+            Artists. Developers.
+
+            Everyone with an idea deserves
+            a place to grow.
 
         </p>
 
-        <span>
-            — ANAS AYMAN
-        </span>
+        <a
+            href="#contact"
+            class="btn">
+
+            Join The Network
+
+        </a>
 
     </div>
 
 </section>
 
 
-
-<!-- =========================================================
-     CREATIVE MARKET
-========================================================= -->
-
-<section id="market">
-
-    <p class="section-label">
-        05 — CREATIVE MARKET
-    </p>
-
-    <h2 class="section-title">
-        CREATIVE<br>
-        <em>COLLABORATION.</em>
-    </h2>
-
-
-    <p class="market-intro">
-
-        A future marketplace and promotional
-        platform connecting fashion models,
-        Applied Arts students, graphic designers
-        and creative brands with audiences.
-
-    </p>
-
-
-    <div class="market-grid reveal">
-
-
-        <!-- PRODUCT 1 -->
-
-        <article class="product">
-
-            <div class="product-image">
-            </div>
-
-            <div class="product-info">
-
-                <span>
-                    Fashion
-                </span>
-
-                <h3>
-                    Fashion Collection
-                </h3>
-
-                <p>
-                    Space for fashion products,
-                    model campaigns and creative
-                    collaborations.
-                </p>
-
-                <a
-                    href="#contact"
-                    class="market-button">
-
-                    Collaborate →
-
-                </a>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- PRODUCT 2 -->
-
-        <article class="product">
-
-            <div class="product-image">
-            </div>
-
-            <div class="product-info">
-
-                <span>
-                    Applied Arts
-                </span>
-
-                <h3>
-                    Graphic Design
-                </h3>
-
-                <p>
-                    Promote visual identities,
-                    artwork, posters and products
-                    created by designers.
-                </p>
-
-                <a
-                    href="#contact"
-                    class="market-button">
-
-                    Collaborate →
-
-                </a>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- PRODUCT 3 -->
-
-        <article class="product">
-
-            <div class="product-image">
-            </div>
-
-            <div class="product-info">
-
-                <span>
-                    Creative
-                </span>
-
-                <h3>
-                    Future Drops
-                </h3>
-
-                <p>
-                    A future space for curated
-                    products and creative projects.
-                </p>
-
-                <a
-                    href="#contact"
-                    class="market-button">
-
-                    Coming Soon →
-
-                </a>
-
-            </div>
-
-        </article>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     CREATIVE NETWORK
-========================================================= -->
-
-<section>
-
-    <p class="section-label">
-        06 — THE NETWORK
-    </p>
-
-    <h2 class="section-title">
-        PEOPLE<br>
-        <em>CREATE.</em>
-    </h2>
-
-
-    <div class="network reveal">
-
-
-        <article class="network-card">
-
-            <span class="network-number">
-                01
-            </span>
-
-            <h3>
-                Fashion Models
-            </h3>
-
-            <p>
-                Visual campaigns,
-                fashion promotion
-                and creative collaborations.
-            </p>
-
-        </article>
-
-
-
-        <article class="network-card">
-
-            <span class="network-number">
-                02
-            </span>
-
-            <h3>
-                Graphic Designers
-            </h3>
-
-            <p>
-                Supporting designers and
-                Applied Arts creators by
-                showcasing their work.
-            </p>
-
-        </article>
-
-
-
-        <article class="network-card">
-
-            <span class="network-number">
-                03
-            </span>
-
-            <h3>
-                Actors & Creators
-            </h3>
-
-            <p>
-                Building a creative network
-                around acting, theatre,
-                cinema and digital media.
-            </p>
-
-        </article>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
+<!-- =========================
      CONTACT
-========================================================= -->
+========================= -->
 
 <section
-    id="contact"
-    class="contact">
+    class="section"
+    id="contact">
 
-    <p class="section-label">
-        07 — CONTACT
-    </p>
+    <div class="container contact-grid">
 
-    <h2>
-        LET'S CREATE<br>
-        <span>SOMETHING.</span>
-    </h2>
+        <div class="contact-text reveal">
 
-    <p>
+            <div class="hero-small">
+                Contact
+            </div>
 
-        For acting collaborations,
-        theatre projects, creative campaigns,
-        fashion promotion, graphic design
-        collaborations or brand partnerships.
+            <h2 class="section-title">
 
-    </p>
+                Let's Start
+                <span class="green">
+                    Something.
+                </span>
 
+            </h2>
 
-    <div class="contact-buttons">
+            <p>
 
-        <!-- Replace these links with your real accounts -->
+                For acting opportunities,
+                creative collaborations,
+                brand partnerships or
+                marketplace ideas, get in touch.
 
-        <a
-            href="https://www.instagram.com/"
-            target="_blank"
-            class="btn btn-primary">
-
-            Instagram
-
-        </a>
+            </p>
 
 
-        <a
-            href="https://github.com/"
-            target="_blank"
-            class="btn btn-outline">
+            <div class="contact-item">
 
-            GitHub
+                <span>
+                    Instagram
+                </span>
 
-        </a>
+                <a
+                    href="https://instagram.com/"
+                    target="_blank">
+
+                    @anas.ayman.19
+
+                </a>
+
+            </div>
 
 
-        <a
-            href="mailto:your@email.com"
-            class="btn btn-outline">
+            <div class="contact-item">
 
-            Email
+                <span>
+                    GitHub
+                </span>
 
-        </a>
+                <a
+                    href="https://github.com/"
+                    target="_blank">
+
+                    Anas Ayman
+
+                </a>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <span>
+                    Email
+                </span>
+
+                <a href="mailto:your@email.com">
+
+                    your@email.com
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <form
+            class="reveal"
+            onsubmit="sendMessage(event)">
+
+            <input
+                type="text"
+                placeholder="Your Name"
+                required>
+
+            <input
+                type="email"
+                placeholder="Your Email"
+                required>
+
+            <input
+                type="text"
+                placeholder="Subject"
+                required>
+
+            <textarea
+                placeholder="Tell me about your idea..."
+                required></textarea>
+
+            <button
+                class="btn btn-primary"
+                type="submit">
+
+                Send Message
+
+            </button>
+
+        </form>
 
     </div>
 
 </section>
 
-</main>
 
-
-
-<!-- =========================================================
+<!-- =========================
      FOOTER
-========================================================= -->
+========================= -->
 
 <footer>
 
-    <p>
-        © 2026
-        <strong>
-            ANAS AYMAN
-        </strong>
-        — OFFICIAL BRAND
-    </p>
+    <div class="container footer-content">
 
-    <p>
-        ACTOR • CREATOR • COMPUTER SCIENCE
-    </p>
+        <div class="footer-logo">
+            Anas Ayman
+        </div>
+
+        <div>
+            © 2026 Anas Ayman. All Rights Reserved.
+        </div>
+
+        <div class="socials">
+
+            <a
+                href="https://instagram.com/"
+                target="_blank">
+
+                Instagram
+
+            </a>
+
+            <a
+                href="https://github.com/"
+                target="_blank">
+
+                GitHub
+
+            </a>
+
+        </div>
+
+    </div>
 
 </footer>
 
 
+<!-- =====================================================
+     SHOPPING CART
+===================================================== -->
 
-<!-- =========================================================
+<div
+    class="cart-overlay"
+    id="cartOverlay"
+    onclick="closeCart()">
+</div>
+
+
+<div
+    class="cart-panel"
+    id="cartPanel">
+
+    <div class="cart-header">
+
+        <h2>
+            Your Cart
+        </h2>
+
+        <button
+            class="close-cart"
+            onclick="closeCart()">
+
+            ×
+
+        </button>
+
+    </div>
+
+
+    <div
+        class="cart-items"
+        id="cartItems">
+
+        <div class="empty-cart">
+
+            Your cart is empty.
+
+            <br><br>
+
+            Add a design from
+            the Creative Market.
+
+        </div>
+
+    </div>
+
+
+    <div class="cart-footer">
+
+        <div class="cart-total">
+
+            <span>
+                Total
+            </span>
+
+            <strong id="cartTotal">
+                EGP 0
+            </strong>
+
+        </div>
+
+        <button
+            class="checkout-btn"
+            onclick="checkout()">
+
+            PROCEED TO CHECKOUT
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
      JAVASCRIPT
-========================================================= -->
+========================= -->
 
 <script>
 
 
-    /* =====================================================
-       LOADER
-    ===================================================== */
+/* =========================
+   LOADER
+========================= */
 
-    window.addEventListener(
-        "load",
-        function() {
+window.addEventListener("load", function() {
 
-            const loader =
-                document.getElementById("loader");
+    setTimeout(function() {
 
-            setTimeout(
-                function() {
+        document
+            .getElementById("loader")
+            .classList
+            .add("hidden");
 
-                    loader.classList.add("hide");
+    }, 1000);
 
-                },
-                700
-            );
+});
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+const menuBtn =
+    document.getElementById("menuBtn");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+menuBtn.addEventListener(
+    "click",
+    function() {
+
+        navLinks.classList.toggle("active");
+
+    }
+);
+
+
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(function(link) {
+
+        link.addEventListener(
+            "click",
+            function() {
+
+                navLinks.classList.remove("active");
+
+            }
+        );
+
+    });
+
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+function revealOnScroll() {
+
+    revealElements.forEach(
+        function(element) {
+
+            const windowHeight =
+                window.innerHeight;
+
+            const elementTop =
+                element
+                    .getBoundingClientRect()
+                    .top;
+
+            if (
+                elementTop <
+                windowHeight - 100
+            ) {
+
+                element.classList.add(
+                    "active"
+                );
+
+            }
 
         }
     );
 
+}
 
 
-    /* =====================================================
-       MOBILE MENU
-    ===================================================== */
+window.addEventListener(
+    "scroll",
+    revealOnScroll
+);
 
-    const menu =
-        document.getElementById("menu");
-
-    const navLinks =
-        document.getElementById("navLinks");
+revealOnScroll();
 
 
-    menu.addEventListener(
-        "click",
+/* =========================
+   VIDEO AUTO PAUSE
+========================= */
+
+const videos =
+    document.querySelectorAll("video");
+
+
+videos.forEach(function(video) {
+
+    video.addEventListener(
+        "play",
         function() {
 
-            navLinks.classList.toggle("open");
+            videos.forEach(
+                function(otherVideo) {
 
-        }
-    );
+                    if (
+                        otherVideo !== video
+                    ) {
 
-
-    document
-        .querySelectorAll(".nav-links a")
-        .forEach(
-            function(link) {
-
-                link.addEventListener(
-                    "click",
-                    function() {
-
-                        navLinks.classList.remove(
-                            "open"
-                        );
+                        otherVideo.pause();
 
                     }
-                );
-
-            }
-        );
-
-
-
-    /* =====================================================
-       SCROLL REVEAL
-    ===================================================== */
-
-    const observer =
-        new IntersectionObserver(
-            function(entries) {
-
-                entries.forEach(
-                    function(entry) {
-
-                        if (
-                            entry.isIntersecting
-                        ) {
-
-                            entry.target
-                                .classList
-                                .add("active");
-
-                        }
-
-                    }
-                );
-
-            },
-            {
-                threshold: .12
-            }
-        );
-
-
-    document
-        .querySelectorAll(".reveal")
-        .forEach(
-            function(element) {
-
-                observer.observe(element);
-
-            }
-        );
-
-
-
-    /* =====================================================
-       PAUSE OTHER VIDEOS WHEN ONE PLAYS
-    ===================================================== */
-
-    const videos =
-        document.querySelectorAll("video");
-
-
-    videos.forEach(
-        function(video) {
-
-            video.addEventListener(
-                "play",
-                function() {
-
-                    videos.forEach(
-                        function(otherVideo) {
-
-                            if (
-                                otherVideo !== video
-                            ) {
-
-                                otherVideo.pause();
-
-                            }
-
-                        }
-                    );
 
                 }
             );
@@ -3095,10 +2426,384 @@
         }
     );
 
+});
+
+
+/* =====================================================
+   SHOPPING CART
+===================================================== */
+
+let cart = [];
+
+
+/* =========================
+   ADD TO CART
+========================= */
+
+function addToCart(
+    id,
+    name,
+    price,
+    image
+) {
+
+    const existingItem =
+        cart.find(
+            item => item.id === id
+        );
+
+
+    if (existingItem) {
+
+        existingItem.quantity++;
+
+    } else {
+
+        cart.push({
+
+            id: id,
+            name: name,
+            price: price,
+            image: image,
+            quantity: 1
+
+        });
+
+    }
+
+
+    updateCart();
+
+    openCart();
+
+}
+
+
+/* =========================
+   UPDATE CART
+========================= */
+
+function updateCart() {
+
+    const cartItems =
+        document.getElementById(
+            "cartItems"
+        );
+
+    const cartCount =
+        document.getElementById(
+            "cartCount"
+        );
+
+    const cartTotal =
+        document.getElementById(
+            "cartTotal"
+        );
+
+
+    let total = 0;
+
+    let itemCount = 0;
+
+
+    cart.forEach(function(item) {
+
+        total +=
+            item.price *
+            item.quantity;
+
+        itemCount +=
+            item.quantity;
+
+    });
+
+
+    cartCount.textContent =
+        itemCount;
+
+
+    cartTotal.textContent =
+        "EGP " +
+        total.toLocaleString();
+
+
+    if (cart.length === 0) {
+
+        cartItems.innerHTML = `
+
+            <div class="empty-cart">
+
+                Your cart is empty.
+
+                <br><br>
+
+                Add a design from
+                the Creative Market.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    cartItems.innerHTML = "";
+
+
+    cart.forEach(function(item) {
+
+        const itemElement =
+            document.createElement(
+                "div"
+            );
+
+
+        itemElement.className =
+            "cart-item";
+
+
+        itemElement.innerHTML = `
+
+            <img
+                src="${item.image}"
+                alt="${item.name}">
+
+            <div
+                class="cart-item-info">
+
+                <h4>
+                    ${item.name}
+                </h4>
+
+                <span>
+                    EGP ${item.price}
+                </span>
+
+                <div
+                    class="quantity-controls">
+
+                    <button
+                        onclick="changeQuantity(
+                            ${item.id},
+                            -1
+                        )">
+
+                        −
+
+                    </button>
+
+                    <span>
+                        ${item.quantity}
+                    </span>
+
+                    <button
+                        onclick="changeQuantity(
+                            ${item.id},
+                            1
+                        )">
+
+                        +
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <button
+                class="remove-item"
+                onclick="removeFromCart(
+                    ${item.id}
+                )">
+
+                Remove
+
+            </button>
+
+        `;
+
+
+        cartItems.appendChild(
+            itemElement
+        );
+
+    });
+
+}
+
+
+/* =========================
+   CHANGE QUANTITY
+========================= */
+
+function changeQuantity(
+    id,
+    change
+) {
+
+    const item =
+        cart.find(
+            item => item.id === id
+        );
+
+
+    if (!item) {
+        return;
+    }
+
+
+    item.quantity += change;
+
+
+    if (item.quantity <= 0) {
+
+        cart =
+            cart.filter(
+                item => item.id !== id
+            );
+
+    }
+
+
+    updateCart();
+
+}
+
+
+/* =========================
+   REMOVE ITEM
+========================= */
+
+function removeFromCart(id) {
+
+    cart =
+        cart.filter(
+            item => item.id !== id
+        );
+
+
+    updateCart();
+
+}
+
+
+/* =========================
+   OPEN CART
+========================= */
+
+function openCart() {
+
+    document
+        .getElementById("cartPanel")
+        .classList
+        .add("active");
+
+
+    document
+        .getElementById("cartOverlay")
+        .classList
+        .add("active");
+
+
+    document.body
+        .classList
+        .add("cart-open");
+
+}
+
+
+/* =========================
+   CLOSE CART
+========================= */
+
+function closeCart() {
+
+    document
+        .getElementById("cartPanel")
+        .classList
+        .remove("active");
+
+
+    document
+        .getElementById("cartOverlay")
+        .classList
+        .remove("active");
+
+
+    document.body
+        .classList
+        .remove("cart-open");
+
+}
+
+
+/* =========================
+   CHECKOUT
+========================= */
+
+function checkout() {
+
+    if (cart.length === 0) {
+
+        alert(
+            "Your cart is empty."
+        );
+
+        return;
+
+    }
+
+
+    let total = 0;
+
+
+    cart.forEach(function(item) {
+
+        total +=
+            item.price *
+            item.quantity;
+
+    });
+
+
+    alert(
+
+        "Checkout is ready!\n\n" +
+
+        "Total: EGP " +
+        total.toLocaleString() +
+
+        "\n\n" +
+
+        "Connect this button to your real payment system later."
+
+    );
+
+}
+
+
+/* =========================
+   CONTACT FORM
+========================= */
+
+function sendMessage(event) {
+
+    event.preventDefault();
+
+
+    alert(
+        "Thank you! Your message has been received."
+    );
+
+
+    event.target.reset();
+
+}
 
 </script>
 
 
 </body>
 </html>
-```
