@@ -7,992 +7,1148 @@
 <title>Anas Ayman Brand</title>
 
 <meta name="description"
-content="ANAS AYMAN BRAND — Acting, Marketing, Creativity, Philosophy, Partnerships and Personal Branding.">
+content="ANAS AYMAN BRAND — Acting, Marketing, Creativity, Technology and Philosophy.">
 
 <style>
 
 /* =========================================================
    ANAS AYMAN BRAND
+   CINEMATIC ACTOR / CREATOR STYLE
    BLACK + GREEN
    ========================================================= */
 
-:root {
-    --black: #050505;
-    --black-2: #090909;
-    --black-3: #101010;
-    --green: #00ff66;
-    --green-dark: #00a844;
-    --white: #f4f4f4;
-    --gray: #999;
-    --dark-gray: #1b1b1b;
-    --border: rgba(0,255,102,0.25);
+:root{
+    --black:#030303;
+    --black2:#080808;
+    --black3:#0d0d0d;
+    --green:#00ff66;
+    --green2:#00c853;
+    --white:#f5f5f5;
+    --gray:#888;
+    --line:rgba(0,255,102,.20);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+html{
+    scroll-behavior:smooth;
 }
 
-body {
-    background: var(--black);
-    color: var(--white);
-    font-family: Arial, Helvetica, sans-serif;
-    overflow-x: hidden;
+body{
+    background:var(--black);
+    color:var(--white);
+    font-family:Arial,Helvetica,sans-serif;
+    overflow-x:hidden;
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
+a{
+    color:inherit;
+    text-decoration:none;
 }
 
-img,
-video {
-    max-width: 100%;
-    display: block;
+::selection{
+    background:var(--green);
+    color:var(--black);
 }
 
 /* =========================================================
    GLOBAL
    ========================================================= */
 
-.container {
-    width: min(1400px, 92%);
-    margin: auto;
+.container{
+    width:min(1500px,92%);
+    margin:auto;
 }
 
-.green {
-    color: var(--green);
+section{
+    position:relative;
 }
 
-.upper {
-    text-transform: uppercase;
+.green{
+    color:var(--green);
 }
 
-.section {
-    padding: 130px 0;
-    position: relative;
+.eyebrow{
+    color:var(--green);
+    font-size:11px;
+    letter-spacing:5px;
+    font-weight:bold;
+    text-transform:uppercase;
 }
 
-.section-title {
-    font-size: clamp(45px, 7vw, 110px);
-    line-height: .9;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: -5px;
-    margin-bottom: 30px;
+.section{
+    padding:150px 0;
 }
 
-.section-subtitle {
-    color: var(--gray);
-    max-width: 750px;
-    font-size: 19px;
-    line-height: 1.7;
+.section-heading{
+    font-size:clamp(55px,9vw,150px);
+    line-height:.80;
+    letter-spacing:-8px;
+    font-weight:900;
+    text-transform:uppercase;
 }
 
-.line {
-    height: 1px;
-    background: var(--border);
-    width: 100%;
-    margin: 35px 0;
+.section-heading span{
+    color:var(--green);
+}
+
+.muted{
+    color:var(--gray);
+}
+
+.divider{
+    width:100%;
+    height:1px;
+    background:var(--line);
+    margin:45px 0;
 }
 
 /* =========================================================
-   NAVIGATION
+   NAVBAR
    ========================================================= */
 
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    padding: 22px 0;
-    background: rgba(5,5,5,.85);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(0,255,102,.12);
+.navbar{
+    position:fixed;
+    z-index:9999;
+    top:0;
+    left:0;
+    width:100%;
+    padding:24px 0;
+    background:rgba(3,3,3,.72);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(0,255,102,.08);
 }
 
-.nav-inner {
-    width: min(1500px, 94%);
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.nav-inner{
+    width:min(1600px,94%);
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
-.logo {
-    font-size: 23px;
-    font-weight: 900;
-    letter-spacing: 2px;
+.logo{
+    font-size:22px;
+    font-weight:900;
+    letter-spacing:2px;
 }
 
-.logo span {
-    color: var(--green);
+.logo span{
+    color:var(--green);
 }
 
-.nav-links {
-    display: flex;
-    gap: 30px;
-    list-style: none;
+.nav-links{
+    display:flex;
+    gap:28px;
+    list-style:none;
 }
 
-.nav-links a {
-    font-size: 12px;
-    letter-spacing: 2px;
-    color: #ccc;
-    transition: .3s;
+.nav-links a{
+    font-size:10px;
+    letter-spacing:2px;
+    color:#aaa;
+    transition:.3s;
 }
 
-.nav-links a:hover {
-    color: var(--green);
+.nav-links a:hover{
+    color:var(--green);
 }
 
 /* =========================================================
    HERO
    ========================================================= */
 
-.hero {
-    min-height: 100vh;
-    padding-top: 150px;
-    display: flex;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    width: 800px;
-    height: 800px;
-    border-radius: 50%;
-    border: 1px solid rgba(0,255,102,.08);
-    right: -300px;
-    top: 100px;
-}
-
-.hero::after {
-    content: "";
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    border: 1px solid rgba(0,255,102,.05);
-    left: -250px;
-    bottom: -200px;
-}
-
-.hero-grid {
-    display: grid;
-    grid-template-columns: 1.3fr .7fr;
-    gap: 80px;
-    align-items: center;
-}
-
-.hero-label {
-    color: var(--green);
-    font-size: 13px;
-    letter-spacing: 5px;
-    margin-bottom: 25px;
-}
-
-.hero-title {
-    font-size: clamp(65px, 11vw, 190px);
-    line-height: .78;
-    font-weight: 900;
-    letter-spacing: -10px;
-    text-transform: uppercase;
-}
-
-.hero-title span {
-    color: var(--green);
-}
-
-.hero-description {
-    max-width: 650px;
-    color: #aaa;
-    font-size: 20px;
-    line-height: 1.7;
-    margin-top: 40px;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 15px;
-    margin-top: 40px;
-    flex-wrap: wrap;
-}
-
-.btn {
-    padding: 17px 30px;
-    border: 1px solid var(--green);
-    color: var(--green);
-    font-weight: bold;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-size: 12px;
-    transition: .3s;
-}
-
-.btn:hover {
-    background: var(--green);
-    color: var(--black);
-}
-
-.btn-filled {
-    background: var(--green);
-    color: var(--black);
-}
-
-.hero-mark {
-    border: 1px solid var(--border);
-    min-height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-mark::before {
-    content: "AA";
-    position: absolute;
-    font-size: 250px;
-    font-weight: 900;
-    color: rgba(0,255,102,.04);
-}
-
-.hero-mark-content {
-    text-align: center;
-    z-index: 2;
-}
-
-.hero-mark-content strong {
-    display: block;
-    font-size: 70px;
-    color: var(--green);
-}
-
-.hero-mark-content small {
-    letter-spacing: 6px;
-    color: #888;
-}
-
-/* =========================================================
-   BRAND STATEMENT
-   ========================================================= */
-
-.statement {
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 50px 0;
-}
-
-.statement-track {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 25px;
-}
-
-.statement-item {
-    color: #888;
-    font-size: 12px;
-    letter-spacing: 4px;
-}
-
-.statement-item span {
-    color: var(--green);
-}
-
-/* =========================================================
-   ABOUT
-   ========================================================= */
-
-.about-grid {
-    display: grid;
-    grid-template-columns: .8fr 1.2fr;
-    gap: 90px;
-    align-items: center;
-}
-
-.about-number {
-    font-size: 220px;
-    font-weight: 900;
-    color: rgba(0,255,102,.07);
-    line-height: .7;
-}
-
-.about-text h3 {
-    font-size: 45px;
-    margin-bottom: 25px;
-}
-
-.about-text p {
-    color: #aaa;
-    font-size: 18px;
-    line-height: 1.9;
-    margin-bottom: 20px;
-}
-
-/* =========================================================
-   SERVICES / BRAND ECOSYSTEM
-   ========================================================= */
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-}
-
-.service-card {
-    min-height: 330px;
-    padding: 35px;
-    background: var(--black-2);
-    border: 1px solid var(--border);
-    position: relative;
-    overflow: hidden;
-    transition: .4s;
-}
-
-.service-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--green);
-}
-
-.service-number {
-    color: var(--green);
-    font-size: 13px;
-    letter-spacing: 3px;
-}
-
-.service-card h3 {
-    font-size: 30px;
-    margin-top: 80px;
-    text-transform: uppercase;
-}
-
-.service-card p {
-    color: #888;
-    line-height: 1.7;
-    margin-top: 15px;
-}
-
-/* =========================================================
-   ACTING
-   ========================================================= */
-
-.acting-section {
-    background: #080808;
-}
-
-.acting-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-}
-
-.media-card {
-    border: 1px solid var(--border);
-    background: var(--black-2);
-    overflow: hidden;
-}
-
-.media-placeholder {
-    height: 420px;
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding-top:120px;
+    overflow:hidden;
     background:
-        radial-gradient(circle at center, rgba(0,255,102,.18), transparent 35%),
-        linear-gradient(135deg,#050505,#101010);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+        radial-gradient(circle at 75% 45%,rgba(0,255,102,.08),transparent 30%),
+        #030303;
 }
 
-.media-placeholder::after {
-    content: "ACTING VIDEO";
-    position: absolute;
-    bottom: 25px;
-    left: 25px;
-    color: var(--green);
-    letter-spacing: 4px;
-    font-weight: bold;
-    font-size: 12px;
+.hero::before{
+    content:"";
+    position:absolute;
+    width:900px;
+    height:900px;
+    border:1px solid rgba(0,255,102,.08);
+    border-radius:50%;
+    right:-450px;
+    top:-100px;
 }
 
-.play {
-    width: 90px;
-    height: 90px;
-    border: 2px solid var(--green);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--green);
-    font-size: 28px;
+.hero::after{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    border:1px solid rgba(0,255,102,.05);
+    border-radius:50%;
+    left:-300px;
+    bottom:-300px;
 }
 
-.media-content {
-    padding: 25px;
+.hero-inner{
+    position:relative;
+    z-index:2;
 }
 
-.media-content h3 {
-    font-size: 27px;
-    text-transform: uppercase;
+.hero-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    margin-bottom:25px;
 }
 
-.media-content p {
-    color: #888;
-    line-height: 1.6;
-    margin-top: 10px;
+.hero-year{
+    color:#555;
+    font-size:11px;
+    letter-spacing:4px;
+}
+
+.hero-title{
+    font-size:clamp(75px,15vw,250px);
+    line-height:.72;
+    letter-spacing:-15px;
+    font-weight:900;
+    text-transform:uppercase;
+}
+
+.hero-title .outline{
+    color:transparent;
+    -webkit-text-stroke:1px var(--green);
+}
+
+.hero-bottom{
+    display:grid;
+    grid-template-columns:1fr .55fr;
+    gap:100px;
+    align-items:end;
+    margin-top:70px;
+}
+
+.hero-description{
+    max-width:650px;
+    color:#999;
+    font-size:19px;
+    line-height:1.8;
+}
+
+.hero-description strong{
+    color:white;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    padding:17px 28px;
+    border:1px solid var(--green);
+    color:var(--green);
+    font-size:10px;
+    font-weight:bold;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:var(--green);
+    color:#000;
+}
+
+.btn-solid{
+    background:var(--green);
+    color:#000;
 }
 
 /* =========================================================
-   O6U ACTING
+   MARQUEE
    ========================================================= */
 
-.o6u-box {
-    margin-top: 60px;
-    border: 1px solid var(--green);
-    padding: 50px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
+.marquee{
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+    white-space:nowrap;
+    padding:25px 0;
+    background:#050505;
 }
 
-.o6u-label {
-    color: var(--green);
-    letter-spacing: 5px;
-    font-size: 12px;
+.marquee-track{
+    display:inline-block;
+    animation:move 22s linear infinite;
 }
 
-.o6u-title {
-    font-size: clamp(45px, 7vw, 100px);
-    font-weight: 900;
-    margin: 20px 0;
-    line-height: .9;
+.marquee span{
+    margin-right:60px;
+    font-size:13px;
+    font-weight:bold;
+    letter-spacing:5px;
+    text-transform:uppercase;
 }
 
-.o6u-text {
-    color: #999;
-    line-height: 1.8;
+.marquee .green{
+    color:var(--green);
 }
 
-.o6u-visual {
-    min-height: 350px;
-    border: 1px solid rgba(0,255,102,.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+@keyframes move{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(-50%);
+    }
 }
 
-.o6u-visual strong {
-    font-size: 80px;
-    color: var(--green);
+/* =========================================================
+   IDENTITY
+   ========================================================= */
+
+.identity{
+    min-height:80vh;
+    display:flex;
+    align-items:center;
+}
+
+.identity-grid{
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:100px;
+    align-items:center;
+}
+
+.identity-number{
+    font-size:260px;
+    line-height:.7;
+    color:rgba(0,255,102,.06);
+    font-weight:900;
+}
+
+.identity-text h3{
+    font-size:clamp(35px,5vw,80px);
+    line-height:.95;
+    text-transform:uppercase;
+    margin-bottom:30px;
+}
+
+.identity-text p{
+    color:#888;
+    max-width:750px;
+    line-height:1.9;
+    font-size:18px;
+    margin-bottom:20px;
+}
+
+/* =========================================================
+   ACTOR SECTION
+   ========================================================= */
+
+.actor-section{
+    background:#070707;
+}
+
+.actor-header{
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+    align-items:end;
+}
+
+.actor-header p{
+    max-width:500px;
+    color:#777;
+    line-height:1.8;
+}
+
+.video-grid{
+    margin-top:70px;
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    gap:20px;
+}
+
+.video-card{
+    background:#050505;
+    border:1px solid var(--line);
+    overflow:hidden;
+}
+
+.video-card.large{
+    min-height:650px;
+}
+
+.video-card.small{
+    min-height:310px;
+}
+
+.video-placeholder{
+    height:100%;
+    min-height:320px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at center,rgba(0,255,102,.15),transparent 30%),
+        linear-gradient(135deg,#050505,#111);
+}
+
+.video-placeholder::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0 70px,
+            rgba(0,255,102,.025) 71px 72px
+        );
+}
+
+.play-button{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    border:1px solid var(--green);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--green);
+    font-size:30px;
+    position:relative;
+    z-index:2;
+    transition:.3s;
+}
+
+.video-card:hover .play-button{
+    background:var(--green);
+    color:#000;
+    transform:scale(1.08);
+}
+
+.video-info{
+    padding:25px;
+    border-top:1px solid var(--line);
+}
+
+.video-info small{
+    color:var(--green);
+    letter-spacing:3px;
+}
+
+.video-info h3{
+    font-size:27px;
+    text-transform:uppercase;
+    margin:12px 0;
+}
+
+.video-info p{
+    color:#777;
+    line-height:1.6;
+}
+
+/* =========================================================
+   O6U
+   ========================================================= */
+
+.o6u{
+    margin-top:25px;
+    border:1px solid var(--green);
+    min-height:400px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+}
+
+.o6u-content{
+    padding:55px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.o6u-content h3{
+    font-size:clamp(60px,10vw,150px);
+    line-height:.75;
+    font-weight:900;
+}
+
+.o6u-content p{
+    margin-top:30px;
+    max-width:550px;
+    color:#888;
+    line-height:1.8;
+}
+
+.o6u-visual{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+        radial-gradient(circle,rgba(0,255,102,.22),transparent 35%),
+        #050505;
+    border-left:1px solid var(--green);
+}
+
+.o6u-visual span{
+    font-size:80px;
+    color:var(--green);
+    font-weight:900;
+    letter-spacing:-5px;
 }
 
 /* =========================================================
    MARKETING
    ========================================================= */
 
-.marketing-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+.marketing{
+    background:#030303;
 }
 
-.marketing-card {
-    min-height: 420px;
-    padding: 35px;
-    border: 1px solid var(--border);
-    background: var(--black-2);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.marketing-intro{
+    max-width:800px;
+    color:#888;
+    font-size:20px;
+    line-height:1.8;
+    margin-top:35px;
 }
 
-.marketing-image {
-    height: 230px;
-    border: 1px solid rgba(0,255,102,.18);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background:
-        linear-gradient(135deg,#070707,#121212);
+.marketing-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:70px;
 }
 
-.marketing-image span {
-    color: var(--green);
-    letter-spacing: 3px;
-    font-size: 11px;
+.marketing-card{
+    min-height:500px;
+    border:1px solid var(--line);
+    padding:30px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    position:relative;
+    overflow:hidden;
+    background:#070707;
+    transition:.4s;
 }
 
-.marketing-card h3 {
-    font-size: 27px;
-    margin-top: 25px;
-    text-transform: uppercase;
+.marketing-card:hover{
+    border-color:var(--green);
+    transform:translateY(-8px);
 }
 
-.marketing-card p {
-    color: #888;
-    line-height: 1.6;
-    margin-top: 10px;
+.marketing-card::after{
+    content:"";
+    position:absolute;
+    width:250px;
+    height:250px;
+    border-radius:50%;
+    background:rgba(0,255,102,.05);
+    right:-100px;
+    top:-100px;
+}
+
+.card-number{
+    color:var(--green);
+    font-size:11px;
+    letter-spacing:4px;
+}
+
+.marketing-card h3{
+    font-size:42px;
+    line-height:.9;
+    text-transform:uppercase;
+}
+
+.marketing-card p{
+    color:#777;
+    line-height:1.7;
+    margin-top:20px;
+}
+
+.card-link{
+    color:var(--green);
+    font-size:10px;
+    letter-spacing:3px;
+    margin-top:30px;
 }
 
 /* =========================================================
    PARTNERS
    ========================================================= */
 
-.partners {
-    background: #080808;
+.partners{
+    background:#070707;
 }
 
-.partner-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
+.partner-list{
+    margin-top:70px;
+    border-top:1px solid var(--line);
 }
 
-.partner {
-    min-height: 210px;
-    border: 1px solid rgba(0,255,102,.2);
-    padding: 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: .3s;
+.partner-row{
+    display:grid;
+    grid-template-columns:80px 1fr 1fr;
+    gap:30px;
+    padding:35px 0;
+    border-bottom:1px solid var(--line);
+    align-items:center;
+    transition:.3s;
 }
 
-.partner:hover {
-    border-color: var(--green);
+.partner-row:hover{
+    padding-left:20px;
 }
 
-.partner-tag {
-    font-size: 10px;
-    color: var(--green);
-    letter-spacing: 3px;
+.partner-row .number{
+    color:var(--green);
+    font-size:11px;
 }
 
-.partner h3 {
-    font-size: 25px;
-    text-transform: uppercase;
+.partner-row h3{
+    font-size:35px;
+    text-transform:uppercase;
 }
 
-.partner p {
-    color: #777;
-    font-size: 13px;
-}
-
-/* =========================================================
-   CREATIVE NETWORK
-   ========================================================= */
-
-.creative-network {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-.creative-box {
-    border: 1px solid var(--border);
-    padding: 50px;
-    min-height: 330px;
-    background: var(--black-2);
-}
-
-.creative-box h3 {
-    font-size: 42px;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-}
-
-.creative-box p {
-    color: #888;
-    line-height: 1.8;
+.partner-row p{
+    color:#777;
+    line-height:1.6;
 }
 
 /* =========================================================
    PHILOSOPHY
    ========================================================= */
 
-.philosophy {
-    overflow: hidden;
+.philosophy{
+    overflow:hidden;
 }
 
-.philosophy-intro {
-    max-width: 950px;
+.philosophy-intro{
+    margin-top:45px;
+    max-width:950px;
 }
 
-.philosophy-intro p {
-    font-size: 25px;
-    color: #aaa;
-    line-height: 1.8;
+.philosophy-intro p{
+    color:#aaa;
+    font-size:25px;
+    line-height:1.8;
 }
 
-.philosophy-gallery {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
-    margin-top: 70px;
+.philosophy-visuals{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:8px;
+    margin-top:80px;
 }
 
-.philosophy-image {
-    height: 400px;
-    border: 1px solid rgba(0,255,102,.2);
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: flex-end;
-    padding: 25px;
-    background: #090909;
+.philo-card{
+    height:470px;
+    border:1px solid var(--line);
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:end;
+    padding:25px;
+    background:#050505;
 }
 
-.philosophy-image::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    opacity: .65;
+.philo-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
 }
 
-.wave::before {
+/* waves */
+
+.waves::before{
     background:
         repeating-radial-gradient(
             ellipse at 50% 100%,
-            transparent 0 15px,
-            rgba(0,255,102,.15) 16px 18px
+            transparent 0 18px,
+            rgba(0,255,102,.16) 19px 21px
         );
 }
 
-.tsunami::before {
+/* tsunami */
+
+.tsunami::before{
     background:
         linear-gradient(
-            160deg,
-            transparent 30%,
-            rgba(0,255,102,.35) 31%,
-            transparent 60%
+            150deg,
+            transparent 25%,
+            rgba(0,255,102,.12) 26%,
+            rgba(0,255,102,.45) 45%,
+            transparent 62%
         );
+    transform:scale(1.5);
 }
 
-.lizard::before {
+/* lizard */
+
+.lizard::before{
     background:
         repeating-linear-gradient(
             45deg,
-            transparent 0 15px,
-            rgba(0,255,102,.1) 16px 20px
+            rgba(0,255,102,.02) 0 12px,
+            rgba(0,255,102,.13) 13px 16px
         );
 }
 
-.sun::before {
+/* sun */
+
+.sun::before{
     background:
         radial-gradient(
-            circle at 50% 45%,
-            rgba(0,255,102,.7),
-            rgba(0,255,102,.1) 18%,
-            transparent 45%
+            circle at 50% 40%,
+            rgba(0,255,102,.85),
+            rgba(0,255,102,.22) 15%,
+            transparent 43%
         );
 }
 
-.sea::before {
+/* sea sunset */
+
+.sea::before{
     background:
+        radial-gradient(
+            circle at 50% 38%,
+            rgba(0,255,102,.45),
+            transparent 18%
+        ),
         repeating-linear-gradient(
             175deg,
             rgba(0,255,102,.12) 0 2px,
-            transparent 3px 25px
+            transparent 3px 28px
         );
 }
 
-.philosophy-image h3 {
-    position: relative;
-    z-index: 2;
-    font-size: 28px;
-    text-transform: uppercase;
-}
-
-.philosophy-text {
-    margin-top: 80px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-}
-
-.philosophy-part {
-    border-left: 2px solid var(--green);
-    padding-left: 30px;
-}
-
-.philosophy-part h3 {
-    color: var(--green);
-    font-size: 15px;
-    letter-spacing: 4px;
-    margin-bottom: 25px;
-}
-
-.philosophy-part p {
-    color: #999;
-    line-height: 1.9;
-    font-size: 17px;
+.philo-card h3{
+    position:relative;
+    z-index:2;
+    font-size:30px;
+    text-transform:uppercase;
 }
 
 /* =========================================================
-   PRINCIPLES
+   PHILOSOPHY TEXT
    ========================================================= */
 
-.principles {
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 15px;
+.philosophy-text{
+    margin-top:80px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px;
 }
 
-.principle {
-    border-top: 2px solid var(--green);
-    padding-top: 25px;
+.philosophy-column{
+    border-left:2px solid var(--green);
+    padding-left:30px;
 }
 
-.principle h3 {
-    font-size: 35px;
+.philosophy-column h3{
+    color:var(--green);
+    font-size:12px;
+    letter-spacing:4px;
+    margin-bottom:25px;
 }
 
-.principle p {
-    color: #777;
-    margin-top: 15px;
-    line-height: 1.6;
+.philosophy-column p{
+    color:#888;
+    line-height:1.9;
+    font-size:17px;
+    margin-bottom:20px;
 }
 
 /* =========================================================
-   PROJECTS
+   BRAND PRINCIPLES
    ========================================================= */
 
-.projects-grid {
-    display: grid;
-    grid-template-columns: 1.3fr .7fr;
-    gap: 20px;
+.principles{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
 }
 
-.project-main {
-    min-height: 500px;
-    border: 1px solid var(--green);
-    padding: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.principle{
+    padding:40px 25px;
+    border-top:2px solid var(--green);
+    background:#080808;
 }
 
-.project-main h3 {
-    font-size: clamp(40px, 6vw, 80px);
-    text-transform: uppercase;
-    line-height: .9;
+.principle h3{
+    font-size:35px;
 }
 
-.project-main p {
-    color: #888;
-    max-width: 600px;
-    line-height: 1.8;
+.principle p{
+    color:#777;
+    line-height:1.6;
+    margin-top:20px;
 }
 
-.project-side {
-    display: grid;
-    gap: 20px;
+/* =========================================================
+   WORK
+   ========================================================= */
+
+.work{
+    background:#070707;
 }
 
-.project-small {
-    border: 1px solid var(--border);
-    padding: 35px;
+.work-grid{
+    margin-top:70px;
+    display:grid;
+    grid-template-columns:1.4fr .6fr;
+    gap:15px;
 }
 
-.project-small h3 {
-    font-size: 27px;
+.work-main{
+    min-height:600px;
+    border:1px solid var(--green);
+    padding:50px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
 }
 
-.project-small p {
-    color: #777;
-    line-height: 1.6;
-    margin-top: 15px;
+.work-main h3{
+    font-size:clamp(45px,7vw,100px);
+    line-height:.85;
+    text-transform:uppercase;
+}
+
+.work-main p{
+    max-width:600px;
+    color:#777;
+    line-height:1.8;
+}
+
+.work-side{
+    display:grid;
+    gap:15px;
+}
+
+.work-small{
+    border:1px solid var(--line);
+    padding:35px;
+}
+
+.work-small h3{
+    font-size:30px;
+    text-transform:uppercase;
+}
+
+.work-small p{
+    color:#777;
+    line-height:1.6;
+    margin-top:15px;
 }
 
 /* =========================================================
    MINDSET
    ========================================================= */
 
-.mindset {
-    background: var(--green);
-    color: var(--black);
+.mindset{
+    background:var(--green);
+    color:#000;
 }
 
-.mindset .section-title {
-    color: var(--black);
+.mindset .eyebrow{
+    color:#000;
 }
 
-.mindset-text {
-    max-width: 900px;
-    font-size: clamp(30px, 5vw, 70px);
-    font-weight: 900;
-    line-height: 1;
+.mindset h2{
+    font-size:clamp(55px,10vw,160px);
+    line-height:.75;
+    letter-spacing:-8px;
+    font-weight:900;
+    margin-top:30px;
 }
 
-.mindset-sub {
-    margin-top: 30px;
-    max-width: 650px;
-    font-size: 18px;
-    line-height: 1.7;
+.mindset p{
+    max-width:700px;
+    font-size:20px;
+    line-height:1.7;
+    margin-top:40px;
+}
+
+/* =========================================================
+   INSTAPAY
+   ========================================================= */
+
+.support{
+    background:#050505;
+}
+
+.support-box{
+    border:1px solid var(--green);
+    padding:70px;
+    text-align:center;
+    max-width:950px;
+    margin:auto;
+    position:relative;
+    overflow:hidden;
+}
+
+.support-box::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    border:1px solid rgba(0,255,102,.07);
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+}
+
+.support-box>*{
+    position:relative;
+    z-index:2;
+}
+
+.support-box h2{
+    font-size:clamp(50px,8vw,100px);
+    line-height:.8;
+    text-transform:uppercase;
+}
+
+.support-box p{
+    max-width:650px;
+    margin:30px auto;
+    color:#888;
+    line-height:1.8;
+}
+
+.instapay-label{
+    color:var(--green);
+    font-size:11px;
+    letter-spacing:4px;
+    margin-top:40px;
+}
+
+.instapay-number{
+    margin:20px auto;
+    display:inline-block;
+    font-size:clamp(28px,5vw,60px);
+    font-weight:900;
+    letter-spacing:3px;
+    color:white;
+    border:1px solid var(--line);
+    padding:20px 30px;
+    cursor:pointer;
+}
+
+.copy-note{
+    color:#555;
+    font-size:11px;
+    letter-spacing:2px;
 }
 
 /* =========================================================
    CONTACT
    ========================================================= */
 
-.contact {
-    text-align: center;
+.contact{
+    text-align:center;
 }
 
-.contact-title {
-    font-size: clamp(55px, 10vw, 150px);
-    line-height: .8;
-    font-weight: 900;
-    letter-spacing: -7px;
+.contact h2{
+    font-size:clamp(65px,14vw,220px);
+    line-height:.7;
+    letter-spacing:-12px;
+    font-weight:900;
 }
 
-.contact-title span {
-    color: var(--green);
+.contact h2 span{
+    color:var(--green);
 }
 
-.contact-text {
-    color: #888;
-    max-width: 650px;
-    margin: 40px auto;
-    line-height: 1.8;
+.contact p{
+    max-width:650px;
+    margin:45px auto;
+    color:#777;
+    line-height:1.8;
 }
 
-.socials {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
+.socials{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
 }
 
-.social {
-    border: 1px solid var(--border);
-    padding: 17px 28px;
-    color: var(--green);
-    letter-spacing: 2px;
-    font-size: 12px;
-    transition: .3s;
+.social{
+    border:1px solid var(--line);
+    padding:17px 28px;
+    color:var(--green);
+    font-size:10px;
+    letter-spacing:3px;
+    transition:.3s;
 }
 
-.social:hover {
-    background: var(--green);
-    color: var(--black);
+.social:hover{
+    background:var(--green);
+    color:#000;
 }
 
 /* =========================================================
    FOOTER
    ========================================================= */
 
-footer {
-    border-top: 1px solid var(--border);
-    padding: 30px 0;
+footer{
+    border-top:1px solid var(--line);
+    padding:30px 0;
 }
 
-.footer-inner {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    color: #555;
-    font-size: 11px;
-    letter-spacing: 2px;
+.footer{
+    display:flex;
+    justify-content:space-between;
+    color:#444;
+    font-size:10px;
+    letter-spacing:3px;
 }
 
 /* =========================================================
    RESPONSIVE
    ========================================================= */
 
-@media(max-width: 1000px) {
+@media(max-width:1000px){
 
-    .nav-links {
-        display: none;
+    .nav-links{
+        display:none;
     }
 
-    .hero-grid,
-    .about-grid,
-    .acting-grid,
-    .o6u-box,
-    .creative-network,
+    .hero-bottom,
+    .identity-grid,
+    .o6u,
     .philosophy-text,
-    .projects-grid {
-        grid-template-columns: 1fr;
+    .work-grid{
+        grid-template-columns:1fr;
     }
 
-    .services-grid,
-    .partner-grid {
-        grid-template-columns: repeat(2,1fr);
+    .video-grid{
+        grid-template-columns:1fr;
     }
 
-    .marketing-grid {
-        grid-template-columns: 1fr;
+    .marketing-grid{
+        grid-template-columns:1fr;
     }
 
-    .philosophy-gallery {
-        grid-template-columns: repeat(2,1fr);
+    .principles{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .principles {
-        grid-template-columns: repeat(2,1fr);
+    .philosophy-visuals{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .hero-title {
-        letter-spacing: -5px;
+    .o6u-visual{
+        min-height:300px;
+        border-left:0;
+        border-top:1px solid var(--green);
     }
 
+    .hero-title{
+        letter-spacing:-8px;
+    }
+
+    .partner-row{
+        grid-template-columns:50px 1fr;
+    }
+
+    .partner-row p{
+        grid-column:2;
+    }
 }
 
-@media(max-width: 600px) {
+@media(max-width:600px){
 
-    .section {
-        padding: 85px 0;
+    .section{
+        padding:95px 0;
     }
 
-    .hero {
-        padding-top: 120px;
+    .hero{
+        padding-top:110px;
     }
 
-    .hero-title {
-        font-size: 64px;
-        letter-spacing: -4px;
+    .hero-title{
+        font-size:70px;
+        letter-spacing:-5px;
     }
 
-    .hero-description {
-        font-size: 17px;
+    .hero-bottom{
+        gap:40px;
+        margin-top:50px;
     }
 
-    .services-grid,
-    .partner-grid,
-    .principles,
-    .philosophy-gallery {
-        grid-template-columns: 1fr;
+    .hero-description{
+        font-size:16px;
     }
 
-    .o6u-box,
-    .creative-box,
-    .project-main {
-        padding: 30px;
+    .identity-number{
+        font-size:150px;
     }
 
-    .media-placeholder {
-        height: 300px;
+    .section-heading{
+        letter-spacing:-4px;
     }
 
-    .philosophy-image {
-        height: 300px;
+    .video-card.large{
+        min-height:450px;
     }
 
-    .footer-inner {
-        flex-direction: column;
+    .video-card.small{
+        min-height:350px;
+    }
+
+    .marketing-card{
+        min-height:400px;
+    }
+
+    .philosophy-visuals{
+        grid-template-columns:1fr;
+    }
+
+    .philo-card{
+        height:330px;
+    }
+
+    .philosophy-text{
+        gap:45px;
+    }
+
+    .principles{
+        grid-template-columns:1fr;
+    }
+
+    .support-box{
+        padding:40px 20px;
+    }
+
+    .instapay-number{
+        font-size:25px;
+        padding:15px;
+    }
+
+    .contact h2{
+        letter-spacing:-5px;
+    }
+
+    .footer{
+        flex-direction:column;
+        gap:15px;
     }
 
 }
@@ -1000,14 +1156,15 @@ footer {
 </style>
 </head>
 
-
 <body>
+
 
 <!-- =====================================================
      NAVIGATION
      ===================================================== -->
 
 <nav class="navbar">
+
     <div class="nav-inner">
 
         <a href="#home" class="logo">
@@ -1015,16 +1172,19 @@ footer {
         </a>
 
         <ul class="nav-links">
-            <li><a href="#about">ABOUT</a></li>
+
             <li><a href="#acting">ACTING</a></li>
             <li><a href="#marketing">MARKETING</a></li>
             <li><a href="#partners">PARTNERS</a></li>
             <li><a href="#philosophy">PHILOSOPHY</a></li>
-            <li><a href="#projects">WORK</a></li>
+            <li><a href="#work">WORK</a></li>
+            <li><a href="#support">SUPPORT</a></li>
             <li><a href="#contact">CONTACT</a></li>
+
         </ul>
 
     </div>
+
 </nav>
 
 
@@ -1034,49 +1194,62 @@ footer {
 
 <section class="hero" id="home">
 
-    <div class="container hero-grid">
+    <div class="container hero-inner">
 
-        <div>
+        <div class="hero-top">
 
-            <div class="hero-label">
-                PERSONAL BRAND / 2026
+            <div class="eyebrow">
+                ANAS AYMAN BRAND
             </div>
 
-            <h1 class="hero-title">
-                ANAS<br>
-                <span>AYMAN</span>
-            </h1>
-
-            <p class="hero-description">
-                A personal brand built around ambition, creativity,
-                acting, marketing, technology, philosophy and
-                partnerships with talented people.
-            </p>
-
-            <div class="hero-buttons">
-
-                <a href="#acting" class="btn btn-filled">
-                    Explore Acting
-                </a>
-
-                <a href="#marketing" class="btn">
-                    Explore Marketing
-                </a>
-
+            <div class="hero-year">
+                EST. 2026
             </div>
 
         </div>
 
 
-        <div class="hero-mark">
+        <h1 class="hero-title">
 
-            <div class="hero-mark-content">
+            ANAS<br>
 
-                <strong>AA</strong>
+            <span class="outline">
+                AYMAN
+            </span>
 
-                <small>
-                    ANAS AYMAN BRAND
-                </small>
+        </h1>
+
+
+        <div class="hero-bottom">
+
+            <div>
+
+                <p class="hero-description">
+
+                    <strong>
+                        ACTOR. CREATOR. MARKETER. THINKER.
+                    </strong>
+
+                    <br><br>
+
+                    A personal brand built around acting,
+                    creativity, technology, marketing,
+                    partnerships and a philosophy of life.
+
+                </p>
+
+            </div>
+
+
+            <div class="hero-buttons">
+
+                <a href="#acting" class="btn btn-solid">
+                    ENTER THE BRAND
+                </a>
+
+                <a href="#philosophy" class="btn">
+                    PHILOSOPHY
+                </a>
 
             </div>
 
@@ -1088,32 +1261,28 @@ footer {
 
 
 <!-- =====================================================
-     BRAND STATEMENT
+     MARQUEE
      ===================================================== -->
 
-<div class="statement">
+<div class="marquee">
 
-    <div class="container statement-track">
+    <div class="marquee-track">
 
-        <div class="statement-item">
-            <span>01</span> ACTOR
-        </div>
+        <span class="green">ANAS AYMAN BRAND</span>
+        <span>ACTING</span>
+        <span class="green">MARKETING</span>
+        <span>CREATIVITY</span>
+        <span class="green">PHILOSOPHY</span>
+        <span>O6U</span>
+        <span class="green">AMBITION</span>
 
-        <div class="statement-item">
-            <span>02</span> MARKETER
-        </div>
-
-        <div class="statement-item">
-            <span>03</span> CREATOR
-        </div>
-
-        <div class="statement-item">
-            <span>04</span> COMPUTER SCIENCE
-        </div>
-
-        <div class="statement-item">
-            <span>05</span> PHILOSOPHY
-        </div>
+        <span class="green">ANAS AYMAN BRAND</span>
+        <span>ACTING</span>
+        <span class="green">MARKETING</span>
+        <span>CREATIVITY</span>
+        <span class="green">PHILOSOPHY</span>
+        <span>O6U</span>
+        <span class="green">AMBITION</span>
 
     </div>
 
@@ -1121,112 +1290,45 @@ footer {
 
 
 <!-- =====================================================
-     ABOUT
+     IDENTITY
      ===================================================== -->
 
-<section class="section" id="about">
+<section class="section identity">
 
-    <div class="container about-grid">
+    <div class="container identity-grid">
 
-        <div class="about-number">
+        <div class="identity-number">
             01
         </div>
 
-        <div class="about-text">
+        <div class="identity-text">
 
-            <h2 class="section-title">
-                THE<br>
-                <span class="green">BRAND</span>
+            <div class="eyebrow">
+                THE IDENTITY
+            </div>
+
+            <h2>
+                NOT JUST<br>
+                <span class="green">A WEBSITE.</span>
             </h2>
 
-            <h3>
-                MORE THAN A NAME.
-            </h3>
-
             <p>
-                ANAS AYMAN BRAND is a personal ecosystem connecting
-                technology, acting, creativity, marketing and
-                philosophy.
+                ANAS AYMAN BRAND is designed as a complete
+                personal-brand ecosystem.
             </p>
 
             <p>
-                The goal is not simply to create content.
-                The goal is to build a recognizable identity,
-                create opportunities and connect talented people
-                with audiences.
+                Acting becomes content.
+                Creativity becomes collaboration.
+                Marketing becomes opportunity.
+                Philosophy becomes identity.
+                Technology becomes another tool.
             </p>
 
             <p>
-                From university acting projects to digital marketing,
-                creative collaborations and future businesses —
-                everything becomes part of one larger brand.
+                Everything connects to one name:
+                <strong>ANAS AYMAN.</strong>
             </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     SERVICES
-     ===================================================== -->
-
-<section class="section">
-
-    <div class="container">
-
-        <h2 class="section-title">
-            BRAND<br>
-            <span class="green">ECOSYSTEM</span>
-        </h2>
-
-        <p class="section-subtitle">
-            Different disciplines. One identity.
-            One network. One direction.
-        </p>
-
-        <div class="line"></div>
-
-        <div class="services-grid">
-
-            <div class="service-card">
-                <div class="service-number">01</div>
-                <h3>Acting</h3>
-                <p>
-                    Acting projects, university performances,
-                    short videos, characters and creative
-                    screen work.
-                </p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-number">02</div>
-                <h3>Marketing</h3>
-                <p>
-                    Digital promotion and personal-brand
-                    marketing for creative people and their work.
-                </p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-number">03</div>
-                <h3>Creative</h3>
-                <p>
-                    Graphic design, fashion, visual identity,
-                    photography and creative collaborations.
-                </p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-number">04</div>
-                <h3>Technology</h3>
-                <p>
-                    Computer Science, programming, digital
-                    projects and technology-driven ideas.
-                </p>
-            </div>
 
         </div>
 
@@ -1239,38 +1341,58 @@ footer {
      ACTING
      ===================================================== -->
 
-<section class="section acting-section" id="acting">
+<section class="section actor-section" id="acting">
 
     <div class="container">
 
-        <h2 class="section-title">
-            ACTING<br>
-            <span class="green">WORK</span>
-        </h2>
+        <div class="actor-header">
 
-        <p class="section-subtitle">
-            A growing archive of acting work, university projects,
-            performances and videos.
-        </p>
+            <div>
 
-
-        <div class="acting-grid">
-
-            <div class="media-card">
-
-                <div class="media-placeholder">
-                    <div class="play">▶</div>
+                <div class="eyebrow">
+                    02 / ACTING
                 </div>
 
-                <div class="media-content">
+                <h2 class="section-heading">
+                    THE<br>
+                    <span>ACTOR.</span>
+                </h2>
+
+            </div>
+
+            <p>
+                A growing archive for acting performances,
+                university theatre, short films, scenes,
+                characters and future screen work.
+            </p>
+
+        </div>
+
+
+        <div class="video-grid">
+
+            <div class="video-card large">
+
+                <div class="video-placeholder">
+
+                    <div class="play-button">
+                        ▶
+                    </div>
+
+                </div>
+
+                <div class="video-info">
+
+                    <small>
+                        ACTING / 01
+                    </small>
 
                     <h3>
-                        Acting Video #01
+                        Main Acting Reel
                     </h3>
 
                     <p>
-                        Replace this area later with your first
-                        acting video.
+                        Your strongest acting video goes here.
                     </p>
 
                 </div>
@@ -1278,22 +1400,65 @@ footer {
             </div>
 
 
-            <div class="media-card">
+            <div>
 
-                <div class="media-placeholder">
-                    <div class="play">▶</div>
+                <div class="video-card small">
+
+                    <div class="video-placeholder">
+
+                        <div class="play-button">
+                            ▶
+                        </div>
+
+                    </div>
+
+                    <div class="video-info">
+
+                        <small>
+                            ACTING / 02
+                        </small>
+
+                        <h3>
+                            University Scene
+                        </h3>
+
+                        <p>
+                            A dedicated place for your acting work.
+                        </p>
+
+                    </div>
+
                 </div>
 
-                <div class="media-content">
 
-                    <h3>
-                        Acting Video #02
-                    </h3>
+                <br>
 
-                    <p>
-                        A second space for university acting,
-                        theatre or cinematic work.
-                    </p>
+
+                <div class="video-card small">
+
+                    <div class="video-placeholder">
+
+                        <div class="play-button">
+                            ▶
+                        </div>
+
+                    </div>
+
+                    <div class="video-info">
+
+                        <small>
+                            ACTING / 03
+                        </small>
+
+                        <h3>
+                            Character Work
+                        </h3>
+
+                        <p>
+                            Future characters and performances.
+                        </p>
+
+                    </div>
 
                 </div>
 
@@ -1304,36 +1469,31 @@ footer {
 
         <!-- O6U -->
 
-        <div class="o6u-box">
+        <div class="o6u">
 
-            <div>
+            <div class="o6u-content">
 
-                <div class="o6u-label">
-                    UNIVERSITY WORK
+                <div class="eyebrow">
+                    UNIVERSITY / ACTING
                 </div>
 
-                <div class="o6u-title">
+                <h3>
                     O6U
-                </div>
+                </h3>
 
-                <p class="o6u-text">
-                    A dedicated space for acting projects,
-                    performances and creative videos produced
-                    during university life at October 6 University.
+                <p>
+                    A dedicated archive for acting videos,
+                    theatre projects and creative work
+                    from October 6 University.
                 </p>
 
             </div>
 
-
             <div class="o6u-visual">
 
-                <div>
-                    <strong>O6U</strong>
-                    <br>
-                    <span>
-                        ACTING ARCHIVE
-                    </span>
-                </div>
+                <span>
+                    O6U
+                </span>
 
             </div>
 
@@ -1348,44 +1508,55 @@ footer {
      MARKETING
      ===================================================== -->
 
-<section class="section" id="marketing">
+<section class="section marketing" id="marketing">
 
     <div class="container">
 
-        <h2 class="section-title">
-            CREATIVE<br>
-            <span class="green">MARKETING</span>
+        <div class="eyebrow">
+            03 / MARKETING
+        </div>
+
+        <h2 class="section-heading">
+
+            YOUR<br>
+            <span>WORK.</span>
+
         </h2>
 
-        <p class="section-subtitle">
-            I collaborate with creative people and help market
-            their products, identities and work.
-        </p>
+        <p class="marketing-intro">
 
-        <div class="line"></div>
+            I collaborate with talented people and help
+            turn their creative work into something people
+            can discover, remember and engage with.
+
+        </p>
 
 
         <div class="marketing-grid">
 
             <div class="marketing-card">
 
+                <div class="card-number">
+                    01 / DESIGN
+                </div>
+
                 <div>
 
-                    <div class="marketing-image">
-                        <span>
-                            GRAPHIC DESIGN
-                        </span>
-                    </div>
-
                     <h3>
-                        Graphic Designers
+                        Graphic<br>
+                        Designers
                     </h3>
 
                     <p>
-                        Promotional spaces for graphic designers
-                        and their visual work.
+                        Promotional campaigns and marketing
+                        spaces for graphic designers and their
+                        visual creations.
                     </p>
 
+                </div>
+
+                <div class="card-link">
+                    CREATIVE PARTNERSHIP →
                 </div>
 
             </div>
@@ -1393,23 +1564,26 @@ footer {
 
             <div class="marketing-card">
 
+                <div class="card-number">
+                    02 / APPLIED ARTS
+                </div>
+
                 <div>
 
-                    <div class="marketing-image">
-                        <span>
-                            APPLIED ARTS
-                        </span>
-                    </div>
-
                     <h3>
-                        Applied Arts
+                        Applied<br>
+                        Arts
                     </h3>
 
                     <p>
-                        A dedicated space for designers and
-                        creatives from applied arts.
+                        A platform for talented designers,
+                        makers and creatives from applied arts.
                     </p>
 
+                </div>
+
+                <div class="card-link">
+                    CREATIVE PARTNERSHIP →
                 </div>
 
             </div>
@@ -1417,23 +1591,27 @@ footer {
 
             <div class="marketing-card">
 
+                <div class="card-number">
+                    03 / FASHION
+                </div>
+
                 <div>
 
-                    <div class="marketing-image">
-                        <span>
-                            FASHION
-                        </span>
-                    </div>
-
                     <h3>
-                        Fashion Models
+                        Fashion<br>
+                        Models
                     </h3>
 
                     <p>
-                        Marketing and promotional campaigns
-                        for fashion-related creative work.
+                        Marketing and promotional opportunities
+                        for fashion models and fashion-related
+                        creative projects.
                     </p>
 
+                </div>
+
+                <div class="card-link">
+                    CREATIVE PARTNERSHIP →
                 </div>
 
             </div>
@@ -1453,42 +1631,42 @@ footer {
 
     <div class="container">
 
-        <h2 class="section-title">
+        <div class="eyebrow">
+            04 / NETWORK
+        </div>
+
+        <h2 class="section-heading">
+
             THE<br>
-            <span class="green">NETWORK</span>
+            <span>PEOPLE.</span>
+
         </h2>
 
-        <p class="section-subtitle">
-            People with different talents connected through
-            collaboration, promotion and shared opportunities.
-        </p>
 
-        <div class="line"></div>
+        <div class="partner-list">
 
+            <div class="partner-row">
 
-        <div class="partner-grid">
-
-            <div class="partner">
-
-                <div class="partner-tag">
-                    PARTNER TYPE
+                <div class="number">
+                    01
                 </div>
 
                 <h3>
-                    Graphic Designer
+                    Graphic Designers
                 </h3>
 
                 <p>
-                    Creative design partnership.
+                    Visual identity, artwork and creative
+                    product design.
                 </p>
 
             </div>
 
 
-            <div class="partner">
+            <div class="partner-row">
 
-                <div class="partner-tag">
-                    PARTNER TYPE
+                <div class="number">
+                    02
                 </div>
 
                 <h3>
@@ -1496,92 +1674,42 @@ footer {
                 </h3>
 
                 <p>
-                    Product and visual creativity.
+                    Creative products and design concepts.
                 </p>
 
             </div>
 
 
-            <div class="partner">
+            <div class="partner-row">
 
-                <div class="partner-tag">
-                    PARTNER TYPE
+                <div class="number">
+                    03
                 </div>
 
                 <h3>
-                    Fashion Model
+                    Fashion Models
                 </h3>
 
                 <p>
-                    Fashion and promotional campaigns.
+                    Fashion campaigns and promotional work.
                 </p>
 
             </div>
 
 
-            <div class="partner">
+            <div class="partner-row">
 
-                <div class="partner-tag">
-                    PARTNER TYPE
+                <div class="number">
+                    04
                 </div>
 
                 <h3>
-                    Creative
+                    Actors
                 </h3>
 
                 <p>
-                    Future collaborations and projects.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     CREATIVE NETWORK
-     ===================================================== -->
-
-<section class="section">
-
-    <div class="container">
-
-        <h2 class="section-title">
-            BUILD<br>
-            <span class="green">TOGETHER</span>
-        </h2>
-
-        <div class="creative-network">
-
-            <div class="creative-box">
-
-                <h3>
-                    YOUR WORK.
-                </h3>
-
-                <p>
-                    Designers, models and creatives can use the
-                    ANAS AYMAN BRAND ecosystem as a promotional
-                    platform for their work.
-                </p>
-
-            </div>
-
-
-            <div class="creative-box">
-
-                <h3>
-                    MY AUDIENCE.
-                </h3>
-
-                <p>
-                    The objective is to create a bridge between
-                    talented people and audiences through content,
-                    marketing and personal branding.
+                    Acting collaborations, scenes and
+                    future productions.
                 </p>
 
             </div>
@@ -1601,9 +1729,15 @@ footer {
 
     <div class="container">
 
-        <h2 class="section-title">
-            ANAS<br>
-            <span class="green">PHILOSOPHY</span>
+        <div class="eyebrow">
+            05 / PHILOSOPHY
+        </div>
+
+        <h2 class="section-heading">
+
+            THE<br>
+            <span>SEA.</span>
+
         </h2>
 
 
@@ -1617,45 +1751,41 @@ footer {
             <p style="margin-top:25px;">
                 We keep swimming toward perfection,
                 knowing that death is ultimately the ending
-                of life — and that absolute perfection belongs
+                of life — while absolute perfection belongs
                 only to the Creator.
             </p>
 
         </div>
 
 
-        <!-- VISUAL PHILOSOPHY -->
+        <div class="philosophy-visuals">
 
-        <div class="philosophy-gallery">
-
-            <div class="philosophy-image wave">
+            <div class="philo-card waves">
                 <h3>Waves</h3>
             </div>
 
-            <div class="philosophy-image tsunami">
+            <div class="philo-card tsunami">
                 <h3>Tsunami</h3>
             </div>
 
-            <div class="philosophy-image lizard">
+            <div class="philo-card lizard">
                 <h3>Lizard</h3>
             </div>
 
-            <div class="philosophy-image sun">
+            <div class="philo-card sun">
                 <h3>Sun</h3>
             </div>
 
-            <div class="philosophy-image sea">
+            <div class="philo-card sea">
                 <h3>Sea</h3>
             </div>
 
         </div>
 
 
-        <!-- TWO PARTS -->
-
         <div class="philosophy-text">
 
-            <div class="philosophy-part">
+            <div class="philosophy-column">
 
                 <h3>
                     PART I — THE MEANING OF LIFE
@@ -1663,37 +1793,43 @@ footer {
 
                 <p>
                     We are all swimmers in the sea of life,
-                    looking toward the sun. Every one of us
-                    carries the certainty that if we keep
-                    swimming, one day we will reach the sun —
-                    the sun being perfection.
+                    looking toward the sun.
                 </p>
 
-                <p style="margin-top:20px;">
+                <p>
+                    Every one of us carries the certainty that
+                    if we keep swimming, one day we will reach
+                    the sun — the sun being perfection.
+                </p>
+
+                <p>
                     But eventually the distance between us
-                    and the sun becomes fixed. Our arms become
-                    exhausted and eventually we drown.
+                    and the sun becomes fixed.
                 </p>
 
-                <p style="margin-top:20px;">
+                <p>
+                    Our arms become exhausted and eventually
+                    we drown.
+                </p>
+
+                <p>
                     In both cases, death is the ending.
                     And this is where the meaning of life begins.
                 </p>
 
-                <p style="margin-top:20px;">
+                <p>
                     The only one capable of conquering life
-                    and reaching the sun is the Creator of life
-                    Himself — God. He is the only one who
-                    possesses absolute perfection.
+                    and reaching the sun is the Creator of
+                    life Himself — God.
                 </p>
 
             </div>
 
 
-            <div class="philosophy-part">
+            <div class="philosophy-column">
 
                 <h3>
-                    PART II — WATER
+                    PART II — BE WATER
                 </h3>
 
                 <p>
@@ -1701,19 +1837,19 @@ footer {
                     Be like water.
                 </p>
 
-                <p style="margin-top:20px;">
+                <p>
                     Water changes its shape from one container
                     to another without losing what it fundamentally
                     is.
                 </p>
 
-                <p style="margin-top:20px;">
-                    Water gives life when you drink it,
-                    but if you underestimate its power,
+                <p>
+                    Water gives life when you drink it.
+                    But if you underestimate its power,
                     it can drown you.
                 </p>
 
-                <p style="margin-top:20px;">
+                <p>
                     Waves represent movement.
                     The tsunami represents overwhelming power.
                     The lizard represents adaptation.
@@ -1738,21 +1874,32 @@ footer {
 
     <div class="container">
 
-        <h2 class="section-title">
+        <div class="eyebrow">
+            06 / PRINCIPLES
+        </div>
+
+        <h2 class="section-heading">
+
             FOUR<br>
-            <span class="green">PRINCIPLES</span>
+            <span>WORDS.</span>
+
         </h2>
+
+
+        <div class="divider"></div>
 
 
         <div class="principles">
 
             <div class="principle">
 
-                <h3>VALUE</h3>
+                <h3>
+                    VALUE
+                </h3>
 
                 <p>
-                    Know your value without needing
-                    everyone else to validate it.
+                    Know your value.
+                    Build it through action.
                 </p>
 
             </div>
@@ -1760,10 +1907,12 @@ footer {
 
             <div class="principle">
 
-                <h3>DEPTH</h3>
+                <h3>
+                    DEPTH
+                </h3>
 
                 <p>
-                    Think beyond appearances.
+                    Look beyond appearances.
                     Search for meaning.
                 </p>
 
@@ -1772,11 +1921,13 @@ footer {
 
             <div class="principle">
 
-                <h3>POWER</h3>
+                <h3>
+                    POWER
+                </h3>
 
                 <p>
-                    Strength is controlled power,
-                    not empty aggression.
+                    Strength with control.
+                    Presence without noise.
                 </p>
 
             </div>
@@ -1784,11 +1935,13 @@ footer {
 
             <div class="principle">
 
-                <h3>ADAPT</h3>
+                <h3>
+                    ADAPT
+                </h3>
 
                 <p>
-                    Change your shape when necessary
-                    without losing yourself.
+                    Change your form without
+                    losing your identity.
                 </p>
 
             </div>
@@ -1801,27 +1954,33 @@ footer {
 
 
 <!-- =====================================================
-     WORK / TECHNOLOGY
+     WORK
      ===================================================== -->
 
-<section class="section" id="projects">
+<section class="section work" id="work">
 
     <div class="container">
 
-        <h2 class="section-title">
-            SELECTED<br>
-            <span class="green">WORK</span>
+        <div class="eyebrow">
+            07 / WORK
+        </div>
+
+        <h2 class="section-heading">
+
+            BUILD<br>
+            <span>MORE.</span>
+
         </h2>
 
 
-        <div class="projects-grid">
+        <div class="work-grid">
 
-            <div class="project-main">
+            <div class="work-main">
 
                 <div>
 
-                    <div class="service-number">
-                        COMPUTER SCIENCE PROJECT
+                    <div class="eyebrow">
+                        COMPUTER SCIENCE
                     </div>
 
                     <h3>
@@ -1833,56 +1992,56 @@ footer {
                 </div>
 
                 <p>
-                    A C++ console project built to manage
-                    student records using programming fundamentals,
-                    file handling and structured logic.
+                    A C++ project using programming fundamentals,
+                    file handling and structured logic to manage
+                    student records.
                 </p>
 
                 <a href="#" class="btn">
-                    GitHub Project
+                    VIEW GITHUB
                 </a>
 
             </div>
 
 
-            <div class="project-side">
+            <div class="work-side">
 
-                <div class="project-small">
+                <div class="work-small">
 
                     <h3>
                         Programming
                     </h3>
 
                     <p>
-                        C++, problem solving and computer science.
+                        C++, computer science and problem solving.
                     </p>
 
                 </div>
 
 
-                <div class="project-small">
+                <div class="work-small">
 
                     <h3>
-                        Digital Identity
+                        Brand Building
                     </h3>
 
                     <p>
-                        Building a recognizable online presence
-                        around one personal brand.
+                        Creating a recognizable identity around
+                        the name ANAS AYMAN.
                     </p>
 
                 </div>
 
 
-                <div class="project-small">
+                <div class="work-small">
 
                     <h3>
-                        Future Work
+                        Future
                     </h3>
 
                     <p>
-                        More technology, acting, marketing
-                        and creative collaborations.
+                        Acting, technology, marketing,
+                        collaborations and bigger productions.
                     </p>
 
                 </div>
@@ -1904,15 +2063,17 @@ footer {
 
     <div class="container">
 
-        <h2 class="section-title">
-            MINDSET
-        </h2>
-
-        <div class="mindset-text">
-            I DON'T WANT TO WIN ONCE.
+        <div class="eyebrow">
+            THE MINDSET
         </div>
 
-        <p class="mindset-sub">
+        <h2>
+            I DON'T<br>
+            WANT TO<br>
+            WIN ONCE.
+        </h2>
+
+        <p>
             I want to become someone capable of winning again.
             Discipline. Resilience. Ambition. Adaptation.
         </p>
@@ -1923,29 +2084,50 @@ footer {
 
 
 <!-- =====================================================
-     FINAL STATEMENT
+     INSTAPAY / SUPPORT
      ===================================================== -->
 
-<section class="section">
+<section class="section support" id="support">
 
-    <div class="container" style="text-align:center;">
+    <div class="container">
 
-        <div class="hero-label">
-            THE BRAND PHILOSOPHY
+        <div class="support-box">
+
+            <div class="eyebrow">
+                SUPPORT THE BRAND
+            </div>
+
+            <h2>
+                SUPPORT<br>
+                <span class="green">ANAS.</span>
+            </h2>
+
+            <p>
+                If you want to support the development of
+                ANAS AYMAN BRAND and future creative projects,
+                you can use InstaPay.
+            </p>
+
+
+            <div class="instapay-label">
+                INSTAPAY NUMBER
+            </div>
+
+
+            <div
+                class="instapay-number"
+                id="instapayNumber"
+                onclick="copyInstapay()"
+            >
+                01080128925
+            </div>
+
+
+            <div class="copy-note" id="copyNote">
+                CLICK THE NUMBER TO COPY
+            </div>
+
         </div>
-
-        <h2 class="contact-title">
-            KEEP<br>
-            <span>SWIMMING.</span>
-        </h2>
-
-        <p class="contact-text">
-            The sea is life.
-            The sun is perfection.
-            The waves are movement.
-            Water is adaptation.
-            And the journey continues.
-        </p>
 
     </div>
 
@@ -1960,19 +2142,23 @@ footer {
 
     <div class="container">
 
-        <div class="hero-label">
+        <div class="eyebrow">
             WORK / COLLABORATE / CONNECT
         </div>
 
-        <h2 class="contact-title">
+        <h2>
             ANAS<br>
-            <span>AYMAN</span>
+            <span>AYMAN.</span>
         </h2>
 
-        <p class="contact-text">
-            For acting collaborations, creative partnerships,
-            marketing opportunities, design projects,
-            fashion campaigns and future work.
+        <p>
+            Acting collaborations.
+            Creative partnerships.
+            Marketing.
+            Design.
+            Fashion.
+            Technology.
+            Future productions.
         </p>
 
 
@@ -1986,7 +2172,7 @@ footer {
                 GITHUB
             </a>
 
-            <a href="#" class="social">
+            <a href="tel:01080128925" class="social">
                 CONTACT
             </a>
 
@@ -2003,7 +2189,7 @@ footer {
 
 <footer>
 
-    <div class="container footer-inner">
+    <div class="container footer">
 
         <div>
             © 2026 ANAS AYMAN
@@ -2020,6 +2206,35 @@ footer {
     </div>
 
 </footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
+
+<script>
+
+function copyInstapay(){
+
+    const number = "01080128925";
+
+    navigator.clipboard.writeText(number).then(function(){
+
+        document.getElementById("copyNote").innerText =
+            "COPIED TO CLIPBOARD ✓";
+
+        setTimeout(function(){
+
+            document.getElementById("copyNote").innerText =
+                "CLICK THE NUMBER TO COPY";
+
+        },2000);
+
+    });
+
+}
+
+</script>
 
 
 </body>
