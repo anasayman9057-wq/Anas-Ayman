@@ -1,2114 +1,1839 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Anas Ayman — Computer Science, Acting, Philosophy and Creative Brand."
+    >
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anas Ayman | Official Brand</title>
+
+    <style>
 
-<title>Anas Ayman | Official Brand</title>
+        /* =========================================================
+           GLOBAL
+        ========================================================= */
 
-<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* =====================================================
-   ANAS AYMAN
-   OFFICIAL PERSONAL BRAND WEBSITE
-   ===================================================== */
+        html {
+            scroll-behavior: smooth;
+        }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+        body {
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
 
-html{
-    scroll-behavior:smooth;
-}
+            color: #ffffff;
 
-body{
-    background:#030303;
-    color:#fff;
-    font-family:Arial, Helvetica, sans-serif;
-    overflow-x:hidden;
-}
+            background:
+                rgb(
+                    var(--red, 4),
+                    var(--green, 45),
+                    var(--blue, 22)
+                );
 
-:root{
-    --green:#00ff66;
-    --green-dark:#00b84a;
-    --black:#030303;
-    --dark:#090909;
-    --dark2:#111;
-    --gray:#888;
-    --white:#fff;
-}
+            overflow-x: hidden;
 
+            transition:
+                background-color 0.15s linear;
+        }
 
-/* =====================================================
-   LOADER
-   ===================================================== */
+        :root {
+            --brand-green: #00ff66;
+            --dark-green: #063d20;
+            --black: #030303;
+            --white: #ffffff;
+            --gray: #a8a8a8;
+            --border: rgba(0, 255, 102, 0.22);
+        }
 
-#loader{
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-    position:fixed;
-    inset:0;
+        img {
+            max-width: 100%;
+            display: block;
+        }
 
-    background:#000;
+        button,
+        input,
+        textarea,
+        select {
+            font-family: inherit;
+        }
 
-    z-index:99999;
 
-    display:flex;
-    flex-direction:column;
+        /* =========================================================
+           CINEMATIC BACKGROUND
+        ========================================================= */
 
-    justify-content:center;
-    align-items:center;
+        .cinematic-background {
+            position: fixed;
+            inset: 0;
 
-    transition:1s;
+            z-index: -10;
 
-}
+            background:
+                radial-gradient(
+                    circle at 50% 20%,
+                    rgba(0, 255, 102, 0.18),
+                    transparent 35%
+                );
 
-.loader-name{
+            pointer-events: none;
 
-    font-size:clamp(30px,6vw,70px);
+            transition:
+                background 0.2s linear;
+        }
 
-    font-weight:900;
+        .noise {
+            position: fixed;
+            inset: 0;
 
-    letter-spacing:8px;
+            z-index: 9990;
 
-    color:var(--green);
+            pointer-events: none;
 
-    animation:loaderPulse 1.5s infinite;
+            opacity: 0.035;
 
-}
+            background-image:
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+        }
 
-.loader-line{
 
-    width:220px;
+        /* =========================================================
+           SCROLL PROGRESS
+        ========================================================= */
 
-    height:2px;
+        .scroll-progress {
+            position: fixed;
 
-    background:#222;
+            top: 0;
+            left: 0;
 
-    margin-top:25px;
+            width: 0%;
+            height: 3px;
 
-    overflow:hidden;
+            z-index: 10000;
 
-}
+            background: var(--brand-green);
 
-.loader-line::after{
+            box-shadow:
+                0 0 10px var(--brand-green),
+                0 0 30px rgba(0, 255, 102, 0.5);
+        }
 
-    content:"";
 
-    display:block;
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
 
-    height:100%;
+        nav {
+            position: fixed;
 
-    width:50%;
+            top: 0;
+            left: 0;
 
-    background:var(--green);
+            width: 100%;
 
-    animation:loaderMove 1.2s infinite;
+            z-index: 9000;
 
-}
+            padding: 24px 6%;
 
-@keyframes loaderMove{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
-    from{
-        transform:translateX(-200%);
-    }
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(0,0,0,0.85),
+                    transparent
+                );
 
-    to{
-        transform:translateX(400%);
-    }
+            transition:
+                background 0.5s ease,
+                padding 0.5s ease;
+        }
 
-}
+        nav.scrolled {
+            padding: 16px 6%;
 
-@keyframes loaderPulse{
+            background:
+                rgba(0,0,0,0.78);
 
-    50%{
-        opacity:.4;
-    }
+            backdrop-filter: blur(16px);
 
-}
+            border-bottom:
+                1px solid rgba(0,255,102,0.12);
+        }
 
+        .logo {
+            font-size: 22px;
 
-/* =====================================================
-   NAVBAR
-   ===================================================== */
+            font-weight: 800;
 
-nav{
+            letter-spacing: 3px;
 
-    position:fixed;
+            color: var(--brand-green);
+        }
 
-    top:0;
-    left:0;
+        .nav-links {
+            display: flex;
 
-    width:100%;
+            gap: 30px;
 
-    padding:20px 6%;
+            list-style: none;
+        }
 
-    display:flex;
+        .nav-links a {
+            font-size: 12px;
 
-    justify-content:space-between;
+            text-transform: uppercase;
 
-    align-items:center;
+            letter-spacing: 2px;
 
-    z-index:5000;
+            color: #ddd;
 
-    background:rgba(0,0,0,.75);
+            transition:
+                color 0.3s ease;
+        }
 
-    backdrop-filter:blur(15px);
+        .nav-links a:hover {
+            color: var(--brand-green);
+        }
 
-    border-bottom:1px solid rgba(0,255,102,.15);
 
-}
+        /* =========================================================
+           HERO
+        ========================================================= */
 
-.logo{
+        .hero {
+            min-height: 100vh;
 
-    color:var(--green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    font-weight:900;
+            text-align: center;
 
-    font-size:22px;
+            padding: 120px 7% 80px;
 
-    letter-spacing:3px;
+            position: relative;
+        }
 
-}
+        .hero-content {
+            max-width: 1100px;
 
-nav ul{
+            animation:
+                heroAppear 1.8s
+                cubic-bezier(.16,1,.3,1)
+                forwards;
+        }
 
-    list-style:none;
+        @keyframes heroAppear {
 
-    display:flex;
+            from {
+                opacity: 0;
+                transform:
+                    translateY(60px)
+                    scale(0.96);
 
-    gap:28px;
+                filter: blur(15px);
+            }
 
-}
+            to {
+                opacity: 1;
+                transform:
+                    translateY(0)
+                    scale(1);
 
-nav ul li a{
+                filter: blur(0);
+            }
+        }
 
-    color:#fff;
+        .eyebrow {
+            color: var(--brand-green);
 
-    text-decoration:none;
+            font-size: 12px;
 
-    font-size:13px;
+            letter-spacing: 5px;
 
-    letter-spacing:1px;
+            text-transform: uppercase;
 
-    transition:.3s;
+            margin-bottom: 28px;
+        }
 
-}
+        .hero h1 {
+            font-size:
+                clamp(65px, 13vw, 180px);
 
-nav ul li a:hover{
+            line-height: 0.85;
 
-    color:var(--green);
+            letter-spacing: -7px;
 
-}
+            font-weight: 900;
 
+            margin-bottom: 35px;
+        }
 
-/* =====================================================
-   HERO
-   ===================================================== */
+        .green {
+            color: var(--brand-green);
 
-.hero{
+            text-shadow:
+                0 0 20px rgba(0,255,102,0.25);
+        }
 
-    min-height:100vh;
+        .hero-description {
+            max-width: 720px;
 
-    display:flex;
+            margin: auto;
 
-    justify-content:center;
+            color: #c9c9c9;
 
-    align-items:center;
+            font-size: 18px;
 
-    text-align:center;
+            line-height: 1.8;
+        }
 
-    padding:120px 20px;
+        .hero-buttons {
+            margin-top: 45px;
 
-    position:relative;
+            display: flex;
 
-    overflow:hidden;
+            justify-content: center;
 
-    background:
+            gap: 15px;
 
-    radial-gradient(
-        circle at center,
-        rgba(0,255,102,.13),
-        transparent 35%
-    ),
+            flex-wrap: wrap;
+        }
 
-    #030303;
+        .btn {
+            display: inline-flex;
 
-}
+            align-items: center;
+            justify-content: center;
 
-.hero::before{
+            min-width: 170px;
 
-    content:"";
+            padding: 15px 25px;
 
-    position:absolute;
+            border:
+                1px solid var(--brand-green);
 
-    width:500px;
+            color: white;
 
-    height:500px;
+            text-transform: uppercase;
 
-    border-radius:50%;
+            letter-spacing: 2px;
 
-    border:1px solid rgba(0,255,102,.12);
+            font-size: 11px;
 
-    animation:heroCircle 12s linear infinite;
+            transition:
+                transform 0.4s ease,
+                background 0.4s ease,
+                color 0.4s ease,
+                box-shadow 0.4s ease;
+        }
 
-}
+        .btn.primary {
+            background: var(--brand-green);
 
-@keyframes heroCircle{
+            color: #020502;
 
-    from{
-        transform:rotate(0deg) scale(1);
-    }
+            font-weight: 800;
+        }
 
-    to{
-        transform:rotate(360deg) scale(1.2);
-    }
+        .btn:hover {
+            transform:
+                translateY(-5px);
 
-}
+            box-shadow:
+                0 15px 40px rgba(0,255,102,0.18);
+        }
 
-.hero-content{
+        .btn.secondary:hover {
+            background: var(--brand-green);
 
-    position:relative;
+            color: #000;
+        }
 
-    z-index:2;
 
-}
+        /* =========================================================
+           SECTIONS
+        ========================================================= */
 
-.hero h1{
+        section {
+            position: relative;
 
-    font-size:clamp(65px,12vw,160px);
+            padding:
+                130px 7%;
 
-    line-height:.85;
+            min-height: 80vh;
+        }
 
-    letter-spacing:-6px;
+        .section-header {
+            max-width: 900px;
 
-    font-weight:900;
+            margin-bottom: 70px;
+        }
 
-}
+        .section-number {
+            color: var(--brand-green);
 
-.green{
+            font-size: 11px;
 
-    color:var(--green);
+            letter-spacing: 4px;
 
-}
+            margin-bottom: 18px;
+        }
 
-.hero-tagline{
+        .section-title {
+            font-size:
+                clamp(42px, 7vw, 90px);
 
-    margin-top:35px;
+            line-height: 0.95;
 
-    color:#999;
+            letter-spacing: -3px;
 
-    letter-spacing:5px;
+            margin-bottom: 25px;
+        }
 
-    font-size:15px;
+        .section-description {
+            color: #aaa;
 
-}
+            line-height: 1.8;
 
-.hero-description{
+            font-size: 16px;
 
-    max-width:750px;
+            max-width: 700px;
+        }
 
-    margin:25px auto;
 
-    color:#777;
+        /* =========================================================
+           REVEAL ANIMATIONS
+        ========================================================= */
 
-    line-height:1.8;
+        .reveal {
+            opacity: 0;
 
-}
+            transform:
+                translateY(70px)
+                scale(0.97);
 
-.hero-buttons{
+            filter: blur(8px);
 
-    display:flex;
+            transition:
+                opacity 1.2s
+                cubic-bezier(.16,1,.3,1),
 
-    justify-content:center;
+                transform 1.2s
+                cubic-bezier(.16,1,.3,1),
 
-    gap:15px;
+                filter 1.2s ease;
+        }
 
-    flex-wrap:wrap;
+        .reveal.active {
+            opacity: 1;
 
-    margin-top:35px;
+            transform:
+                translateY(0)
+                scale(1);
 
-}
+            filter: blur(0);
+        }
 
-.btn{
+        .reveal-left {
+            opacity: 0;
 
-    padding:15px 30px;
+            transform:
+                translateX(-80px);
 
-    border:1px solid var(--green);
+            filter: blur(8px);
 
-    color:var(--green);
+            transition:
+                all 1.2s
+                cubic-bezier(.16,1,.3,1);
+        }
 
-    text-decoration:none;
+        .reveal-left.active {
+            opacity: 1;
 
-    font-weight:bold;
+            transform:
+                translateX(0);
 
-    transition:.3s;
+            filter: blur(0);
+        }
 
-}
+        .reveal-right {
+            opacity: 0;
 
-.btn:hover{
+            transform:
+                translateX(80px);
 
-    background:var(--green);
+            filter: blur(8px);
 
-    color:#000;
+            transition:
+                all 1.2s
+                cubic-bezier(.16,1,.3,1);
+        }
 
-    box-shadow:0 0 30px rgba(0,255,102,.3);
+        .reveal-right.active {
+            opacity: 1;
 
-}
+            transform:
+                translateX(0);
 
+            filter: blur(0);
+        }
 
-/* =====================================================
-   GENERAL SECTIONS
-   ===================================================== */
 
-section{
+        /* =========================================================
+           ABOUT
+        ========================================================= */
 
-    padding:120px 7%;
+        .about-grid {
+            display: grid;
 
-}
+            grid-template-columns:
+                repeat(2, 1fr);
 
-.section-title{
+            gap: 60px;
 
-    font-size:clamp(40px,6vw,70px);
+            align-items: center;
+        }
 
-    font-weight:900;
+        .about-text p {
+            color: #c0c0c0;
 
-    margin-bottom:20px;
+            font-size: 18px;
 
-}
+            line-height: 2;
 
-.section-title span{
+            margin-bottom: 25px;
+        }
 
-    color:var(--green);
+        .about-highlight {
+            border-left:
+                2px solid var(--brand-green);
 
-}
+            padding-left: 25px;
 
-.section-subtitle{
+            margin-top: 35px;
 
-    max-width:750px;
+            color: white;
 
-    color:#777;
+            font-size: 22px;
 
-    line-height:1.8;
+            line-height: 1.6;
+        }
 
-    margin-bottom:55px;
+        .about-card {
+            padding: 45px;
 
-}
+            border:
+                1px solid var(--border);
 
+            background:
+                rgba(0,0,0,0.25);
 
-/* =====================================================
-   ABOUT
-   ===================================================== */
+            backdrop-filter:
+                blur(10px);
+        }
 
-.about{
+        .about-card h3 {
+            color: var(--brand-green);
 
-    background:#070707;
+            margin-bottom: 20px;
 
-}
+            letter-spacing: 2px;
+        }
 
-.about-layout{
+        .about-card p {
+            color: #aaa;
 
-    display:grid;
+            line-height: 1.8;
+        }
 
-    grid-template-columns:1.2fr .8fr;
 
-    gap:70px;
+        /* =========================================================
+           SKILLS
+        ========================================================= */
 
-}
+        .cards-grid {
+            display: grid;
 
-.about-text{
+            grid-template-columns:
+                repeat(3, 1fr);
 
-    color:#aaa;
+            gap: 20px;
+        }
 
-    line-height:2;
+        .card {
+            padding: 38px;
 
-    font-size:17px;
+            min-height: 250px;
 
-}
+            border:
+                1px solid var(--border);
 
-.about-text strong{
+            background:
+                rgba(0,0,0,0.25);
 
-    color:#fff;
+            transition:
+                transform 0.6s ease,
+                border-color 0.6s ease,
+                box-shadow 0.6s ease;
+        }
 
-}
+        .card:hover {
+            transform:
+                translateY(-12px);
 
-.about-stats{
+            border-color:
+                var(--brand-green);
 
-    display:grid;
+            box-shadow:
+                0 25px 70px
+                rgba(0,255,102,0.12);
+        }
 
-    grid-template-columns:1fr 1fr;
+        .card-number {
+            color: var(--brand-green);
 
-    gap:15px;
+            font-size: 12px;
 
-}
+            letter-spacing: 3px;
 
-.stat{
+            margin-bottom: 35px;
+        }
 
-    padding:30px;
+        .card h3 {
+            font-size: 25px;
 
-    background:#0d0d0d;
+            margin-bottom: 18px;
+        }
 
-    border:1px solid #1d1d1d;
+        .card p {
+            color: #999;
 
-    transition:.4s;
+            line-height: 1.8;
+        }
 
-}
 
-.stat:hover{
+        /* =========================================================
+           UNIVERSITY / O6U
+        ========================================================= */
 
-    border-color:var(--green);
+        .university-grid {
+            display: grid;
 
-    transform:translateY(-7px);
+            grid-template-columns:
+                repeat(2, 1fr);
 
-}
+            gap: 25px;
+        }
 
-.stat h3{
+        .university-photo {
+            position: relative;
 
-    color:var(--green);
+            overflow: hidden;
 
-    font-size:35px;
+            border:
+                1px solid var(--border);
 
-}
+            min-height: 500px;
 
-.stat p{
+            background: #080808;
+        }
 
-    color:#777;
+        .university-photo img {
+            width: 100%;
+            height: 100%;
 
-    margin-top:10px;
+            min-height: 500px;
 
-}
+            object-fit: cover;
 
+            transition:
+                transform 1.4s
+                cubic-bezier(.16,1,.3,1),
+                filter 1.4s ease;
+        }
 
-/* =====================================================
-   PROFESSIONAL IDENTITY
-   ===================================================== */
+        .university-photo:hover img {
+            transform:
+                scale(1.06);
 
-.identity{
+            filter:
+                brightness(0.7);
+        }
 
-    background:#030303;
+        .photo-overlay {
+            position: absolute;
 
-}
+            inset: auto 0 0 0;
 
-.identity-grid{
+            padding: 35px;
 
-    display:grid;
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(0,0,0,0.95),
+                    transparent
+                );
+        }
 
-    grid-template-columns:repeat(4,1fr);
+        .photo-overlay span {
+            display: block;
 
-    gap:20px;
+            color: var(--brand-green);
 
-}
+            font-size: 11px;
 
-.identity-card{
+            letter-spacing: 3px;
 
-    padding:35px 25px;
+            margin-bottom: 10px;
+        }
 
-    background:#090909;
+        .photo-overlay h3 {
+            font-size: 30px;
+        }
 
-    border:1px solid #1c1c1c;
+        .university-info {
+            margin-top: 35px;
 
-    text-align:center;
+            border:
+                1px solid var(--border);
 
-    transition:.4s;
+            padding: 35px;
 
-}
+            background:
+                rgba(0,0,0,0.25);
+        }
 
-.identity-card:hover{
+        .university-info p {
+            color: #aaa;
 
-    border-color:var(--green);
+            line-height: 1.9;
+        }
 
-    transform:translateY(-10px);
 
-    box-shadow:0 0 30px rgba(0,255,102,.08);
+        /* =========================================================
+           PHILOSOPHY
+        ========================================================= */
 
-}
+        .philosophy-gallery {
+            display: grid;
 
-.identity-icon{
+            grid-template-columns:
+                repeat(4, 1fr);
 
-    font-size:40px;
+            gap: 15px;
 
-    margin-bottom:20px;
+            margin-bottom: 70px;
+        }
 
-}
+        .philosophy-gallery img {
+            width: 100%;
 
-.identity-card h3{
+            height: 260px;
 
-    color:var(--green);
+            object-fit: cover;
 
-    margin-bottom:15px;
+            border:
+                1px solid var(--border);
 
-}
+            transition:
+                transform 0.8s ease,
+                filter 0.8s ease;
+        }
 
-.identity-card p{
+        .philosophy-gallery img:hover {
+            transform:
+                scale(1.04);
 
-    color:#777;
+            filter:
+                brightness(1.15);
+        }
 
-    line-height:1.7;
+        .philosophy-text {
+            max-width: 1100px;
 
-}
+            margin: auto;
+        }
 
+        .philosophy-text h3 {
+            color: var(--brand-green);
 
-/* =====================================================
-   PARTNERSHIPS
-   ===================================================== */
+            font-size: 25px;
 
-.partnerships{
+            margin:
+                50px 0 20px;
+        }
 
-    background:#080808;
+        .philosophy-text p {
+            color: #c3c3c3;
 
-}
+            line-height: 2;
 
-.partnership-intro{
+            font-size: 17px;
 
-    max-width:800px;
+            margin-bottom: 25px;
+        }
 
-    color:#888;
+        .philosophy-quote {
+            margin-top: 50px;
 
-    line-height:1.9;
+            padding: 45px;
 
-    margin-bottom:50px;
+            border:
+                1px solid var(--brand-green);
 
-}
+            background:
+                rgba(0,255,102,0.035);
 
-.partner-grid{
+            font-size: 28px;
 
-    display:grid;
+            line-height: 1.5;
 
-    grid-template-columns:repeat(3,1fr);
+            color: white;
+        }
 
-    gap:20px;
 
-}
+        /* =========================================================
+           ACTING
+        ========================================================= */
 
-.partner{
+        .video-grid {
+            display: grid;
 
-    padding:35px;
+            grid-template-columns:
+                repeat(3, 1fr);
 
-    border:1px solid #202020;
+            gap: 25px;
+        }
 
-    background:#0c0c0c;
+        .video-card {
+            border:
+                1px solid var(--border);
 
-    transition:.4s;
+            background:
+                rgba(0,0,0,0.3);
 
-}
+            overflow: hidden;
+        }
 
-.partner:hover{
+        .video-card video {
+            width: 100%;
 
-    border-color:var(--green);
+            aspect-ratio: 16 / 9;
 
-    transform:translateY(-8px);
+            display: block;
 
-}
+            background: #000;
+        }
 
-.partner h3{
+        .video-info {
+            padding: 25px;
+        }
 
-    color:#fff;
+        .video-info span {
+            color: var(--brand-green);
 
-    margin-bottom:12px;
+            font-size: 10px;
 
-}
+            letter-spacing: 3px;
+        }
 
-.partner span{
+        .video-info h3 {
+            margin-top: 10px;
 
-    color:var(--green);
+            font-size: 20px;
+        }
 
-    font-size:12px;
+        .video-info p {
+            color: #888;
 
-    letter-spacing:2px;
+            line-height: 1.7;
 
-}
+            margin-top: 10px;
+        }
 
-.partner p{
 
-    color:#777;
+        /* =========================================================
+           CREATIVE / GRAPHIC DESIGN
+        ========================================================= */
 
-    line-height:1.7;
+        .creative-gallery {
+            display: grid;
 
-    margin-top:15px;
+            grid-template-columns:
+                repeat(5, 1fr);
 
-}
+            gap: 15px;
+        }
 
+        .design-card {
+            background:
+                rgba(0,0,0,0.35);
 
-/* =====================================================
-   PHILOSOPHY
-   ===================================================== */
+            border:
+                1px solid var(--border);
 
-.philosophy{
+            overflow: hidden;
 
-    background:#020202;
+            transition:
+                transform 0.6s ease,
+                border-color 0.6s ease,
+                box-shadow 0.6s ease;
+        }
 
-}
+        .design-card:hover {
+            transform:
+                translateY(-10px);
 
-.philosophy-images{
+            border-color:
+                var(--brand-green);
 
-    display:grid;
+            box-shadow:
+                0 20px 50px
+                rgba(0,255,102,0.1);
+        }
 
-    grid-template-columns:repeat(4,1fr);
+        .design-card img {
+            width: 100%;
 
-    gap:15px;
+            height: 260px;
 
-    margin-bottom:60px;
+            object-fit: cover;
+        }
 
-}
+        .design-content {
+            padding: 20px;
+        }
 
-.philosophy-images img{
+        .design-content h3 {
+            font-size: 17px;
 
-    width:100%;
+            margin-bottom: 10px;
+        }
 
-    height:270px;
+        /* PRICE DIRECTLY UNDER IMAGE/TITLE */
 
-    object-fit:cover;
+        .design-price {
+            color: var(--brand-green);
 
-    border:1px solid #222;
+            font-size: 20px;
 
-    transition:.5s;
+            font-weight: 800;
 
-}
+            margin-top: 8px;
+        }
 
-.philosophy-images img:hover{
 
-    transform:scale(1.04);
+        /* =========================================================
+           FEATURED BRAND IMAGE
+        ========================================================= */
 
-    border-color:var(--green);
+        .featured-work {
+            margin-top: 70px;
 
-}
+            display: grid;
 
-.philosophy-text{
+            grid-template-columns:
+                repeat(2, 1fr);
 
-    background:#080808;
+            gap: 25px;
+        }
 
-    border-left:3px solid var(--green);
+        .featured-work figure {
+            margin: 0;
 
-    padding:50px;
+            border:
+                1px solid var(--border);
 
-}
+            overflow: hidden;
 
-.philosophy-text h3{
+            background:
+                rgba(0,0,0,0.3);
+        }
 
-    color:var(--green);
+        .featured-work img {
+            width: 100%;
 
-    font-size:30px;
+            height: 500px;
 
-    margin-bottom:25px;
+            object-fit: cover;
+        }
 
-}
+        .featured-work figcaption {
+            padding: 20px;
 
-.philosophy-text p{
+            color: #aaa;
 
-    color:#999;
+            letter-spacing: 1px;
+        }
 
-    line-height:2;
 
-    margin-bottom:25px;
+        /* =========================================================
+           SHOP
+        ========================================================= */
 
-}
+        .products {
+            display: grid;
 
+            grid-template-columns:
+                repeat(3, 1fr);
 
-/* =====================================================
-   ACTING
-   ===================================================== */
+            gap: 25px;
+        }
 
-.acting{
+        .product-card {
+            border:
+                1px solid var(--border);
 
-    background:#070707;
+            background:
+                rgba(0,0,0,0.35);
 
-}
+            overflow: hidden;
 
-.video-grid{
+            transition:
+                transform 0.5s ease,
+                border-color 0.5s ease;
+        }
 
-    display:grid;
+        .product-card:hover {
+            transform:
+                translateY(-10px);
 
-    grid-template-columns:repeat(3,1fr);
+            border-color:
+                var(--brand-green);
+        }
 
-    gap:25px;
+        .product-image {
+            height: 260px;
 
-}
+            display: flex;
 
-.video-card{
+            align-items: center;
 
-    background:#0d0d0d;
+            justify-content: center;
 
-    border:1px solid #202020;
+            background:
+                linear-gradient(
+                    135deg,
+                    #0d1f13,
+                    #020302
+                );
 
-    overflow:hidden;
+            color:
+                rgba(0,255,102,0.3);
 
-    transition:.4s;
+            font-size: 50px;
 
-}
+            font-weight: 900;
+        }
 
-.video-card:hover{
+        .product-info {
+            padding: 25px;
+        }
 
-    border-color:var(--green);
+        .product-info h3 {
+            font-size: 20px;
 
-    transform:translateY(-8px);
+            margin-bottom: 12px;
+        }
 
-}
+        .product-info p {
+            color: #888;
 
-.video-card video{
+            line-height: 1.6;
 
-    width:100%;
+            margin-bottom: 20px;
+        }
 
-    height:280px;
+        .product-price {
+            color: var(--brand-green);
 
-    object-fit:cover;
+            font-size: 22px;
 
-    display:block;
+            font-weight: 800;
 
-    background:#000;
+            margin-bottom: 20px;
+        }
 
-}
+        .add-button {
+            width: 100%;
 
-.video-placeholder{
+            padding: 14px;
 
-    height:280px;
+            border:
+                1px solid var(--brand-green);
 
-    display:flex;
+            background:
+                transparent;
 
-    justify-content:center;
+            color: white;
 
-    align-items:center;
+            cursor: pointer;
 
-    text-align:center;
+            text-transform: uppercase;
 
-    background:
+            letter-spacing: 2px;
 
-    radial-gradient(
-        circle,
-        rgba(0,255,102,.12),
-        #050505 65%
-    );
+            font-size: 11px;
 
-    color:#555;
+            transition:
+                background 0.3s ease,
+                color 0.3s ease;
+        }
 
-    padding:30px;
+        .add-button:hover {
+            background:
+                var(--brand-green);
 
-}
+            color:
+                #000;
+        }
 
-.video-placeholder strong{
 
-    color:var(--green);
+        /* =========================================================
+           CHART
+        ========================================================= */
 
-    display:block;
+        .chart-box {
+            margin-top: 60px;
 
-    font-size:20px;
+            border:
+                1px solid var(--border);
 
-    margin-bottom:10px;
+            padding: 35px;
 
-}
+            background:
+                rgba(0,0,0,0.3);
+        }
 
-.video-info{
+        .chart-box h3 {
+            color: var(--brand-green);
 
-    padding:22px;
+            margin-bottom: 25px;
+        }
 
-}
+        #chartItems {
+            color: #aaa;
 
-.video-info h3{
+            line-height: 2;
+        }
 
-    margin-bottom:10px;
+        #chartTotal {
+            margin-top: 20px;
 
-}
+            color: white;
 
-.video-info p{
+            font-size: 22px;
 
-    color:#777;
+            font-weight: 800;
+        }
 
-    line-height:1.6;
 
-}
+        /* =========================================================
+           PAYMENT
+        ========================================================= */
 
+        .payment-container {
+            max-width: 900px;
 
-/* =====================================================
-   GRAPHIC DESIGN
-   ===================================================== */
+            margin: auto;
 
-.designs{
+            border:
+                1px solid var(--border);
 
-    background:#030303;
+            padding: 45px;
 
-}
+            background:
+                rgba(0,0,0,0.35);
+        }
 
-.design-grid{
+        .payment-methods {
+            display: grid;
 
-    display:grid;
+            grid-template-columns:
+                repeat(2, 1fr);
 
-    grid-template-columns:repeat(3,1fr);
+            gap: 15px;
 
-    gap:30px;
+            margin-bottom: 35px;
+        }
 
-}
+        .payment-method {
+            padding: 25px;
 
-.design-card{
+            border:
+                1px solid rgba(255,255,255,0.12);
 
-    background:#090909;
+            cursor: pointer;
 
-    border:1px solid #202020;
+            transition:
+                border-color 0.3s ease,
+                background 0.3s ease;
+        }
 
-    overflow:hidden;
+        .payment-method:hover,
+        .payment-method.active {
+            border-color:
+                var(--brand-green);
 
-    transition:.4s;
+            background:
+                rgba(0,255,102,0.04);
+        }
 
-}
+        .payment-method h3 {
+            color:
+                var(--brand-green);
 
-.design-card:hover{
+            margin-bottom: 8px;
+        }
 
-    transform:translateY(-10px);
+        .payment-method p {
+            color: #888;
 
-    border-color:var(--green);
+            font-size: 14px;
+        }
 
-    box-shadow:0 0 35px rgba(0,255,102,.12);
+        .payment-panel {
+            display: none;
+        }
 
-}
+        .payment-panel.active {
+            display: block;
+        }
 
-.design-card img{
+        .instapay-number {
+            font-size: 30px;
 
-    width:100%;
+            color:
+                var(--brand-green);
 
-    height:340px;
+            letter-spacing: 2px;
 
-    object-fit:cover;
+            margin:
+                20px 0;
+        }
 
-    display:block;
+        .copy-button {
+            padding: 13px 20px;
 
-}
+            background:
+                var(--brand-green);
 
-.design-info{
+            color: #000;
 
-    padding:22px;
+            border: none;
 
-    text-align:center;
+            cursor: pointer;
 
-}
+            font-weight: 800;
+        }
 
-.design-info h3{
+        .payment-form {
+            display: grid;
 
-    color:#fff;
+            gap: 15px;
+        }
 
-    margin-bottom:10px;
+        .payment-form input {
+            width: 100%;
 
-}
+            padding: 16px;
 
-.design-price{
+            background:
+                #080808;
 
-    color:var(--green);
+            border:
+                1px solid rgba(255,255,255,0.12);
 
-    font-size:26px;
+            color: white;
 
-    font-weight:900;
+            outline: none;
+        }
 
-}
+        .payment-form input:focus {
+            border-color:
+                var(--brand-green);
+        }
 
+        .demo-note {
+            margin-top: 20px;
 
-/* =====================================================
-   EXTRA PHOTOS
-   ===================================================== */
+            color: #777;
 
-.visuals{
+            font-size: 12px;
 
-    background:#080808;
+            line-height: 1.7;
+        }
 
-}
 
-.visual-grid{
+        /* =========================================================
+           CONTACT
+        ========================================================= */
 
-    display:grid;
+        .contact-box {
+            text-align: center;
 
-    grid-template-columns:repeat(2,1fr);
+            max-width: 900px;
 
-    gap:25px;
+            margin: auto;
+        }
 
-}
+        .contact-box h2 {
+            font-size:
+                clamp(45px, 8vw, 100px);
 
-.visual-card{
+            line-height: 0.95;
 
-    background:#0b0b0b;
+            margin-bottom: 30px;
+        }
 
-    border:1px solid #1e1e1e;
+        .contact-box p {
+            color: #999;
 
-    overflow:hidden;
+            line-height: 1.8;
 
-}
+            max-width: 650px;
 
-.visual-card img{
+            margin:
+                0 auto 35px;
+        }
 
-    width:100%;
+        .contact-links {
+            display: flex;
 
-    height:450px;
+            justify-content: center;
 
-    object-fit:cover;
+            flex-wrap: wrap;
 
-    display:block;
+            gap: 15px;
+        }
 
-}
 
-.visual-caption{
+        /* =========================================================
+           FOOTER
+        ========================================================= */
 
-    padding:20px;
+        footer {
+            padding:
+                50px 7%;
 
-    color:#777;
+            border-top:
+                1px solid rgba(0,255,102,0.15);
 
-}
+            text-align: center;
 
-.visual-caption strong{
+            color: #666;
 
-    color:var(--green);
+            font-size: 12px;
 
-}
+            letter-spacing: 1px;
+        }
 
+        footer strong {
+            color: var(--brand-green);
+        }
 
-/* =====================================================
-   SHOP
-   ===================================================== */
 
-.shop{
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
 
-    background:#070707;
+        @media (max-width: 1000px) {
 
-}
+            .cards-grid,
+            .products,
+            .video-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
 
-.product-grid{
+            .creative-gallery {
+                grid-template-columns:
+                    repeat(3, 1fr);
+            }
 
-    display:grid;
+            .philosophy-gallery {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
 
-    grid-template-columns:repeat(3,1fr);
+            .about-grid {
+                grid-template-columns:
+                    1fr;
+            }
+        }
 
-    gap:25px;
+        @media (max-width: 700px) {
 
-}
+            nav {
+                padding: 18px 5%;
+            }
 
-.product{
+            .nav-links {
+                display: none;
+            }
 
-    background:#0d0d0d;
+            section {
+                padding:
+                    100px 6%;
+            }
 
-    border:1px solid #202020;
+            .hero h1 {
+                letter-spacing:
+                    -4px;
+            }
 
-    padding:30px;
+            .cards-grid,
+            .products,
+            .video-grid,
+            .university-grid,
+            .featured-work {
+                grid-template-columns:
+                    1fr;
+            }
 
-    transition:.4s;
+            .creative-gallery,
+            .philosophy-gallery {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
 
-}
+            .payment-methods {
+                grid-template-columns:
+                    1fr;
+            }
 
-.product:hover{
+            .design-card img {
+                height: 220px;
+            }
 
-    border-color:var(--green);
+            .university-photo,
+            .university-photo img {
+                min-height: 350px;
+            }
+        }
 
-    transform:translateY(-8px);
-
-}
-
-.product h3{
-
-    margin-bottom:15px;
-
-}
-
-.product p{
-
-    color:#777;
-
-    line-height:1.7;
-
-}
-
-.price{
-
-    color:var(--green);
-
-    font-size:26px;
-
-    font-weight:bold;
-
-    margin:20px 0;
-
-}
-
-.add-chart{
-
-    width:100%;
-
-    padding:14px;
-
-    background:transparent;
-
-    border:1px solid var(--green);
-
-    color:var(--green);
-
-    cursor:pointer;
-
-    font-weight:bold;
-
-    transition:.3s;
-
-}
-
-.add-chart:hover{
-
-    background:var(--green);
-
-    color:#000;
-
-}
-
-
-/* =====================================================
-   CHART
-   ===================================================== */
-
-.chart-button{
-
-    position:fixed;
-
-    right:25px;
-
-    bottom:25px;
-
-    z-index:4000;
-
-    padding:18px 25px;
-
-    border-radius:50px;
-
-    background:var(--green);
-
-    color:#000;
-
-    font-weight:900;
-
-    cursor:pointer;
-
-    box-shadow:0 0 30px rgba(0,255,102,.25);
-
-}
-
-
-/* =====================================================
-   PAYMENT
-   ===================================================== */
-
-.payment{
-
-    background:#020202;
-
-}
-
-.payment-wrapper{
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:30px;
-
-    max-width:1000px;
-
-}
-
-.payment-box{
-
-    padding:45px;
-
-    background:#090909;
-
-    border:1px solid #222;
-
-    transition:.4s;
-
-}
-
-.payment-box:hover{
-
-    border-color:var(--green);
-
-}
-
-.payment-box h3{
-
-    color:var(--green);
-
-    font-size:28px;
-
-    margin-bottom:20px;
-
-}
-
-.payment-box p{
-
-    color:#777;
-
-    line-height:1.7;
-
-}
-
-.instapay-number{
-
-    color:#fff;
-
-    font-size:30px;
-
-    font-weight:bold;
-
-    margin:25px 0;
-
-    letter-spacing:2px;
-
-}
-
-.payment-button{
-
-    padding:13px 25px;
-
-    border:none;
-
-    background:var(--green);
-
-    color:#000;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-}
-
-.visa-logo{
-
-    font-size:40px;
-
-    font-weight:900;
-
-    color:#fff;
-
-    margin:25px 0;
-
-    letter-spacing:4px;
-
-}
-
-
-/* =====================================================
-   CONTACT
-   ===================================================== */
-
-.contact{
-
-    text-align:center;
-
-    background:#050505;
-
-}
-
-.contact p{
-
-    color:#777;
-
-    margin:15px;
-
-}
-
-.contact strong{
-
-    color:var(--green);
-
-}
-
-
-/* =====================================================
-   FOOTER
-   ===================================================== */
-
-footer{
-
-    padding:45px 20px;
-
-    text-align:center;
-
-    background:#000;
-
-    border-top:1px solid #111;
-
-    color:#555;
-
-}
-
-footer span{
-
-    color:var(--green);
-
-}
-
-
-/* =====================================================
-   RESPONSIVE
-   ===================================================== */
-
-@media(max-width:1000px){
-
-    .identity-grid{
-
-        grid-template-columns:1fr 1fr;
-
-    }
-
-    .partner-grid{
-
-        grid-template-columns:1fr 1fr;
-
-    }
-
-    .video-grid{
-
-        grid-template-columns:1fr 1fr;
-
-    }
-
-    .design-grid{
-
-        grid-template-columns:1fr 1fr;
-
-    }
-
-    .product-grid{
-
-        grid-template-columns:1fr 1fr;
-
-    }
-
-    .about-layout{
-
-        grid-template-columns:1fr;
-
-    }
-
-}
-
-@media(max-width:700px){
-
-    nav ul{
-
-        display:none;
-
-    }
-
-    section{
-
-        padding:90px 5%;
-
-    }
-
-    .identity-grid,
-    .partner-grid,
-    .video-grid,
-    .design-grid,
-    .product-grid,
-    .visual-grid,
-    .payment-wrapper{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .philosophy-images{
-
-        grid-template-columns:1fr 1fr;
-
-    }
-
-    .about-stats{
-
-        grid-template-columns:1fr 1fr;
-
-    }
-
-}
-
-@media(max-width:500px){
-
-    .philosophy-images{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .about-stats{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .hero h1{
-
-        letter-spacing:-3px;
-
-    }
-
-}
-
-</style>
-
+    </style>
 </head>
 
 
 <body>
 
+    <!-- =========================================================
+         BACKGROUND
+    ========================================================= -->
 
-<!-- =====================================================
-     LOADER
-     ===================================================== -->
+    <div class="cinematic-background"></div>
+    <div class="noise"></div>
 
-<div id="loader">
-
-    <div class="loader-name">
-        ANAS AYMAN
-    </div>
-
-    <div class="loader-line"></div>
-
-</div>
+    <div class="scroll-progress"></div>
 
 
-<!-- =====================================================
-     NAVIGATION
-     ===================================================== -->
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================= -->
 
-<nav>
+    <nav id="navbar">
 
-    <div class="logo">
-        ANAS AYMAN
-    </div>
+        <a href="#home" class="logo">
+            ANAS AYMAN
+        </a>
 
-    <ul>
+        <ul class="nav-links">
 
-        <li><a href="#about">ABOUT</a></li>
+            <li>
+                <a href="#about">About</a>
+            </li>
 
-        <li><a href="#partnerships">PARTNERS</a></li>
+            <li>
+                <a href="#university">O6U</a>
+            </li>
 
-        <li><a href="#philosophy">PHILOSOPHY</a></li>
+            <li>
+                <a href="#philosophy">Philosophy</a>
+            </li>
 
-        <li><a href="#acting">ACTING</a></li>
+            <li>
+                <a href="#acting">Acting</a>
+            </li>
 
-        <li><a href="#designs">DESIGN</a></li>
+            <li>
+                <a href="#creative">Creative</a>
+            </li>
 
-        <li><a href="#shop">SHOP</a></li>
+            <li>
+                <a href="#shop">Shop</a>
+            </li>
 
-        <li><a href="#contact">CONTACT</a></li>
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
 
-    </ul>
+        </ul>
 
-</nav>
+    </nav>
 
 
-<!-- =====================================================
-     HERO
-     ===================================================== -->
+    <!-- =========================================================
+         HERO
+    ========================================================= -->
 
-<section class="hero">
+    <section id="home" class="hero">
 
-    <div class="hero-content">
+        <div class="hero-content">
 
-        <h1>
+            <div class="eyebrow">
+                Independent Creative Brand
+            </div>
 
-            <span class="green">ANAS</span><br>
+            <h1>
+                <span class="green">Anas</span>
+                <span class="green">Ayman</span>
+            </h1>
 
-            <span class="green">AYMAN</span>
+            <p class="hero-description">
+                Computer Science student, actor, philosopher
+                and creative entrepreneur building a distinctive
+                personal brand across technology, performance,
+                culture and visual creativity.
+            </p>
 
-        </h1>
+            <div class="hero-buttons">
 
-        <div class="hero-tagline">
+                <a
+                    href="#about"
+                    class="btn primary"
+                >
+                    Discover
+                </a>
 
-            ACTOR • COMPUTER SCIENCE • CREATIVE • ENTREPRENEUR
+                <a
+                    href="#contact"
+                    class="btn secondary"
+                >
+                    Connect
+                </a>
+
+            </div>
 
         </div>
 
-        <p class="hero-description">
-
-            Building a personal brand where technology, acting,
-            philosophy, design, fashion and creative collaboration
-            meet in one cinematic identity.
-
-        </p>
-
-        <div class="hero-buttons">
-
-            <a href="#about" class="btn">
-                DISCOVER ANAS
-            </a>
-
-            <a href="#partnerships" class="btn">
-                PARTNERSHIPS
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
+    </section>
 
 
-<!-- =====================================================
-     ABOUT
-     ===================================================== -->
+    <!-- =========================================================
+         ABOUT
+    ========================================================= -->
 
-<section class="about" id="about">
+    <section id="about">
 
-    <h2 class="section-title">
-        THE <span>BRAND</span>
-    </h2>
+        <div class="section-header reveal">
 
-    <p class="section-subtitle">
+            <div class="section-number">
+                01 — PROFILE
+            </div>
 
-        ANAS AYMAN is a growing personal brand built around
-        technology, acting, creativity, visual design,
-        philosophy and collaboration.
+            <h2 class="section-title">
+                Built with
+                <span class="green">purpose.</span>
+            </h2>
 
-    </p>
-
-
-    <div class="about-layout">
-
-        <div class="about-text">
-
-            <p>
-
-                I am <strong>Anas Ayman</strong>, a Computer Science
-                student and creative individual interested in
-                acting, university theatre, technology, design,
-                marketing and philosophy.
-
-            </p>
-
-            <br>
-
-            <p>
-
-                My vision is to create a recognizable identity
-                that connects different creative industries instead
-                of staying inside one field.
-
-            </p>
-
-            <br>
-
-            <p>
-
-                Computer Science gives me the technological side.
-                Acting gives me performance and storytelling.
-                Design gives the brand its visual identity.
-                Philosophy gives the brand its ideas.
-
-            </p>
-
-            <br>
-
-            <p>
-
-                The result is a personal ecosystem where
-                <strong>people, ideas, products and creativity</strong>
-                can work together.
-
+            <p class="section-description">
+                A personal brand designed around technology,
+                performance, philosophy and creative collaboration.
             </p>
 
         </div>
 
 
-        <div class="about-stats">
+        <div class="about-grid">
 
-            <div class="stat">
-
-                <h3>01</h3>
+            <div class="about-text reveal-left">
 
                 <p>
-                    Personal Brand
+                    Anas Ayman is developing a multidisciplinary
+                    creative identity that connects Computer Science
+                    with acting, philosophy and modern visual culture.
+                </p>
+
+                <p>
+                    His approach combines technical thinking with
+                    storytelling, performance and creative direction
+                    to build projects that are distinctive,
+                    contemporary and memorable.
+                </p>
+
+                <div class="about-highlight">
+                    Technology is the discipline.
+                    Creativity is the identity.
+                    Performance is the expression.
+                </div>
+
+            </div>
+
+
+            <div class="about-card reveal-right">
+
+                <h3>
+                    THE BRAND
+                </h3>
+
+                <p>
+                    Anas Ayman represents an evolving independent
+                    creative brand focused on collaboration,
+                    personal development and original work.
+                </p>
+
+                <br>
+
+                <p>
+                    The brand welcomes collaboration with actors,
+                    directors, fashion models, graphic designers,
+                    applied-arts professionals and creative teams.
                 </p>
 
             </div>
 
-            <div class="stat">
+        </div>
 
-                <h3>CS</h3>
+    </section>
 
-                <p>
+
+    <!-- =========================================================
+         COMPUTER SCIENCE
+    ========================================================= -->
+
+    <section id="skills">
+
+        <div class="section-header reveal">
+
+            <div class="section-number">
+                02 — DISCIPLINES
+            </div>
+
+            <h2 class="section-title">
+                Multiple
+                <span class="green">dimensions.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="cards-grid">
+
+            <div class="card reveal">
+
+                <div class="card-number">
+                    01
+                </div>
+
+                <h3>
                     Computer Science
-                </p>
-
-            </div>
-
-            <div class="stat">
-
-                <h3>ACT</h3>
-
-                <p>
-                    Acting & Theatre
-                </p>
-
-            </div>
-
-            <div class="stat">
-
-                <h3>∞</h3>
-
-                <p>
-                    Creative Possibilities
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     PROFESSIONAL IDENTITY
-     ===================================================== -->
-
-<section class="identity">
-
-    <h2 class="section-title">
-        ONE BRAND. <span>MANY WORLDS.</span>
-    </h2>
-
-    <p class="section-subtitle">
-
-        A multidisciplinary identity designed to connect
-        technology and creativity.
-
-    </p>
-
-
-    <div class="identity-grid">
-
-
-        <div class="identity-card">
-
-            <div class="identity-icon">
-                💻
-            </div>
-
-            <h3>
-                COMPUTER SCIENCE
-            </h3>
-
-            <p>
-                Programming, software and technology.
-            </p>
-
-        </div>
-
-
-        <div class="identity-card">
-
-            <div class="identity-icon">
-                🎭
-            </div>
-
-            <h3>
-                ACTING
-            </h3>
-
-            <p>
-                University theatre, scenes and stage performances.
-            </p>
-
-        </div>
-
-
-        <div class="identity-card">
-
-            <div class="identity-icon">
-                🎨
-            </div>
-
-            <h3>
-                DESIGN
-            </h3>
-
-            <p>
-                Graphic design, visual identity and creative direction.
-            </p>
-
-        </div>
-
-
-        <div class="identity-card">
-
-            <div class="identity-icon">
-                🧠
-            </div>
-
-            <h3>
-                PHILOSOPHY
-            </h3>
-
-            <p>
-                Ideas about life, perfection, strength and adaptation.
-            </p>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     PARTNERSHIPS
-     ===================================================== -->
-
-<section class="partnerships" id="partnerships">
-
-    <h2 class="section-title">
-        PARTNERSHIPS & <span>COLLABORATORS</span>
-    </h2>
-
-    <p class="partnership-intro">
-
-        The ANAS AYMAN brand is designed to grow through
-        collaboration. The vision is to connect creative people,
-        university students, professionals and specialists from
-        different disciplines.
-
-    </p>
-
-
-    <div class="partner-grid">
-
-
-        <div class="partner">
-
-            <span>CREATIVE PARTNERS</span>
-
-            <h3>
-                Applied Arts
-            </h3>
-
-            <p>
-                Collaboration with students and creatives from
-                Applied Arts for fashion, visual communication,
-                product concepts and creative campaigns.
-            </p>
-
-        </div>
-
-
-        <div class="partner">
-
-            <span>VISUAL PARTNERS</span>
-
-            <h3>
-                Graphic Designers
-            </h3>
-
-            <p>
-                Building visual identities, posters, campaigns,
-                social media designs and creative brand assets.
-            </p>
-
-        </div>
-
-
-        <div class="partner">
-
-            <span>TECHNICAL PARTNERS</span>
-
-            <h3>
-                Engineers
-            </h3>
-
-            <p>
-                Connecting creative projects with engineers,
-                technical thinkers and people who build real
-                products and systems.
-            </p>
-
-        </div>
-
-
-        <div class="partner">
-
-            <span>FASHION PARTNERS</span>
-
-            <h3>
-                Fashion Models
-            </h3>
-
-            <p>
-                Fashion campaigns, photography concepts,
-                promotional content and visual storytelling.
-            </p>
-
-        </div>
-
-
-        <div class="partner">
-
-            <span>MEDIA PARTNERS</span>
-
-            <h3>
-                Actors & Creators
-            </h3>
-
-            <p>
-                Acting scenes, university productions,
-                creative videos and future cinematic projects.
-            </p>
-
-        </div>
-
-
-        <div class="partner">
-
-            <span>FUTURE</span>
-
-            <h3>
-                Brands & Companies
-            </h3>
-
-            <p>
-                A platform for future commercial partnerships,
-                campaigns, sponsorships and creative collaborations.
-            </p>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     PHILOSOPHY
-     ===================================================== -->
-
-<section class="philosophy" id="philosophy">
-
-    <h2 class="section-title">
-        MY <span>PHILOSOPHY</span>
-    </h2>
-
-    <p class="section-subtitle">
-
-        A personal perspective about life, death,
-        perfection, strength, depth and adaptation.
-
-    </p>
-
-
-    <div class="philosophy-images">
-
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHxwfeU_w7o96APAA2UF-PYTlCJaKu5fZxRRkfVhhqyQ&s=10">
-
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMus2Y2cPqZmv5r5KdZHYohljXxU9JHcTKakDlKvufMA&s=10">
-
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRabe5Lk4jcqx7VB6lTxZfBCAigWAQrggu-pjtszgyLg&s=10">
-
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT82zLOwGF_UsswF8lbDKQf8Nm-6oMcO83pVs38WUIRiw&s=10">
-
-    </div>
-
-
-    <div class="philosophy-text">
-
-        <h3>
-            THE PHILOSOPHY OF ANAS AYMAN
-        </h3>
-
-        <p>
-            We are all, my friend, swimmers in the sea of life,
-            looking at the sun. Each one of us believes that if
-            he keeps swimming, one day he will reach the sun —
-            perfection.
-        </p>
-
-        <p>
-            But the truth is that your destiny is trapped between
-            two possibilities. A shark may eat you, or you may
-            continue swimming with the certainty that you will
-            eventually reach the sun.
-        </p>
-
-        <p>
-            The more you swim, the more you realize that you are
-            not actually reaching it. You can see the sun getting
-            closer, but eventually the distance between you and
-            the sun becomes fixed.
-        </p>
-
-        <p>
-            Your arms become tired, and eventually you drown
-            because you can no longer swim. In both cases,
-            death is the ending.
-        </p>
-
-        <p>
-            And this is the meaning of life.
-            The meaning of life is represented in the end of life
-            itself — death.
-        </p>
-
-        <p>
-            The only one capable of defeating life and reaching
-            the sun is the Creator of life Himself — God.
-            He is the only one who possesses perfection.
-        </p>
-
-        <p>
-            We are all dead in the sea of life.
-            Our only goal is to reach the closest possible
-            distance to perfection and idealism.
-        </p>
-
-        <h3>
-            BE WATER
-        </h3>
-
-        <p>
-            The second part of my philosophy is that you must
-            be like water or like a lizard.
-        </p>
-
-        <p>
-            When a fish leaves the sea, it dies because it cannot
-            adapt. A lizard takes the color of the surface it
-            stands on.
-        </p>
-
-        <p>
-            So be a lizard, not a fish.
-        </p>
-
-        <p>
-            At the same time, being like water is extremely
-            important. Water changes its shape from one container
-            to another.
-        </p>
-
-        <p>
-            It can be a bottle, a cooler or a cup.
-            It does not say no.
-        </p>
-
-        <p>
-            Water gives you life when you drink it,
-            but it can drown you if you underestimate its value.
-        </p>
-
-        <p>
-            And when water becomes angry, you can see a massive
-            tsunami striking with enormous force.
-        </p>
-
-        <p>
-            All of this is H₂O.
-        </p>
-
-        <p>
-            Be water, not a lizard.
-            Because water can also drown the lizard.
-        </p>
-
-        <p>
-            My philosophy combines intrinsic value, danger,
-            strength, depth and adaptability.
-            I combined ideas inspired by Nietzsche, Sartre
-            and Bruce Lee and merged them into my own personal
-            philosophy:
-            <strong>The Philosophy of Anas Ayman.</strong>
-        </p>
-
-        <h3>
-            TWO HALVES
-        </h3>
-
-        <p>
-            My philosophy is divided into two halves.
-            The first is finding the meaning of life —
-            which is death, or the end of life itself.
-        </p>
-
-        <p>
-            The second is my philosophy while I am alive.
-            I will die holding this perspective.
-            I will teach this philosophy to my children.
-        </p>
-
-        <p>
-            And I challenge the world to produce a philosophy
-            like mine.
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     ACTING
-     ===================================================== -->
-
-<section class="acting" id="acting">
-
-    <h2 class="section-title">
-        ACTING & <span>THEATRE</span>
-    </h2>
-
-    <p class="section-subtitle">
-
-        Three cinematic spaces for university acting,
-        stage performances and future theatre work.
-
-    </p>
-
-
-    <div class="video-grid">
-
-
-        <!-- VIDEO 1 -->
-
-        <div class="video-card">
-
-            <div class="video-placeholder">
-
-                <div>
-
-                    <strong>
-                        UNIVERSITY ACTING SCENE 01
-                    </strong>
-
-                    Add your first acting video here.
-
-                </div>
-
-            </div>
-
-            <div class="video-info">
-
-                <h3>
-                    University Acting Scene 01
                 </h3>
 
                 <p>
-                    A university acting scene showcasing
-                    performance and character work.
+                    Developing technical knowledge through
+                    programming, software concepts, problem solving
+                    and digital projects.
                 </p>
 
             </div>
 
-        </div>
 
+            <div class="card reveal">
 
-        <!-- VIDEO 2 -->
-
-        <div class="video-card">
-
-            <div class="video-placeholder">
-
-                <div>
-
-                    <strong>
-                        UNIVERSITY ACTING SCENE 02
-                    </strong>
-
-                    Add your second acting video here.
-
+                <div class="card-number">
+                    02
                 </div>
 
-            </div>
-
-            <div class="video-info">
-
                 <h3>
-                    University Acting Scene 02
+                    Acting
                 </h3>
 
                 <p>
-                    A second university performance and
-                    acting scene.
+                    Exploring performance through university theatre,
+                    acting scenes and stage experience.
                 </p>
 
             </div>
 
-        </div>
 
+            <div class="card reveal">
 
-        <!-- VIDEO 3 -->
-
-        <div class="video-card">
-
-            <div class="video-placeholder">
-
-                <div>
-
-                    <strong>
-                        UNIVERSITY STAGE
-                    </strong>
-
-                    Add your stage performance here.
-
+                <div class="card-number">
+                    03
                 </div>
 
-            </div>
-
-            <div class="video-info">
-
                 <h3>
-                    University Stage Performance
+                    Philosophy
                 </h3>
 
                 <p>
-                    A stage performance from university theatre.
+                    Developing an original perspective on life,
+                    meaning, adaptation, strength and personal value.
+                </p>
+
+            </div>
+
+
+            <div class="card reveal">
+
+                <div class="card-number">
+                    04
+                </div>
+
+                <h3>
+                    Creative Direction
+                </h3>
+
+                <p>
+                    Connecting visual concepts, fashion, graphic
+                    design and storytelling into coherent creative
+                    experiences.
+                </p>
+
+            </div>
+
+
+            <div class="card reveal">
+
+                <div class="card-number">
+                    05
+                </div>
+
+                <h3>
+                    Brand Development
+                </h3>
+
+                <p>
+                    Building a recognizable identity through
+                    consistency, presentation and meaningful
+                    creative partnerships.
+                </p>
+
+            </div>
+
+
+            <div class="card reveal">
+
+                <div class="card-number">
+                    06
+                </div>
+
+                <h3>
+                    Collaboration
+                </h3>
+
+                <p>
+                    Creating opportunities for artists, designers,
+                    models, engineers and creative professionals
+                    to work together.
                 </p>
 
             </div>
 
         </div>
 
-
-    </div>
-
-</section>
+    </section>
 
 
-<!-- =====================================================
-     GRAPHIC DESIGN
-     ===================================================== -->
+    <!-- =========================================================
+         O6U UNIVERSITY
+    ========================================================= -->
 
-<section class="designs" id="designs">
+    <section id="university">
 
-    <h2 class="section-title">
-        GRAPHIC <span>DESIGNS</span>
-    </h2>
+        <div class="section-header reveal">
 
-    <p class="section-subtitle">
+            <div class="section-number">
+                03 — EDUCATION
+            </div>
 
-        Visual collaborations with graphic designers,
-        Applied Arts creatives and fashion projects.
+            <h2 class="section-title">
+                <span class="green">O6U</span>
+                Experience.
+            </h2>
 
-    </p>
+            <p class="section-description">
+                University life is part of the foundation behind
+                the brand — combining academic development,
+                technology and creative performance.
+            </p>
+
+        </div>
 
 
-    <div class="design-grid">
+        <div class="university-grid">
+
+            <!-- O6U PHOTO 1 -->
+
+            <div class="university-photo reveal-left">
+
+                <img
+                    src="images/o6u-1.jpg"
+                    alt="6th October University O6U campus"
+                    loading="lazy"
+                >
+
+                <div class="photo-overlay">
+
+                    <span>
+                        6TH OCTOBER UNIVERSITY
+                    </span>
+
+                    <h3>
+                        O6U — Campus
+                    </h3>
+
+                </div>
+
+            </div>
 
 
-        <!-- DESIGN 1 -->
+            <!-- O6U PHOTO 2 -->
 
-        <div class="design-card">
+            <div class="university-photo reveal-right">
 
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYfd1WIXMOaiAA_HMNXkJty64vkOuCPzup8e8Au4sP7Q&s=10">
+                <img
+                    src="images/o6u-2.jpg"
+                    alt="6th October University O6U university"
+                    loading="lazy"
+                >
 
-            <div class="design-info">
+                <div class="photo-overlay">
 
-                <h3>
-                    Creative Fashion Design
-                </h3>
+                    <span>
+                        6TH OCTOBER UNIVERSITY
+                    </span>
 
-                <div class="design-price">
-                    EGP 850
+                    <h3>
+                        O6U — University Life
+                    </h3>
+
                 </div>
 
             </div>
@@ -2116,715 +1841,1617 @@ footer span{
         </div>
 
 
-        <!-- DESIGN 2 -->
+        <div class="university-info reveal">
 
-        <div class="design-card">
+            <p>
+                <strong class="green">
+                    6th October University — O6U
+                </strong>
+                represents an important part of Anas Ayman's
+                academic journey, where Computer Science,
+                university theatre and creative development
+                come together.
+            </p>
 
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-X6DWZVLodF2eEqn3TiFTayNlRhL28-32RA2CaomUDA&s=10">
+        </div>
 
-            <div class="design-info">
+    </section>
 
-                <h3>
-                    Creative Poster
-                </h3>
 
-                <div class="design-price">
-                    EGP 450
-                </div>
+    <!-- =========================================================
+         PHILOSOPHY
+    ========================================================= -->
 
+    <section id="philosophy">
+
+        <div class="section-header reveal">
+
+            <div class="section-number">
+                04 — PHILOSOPHY
             </div>
+
+            <h2 class="section-title">
+                A personal
+                <span class="green">philosophy.</span>
+            </h2>
 
         </div>
 
 
-        <!-- DESIGN 3 -->
+        <!-- PHILOSOPHY IMAGES -->
 
-        <div class="design-card">
-
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqKTWwNOfrSL2NNPZ1FwTrXxAI9HFIjWOTwAh0oyvcWA&s=10">
-
-            <div class="design-info">
-
-                <h3>
-                    Fashion Campaign
-                </h3>
-
-                <div class="design-price">
-                    EGP 1,500
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- DESIGN 4 -->
-
-        <div class="design-card">
-
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO6Zp6DX9a7Yc4W5YhPM45JDRa2J-JlfVETf3If-Hbxw&s=10">
-
-            <div class="design-info">
-
-                <h3>
-                    Graphic Identity
-                </h3>
-
-                <div class="design-price">
-                    EGP 2,000
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- DESIGN 5 -->
-
-        <div class="design-card">
-
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1L95aqZrKI-3jUoR1kqPZgJF5FwfneN1KZpNOjM3M0Q&s=10">
-
-            <div class="design-info">
-
-                <h3>
-                    Creative Brand Design
-                </h3>
-
-                <div class="design-price">
-                    EGP 1,200
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- DESIGN 6 -->
-
-        <div class="design-card">
-
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3rmPnCUd2sVsW7lspYDjtBaGYTL0du4GOxjR0QKRh8w&s=10">
-
-            <div class="design-info">
-
-                <h3>
-                    New Creative Work
-                </h3>
-
-                <div class="design-price">
-                    EGP 1,000
-                </div>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     EXTRA PHOTOS
-     ===================================================== -->
-
-<section class="visuals">
-
-    <h2 class="section-title">
-        VISUAL <span>STORY</span>
-    </h2>
-
-    <p class="section-subtitle">
-
-        Additional visual material for the ANAS AYMAN
-        creative identity.
-
-    </p>
-
-
-    <div class="visual-grid">
-
-
-        <div class="visual-card">
+        <div class="philosophy-gallery">
 
             <img
-            src="data:image/jpeg;base64,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">
+                class="reveal"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHxwfeU_w7o96APAA2UF-PYTlCJaKu5fZxRRkfVhhqyQ&s=10"
+                alt="Philosophy visual 1"
+                loading="lazy"
+            >
 
-            <div class="visual-caption">
+            <img
+                class="reveal"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMus2Y2cPqZmv5r5KdZHYohljXxU9JHcTKakDlKvufMA&s=10"
+                alt="Philosophy visual 2"
+                loading="lazy"
+            >
 
-                <strong>
-                    Creative Visual
-                </strong>
+            <img
+                class="reveal"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRabe5Lk4jcqx7VB6lTxZfBCAigWAQrggu-pjtszgyLg&s=10"
+                alt="Philosophy visual 3"
+                loading="lazy"
+            >
 
-                <br>
-
-                Part of the ANAS AYMAN visual identity.
-
-            </div>
-
-        </div>
-
-
-        <div class="visual-card">
-
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3rmPnCUd2sVsW7lspYDjtBaGYTL0du4GOxjR0QKRh8w&s=10">
-
-            <div class="visual-caption">
-
-                <strong>
-                    Creative Collaboration
-                </strong>
-
-                <br>
-
-                Additional creative work.
-
-            </div>
+            <img
+                class="reveal"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT82zLOwGF_UsswF8lbDKQf8Nm-6oMcO83pVs38WUIRiw&s=10"
+                alt="Philosophy visual 4"
+                loading="lazy"
+            >
 
         </div>
 
 
-    </div>
+        <div class="philosophy-text">
 
-</section>
-
-
-<!-- =====================================================
-     SHOP
-     ===================================================== -->
-
-<section class="shop" id="shop">
-
-    <h2 class="section-title">
-        THE <span>SHOP</span>
-    </h2>
-
-    <p class="section-subtitle">
-
-        Products and creative services available through
-        the ANAS AYMAN brand.
-
-    </p>
-
-
-    <div class="product-grid">
-
-
-        <div class="product">
-
-            <h3>
-                Premium Fashion Piece
+            <h3 class="reveal">
+                Part I — The Meaning of Life
             </h3>
 
-            <p>
-                A creative fashion product for your personal style.
+            <p class="reveal">
+                We are all, my friend, swimmers in the sea of life,
+                looking toward the sun. Each one of us believes that
+                if we continue swimming, one day we will reach the
+                sun — perfection itself.
             </p>
 
-            <div class="price">
-                EGP 850
-            </div>
+            <p class="reveal">
+                Yet the truth is that your destiny is ultimately
+                contained between two possibilities: a shark may
+                devour you, or you may continue swimming, convinced
+                that you will eventually reach the sun.
+            </p>
 
-            <button
-            class="add-chart"
-            onclick="addToChart('Premium Fashion Piece',850)">
+            <p class="reveal">
+                The further you swim, the more you realize that
+                you are not actually reaching it. You can see the
+                sun getting closer, but eventually the distance
+                between you and it becomes fixed.
+            </p>
 
-                ADD TO CHART
+            <p class="reveal">
+                Your arms become exhausted, and eventually you die
+                because you can no longer swim. In both possibilities,
+                death is the end.
+            </p>
 
-            </button>
+            <p class="reveal">
+                And this, to me, is part of the meaning of life:
+                the meaning of life is represented in the end of life
+                itself — death.
+            </p>
 
-        </div>
+            <p class="reveal">
+                Death carries you toward a realm greater than life
+                itself. The only one capable of overcoming life and
+                reaching the sun completely is the Creator of life
+                Himself — God.
+            </p>
+
+            <p class="reveal">
+                He alone possesses perfection.
+                We are all dead within the sea of life.
+                Our purpose is simply to reach the closest possible
+                distance to perfection and idealism.
+            </p>
 
 
-        <div class="product">
-
-            <h3>
-                Creative Graphic Poster
+            <h3 class="reveal">
+                Part II — Water and the Lizard
             </h3>
 
-            <p>
-                Custom creative poster design.
+            <p class="reveal">
+                The second part of my philosophy is that you must
+                become like water or like a lizard.
             </p>
 
-            <div class="price">
-                EGP 450
+            <p class="reveal">
+                A fish dies when it leaves the sea because it cannot
+                adapt. A lizard, however, can change its color
+                according to the surface on which it stands.
+            </p>
+
+            <p class="reveal">
+                So be a lizard, not a fish.
+            </p>
+
+            <p class="reveal">
+                At the same time, being like water is extremely
+                important. Water changes its form from one container
+                to another. It can be a bottle, a cooler or a cup.
+                It does not say no to its environment.
+            </p>
+
+            <p class="reveal">
+                At the same time, water gives life when you drink it.
+                It can also drown you if you underestimate its value
+                and enter its depths without respect.
+            </p>
+
+            <p class="reveal">
+                When water becomes violent, a tsunami can strike
+                with enormous force. It can overwhelm whatever
+                stands against it.
+            </p>
+
+            <p class="reveal">
+                All of this is H₂O.
+            </p>
+
+            <p class="reveal">
+                My philosophy combines self-worth, danger, strength,
+                depth and adaptability. I draw inspiration from
+                different philosophical and cultural ideas and
+                combine them into my own personal perspective.
+            </p>
+
+
+            <div class="philosophy-quote reveal">
+                “We are all swimmers in the sea of life.
+                Our purpose is to reach as close to perfection
+                as we can.”
             </div>
 
-            <button
-            class="add-chart"
-            onclick="addToChart('Creative Graphic Poster',450)">
 
-                ADD TO CHART
-
-            </button>
-
-        </div>
-
-
-        <div class="product">
-
-            <h3>
-                Brand Creative Package
+            <h3 class="reveal">
+                My Perspective
             </h3>
 
-            <p>
-                Complete visual creative package.
+            <p class="reveal">
+                This philosophy represents the perspective through
+                which I choose to understand life. It is a framework
+                built around meaning, adaptation, personal value,
+                strength and the awareness of mortality.
             </p>
 
-            <div class="price">
-                EGP 1,200
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         ACTING
+    ========================================================= -->
+
+    <section id="acting">
+
+        <div class="section-header reveal">
+
+            <div class="section-number">
+                05 — PERFORMANCE
             </div>
 
-            <button
-            class="add-chart"
-            onclick="addToChart('Brand Creative Package',1200)">
+            <h2 class="section-title">
+                Theatre.
+                <span class="green">Performance.</span>
+            </h2>
 
-                ADD TO CHART
-
-            </button>
+            <p class="section-description">
+                Selected university performance work documenting
+                acting scenes and stage experience.
+            </p>
 
         </div>
 
 
-        <div class="product">
+        <div class="video-grid">
+
+
+            <!-- VIDEO 1 -->
+
+            <div class="video-card reveal">
+
+                <video
+                    controls
+                    preload="metadata"
+                >
+                    <source
+                        src="videos/acting-scene-1.mp4"
+                        type="video/mp4"
+                    >
+
+                    Your browser does not support video playback.
+                </video>
+
+                <div class="video-info">
+
+                    <span>
+                        ACTING — 01
+                    </span>
+
+                    <h3>
+                        University Acting Scene
+                    </h3>
+
+                    <p>
+                        A selected acting performance from
+                        university theatre.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- VIDEO 2 -->
+
+            <div class="video-card reveal">
+
+                <video
+                    controls
+                    preload="metadata"
+                >
+                    <source
+                        src="videos/acting-scene-2.mp4"
+                        type="video/mp4"
+                    >
+
+                    Your browser does not support video playback.
+                </video>
+
+                <div class="video-info">
+
+                    <span>
+                        ACTING — 02
+                    </span>
+
+                    <h3>
+                        Performance Scene
+                    </h3>
+
+                    <p>
+                        A second university acting performance
+                        demonstrating character and delivery.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- STAGE -->
+
+            <div class="video-card reveal">
+
+                <video
+                    controls
+                    preload="metadata"
+                >
+                    <source
+                        src="videos/university-stage.mp4"
+                        type="video/mp4"
+                    >
+
+                    Your browser does not support video playback.
+                </video>
+
+                <div class="video-info">
+
+                    <span>
+                        STAGE
+                    </span>
+
+                    <h3>
+                        University Theatre Stage
+                    </h3>
+
+                    <p>
+                        A visual record of the university stage
+                        environment and theatrical experience.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         CREATIVE / GRAPHIC DESIGN
+    ========================================================= -->
+
+    <section id="creative">
+
+        <div class="section-header reveal">
+
+            <div class="section-number">
+                06 — CREATIVE STUDIO
+            </div>
+
+            <h2 class="section-title">
+                Visual
+                <span class="green">culture.</span>
+            </h2>
+
+            <p class="section-description">
+                Creative collaborations connecting graphic design,
+                fashion, applied arts and brand communication.
+            </p>
+
+        </div>
+
+
+        <div class="creative-gallery">
+
+
+            <div class="design-card reveal">
+
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYfd1WIXMOaiAA_HMNxKjty64vkOuCPzup8e8Au4sP7Q&s=10"
+                    alt="Graphic design project 1"
+                    loading="lazy"
+                >
+
+                <div class="design-content">
+
+                    <h3>
+                        Visual Direction I
+                    </h3>
+
+                    <div class="design-price">
+                        EGP 450
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="design-card reveal">
+
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-X6DWZVLodF2eEqn3TiFTayNlRhL28-32RA2CaomUDA&s=10"
+                    alt="Graphic design project 2"
+                    loading="lazy"
+                >
+
+                <div class="design-content">
+
+                    <h3>
+                        Visual Direction II
+                    </h3>
+
+                    <div class="design-price">
+                        EGP 450
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="design-card reveal">
+
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqKTWwNOfrSL2NNPZ1FwTrXxAI9HFIjWOTwAh0oyvcWA&s=10"
+                    alt="Graphic design project 3"
+                    loading="lazy"
+                >
+
+                <div class="design-content">
+
+                    <h3>
+                        Visual Direction III
+                    </h3>
+
+                    <div class="design-price">
+                        EGP 450
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="design-card reveal">
+
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO6Zp6DX9a7Yc4W5YhPM45JDRa2J-JlfVETf3If-Hbxw&s=10"
+                    alt="Graphic design project 4"
+                    loading="lazy"
+                >
+
+                <div class="design-content">
+
+                    <h3>
+                        Visual Direction IV
+                    </h3>
+
+                    <div class="design-price">
+                        EGP 450
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="design-card reveal">
+
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1L95aqZrKI-3jUoR1kqPZgJF5FwfneN1KZpNOjM3M0Q&s=10"
+                    alt="Graphic design project 5"
+                    loading="lazy"
+                >
+
+                <div class="design-content">
+
+                    <h3>
+                        Visual Direction V
+                    </h3>
+
+                    <div class="design-price">
+                        EGP 450
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- FEATURED WORK -->
+
+        <div class="featured-work">
+
+
+            <figure class="reveal-left">
+
+                <img
+                    src="images/extra-image.jpg"
+                    alt="Featured creative work"
+                    loading="lazy"
+                >
+
+                <figcaption>
+                    Featured Creative Work
+                </figcaption>
+
+            </figure>
+
+
+            <figure class="reveal-right">
+
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3rmPnCUd2sVsW7lspYDjtBaGYTL0du4GOxjR0QKRh8w&s=10"
+                    alt="Featured brand work"
+                    loading="lazy"
+                >
+
+                <figcaption>
+                    Featured Brand Work
+                </figcaption>
+
+            </figure>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         PARTNERSHIPS
+    ========================================================= -->
+
+    <section id="partnerships">
+
+        <div class="section-header reveal">
+
+            <div class="section-number">
+                07 — PARTNERSHIPS
+            </div>
+
+            <h2 class="section-title">
+                Built through
+                <span class="green">collaboration.</span>
+            </h2>
+
+            <p class="section-description">
+                The brand is open to meaningful creative partnerships
+                with professionals who share a commitment to
+                originality and quality.
+            </p>
+
+        </div>
+
+
+        <div class="cards-grid">
+
+            <div class="card reveal">
+
+                <div class="card-number">
+                    01
+                </div>
+
+                <h3>
+                    Graphic Designers
+                </h3>
+
+                <p>
+                    Visual identity, campaigns, posters,
+                    digital artwork and creative communication.
+                </p>
+
+            </div>
+
+
+            <div class="card reveal">
+
+                <div class="card-number">
+                    02
+                </div>
+
+                <h3>
+                    Applied Arts
+                </h3>
+
+                <p>
+                    Collaboration with applied-arts designers,
+                    engineers and creative specialists.
+                </p>
+
+            </div>
+
+
+            <div class="card reveal">
+
+                <div class="card-number">
+                    03
+                </div>
+
+                <h3>
+                    Fashion Models
+                </h3>
+
+                <p>
+                    Fashion campaigns, product presentation
+                    and visual brand storytelling.
+                </p>
+
+            </div>
+
+
+            <div class="card reveal">
+
+                <div class="card-number">
+                    04
+                </div>
+
+                <h3>
+                    Actors & Directors
+                </h3>
+
+                <p>
+                    Performance projects, short scenes,
+                    theatre productions and creative direction.
+                </p>
+
+            </div>
+
+
+            <div class="card reveal">
+
+                <div class="card-number">
+                    05
+                </div>
+
+                <h3>
+                    Creative Teams
+                </h3>
+
+                <p>
+                    Cross-disciplinary projects bringing technology,
+                    design and performance together.
+                </p>
+
+            </div>
+
+
+            <div class="card reveal">
+
+                <div class="card-number">
+                    06
+                </div>
+
+                <h3>
+                    Brands
+                </h3>
+
+                <p>
+                    Product campaigns, creative partnerships
+                    and modern brand communication.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         SHOP
+    ========================================================= -->
+
+    <section id="shop">
+
+        <div class="section-header reveal">
+
+            <div class="section-number">
+                08 — SHOP
+            </div>
+
+            <h2 class="section-title">
+                Selected
+                <span class="green">work.</span>
+            </h2>
+
+            <p class="section-description">
+                Selected creative products and services.
+            </p>
+
+        </div>
+
+
+        <div class="products">
+
+
+            <div class="product-card reveal">
+
+                <div class="product-image">
+                    AA
+                </div>
+
+                <div class="product-info">
+
+                    <h3>
+                        Premium Fashion Piece
+                    </h3>
+
+                    <p>
+                        A selected fashion product concept.
+                    </p>
+
+                    <div class="product-price">
+                        EGP 850
+                    </div>
+
+                    <button
+                        class="add-button"
+                        onclick="
+                            addToChart(
+                                'Premium Fashion Piece',
+                                850
+                            )
+                        "
+                    >
+                        Add to Chart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="product-card reveal">
+
+                <div class="product-image">
+                    GD
+                </div>
+
+                <div class="product-info">
+
+                    <h3>
+                        Creative Graphic Poster
+                    </h3>
+
+                    <p>
+                        A professionally designed visual poster.
+                    </p>
+
+                    <div class="product-price">
+                        EGP 450
+                    </div>
+
+                    <button
+                        class="add-button"
+                        onclick="
+                            addToChart(
+                                'Creative Graphic Poster',
+                                450
+                            )
+                        "
+                    >
+                        Add to Chart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="product-card reveal">
+
+                <div class="product-image">
+                    BR
+                </div>
+
+                <div class="product-info">
+
+                    <h3>
+                        Brand Creative Package
+                    </h3>
+
+                    <p>
+                        A creative package for personal or
+                        emerging brands.
+                    </p>
+
+                    <div class="product-price">
+                        EGP 1,200
+                    </div>
+
+                    <button
+                        class="add-button"
+                        onclick="
+                            addToChart(
+                                'Brand Creative Package',
+                                1200
+                            )
+                        "
+                    >
+                        Add to Chart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="product-card reveal">
+
+                <div class="product-image">
+                    FM
+                </div>
+
+                <div class="product-info">
+
+                    <h3>
+                        Fashion Model Campaign
+                    </h3>
+
+                    <p>
+                        Creative campaign concept and presentation.
+                    </p>
+
+                    <div class="product-price">
+                        EGP 1,500
+                    </div>
+
+                    <button
+                        class="add-button"
+                        onclick="
+                            addToChart(
+                                'Fashion Model Campaign',
+                                1500
+                            )
+                        "
+                    >
+                        Add to Chart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="product-card reveal">
+
+                <div class="product-image">
+                    ID
+                </div>
+
+                <div class="product-info">
+
+                    <h3>
+                        Graphic Identity
+                    </h3>
+
+                    <p>
+                        Creative visual identity package.
+                    </p>
+
+                    <div class="product-price">
+                        EGP 2,000
+                    </div>
+
+                    <button
+                        class="add-button"
+                        onclick="
+                            addToChart(
+                                'Graphic Identity',
+                                2000
+                            )
+                        "
+                    >
+                        Add to Chart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="product-card reveal">
+
+                <div class="product-image">
+                    CC
+                </div>
+
+                <div class="product-info">
+
+                    <h3>
+                        Creative Consultation
+                    </h3>
+
+                    <p>
+                        A focused consultation for creative
+                        direction and brand development.
+                    </p>
+
+                    <div class="product-price">
+                        EGP 700
+                    </div>
+
+                    <button
+                        class="add-button"
+                        onclick="
+                            addToChart(
+                                'Creative Consultation',
+                                700
+                            )
+                        "
+                    >
+                        Add to Chart
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CHART -->
+
+        <div class="chart-box reveal">
 
             <h3>
-                Fashion Model Campaign
+                Your Chart
             </h3>
 
-            <p>
-                Creative campaign with fashion models.
-            </p>
-
-            <div class="price">
-                EGP 1,500
+            <div id="chartItems">
+                Your chart is currently empty.
             </div>
 
-            <button
-            class="add-chart"
-            onclick="addToChart('Fashion Model Campaign',1500)">
+            <div id="chartTotal">
+                Total: EGP 0
+            </div>
 
-                ADD TO CHART
+        </div>
 
-            </button>
+    </section>
+
+
+    <!-- =========================================================
+         PAYMENT
+    ========================================================= -->
+
+    <section id="payment">
+
+        <div class="section-header reveal">
+
+            <div class="section-number">
+                09 — PAYMENT
+            </div>
+
+            <h2 class="section-title">
+                Secure
+                <span class="green">checkout.</span>
+            </h2>
+
+            <p class="section-description">
+                Select your preferred payment method.
+            </p>
 
         </div>
 
 
-        <div class="product">
+        <div class="payment-container reveal">
 
-            <h3>
-                Graphic Identity
-            </h3>
 
-            <p>
-                Professional identity design for a brand.
-            </p>
+            <div class="payment-methods">
 
-            <div class="price">
-                EGP 2,000
+                <div
+                    class="payment-method active"
+                    onclick="
+                        showPayment('instapay', this)
+                    "
+                >
+
+                    <h3>
+                        InstaPay
+                    </h3>
+
+                    <p>
+                        Direct payment through InstaPay.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="payment-method"
+                    onclick="
+                        showPayment('visa', this)
+                    "
+                >
+
+                    <h3>
+                        Visa
+                    </h3>
+
+                    <p>
+                        Visa payment interface.
+                    </p>
+
+                </div>
+
             </div>
 
-            <button
-            class="add-chart"
-            onclick="addToChart('Graphic Identity',2000)">
 
-                ADD TO CHART
+            <!-- INSTAPAY -->
 
-            </button>
+            <div
+                id="instapay"
+                class="payment-panel active"
+            >
+
+                <h3>
+                    InstaPay Account
+                </h3>
+
+                <div class="instapay-number">
+                    01080128925
+                </div>
+
+                <button
+                    class="copy-button"
+                    onclick="copyInstaPay()"
+                >
+                    Copy Number
+                </button>
+
+                <p class="demo-note">
+                    After completing the transfer, retain your
+                    payment confirmation and contact the brand
+                    with your order details.
+                </p>
+
+            </div>
+
+
+            <!-- VISA -->
+
+            <div
+                id="visa"
+                class="payment-panel"
+            >
+
+                <form
+                    class="payment-form"
+                    onsubmit="
+                        event.preventDefault();
+                        alert(
+                            'Visa checkout is a front-end demonstration. A real payment gateway is required to process cards.'
+                        );
+                    "
+                >
+
+                    <input
+                        type="text"
+                        placeholder="Cardholder Name"
+                        required
+                    >
+
+                    <input
+                        type="text"
+                        placeholder="Card Number"
+                        maxlength="19"
+                        required
+                    >
+
+                    <input
+                        type="text"
+                        placeholder="MM / YY"
+                        maxlength="5"
+                        required
+                    >
+
+                    <input
+                        type="password"
+                        placeholder="CVV"
+                        maxlength="4"
+                        required
+                    >
+
+                    <button
+                        class="btn primary"
+                        type="submit"
+                    >
+                        Continue with Visa
+                    </button>
+
+                </form>
+
+                <p class="demo-note">
+                    This interface does not process or store real
+                    card information. For production use, connect
+                    the website to a certified payment provider.
+                </p>
+
+            </div>
 
         </div>
 
+    </section>
 
-        <div class="product">
 
-            <h3>
-                Creative Consultation
-            </h3>
+    <!-- =========================================================
+         CONTACT
+    ========================================================= -->
 
-            <p>
-                Creative direction and personal brand consultation.
-            </p>
+    <section id="contact">
 
-            <div class="price">
-                EGP 700
+        <div class="contact-box reveal">
+
+            <div class="section-number">
+                10 — CONTACT
             </div>
 
-            <button
-            class="add-chart"
-            onclick="addToChart('Creative Consultation',700)">
+            <h2>
+                Let's create
+                <span class="green">something</span>
+                meaningful.
+            </h2>
 
-                ADD TO CHART
+            <p>
+                For creative collaborations, acting projects,
+                graphic design, fashion campaigns, brand
+                partnerships or technology-related opportunities,
+                connect with Anas Ayman.
+            </p>
 
-            </button>
+            <div class="contact-links">
+
+                <a
+                    href="#"
+                    class="btn primary"
+                    onclick="
+                        alert(
+                            'Add your Instagram or professional contact link here.'
+                        );
+                        return false;
+                    "
+                >
+                    Instagram
+                </a>
+
+                <a
+                    href="#"
+                    class="btn secondary"
+                    onclick="
+                        alert(
+                            'Add your professional email here.'
+                        );
+                        return false;
+                    "
+                >
+                    Email
+                </a>
+
+            </div>
 
         </div>
 
-
-    </div>
-
-</section>
+    </section>
 
 
-<!-- =====================================================
-     CHART BUTTON
-     ===================================================== -->
+    <!-- =========================================================
+         FOOTER
+    ========================================================= -->
 
-<div
-class="chart-button"
-onclick="showChart()">
-
-    🛒 CHART:
-    <span id="chartCount">0</span>
-
-</div>
-
-
-<!-- =====================================================
-     PAYMENT
-     ===================================================== -->
-
-<section class="payment">
-
-    <h2 class="section-title">
-        SECURE <span>PAYMENT</span>
-    </h2>
-
-    <p class="section-subtitle">
-
-        Choose your preferred payment method after
-        confirming your order.
-
-    </p>
-
-
-    <div class="payment-wrapper">
-
-
-        <!-- INSTAPAY -->
-
-        <div class="payment-box">
-
-            <h3>
-                INSTAPAY
-            </h3>
-
-            <p>
-                Transfer your order payment through InstaPay.
-            </p>
-
-            <div class="instapay-number">
-                01080128925
-            </div>
-
-            <button
-            class="payment-button"
-            onclick="copyInstapay()">
-
-                COPY NUMBER
-
-            </button>
-
-            <p id="copyMessage"></p>
-
-        </div>
-
-
-        <!-- VISA -->
-
-        <div class="payment-box">
-
-            <h3>
-                VISA
-            </h3>
-
-            <p>
-                Visa payment can be connected to a secure
-                payment gateway when the brand is ready
-                for online card processing.
-            </p>
-
-            <div class="visa-logo">
-                VISA
-            </div>
-
-            <button
-            class="payment-button"
-            onclick="visaMessage()">
-
-                PAY WITH VISA
-
-            </button>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     CONTACT
-     ===================================================== -->
-
-<section class="contact" id="contact">
-
-    <h2 class="section-title">
-        LET'S <span>CREATE</span>
-    </h2>
-
-    <p>
-        Acting • Design • Technology • Marketing • Partnerships
-    </p>
-
-    <p>
-        Instagram:
-        <strong>
-            @anas.ayman.19
-        </strong>
-    </p>
-
-    <p>
-        ANAS AYMAN — BUILDING THE BRAND.
-    </p>
-
-</section>
-
-
-<!-- =====================================================
-     FOOTER
-     ===================================================== -->
-
-<footer>
-
-    <p>
+    <footer>
 
         © 2026
-        <span>ANAS AYMAN</span>
-        — ALL RIGHTS RESERVED.
+        <strong>
+            ANAS AYMAN
+        </strong>
+
+        — Independent Creative Brand.
+
+    </footer>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================= -->
 
-    </p>
+    <script>
 
-</footer>
+        /* =========================================================
+           CINEMATIC GREEN → BLACK SCROLL SYSTEM
+        ========================================================= */
+
+        const root =
+            document.documentElement;
+
+        const background =
+            document.querySelector(
+                '.cinematic-background'
+            );
+
+        const progressBar =
+            document.querySelector(
+                '.scroll-progress'
+            );
+
+
+        function updateScroll() {
+
+            const scrollTop =
+                window.scrollY;
+
+            const maxScroll =
+                document.documentElement
+                    .scrollHeight
+                -
+                window.innerHeight;
 
 
-<script>
+            let progress =
+                maxScroll > 0
+                    ? scrollTop / maxScroll
+                    : 0;
 
-/* =====================================================
-   LOADER
-   ===================================================== */
 
-window.addEventListener("load",function(){
+            progress =
+                Math.max(
+                    0,
+                    Math.min(
+                        1,
+                        progress
+                    )
+                );
 
-    setTimeout(function(){
 
-        const loader=document.getElementById("loader");
+            /*
+             * TOP:
+             * Deep cinematic green
+             *
+             * BOTTOM:
+             * Almost pure black
+             */
 
-        loader.style.opacity="0";
+            const startR = 4;
+            const startG = 65;
+            const startB = 28;
 
-        setTimeout(function(){
+            const endR = 2;
+            const endG = 2;
+            const endB = 2;
 
-            loader.style.display="none";
 
-        },1000);
+            const r =
+                Math.round(
+                    startR +
+                    (
+                        endR -
+                        startR
+                    ) *
+                    progress
+                );
 
-    },1200);
+            const g =
+                Math.round(
+                    startG +
+                    (
+                        endG -
+                        startG
+                    ) *
+                    progress
+                );
 
-});
+            const b =
+                Math.round(
+                    startB +
+                    (
+                        endB -
+                        startB
+                    ) *
+                    progress
+                );
 
 
-/* =====================================================
-   CHART
-   ===================================================== */
+            document.body.style.backgroundColor =
+                `rgb(${r}, ${g}, ${b})`;
 
-let chart=[];
 
+            background.style.background =
+                `
+                radial-gradient(
+                    circle at
+                    ${50 + Math.sin(progress * Math.PI) * 25}%
+                    ${25 + progress * 35}%,
+                    rgba(
+                        0,
+                        255,
+                        102,
+                        ${0.16 - progress * 0.12}
+                    ),
+                    transparent 42%
+                )
+                `;
 
-function addToChart(name,price){
 
-    chart.push({
+            progressBar.style.width =
+                `${progress * 100}%`;
 
-        name:name,
 
-        price:price
+            /* NAVIGATION */
 
-    });
+            const navbar =
+                document.getElementById(
+                    'navbar'
+                );
 
-    document.getElementById("chartCount").innerText=
-    chart.length;
+            if (scrollTop > 50) {
 
-    alert(
-        name+
-        " has been added to your chart."
-    );
+                navbar.classList.add(
+                    'scrolled'
+                );
 
-}
+            } else {
 
-
-function showChart(){
-
-    if(chart.length===0){
-
-        alert(
-            "Your chart is currently empty."
-        );
-
-        return;
-
-    }
-
-
-    let message=
-    "ANAS AYMAN CHART\n\n";
-
-    let total=0;
-
-
-    chart.forEach(function(item,index){
-
-        message+=
-        (index+1)+
-        ". "+
-        item.name+
-        " — EGP "+
-        item.price+
-        "\n";
-
-        total+=item.price;
-
-    });
-
-
-    message+=
-    "\nTOTAL: EGP "+
-    total;
-
-
-    alert(message);
-
-}
-
-
-/* =====================================================
-   INSTAPAY
-   ===================================================== */
-
-function copyInstapay(){
-
-    navigator.clipboard.writeText(
-        "01080128925"
-    );
-
-    document.getElementById(
-        "copyMessage"
-    ).innerText=
-    "InstaPay number copied.";
-
-}
-
-
-/* =====================================================
-   VISA
-   ===================================================== */
-
-function visaMessage(){
-
-    alert(
-        "Visa payment gateway coming soon. "+
-        "The website is ready to connect to a secure "+
-        "Visa payment provider."
-    );
-
-}
-
-
-/* =====================================================
-   SCROLL ANIMATION
-   ===================================================== */
-
-const animatedElements=
-document.querySelectorAll(
-    ".identity-card,"+
-    ".partner,"+
-    ".video-card,"+
-    ".design-card,"+
-    ".product,"+
-    ".visual-card,"+
-    ".payment-box,"+
-    ".stat"
-);
-
-
-const observer=
-new IntersectionObserver(
-
-    function(entries){
-
-        entries.forEach(function(entry){
-
-            if(entry.isIntersecting){
-
-                entry.target.style.opacity="1";
-
-                entry.target.style.transform=
-                "translateY(0)";
+                navbar.classList.remove(
+                    'scrolled'
+                );
 
             }
 
-        });
-
-    },
-
-    {
-        threshold:.12
-    }
-
-);
+        }
 
 
-animatedElements.forEach(function(element){
-
-    element.style.opacity="0";
-
-    element.style.transform=
-    "translateY(40px)";
-
-    element.style.transition=
-    "all .8s ease";
-
-    observer.observe(element);
-
-});
+        window.addEventListener(
+            'scroll',
+            updateScroll,
+            {
+                passive: true
+            }
+        );
 
 
-/* =====================================================
-   MOUSE GLOW
-   ===================================================== */
+        updateScroll();
 
-document.addEventListener(
-"mousemove",
-function(e){
 
-    const x=e.clientX;
+        /* =========================================================
+           CINEMATIC REVEALS
+        ========================================================= */
 
-    const y=e.clientY;
+        const revealElements =
+            document.querySelectorAll(
+                '.reveal, .reveal-left, .reveal-right'
+            );
 
-    document.body.style.background=
-    `
-    radial-gradient(
-        500px circle at ${x}px ${y}px,
-        rgba(0,255,102,.025),
-        #030303 70%
-    )
-    `;
 
-});
+        const revealObserver =
+            new IntersectionObserver(
+                entries => {
 
-</script>
+                    entries.forEach(
+                        entry => {
 
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target
+                                    .classList
+                                    .add(
+                                        'active'
+                                    );
+
+                            } else {
+
+                                /*
+                                 * Remove the class when
+                                 * leaving the screen so
+                                 * the cinematic effect
+                                 * happens again.
+                                 */
+
+                                entry.target
+                                    .classList
+                                    .remove(
+                                        'active'
+                                    );
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: 0.12,
+
+                    rootMargin:
+                        '0px 0px -60px 0px'
+                }
+            );
+
+
+        revealElements.forEach(
+            element => {
+
+                revealObserver.observe(
+                    element
+                );
+
+            }
+        );
+
+
+        /* =========================================================
+           PAYMENT
+        ========================================================= */
+
+        function showPayment(
+            method,
+            element
+        ) {
+
+            document
+                .querySelectorAll(
+                    '.payment-method'
+                )
+                .forEach(
+                    item => {
+
+                        item.classList.remove(
+                            'active'
+                        );
+
+                    }
+                );
+
+
+            document
+                .querySelectorAll(
+                    '.payment-panel'
+                )
+                .forEach(
+                    panel => {
+
+                        panel.classList.remove(
+                            'active'
+                        );
+
+                    }
+                );
+
+
+            element.classList.add(
+                'active'
+            );
+
+
+            document
+                .getElementById(
+                    method
+                )
+                .classList.add(
+                    'active'
+                );
+
+        }
+
+
+        /* =========================================================
+           INSTAPAY COPY
+        ========================================================= */
+
+        function copyInstaPay() {
+
+            navigator.clipboard
+                .writeText(
+                    '01080128925'
+                )
+                .then(
+                    () => {
+
+                        alert(
+                            'InstaPay number copied.'
+                        );
+
+                    }
+                )
+                .catch(
+                    () => {
+
+                        alert(
+                            'InstaPay number: 01080128925'
+                        );
+
+                    }
+                );
+
+        }
+
+
+        /* =========================================================
+           SHOPPING CHART
+        ========================================================= */
+
+        let chart = [];
+
+
+        function addToChart(
+            name,
+            price
+        ) {
+
+            chart.push({
+                name: name,
+                price: price
+            });
+
+
+            updateChart();
+
+
+            alert(
+                name +
+                ' has been added to your chart.'
+            );
+
+        }
+
+
+        function updateChart() {
+
+            const items =
+                document.getElementById(
+                    'chartItems'
+                );
+
+            const totalElement =
+                document.getElementById(
+                    'chartTotal'
+                );
+
+
+            if (
+                chart.length === 0
+            ) {
+
+                items.innerHTML =
+                    'Your chart is currently empty.';
+
+                totalElement.innerHTML =
+                    'Total: EGP 0';
+
+                return;
+
+            }
+
+
+            let total = 0;
+
+
+            items.innerHTML =
+                chart
+                    .map(
+                        (item, index) => {
+
+                            total +=
+                                item.price;
+
+                            return `
+                                <div>
+                                    ${index + 1}.
+                                    ${item.name}
+                                    —
+                                    EGP ${item.price.toLocaleString()}
+                                </div>
+                            `;
+
+                        }
+                    )
+                    .join('');
+
+
+            totalElement.innerHTML =
+                `
+                    Total:
+                    EGP ${total.toLocaleString()}
+                `;
+
+        }
+
+
+        /* =========================================================
+           IMAGE ERROR HANDLING
+           
+           Broken images are hidden instead of showing
+           ugly broken-image icons.
+        ========================================================= */
+
+        document
+            .querySelectorAll('img')
+            .forEach(
+                image => {
+
+                    image.addEventListener(
+                        'error',
+                        function() {
+
+                            this.style.display =
+                                'none';
+
+                        }
+                    );
+
+                }
+            );
+
+    </script>
 
 </body>
-
 </html>
