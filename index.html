@@ -37,15 +37,14 @@ body {
     overflow-x: hidden;
 }
 
+
 /* =========================================================
    LOADING SCREEN
 ========================================================= */
 
 #loader {
-
     position: fixed;
     inset: 0;
-
     background: #000000;
 
     display: flex;
@@ -62,13 +61,11 @@ body {
 }
 
 #loader.hide {
-
     opacity: 0;
     visibility: hidden;
 }
 
 .loader-name {
-
     color: var(--yellow);
 
     font-size: clamp(45px, 8vw, 105px);
@@ -83,7 +80,6 @@ body {
 }
 
 .loader-bar {
-
     width: min(520px, 75vw);
 
     height: 5px;
@@ -96,9 +92,7 @@ body {
 }
 
 .loader-progress {
-
     width: 0%;
-
     height: 100%;
 
     background: var(--yellow);
@@ -107,7 +101,6 @@ body {
 }
 
 .loader-percent {
-
     margin-top: 15px;
 
     color: var(--yellow);
@@ -117,32 +110,29 @@ body {
     letter-spacing: 3px;
 }
 
+
 /* =========================================================
    MAIN SITE
 ========================================================= */
 
 #site {
-
     opacity: 0;
-
     visibility: hidden;
 
     transition: opacity 1.2s ease;
 }
 
 #site.show {
-
     opacity: 1;
-
     visibility: visible;
 }
 
+
 /* =========================================================
-   NAVIGATION
+   TOP NAVIGATION
 ========================================================= */
 
 nav {
-
     position: fixed;
 
     top: 0;
@@ -150,11 +140,9 @@ nav {
 
     width: 100%;
 
-    padding: 22px 5%;
+    height: 72px;
 
     display: flex;
-
-    justify-content: space-between;
 
     align-items: center;
 
@@ -163,9 +151,15 @@ nav {
     border-bottom: 1px solid var(--yellow);
 
     z-index: 5000;
+
+    overflow: hidden;
 }
 
+
+/* Logo */
+
 .logo {
+    flex-shrink: 0;
 
     color: var(--yellow);
 
@@ -175,22 +169,57 @@ nav {
 
     letter-spacing: 2px;
 
-    white-space: nowrap;
-}
+    padding-left: 5%;
 
-nav ul {
+    padding-right: 35px;
+
+    background: #000000;
+
+    height: 100%;
 
     display: flex;
 
-    list-style: none;
+    align-items: center;
 
-    gap: 24px;
+    z-index: 5;
+}
+
+
+/* Moving navigation */
+
+.nav-window {
+    overflow: hidden;
+
+    flex: 1;
+
+    height: 100%;
+
+    display: flex;
 
     align-items: center;
 }
 
-nav a {
+.nav-track {
+    display: flex;
 
+    width: max-content;
+
+    align-items: center;
+
+    animation: navMove 25s linear infinite;
+}
+
+.nav-track:hover {
+    animation-play-state: paused;
+}
+
+.nav-item {
+    flex-shrink: 0;
+
+    margin-right: 42px;
+}
+
+.nav-item a {
     color: var(--yellow);
 
     text-decoration: none;
@@ -201,34 +230,45 @@ nav a {
 
     letter-spacing: 1px;
 
+    white-space: nowrap;
+
     transition: 0.3s;
 }
 
-nav a:hover {
-
+.nav-item a:hover {
     color: var(--white);
 }
 
-.login-nav {
-
+.nav-login {
     border: 1px solid var(--yellow);
 
-    padding: 9px 16px;
+    padding: 9px 15px;
 }
 
-.login-nav:hover {
-
+.nav-login:hover {
     background: var(--yellow);
 
-    color: var(--black);
+    color: var(--black) !important;
 }
+
+@keyframes navMove {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+
+}
+
 
 /* =========================================================
    HERO
 ========================================================= */
 
 .hero {
-
     min-height: 100vh;
 
     display: flex;
@@ -248,14 +288,11 @@ nav a:hover {
 }
 
 .hero-content {
-
     width: 100%;
-
     max-width: 1200px;
 }
 
 .hero h1 {
-
     color: var(--yellow);
 
     font-size: clamp(65px, 13vw, 175px);
@@ -268,12 +305,10 @@ nav a:hover {
 }
 
 .hero h1 span {
-
     display: block;
 }
 
 .hero-subtitle {
-
     margin: 40px auto 0;
 
     max-width: 760px;
@@ -286,7 +321,6 @@ nav a:hover {
 }
 
 .hero-button {
-
     display: inline-block;
 
     margin-top: 40px;
@@ -307,18 +341,17 @@ nav a:hover {
 }
 
 .hero-button:hover {
-
     background: var(--yellow);
 
     color: var(--black);
 }
+
 
 /* =========================================================
    MOVING TYPOGRAPHY
 ========================================================= */
 
 .marquee {
-
     width: 100%;
 
     overflow: hidden;
@@ -333,7 +366,6 @@ nav a:hover {
 }
 
 .marquee-track {
-
     display: inline-flex;
 
     width: max-content;
@@ -342,7 +374,6 @@ nav a:hover {
 }
 
 .marquee-item {
-
     color: var(--yellow);
 
     font-size: clamp(22px, 4vw, 48px);
@@ -363,21 +394,21 @@ nav a:hover {
     to {
         transform: translateX(-50%);
     }
+
 }
+
 
 /* =========================================================
    SECTIONS
 ========================================================= */
 
 section {
-
     padding: 120px 7%;
 
     border-bottom: 1px solid var(--yellow);
 }
 
 .section-number {
-
     color: var(--yellow);
 
     font-size: 12px;
@@ -388,7 +419,6 @@ section {
 }
 
 section h2 {
-
     color: var(--yellow);
 
     font-size: clamp(42px, 6vw, 82px);
@@ -399,7 +429,6 @@ section h2 {
 }
 
 .section-description {
-
     color: var(--white);
 
     max-width: 780px;
@@ -409,12 +438,12 @@ section h2 {
     line-height: 1.9;
 }
 
+
 /* =========================================================
    INTRODUCTION
 ========================================================= */
 
 .intro-grid {
-
     display: grid;
 
     grid-template-columns: 1.3fr 0.7fr;
@@ -427,14 +456,12 @@ section h2 {
 }
 
 .intro-main {
-
     border-left: 2px solid var(--yellow);
 
     padding-left: 30px;
 }
 
 .intro-main h3 {
-
     color: var(--yellow);
 
     font-size: 30px;
@@ -443,7 +470,6 @@ section h2 {
 }
 
 .intro-main p {
-
     color: var(--white);
 
     font-size: 17px;
@@ -454,14 +480,12 @@ section h2 {
 }
 
 .passion-list {
-
     border: 1px solid var(--yellow);
 
     padding: 35px;
 }
 
 .passion-list h3 {
-
     color: var(--yellow);
 
     font-size: 25px;
@@ -470,7 +494,6 @@ section h2 {
 }
 
 .passion-list div {
-
     color: var(--yellow);
 
     border-bottom: 1px solid var(--yellow);
@@ -483,16 +506,15 @@ section h2 {
 }
 
 .passion-list div:last-child {
-
     border-bottom: none;
 }
+
 
 /* =========================================================
    ABOUT
 ========================================================= */
 
 .about-grid {
-
     display: grid;
 
     grid-template-columns: 1fr 1fr;
@@ -503,7 +525,6 @@ section h2 {
 }
 
 .about-box {
-
     border: 1px solid var(--yellow);
 
     padding: 40px 30px;
@@ -512,12 +533,10 @@ section h2 {
 }
 
 .about-box:hover {
-
     background: var(--yellow);
 }
 
 .about-box h3 {
-
     color: var(--yellow);
 
     font-size: 26px;
@@ -526,7 +545,6 @@ section h2 {
 }
 
 .about-box p {
-
     color: var(--white);
 
     line-height: 1.9;
@@ -534,16 +552,15 @@ section h2 {
 
 .about-box:hover h3,
 .about-box:hover p {
-
     color: var(--black);
 }
+
 
 /* =========================================================
    COMPUTER SCIENCE
 ========================================================= */
 
 .expertise-grid {
-
     display: grid;
 
     grid-template-columns: repeat(3, 1fr);
@@ -554,7 +571,6 @@ section h2 {
 }
 
 .expertise-card {
-
     border: 1px solid var(--yellow);
 
     padding: 40px 25px;
@@ -563,12 +579,10 @@ section h2 {
 }
 
 .expertise-card:hover {
-
     background: var(--yellow);
 }
 
 .expertise-card h3 {
-
     color: var(--yellow);
 
     font-size: 24px;
@@ -577,7 +591,6 @@ section h2 {
 }
 
 .expertise-card p {
-
     color: var(--white);
 
     line-height: 1.8;
@@ -585,16 +598,15 @@ section h2 {
 
 .expertise-card:hover h3,
 .expertise-card:hover p {
-
     color: var(--black);
 }
 
+
 /* =========================================================
-   UNIVERSITY
+   OCTOBER 6 UNIVERSITY
 ========================================================= */
 
 .university-grid {
-
     display: grid;
 
     grid-template-columns: 1fr 1fr;
@@ -605,14 +617,14 @@ section h2 {
 }
 
 .university-card {
-
     border: 1px solid var(--yellow);
 
     overflow: hidden;
+
+    background: #000000;
 }
 
 .university-card img {
-
     width: 100%;
 
     height: 430px;
@@ -621,24 +633,22 @@ section h2 {
 
     display: block;
 
-    filter: grayscale(100%);
+    /* FULL COLOR */
+    filter: none;
 
     transition: 0.5s;
 }
 
 .university-card:hover img {
-
-    filter: grayscale(0%);
-
     transform: scale(1.04);
 }
+
 
 /* =========================================================
    ACTING
 ========================================================= */
 
 .video-grid {
-
     display: grid;
 
     grid-template-columns: repeat(3, 1fr);
@@ -649,14 +659,12 @@ section h2 {
 }
 
 .video-card {
-
     border: 1px solid var(--yellow);
 
     overflow: hidden;
 }
 
 .video-card video {
-
     width: 100%;
 
     height: 400px;
@@ -669,12 +677,10 @@ section h2 {
 }
 
 .video-info {
-
     padding: 22px;
 }
 
 .video-info h3 {
-
     color: var(--yellow);
 
     font-size: 21px;
@@ -683,23 +689,21 @@ section h2 {
 }
 
 .video-info p {
-
     color: var(--white);
 
     line-height: 1.7;
 }
+
 
 /* =========================================================
    PHILOSOPHY
 ========================================================= */
 
 .philosophy {
-
     text-align: center;
 }
 
 .philosophy-text {
-
     max-width: 900px;
 
     margin: 50px auto;
@@ -714,7 +718,6 @@ section h2 {
 }
 
 .philosophy-highlight {
-
     color: var(--yellow);
 
     font-size: clamp(28px, 5vw, 55px);
@@ -724,10 +727,10 @@ section h2 {
     margin: 50px 0;
 }
 
+
 /* Philosophy Gallery */
 
 .philosophy-gallery {
-
     display: grid;
 
     grid-template-columns: repeat(4, 1fr);
@@ -738,16 +741,16 @@ section h2 {
 }
 
 .philosophy-image {
-
     border: 1px solid var(--yellow);
 
     overflow: hidden;
 
     height: 350px;
+
+    background: #000000;
 }
 
 .philosophy-image img {
-
     width: 100%;
 
     height: 100%;
@@ -756,24 +759,22 @@ section h2 {
 
     display: block;
 
-    filter: grayscale(100%);
+    /* FULL COLOR */
+    filter: none;
 
     transition: 0.6s;
 }
 
 .philosophy-image:hover img {
-
-    filter: grayscale(0%);
-
     transform: scale(1.07);
 }
+
 
 /* =========================================================
    PRODUCTS / DESIGN
 ========================================================= */
 
 .design-grid {
-
     display: grid;
 
     grid-template-columns: repeat(3, 1fr);
@@ -784,7 +785,6 @@ section h2 {
 }
 
 .design-card {
-
     border: 1px solid var(--yellow);
 
     overflow: hidden;
@@ -795,12 +795,10 @@ section h2 {
 }
 
 .design-card:hover {
-
     transform: translateY(-8px);
 }
 
 .design-card-image {
-
     width: 100%;
 
     height: 370px;
@@ -809,18 +807,20 @@ section h2 {
 
     display: block;
 
+    /* FULL COLOR */
+    filter: none;
+
     transition: 0.5s;
 }
 
 .design-card:hover .design-card-image {
-
     transform: scale(1.04);
 }
 
-/* PRICE DIRECTLY UNDER IMAGE */
+
+/* Price directly underneath image */
 
 .design-price {
-
     color: var(--yellow);
 
     font-size: 22px;
@@ -834,7 +834,6 @@ section h2 {
 }
 
 .design-info {
-
     padding:
         10px
         20px
@@ -842,7 +841,6 @@ section h2 {
 }
 
 .design-info h3 {
-
     color: var(--yellow);
 
     font-size: 22px;
@@ -851,7 +849,6 @@ section h2 {
 }
 
 .design-info p {
-
     color: var(--white);
 
     line-height: 1.7;
@@ -860,7 +857,6 @@ section h2 {
 }
 
 .chart-button {
-
     width: 100%;
 
     padding: 15px;
@@ -881,16 +877,15 @@ section h2 {
 }
 
 .chart-button:hover {
-
     background: var(--white);
 }
+
 
 /* =========================================================
    PARTNERSHIPS
 ========================================================= */
 
 .partnership-grid {
-
     display: grid;
 
     grid-template-columns: repeat(4, 1fr);
@@ -901,7 +896,6 @@ section h2 {
 }
 
 .partnership {
-
     border: 1px solid var(--yellow);
 
     padding: 35px 15px;
@@ -918,23 +912,21 @@ section h2 {
 }
 
 .partnership:hover {
-
     background: var(--yellow);
 
     color: var(--black);
 }
+
 
 /* =========================================================
    LOGIN
 ========================================================= */
 
 .login-section {
-
     text-align: center;
 }
 
 .login-container {
-
     max-width: 550px;
 
     margin: 60px auto 0;
@@ -945,7 +937,6 @@ section h2 {
 }
 
 .login-container h3 {
-
     color: var(--yellow);
 
     font-size: 30px;
@@ -954,7 +945,6 @@ section h2 {
 }
 
 .login-input {
-
     width: 100%;
 
     padding: 16px;
@@ -973,12 +963,10 @@ section h2 {
 }
 
 .login-input:focus {
-
     border: 2px solid var(--yellow);
 }
 
 .login-button {
-
     width: 100%;
 
     padding: 16px;
@@ -997,7 +985,6 @@ section h2 {
 }
 
 .social-login {
-
     display: grid;
 
     grid-template-columns: 1fr 1fr;
@@ -1008,7 +995,6 @@ section h2 {
 }
 
 .social-button {
-
     padding: 14px;
 
     background: #000000;
@@ -1023,14 +1009,12 @@ section h2 {
 }
 
 .social-button:hover {
-
     background: var(--yellow);
 
     color: var(--black);
 }
 
 .login-note {
-
     color: var(--white);
 
     font-size: 12px;
@@ -1040,12 +1024,12 @@ section h2 {
     margin-top: 20px;
 }
 
+
 /* =========================================================
    CONTACT
 ========================================================= */
 
 .contact-box {
-
     margin-top: 60px;
 
     border: 2px solid var(--yellow);
@@ -1056,7 +1040,6 @@ section h2 {
 }
 
 .contact-box h3 {
-
     color: var(--yellow);
 
     font-size: clamp(30px, 5vw, 55px);
@@ -1065,7 +1048,6 @@ section h2 {
 }
 
 .contact-box p {
-
     color: var(--white);
 
     margin-bottom: 30px;
@@ -1074,7 +1056,6 @@ section h2 {
 }
 
 .contact-button {
-
     display: inline-block;
 
     border: 2px solid var(--yellow);
@@ -1091,18 +1072,17 @@ section h2 {
 }
 
 .contact-button:hover {
-
     background: var(--yellow);
 
     color: var(--black);
 }
+
 
 /* =========================================================
    CHART DRAWER
 ========================================================= */
 
 #chartDrawer {
-
     position: fixed;
 
     top: 0;
@@ -1126,12 +1106,10 @@ section h2 {
 }
 
 #chartDrawer.open {
-
     right: 0;
 }
 
 .chart-title {
-
     color: var(--yellow);
 
     font-size: 30px;
@@ -1146,7 +1124,6 @@ section h2 {
 }
 
 .chart-item {
-
     border-bottom: 1px solid var(--yellow);
 
     padding: 20px 0;
@@ -1155,7 +1132,6 @@ section h2 {
 }
 
 .chart-item strong {
-
     color: var(--yellow);
 
     display: block;
@@ -1164,7 +1140,6 @@ section h2 {
 }
 
 .close-chart {
-
     position: absolute;
 
     top: 20px;
@@ -1182,18 +1157,17 @@ section h2 {
 }
 
 .empty-chart {
-
     color: var(--white);
 
     line-height: 1.8;
 }
+
 
 /* =========================================================
    FOOTER
 ========================================================= */
 
 footer {
-
     padding: 70px 7%;
 
     text-align: center;
@@ -1202,7 +1176,6 @@ footer {
 }
 
 footer h2 {
-
     color: var(--yellow);
 
     font-size: 45px;
@@ -1211,18 +1184,17 @@ footer h2 {
 }
 
 footer p {
-
     color: var(--white);
 
     font-size: 13px;
 }
 
+
 /* =========================================================
-   REVEAL
+   REVEAL ANIMATION
 ========================================================= */
 
 .reveal {
-
     opacity: 0;
 
     transform: translateY(50px);
@@ -1233,11 +1205,11 @@ footer p {
 }
 
 .reveal.active {
-
     opacity: 1;
 
     transform: translateY(0);
 }
+
 
 /* =========================================================
    MOBILE
@@ -1245,73 +1217,60 @@ footer p {
 
 @media (max-width: 1000px) {
 
-    nav ul {
-
-        gap: 12px;
-    }
-
-    nav a {
-
-        font-size: 10px;
-    }
-
     .intro-grid {
-
         grid-template-columns: 1fr;
     }
 
     .expertise-grid {
-
         grid-template-columns: 1fr 1fr;
     }
 
     .video-grid {
-
         grid-template-columns: 1fr 1fr;
     }
 
     .design-grid {
-
         grid-template-columns: 1fr 1fr;
     }
 
     .philosophy-gallery {
-
         grid-template-columns: 1fr 1fr;
     }
 
     .partnership-grid {
-
         grid-template-columns: 1fr 1fr;
     }
+
 }
 
 @media (max-width: 700px) {
 
     nav {
-
-        padding: 18px 5%;
-    }
-
-    nav ul {
-
-        display: none;
+        height: 65px;
     }
 
     .logo {
+        padding-left: 5%;
+        padding-right: 20px;
 
-        font-size: 20px;
+        font-size: 19px;
+    }
+
+    .nav-item {
+        margin-right: 28px;
+    }
+
+    .nav-item a {
+        font-size: 10px;
     }
 
     .hero h1 {
-
         font-size: 18vw;
 
         letter-spacing: -3px;
     }
 
     section {
-
         padding: 90px 6%;
     }
 
@@ -1321,40 +1280,34 @@ footer p {
     .video-grid,
     .design-grid,
     .philosophy-gallery {
-
         grid-template-columns: 1fr;
     }
 
     .partnership-grid {
-
         grid-template-columns: 1fr 1fr;
     }
 
     .university-card img {
-
         height: 350px;
     }
 
     .philosophy-image {
-
         height: 400px;
     }
 
     .contact-box {
-
         padding: 40px 20px;
     }
 
     .social-login {
-
         grid-template-columns: 1fr;
     }
+
 }
 
 @media (max-width: 450px) {
 
     .partnership-grid {
-
         grid-template-columns: 1fr;
     }
 
@@ -1390,14 +1343,16 @@ footer p {
     <div
         class="loader-percent"
         id="percent">
+
         0%
+
     </div>
 
 </div>
 
 
 <!-- =========================================================
-     WEBSITE
+     MAIN WEBSITE
 ========================================================= -->
 
 <div id="site">
@@ -1413,51 +1368,114 @@ footer p {
         Anas Ayman
     </div>
 
-    <ul>
 
-        <li>
-            <a href="#intro">
-                Introduction
-            </a>
-        </li>
+    <div class="nav-window">
 
-        <li>
-            <a href="#about">
-                About
-            </a>
-        </li>
+        <div class="nav-track">
 
-        <li>
-            <a href="#computer">
-                Computer Science
-            </a>
-        </li>
 
-        <li>
-            <a href="#acting">
-                Acting
-            </a>
-        </li>
+            <div class="nav-item">
+                <a href="#intro">
+                    Introduction
+                </a>
+            </div>
 
-        <li>
-            <a href="#philosophy">
-                Philosophy
-            </a>
-        </li>
+            <div class="nav-item">
+                <a href="#about">
+                    About
+                </a>
+            </div>
 
-        <li>
-            <a href="#design">
-                Design
-            </a>
-        </li>
+            <div class="nav-item">
+                <a href="#computer">
+                    Computer Science
+                </a>
+            </div>
 
-        <li>
-            <a href="#login" class="login-nav">
-                Login
-            </a>
-        </li>
+            <div class="nav-item">
+                <a href="#acting">
+                    Acting
+                </a>
+            </div>
 
-    </ul>
+            <div class="nav-item">
+                <a href="#philosophy">
+                    Philosophy
+                </a>
+            </div>
+
+            <div class="nav-item">
+                <a href="#design">
+                    Design
+                </a>
+            </div>
+
+            <div class="nav-item">
+                <a href="#login" class="nav-login">
+                    Login
+                </a>
+            </div>
+
+            <div class="nav-item">
+                <a href="#contact">
+                    Contact
+                </a>
+            </div>
+
+
+            <!-- DUPLICATE FOR SEAMLESS MOVEMENT -->
+
+            <div class="nav-item">
+                <a href="#intro">
+                    Introduction
+                </a>
+            </div>
+
+            <div class="nav-item">
+                <a href="#about">
+                    About
+                </a>
+            </div>
+
+            <div class="nav-item">
+                <a href="#computer">
+                    Computer Science
+                </a>
+            </div>
+
+            <div class="nav-item">
+                <a href="#acting">
+                    Acting
+                </a>
+            </div>
+
+            <div class="nav-item">
+                <a href="#philosophy">
+                    Philosophy
+                </a>
+            </div>
+
+            <div class="nav-item">
+                <a href="#design">
+                    Design
+                </a>
+            </div>
+
+            <div class="nav-item">
+                <a href="#login" class="nav-login">
+                    Login
+                </a>
+            </div>
+
+            <div class="nav-item">
+                <a href="#contact">
+                    Contact
+                </a>
+            </div>
+
+        </div>
+
+    </div>
 
 </nav>
 
@@ -1478,6 +1496,7 @@ footer p {
 
         </h1>
 
+
         <p class="hero-subtitle">
 
             A multidisciplinary personal brand combining
@@ -1485,6 +1504,7 @@ footer p {
             direction and visual design.
 
         </p>
+
 
         <a
             href="#intro"
@@ -1535,8 +1555,6 @@ footer p {
             Anas Ayman
         </div>
 
-
-        <!-- DUPLICATE FOR SEAMLESS LOOP -->
 
         <div class="marquee-item">
             About
@@ -1602,14 +1620,16 @@ footer p {
                 Anas Ayman
             </h3>
 
+
             <p>
 
                 I am a Computer Science student at
-                October 6 University, developing my academic
-                foundation in programming, technology and
-                computational thinking.
+                October 6 University, developing my
+                academic foundation in programming,
+                technology and computational thinking.
 
             </p>
+
 
             <p>
 
@@ -1620,12 +1640,14 @@ footer p {
 
             </p>
 
+
             <p>
 
-                My objective is to connect technology and
-                creativity into a distinctive personal brand
-                capable of developing meaningful projects,
-                collaborations and professional opportunities.
+                My objective is to connect technology
+                and creativity into a distinctive personal
+                brand capable of developing meaningful
+                projects, collaborations and professional
+                opportunities.
 
             </p>
 
@@ -1692,6 +1714,7 @@ footer p {
 
 
     <div class="about-grid">
+
 
         <div class="about-box reveal">
 
@@ -1814,7 +1837,7 @@ footer p {
 
 
 <!-- =========================================================
-     UNIVERSITY
+     OCTOBER 6 UNIVERSITY
 ========================================================= -->
 
 <section>
@@ -1838,6 +1861,9 @@ footer p {
 
     <div class="university-grid">
 
+
+        <!-- OLD UNIVERSITY PHOTO 1 -->
+
         <div class="university-card reveal">
 
             <img
@@ -1847,11 +1873,35 @@ footer p {
         </div>
 
 
+        <!-- OLD UNIVERSITY PHOTO 2 -->
+
         <div class="university-card reveal">
 
             <img
                 src="images/o6u-2.jpg"
                 alt="October 6 University">
+
+        </div>
+
+
+        <!-- NEW UNIVERSITY PHOTO 3 -->
+
+        <div class="university-card reveal">
+
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLyHYx66rGGz-pAxesG9PKNzmucmvtQa8-iAHTqwpWTw&s=10"
+                alt="October 6 University Campus">
+
+        </div>
+
+
+        <!-- NEW UNIVERSITY PHOTO 4 -->
+
+        <div class="university-card reveal">
+
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScUEbmoKoD3GObwZZe6TeEXR1eK38g-Zil_iyC8xdDuw&s=10"
+                alt="October 6 University Campus">
 
         </div>
 
@@ -1973,13 +2023,16 @@ footer p {
     id="philosophy"
     class="philosophy">
 
+
     <div class="section-number">
         06 — Thought
     </div>
 
+
     <h2>
         Philosophy
     </h2>
+
 
     <p
         class="section-description"
@@ -2019,8 +2072,6 @@ footer p {
 
     </div>
 
-
-    <!-- PHILOSOPHY PHOTOS -->
 
     <div class="philosophy-gallery">
 
@@ -2066,7 +2117,7 @@ footer p {
 
 
 <!-- =========================================================
-     PRODUCTS
+     GRAPHIC DESIGN PRODUCTS
 ========================================================= -->
 
 <section id="design">
@@ -2075,9 +2126,11 @@ footer p {
         07 — Creative
     </div>
 
+
     <h2>
         Graphic Design
     </h2>
+
 
     <p class="section-description">
 
@@ -2316,7 +2369,6 @@ footer p {
 
     <div class="partnership-grid">
 
-
         <div class="partnership reveal">
             Applied Arts
         </div>
@@ -2370,7 +2422,9 @@ footer p {
         Login
     </h2>
 
-    <p class="section-description" style="margin:auto;">
+    <p
+        class="section-description"
+        style="margin:auto;">
 
         Access your account to continue exploring
         the Anas Ayman creative platform.
@@ -2384,10 +2438,12 @@ footer p {
             Welcome Back
         </h3>
 
+
         <input
             class="login-input"
             type="email"
             placeholder="Email Address">
+
 
         <input
             class="login-input"
@@ -2493,6 +2549,7 @@ footer p {
 
         </p>
 
+
         <a
             href="mailto:your@email.com"
             class="contact-button">
@@ -2540,9 +2597,11 @@ footer p {
 
     </button>
 
+
     <div class="chart-title">
         Your Chart
     </div>
+
 
     <div id="chartItems">
 
@@ -2561,7 +2620,7 @@ footer p {
 <script>
 
 /* =========================================================
-   LOADING SCREEN
+   LOADING
 ========================================================= */
 
 let progress = 0;
@@ -2716,7 +2775,7 @@ function updateChart() {
 
 
     chartItems.innerHTML =
-        chart.map((item, index) => {
+        chart.map((item) => {
 
             total += item.price;
 
