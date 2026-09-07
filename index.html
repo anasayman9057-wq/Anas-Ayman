@@ -1,24 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="Anas Ayman — Computer Science, Acting, Philosophy and Creative Brand."
-    >
+    <meta name="description"
+        content="Anas Ayman — Computer Science, Acting, Philosophy and Creative Brand.">
 
     <title>Anas Ayman | Official Brand</title>
 
     <style>
 
         /* =========================================================
-           GLOBAL
+           RESET
         ========================================================= */
 
         * {
@@ -37,44 +32,33 @@
                 Helvetica,
                 sans-serif;
 
+            background: #050505;
             color: #ffffff;
-
-            background:
-                rgb(
-                    var(--red, 4),
-                    var(--green, 45),
-                    var(--blue, 22)
-                );
 
             overflow-x: hidden;
 
             transition:
-                background-color 0.15s linear;
+                background-color 0.25s linear,
+                color 0.5s ease;
         }
 
         :root {
-            --brand-green: #00ff66;
-            --dark-green: #063d20;
-            --black: #030303;
+            --yellow: #ffd500;
+            --yellow-soft: #ffea70;
+            --black: #050505;
+            --black-2: #0b0b0b;
+            --gray: #999999;
             --white: #ffffff;
-            --gray: #a8a8a8;
-            --border: rgba(0, 255, 102, 0.22);
+            --border: rgba(255, 213, 0, 0.25);
         }
 
         a {
-            color: inherit;
             text-decoration: none;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
+            color: inherit;
         }
 
         button,
-        input,
-        textarea,
-        select {
+        input {
             font-family: inherit;
         }
 
@@ -89,17 +73,17 @@
 
             z-index: -10;
 
-            background:
-                radial-gradient(
-                    circle at 50% 20%,
-                    rgba(0, 255, 102, 0.18),
-                    transparent 35%
-                );
-
             pointer-events: none;
 
+            background:
+                radial-gradient(
+                    circle at 50% 25%,
+                    rgba(255, 213, 0, 0.15),
+                    transparent 40%
+                );
+
             transition:
-                background 0.2s linear;
+                background 0.25s linear;
         }
 
         .noise {
@@ -110,15 +94,15 @@
 
             pointer-events: none;
 
-            opacity: 0.035;
+            opacity: 0.025;
 
             background-image:
-                url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
         }
 
 
         /* =========================================================
-           SCROLL PROGRESS
+           SCROLL BAR
         ========================================================= */
 
         .scroll-progress {
@@ -132,11 +116,11 @@
 
             z-index: 10000;
 
-            background: var(--brand-green);
+            background: var(--yellow);
 
             box-shadow:
-                0 0 10px var(--brand-green),
-                0 0 30px rgba(0, 255, 102, 0.5);
+                0 0 12px var(--yellow),
+                0 0 30px rgba(255, 213, 0, 0.5);
         }
 
 
@@ -154,18 +138,13 @@
 
             z-index: 9000;
 
-            padding: 24px 6%;
+            padding: 23px 6%;
 
             display: flex;
-            align-items: center;
-            justify-content: space-between;
 
-            background:
-                linear-gradient(
-                    to bottom,
-                    rgba(0,0,0,0.85),
-                    transparent
-                );
+            align-items: center;
+
+            justify-content: space-between;
 
             transition:
                 background 0.5s ease,
@@ -173,50 +152,102 @@
         }
 
         nav.scrolled {
-            padding: 16px 6%;
+            padding: 15px 6%;
 
             background:
-                rgba(0,0,0,0.78);
+                rgba(0, 0, 0, 0.82);
 
-            backdrop-filter: blur(16px);
+            backdrop-filter: blur(18px);
 
             border-bottom:
-                1px solid rgba(0,255,102,0.12);
+                1px solid
+                rgba(255, 213, 0, 0.13);
         }
 
         .logo {
-            font-size: 22px;
+            color: var(--yellow);
 
-            font-weight: 800;
+            font-weight: 900;
 
             letter-spacing: 3px;
 
-            color: var(--brand-green);
+            font-size: 20px;
         }
 
         .nav-links {
             display: flex;
 
-            gap: 30px;
+            align-items: center;
+
+            gap: 25px;
 
             list-style: none;
         }
 
         .nav-links a {
-            font-size: 12px;
+            color: #dddddd;
 
             text-transform: uppercase;
 
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
 
-            color: #ddd;
+            font-size: 10px;
 
             transition:
                 color 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: var(--brand-green);
+            color: var(--yellow);
+        }
+
+
+        /* =========================================================
+           TOP CONTROLS
+        ========================================================= */
+
+        .top-controls {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+        }
+
+        .language-button,
+        .login-button {
+            border:
+                1px solid
+                rgba(255, 213, 0, 0.45);
+
+            background:
+                rgba(0, 0, 0, 0.35);
+
+            color: white;
+
+            padding:
+                10px 15px;
+
+            cursor: pointer;
+
+            font-size: 10px;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            transition:
+                all 0.3s ease;
+        }
+
+        .language-button:hover,
+        .login-button:hover {
+            background: var(--yellow);
+
+            color: #000;
+
+            border-color:
+                var(--yellow);
         }
 
 
@@ -228,63 +259,65 @@
             min-height: 100vh;
 
             display: flex;
-            align-items: center;
+
             justify-content: center;
+            align-items: center;
 
             text-align: center;
 
-            padding: 120px 7% 80px;
-
-            position: relative;
+            padding:
+                120px 7% 80px;
         }
 
         .hero-content {
             max-width: 1100px;
 
             animation:
-                heroAppear 1.8s
-                cubic-bezier(.16,1,.3,1)
-                forwards;
+                heroIn 1.7s
+                cubic-bezier(.16,1,.3,1);
         }
 
-        @keyframes heroAppear {
+        @keyframes heroIn {
 
             from {
                 opacity: 0;
+
                 transform:
-                    translateY(60px)
-                    scale(0.96);
+                    translateY(70px)
+                    scale(.95);
 
                 filter: blur(15px);
             }
 
             to {
                 opacity: 1;
+
                 transform:
                     translateY(0)
                     scale(1);
 
                 filter: blur(0);
             }
+
         }
 
         .eyebrow {
-            color: var(--brand-green);
+            color: var(--yellow);
 
-            font-size: 12px;
+            font-size: 11px;
 
-            letter-spacing: 5px;
+            letter-spacing: 6px;
 
             text-transform: uppercase;
 
-            margin-bottom: 28px;
+            margin-bottom: 30px;
         }
 
         .hero h1 {
             font-size:
-                clamp(65px, 13vw, 180px);
+                clamp(65px, 13vw, 175px);
 
-            line-height: 0.85;
+            line-height: .85;
 
             letter-spacing: -7px;
 
@@ -293,23 +326,24 @@
             margin-bottom: 35px;
         }
 
-        .green {
-            color: var(--brand-green);
+        .yellow {
+            color: var(--yellow);
 
             text-shadow:
-                0 0 20px rgba(0,255,102,0.25);
+                0 0 25px
+                rgba(255, 213, 0, .25);
         }
 
         .hero-description {
-            max-width: 720px;
+            max-width: 750px;
 
             margin: auto;
 
-            color: #c9c9c9;
+            color: #c0c0c0;
 
-            font-size: 18px;
+            line-height: 1.9;
 
-            line-height: 1.8;
+            font-size: 17px;
         }
 
         .hero-buttons {
@@ -325,17 +359,17 @@
         }
 
         .btn {
-            display: inline-flex;
-
-            align-items: center;
-            justify-content: center;
-
-            min-width: 170px;
+            min-width: 175px;
 
             padding: 15px 25px;
 
+            display: inline-flex;
+
+            justify-content: center;
+            align-items: center;
+
             border:
-                1px solid var(--brand-green);
+                1px solid var(--yellow);
 
             color: white;
 
@@ -343,21 +377,18 @@
 
             letter-spacing: 2px;
 
-            font-size: 11px;
+            font-size: 10px;
 
             transition:
-                transform 0.4s ease,
-                background 0.4s ease,
-                color 0.4s ease,
-                box-shadow 0.4s ease;
+                all .4s ease;
         }
 
         .btn.primary {
-            background: var(--brand-green);
+            background: var(--yellow);
 
-            color: #020502;
+            color: #000;
 
-            font-weight: 800;
+            font-weight: 900;
         }
 
         .btn:hover {
@@ -365,13 +396,76 @@
                 translateY(-5px);
 
             box-shadow:
-                0 15px 40px rgba(0,255,102,0.18);
+                0 15px 45px
+                rgba(255, 213, 0, .15);
         }
 
         .btn.secondary:hover {
-            background: var(--brand-green);
+            background:
+                var(--yellow);
 
             color: #000;
+        }
+
+
+        /* =========================================================
+           MOVING TEXT
+        ========================================================= */
+
+        .marquee {
+            overflow: hidden;
+
+            width: 100%;
+
+            border-top:
+                1px solid
+                rgba(255, 213, 0, .15);
+
+            border-bottom:
+                1px solid
+                rgba(255, 213, 0, .15);
+
+            padding:
+                18px 0;
+
+            white-space: nowrap;
+        }
+
+        .marquee-track {
+            display: inline-block;
+
+            animation:
+                marqueeMove 22s
+                linear infinite;
+        }
+
+        .marquee span {
+            display: inline-block;
+
+            margin-right: 70px;
+
+            color:
+                rgba(255, 213, 0, .85);
+
+            text-transform: uppercase;
+
+            letter-spacing: 5px;
+
+            font-size: 11px;
+        }
+
+        @keyframes marqueeMove {
+
+            from {
+                transform:
+                    translateX(0);
+            }
+
+            to {
+                transform:
+                    translateX(-50%);
+            }
+
         }
 
 
@@ -395,11 +489,11 @@
         }
 
         .section-number {
-            color: var(--brand-green);
+            color: var(--yellow);
 
-            font-size: 11px;
+            font-size: 10px;
 
-            letter-spacing: 4px;
+            letter-spacing: 5px;
 
             margin-bottom: 18px;
         }
@@ -408,7 +502,7 @@
             font-size:
                 clamp(42px, 7vw, 90px);
 
-            line-height: 0.95;
+            line-height: .95;
 
             letter-spacing: -3px;
 
@@ -416,18 +510,16 @@
         }
 
         .section-description {
-            color: #aaa;
-
-            line-height: 1.8;
-
-            font-size: 16px;
+            color: #999;
 
             max-width: 700px;
+
+            line-height: 1.8;
         }
 
 
         /* =========================================================
-           REVEAL ANIMATIONS
+           REVEALS
         ========================================================= */
 
         .reveal {
@@ -435,18 +527,18 @@
 
             transform:
                 translateY(70px)
-                scale(0.97);
+                scale(.97);
 
             filter: blur(8px);
 
             transition:
-                opacity 1.2s
+                opacity 1.15s
                 cubic-bezier(.16,1,.3,1),
 
-                transform 1.2s
+                transform 1.15s
                 cubic-bezier(.16,1,.3,1),
 
-                filter 1.2s ease;
+                filter 1.15s ease;
         }
 
         .reveal.active {
@@ -468,7 +560,7 @@
             filter: blur(8px);
 
             transition:
-                all 1.2s
+                all 1.15s
                 cubic-bezier(.16,1,.3,1);
         }
 
@@ -490,7 +582,7 @@
             filter: blur(8px);
 
             transition:
-                all 1.2s
+                all 1.15s
                 cubic-bezier(.16,1,.3,1);
         }
 
@@ -520,9 +612,9 @@
         }
 
         .about-text p {
-            color: #c0c0c0;
+            color: #c2c2c2;
 
-            font-size: 18px;
+            font-size: 17px;
 
             line-height: 2;
 
@@ -531,17 +623,17 @@
 
         .about-highlight {
             border-left:
-                2px solid var(--brand-green);
+                2px solid var(--yellow);
 
             padding-left: 25px;
-
-            margin-top: 35px;
 
             color: white;
 
             font-size: 22px;
 
             line-height: 1.6;
+
+            margin-top: 35px;
         }
 
         .about-card {
@@ -551,14 +643,14 @@
                 1px solid var(--border);
 
             background:
-                rgba(0,0,0,0.25);
+                rgba(0,0,0,.35);
 
             backdrop-filter:
                 blur(10px);
         }
 
         .about-card h3 {
-            color: var(--brand-green);
+            color: var(--yellow);
 
             margin-bottom: 20px;
 
@@ -566,14 +658,14 @@
         }
 
         .about-card p {
-            color: #aaa;
+            color: #999;
 
-            line-height: 1.8;
+            line-height: 1.9;
         }
 
 
         /* =========================================================
-           SKILLS
+           CARDS
         ========================================================= */
 
         .cards-grid {
@@ -588,18 +680,18 @@
         .card {
             padding: 38px;
 
-            min-height: 250px;
+            min-height: 245px;
 
             border:
                 1px solid var(--border);
 
             background:
-                rgba(0,0,0,0.25);
+                rgba(0,0,0,.3);
 
             transition:
-                transform 0.6s ease,
-                border-color 0.6s ease,
-                box-shadow 0.6s ease;
+                transform .5s ease,
+                border-color .5s ease,
+                box-shadow .5s ease;
         }
 
         .card:hover {
@@ -607,38 +699,38 @@
                 translateY(-12px);
 
             border-color:
-                var(--brand-green);
+                var(--yellow);
 
             box-shadow:
                 0 25px 70px
-                rgba(0,255,102,0.12);
+                rgba(255,213,0,.10);
         }
 
         .card-number {
-            color: var(--brand-green);
+            color: var(--yellow);
 
-            font-size: 12px;
+            font-size: 11px;
 
             letter-spacing: 3px;
 
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
 
         .card h3 {
-            font-size: 25px;
+            font-size: 24px;
 
             margin-bottom: 18px;
         }
 
         .card p {
-            color: #999;
+            color: #909090;
 
             line-height: 1.8;
         }
 
 
         /* =========================================================
-           UNIVERSITY / O6U
+           UNIVERSITY
         ========================================================= */
 
         .university-grid {
@@ -653,18 +745,20 @@
         .university-photo {
             position: relative;
 
+            min-height: 500px;
+
             overflow: hidden;
 
             border:
                 1px solid var(--border);
 
-            min-height: 500px;
-
-            background: #080808;
+            background:
+                #080808;
         }
 
         .university-photo img {
             width: 100%;
+
             height: 100%;
 
             min-height: 500px;
@@ -672,9 +766,10 @@
             object-fit: cover;
 
             transition:
-                transform 1.4s
+                transform 1.5s
                 cubic-bezier(.16,1,.3,1),
-                filter 1.4s ease;
+
+                filter 1.2s ease;
         }
 
         .university-photo:hover img {
@@ -682,54 +777,54 @@
                 scale(1.06);
 
             filter:
-                brightness(0.7);
+                brightness(.65);
         }
 
         .photo-overlay {
             position: absolute;
 
-            inset: auto 0 0 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
 
             padding: 35px;
 
             background:
                 linear-gradient(
                     to top,
-                    rgba(0,0,0,0.95),
+                    rgba(0,0,0,.95),
                     transparent
                 );
         }
 
         .photo-overlay span {
-            display: block;
+            color: var(--yellow);
 
-            color: var(--brand-green);
+            font-size: 10px;
 
-            font-size: 11px;
-
-            letter-spacing: 3px;
-
-            margin-bottom: 10px;
+            letter-spacing: 4px;
         }
 
         .photo-overlay h3 {
-            font-size: 30px;
+            font-size: 29px;
+
+            margin-top: 10px;
         }
 
         .university-info {
-            margin-top: 35px;
+            margin-top: 30px;
+
+            padding: 35px;
 
             border:
                 1px solid var(--border);
 
-            padding: 35px;
-
             background:
-                rgba(0,0,0,0.25);
+                rgba(0,0,0,.3);
         }
 
         .university-info p {
-            color: #aaa;
+            color: #999;
 
             line-height: 1.9;
         }
@@ -743,7 +838,7 @@
             display: grid;
 
             grid-template-columns:
-                repeat(4, 1fr);
+                repeat(4,1fr);
 
             gap: 15px;
 
@@ -761,8 +856,8 @@
                 1px solid var(--border);
 
             transition:
-                transform 0.8s ease,
-                filter 0.8s ease;
+                transform .7s ease,
+                filter .7s ease;
         }
 
         .philosophy-gallery img:hover {
@@ -770,7 +865,7 @@
                 scale(1.04);
 
             filter:
-                brightness(1.15);
+                brightness(1.12);
         }
 
         .philosophy-text {
@@ -780,7 +875,7 @@
         }
 
         .philosophy-text h3 {
-            color: var(--brand-green);
+            color: var(--yellow);
 
             font-size: 25px;
 
@@ -789,11 +884,11 @@
         }
 
         .philosophy-text p {
-            color: #c3c3c3;
-
-            line-height: 2;
+            color: #c0c0c0;
 
             font-size: 17px;
+
+            line-height: 2;
 
             margin-bottom: 25px;
         }
@@ -804,16 +899,16 @@
             padding: 45px;
 
             border:
-                1px solid var(--brand-green);
+                1px solid var(--yellow);
 
             background:
-                rgba(0,255,102,0.035);
+                rgba(255,213,0,.035);
+
+            color: white;
 
             font-size: 28px;
 
             line-height: 1.5;
-
-            color: white;
         }
 
 
@@ -825,7 +920,7 @@
             display: grid;
 
             grid-template-columns:
-                repeat(3, 1fr);
+                repeat(3,1fr);
 
             gap: 25px;
         }
@@ -835,7 +930,7 @@
                 1px solid var(--border);
 
             background:
-                rgba(0,0,0,0.3);
+                rgba(0,0,0,.35);
 
             overflow: hidden;
         }
@@ -843,11 +938,13 @@
         .video-card video {
             width: 100%;
 
-            aspect-ratio: 16 / 9;
+            aspect-ratio:
+                16 / 9;
 
             display: block;
 
-            background: #000;
+            background:
+                #000;
         }
 
         .video-info {
@@ -855,17 +952,17 @@
         }
 
         .video-info span {
-            color: var(--brand-green);
+            color: var(--yellow);
 
-            font-size: 10px;
+            font-size: 9px;
 
-            letter-spacing: 3px;
+            letter-spacing: 4px;
         }
 
         .video-info h3 {
-            margin-top: 10px;
-
             font-size: 20px;
+
+            margin-top: 10px;
         }
 
         .video-info p {
@@ -878,31 +975,30 @@
 
 
         /* =========================================================
-           CREATIVE / GRAPHIC DESIGN
+           GRAPHIC DESIGN
         ========================================================= */
 
         .creative-gallery {
             display: grid;
 
             grid-template-columns:
-                repeat(5, 1fr);
+                repeat(5,1fr);
 
             gap: 15px;
         }
 
         .design-card {
-            background:
-                rgba(0,0,0,0.35);
+            overflow: hidden;
 
             border:
                 1px solid var(--border);
 
-            overflow: hidden;
+            background:
+                rgba(0,0,0,.35);
 
             transition:
-                transform 0.6s ease,
-                border-color 0.6s ease,
-                box-shadow 0.6s ease;
+                transform .5s ease,
+                border-color .5s ease;
         }
 
         .design-card:hover {
@@ -910,11 +1006,7 @@
                 translateY(-10px);
 
             border-color:
-                var(--brand-green);
-
-            box-shadow:
-                0 20px 50px
-                rgba(0,255,102,0.1);
+                var(--yellow);
         }
 
         .design-card img {
@@ -930,49 +1022,45 @@
         }
 
         .design-content h3 {
-            font-size: 17px;
+            font-size: 16px;
 
             margin-bottom: 10px;
         }
 
-        /* PRICE DIRECTLY UNDER IMAGE/TITLE */
-
         .design-price {
-            color: var(--brand-green);
+            color: var(--yellow);
 
             font-size: 20px;
 
-            font-weight: 800;
-
-            margin-top: 8px;
+            font-weight: 900;
         }
 
 
         /* =========================================================
-           FEATURED BRAND IMAGE
+           FEATURED
         ========================================================= */
 
         .featured-work {
-            margin-top: 70px;
-
             display: grid;
 
             grid-template-columns:
-                repeat(2, 1fr);
+                repeat(2,1fr);
 
             gap: 25px;
+
+            margin-top: 70px;
         }
 
         .featured-work figure {
             margin: 0;
 
+            overflow: hidden;
+
             border:
                 1px solid var(--border);
 
-            overflow: hidden;
-
             background:
-                rgba(0,0,0,0.3);
+                #050505;
         }
 
         .featured-work img {
@@ -986,9 +1074,7 @@
         .featured-work figcaption {
             padding: 20px;
 
-            color: #aaa;
-
-            letter-spacing: 1px;
+            color: #888;
         }
 
 
@@ -1000,7 +1086,7 @@
             display: grid;
 
             grid-template-columns:
-                repeat(3, 1fr);
+                repeat(3,1fr);
 
             gap: 25px;
         }
@@ -1010,13 +1096,13 @@
                 1px solid var(--border);
 
             background:
-                rgba(0,0,0,0.35);
+                rgba(0,0,0,.35);
 
             overflow: hidden;
 
             transition:
-                transform 0.5s ease,
-                border-color 0.5s ease;
+                transform .5s ease,
+                border-color .5s ease;
         }
 
         .product-card:hover {
@@ -1024,7 +1110,7 @@
                 translateY(-10px);
 
             border-color:
-                var(--brand-green);
+                var(--yellow);
         }
 
         .product-image {
@@ -1032,19 +1118,18 @@
 
             display: flex;
 
-            align-items: center;
-
             justify-content: center;
+            align-items: center;
 
             background:
                 linear-gradient(
                     135deg,
-                    #0d1f13,
-                    #020302
+                    #181600,
+                    #030303
                 );
 
             color:
-                rgba(0,255,102,0.3);
+                rgba(255,213,0,.4);
 
             font-size: 50px;
 
@@ -1070,11 +1155,11 @@
         }
 
         .product-price {
-            color: var(--brand-green);
+            color: var(--yellow);
 
             font-size: 22px;
 
-            font-weight: 800;
+            font-weight: 900;
 
             margin-bottom: 20px;
         }
@@ -1085,7 +1170,7 @@
             padding: 14px;
 
             border:
-                1px solid var(--brand-green);
+                1px solid var(--yellow);
 
             background:
                 transparent;
@@ -1098,19 +1183,17 @@
 
             letter-spacing: 2px;
 
-            font-size: 11px;
+            font-size: 10px;
 
             transition:
-                background 0.3s ease,
-                color 0.3s ease;
+                all .3s ease;
         }
 
         .add-button:hover {
             background:
-                var(--brand-green);
+                var(--yellow);
 
-            color:
-                #000;
+            color: #000;
         }
 
 
@@ -1121,35 +1204,35 @@
         .chart-box {
             margin-top: 60px;
 
+            padding: 35px;
+
             border:
                 1px solid var(--border);
 
-            padding: 35px;
-
             background:
-                rgba(0,0,0,0.3);
+                rgba(0,0,0,.3);
         }
 
         .chart-box h3 {
-            color: var(--brand-green);
+            color: var(--yellow);
 
             margin-bottom: 25px;
         }
 
         #chartItems {
-            color: #aaa;
+            color: #999;
 
             line-height: 2;
         }
 
         #chartTotal {
-            margin-top: 20px;
-
             color: white;
 
             font-size: 22px;
 
-            font-weight: 800;
+            font-weight: 900;
+
+            margin-top: 20px;
         }
 
 
@@ -1162,20 +1245,20 @@
 
             margin: auto;
 
+            padding: 45px;
+
             border:
                 1px solid var(--border);
 
-            padding: 45px;
-
             background:
-                rgba(0,0,0,0.35);
+                rgba(0,0,0,.35);
         }
 
         .payment-methods {
             display: grid;
 
             grid-template-columns:
-                repeat(2, 1fr);
+                repeat(2,1fr);
 
             gap: 15px;
 
@@ -1186,35 +1269,35 @@
             padding: 25px;
 
             border:
-                1px solid rgba(255,255,255,0.12);
+                1px solid
+                rgba(255,255,255,.1);
 
             cursor: pointer;
 
             transition:
-                border-color 0.3s ease,
-                background 0.3s ease;
+                all .3s ease;
         }
 
-        .payment-method:hover,
-        .payment-method.active {
+        .payment-method.active,
+        .payment-method:hover {
             border-color:
-                var(--brand-green);
+                var(--yellow);
 
             background:
-                rgba(0,255,102,0.04);
+                rgba(255,213,0,.04);
         }
 
         .payment-method h3 {
             color:
-                var(--brand-green);
+                var(--yellow);
 
             margin-bottom: 8px;
         }
 
         .payment-method p {
-            color: #888;
+            color: #777;
 
-            font-size: 14px;
+            font-size: 13px;
         }
 
         .payment-panel {
@@ -1226,10 +1309,9 @@
         }
 
         .instapay-number {
-            font-size: 30px;
+            color: var(--yellow);
 
-            color:
-                var(--brand-green);
+            font-size: 30px;
 
             letter-spacing: 2px;
 
@@ -1238,10 +1320,11 @@
         }
 
         .copy-button {
-            padding: 13px 20px;
+            padding:
+                13px 20px;
 
             background:
-                var(--brand-green);
+                var(--yellow);
 
             color: #000;
 
@@ -1249,7 +1332,7 @@
 
             cursor: pointer;
 
-            font-weight: 800;
+            font-weight: 900;
         }
 
         .payment-form {
@@ -1263,11 +1346,12 @@
 
             padding: 16px;
 
+            border:
+                1px solid
+                rgba(255,255,255,.1);
+
             background:
                 #080808;
-
-            border:
-                1px solid rgba(255,255,255,0.12);
 
             color: white;
 
@@ -1276,17 +1360,228 @@
 
         .payment-form input:focus {
             border-color:
-                var(--brand-green);
+                var(--yellow);
         }
 
         .demo-note {
             margin-top: 20px;
 
-            color: #777;
+            color: #666;
 
-            font-size: 12px;
+            font-size: 11px;
 
             line-height: 1.7;
+        }
+
+
+        /* =========================================================
+           LOGIN MODAL
+        ========================================================= */
+
+        .login-overlay {
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 11000;
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 20px;
+
+            background:
+                rgba(0,0,0,.85);
+
+            backdrop-filter:
+                blur(15px);
+        }
+
+        .login-overlay.active {
+            display: flex;
+        }
+
+        .login-box {
+            width: 100%;
+
+            max-width: 440px;
+
+            padding: 40px;
+
+            background:
+                #090909;
+
+            border:
+                1px solid var(--border);
+
+            box-shadow:
+                0 30px 100px
+                rgba(0,0,0,.8);
+
+            position: relative;
+
+            animation:
+                loginAppear .5s
+                cubic-bezier(.16,1,.3,1);
+        }
+
+        @keyframes loginAppear {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(40px)
+                    scale(.95);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+
+        }
+
+        .close-login {
+            position: absolute;
+
+            top: 15px;
+            right: 18px;
+
+            background: none;
+
+            border: none;
+
+            color: #888;
+
+            font-size: 25px;
+
+            cursor: pointer;
+        }
+
+        .login-box h2 {
+            font-size: 35px;
+
+            margin-bottom: 10px;
+        }
+
+        .login-box > p {
+            color: #777;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+
+            margin-bottom: 25px;
+        }
+
+        .social-login {
+            display: grid;
+
+            gap: 10px;
+        }
+
+        .social-button {
+            width: 100%;
+
+            padding: 14px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.12);
+
+            background:
+                #111;
+
+            color: white;
+
+            cursor: pointer;
+
+            transition:
+                all .3s ease;
+        }
+
+        .social-button:hover {
+            border-color:
+                var(--yellow);
+
+            background:
+                #161616;
+        }
+
+        .divider {
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin: 22px 0;
+
+            color: #555;
+
+            font-size: 11px;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+
+            height: 1px;
+
+            flex: 1;
+
+            background:
+                rgba(255,255,255,.1);
+        }
+
+        .login-input {
+            width: 100%;
+
+            padding: 15px;
+
+            margin-bottom: 12px;
+
+            background:
+                #050505;
+
+            border:
+                1px solid
+                rgba(255,255,255,.1);
+
+            color: white;
+
+            outline: none;
+        }
+
+        .login-input:focus {
+            border-color:
+                var(--yellow);
+        }
+
+        .login-submit {
+            width: 100%;
+
+            padding: 15px;
+
+            border: none;
+
+            background:
+                var(--yellow);
+
+            color: #000;
+
+            font-weight: 900;
+
+            cursor: pointer;
+
+            margin-top: 5px;
         }
 
 
@@ -1304,22 +1599,22 @@
 
         .contact-box h2 {
             font-size:
-                clamp(45px, 8vw, 100px);
+                clamp(45px,8vw,100px);
 
-            line-height: 0.95;
+            line-height: .95;
 
             margin-bottom: 30px;
         }
 
         .contact-box p {
-            color: #999;
-
-            line-height: 1.8;
-
             max-width: 650px;
 
             margin:
                 0 auto 35px;
+
+            color: #888;
+
+            line-height: 1.8;
         }
 
         .contact-links {
@@ -1327,9 +1622,9 @@
 
             justify-content: center;
 
-            flex-wrap: wrap;
-
             gap: 15px;
+
+            flex-wrap: wrap;
         }
 
 
@@ -1342,19 +1637,43 @@
                 50px 7%;
 
             border-top:
-                1px solid rgba(0,255,102,0.15);
+                1px solid
+                rgba(255,213,0,.13);
 
             text-align: center;
 
-            color: #666;
+            color: #555;
 
-            font-size: 12px;
+            font-size: 11px;
 
             letter-spacing: 1px;
         }
 
         footer strong {
-            color: var(--brand-green);
+            color: var(--yellow);
+        }
+
+
+        /* =========================================================
+           RTL
+        ========================================================= */
+
+        body.rtl {
+            font-family:
+                Arial,
+                Tahoma,
+                sans-serif;
+        }
+
+        body.rtl .about-highlight {
+            border-left: none;
+
+            border-right:
+                2px solid var(--yellow);
+
+            padding-left: 0;
+
+            padding-right: 25px;
         }
 
 
@@ -1362,44 +1681,36 @@
            RESPONSIVE
         ========================================================= */
 
-        @media (max-width: 1000px) {
+        @media (max-width: 1100px) {
 
             .cards-grid,
             .products,
             .video-grid {
                 grid-template-columns:
-                    repeat(2, 1fr);
+                    repeat(2,1fr);
             }
 
             .creative-gallery {
                 grid-template-columns:
-                    repeat(3, 1fr);
+                    repeat(3,1fr);
             }
 
             .philosophy-gallery {
                 grid-template-columns:
-                    repeat(2, 1fr);
-            }
-
-            .about-grid {
-                grid-template-columns:
-                    1fr;
-            }
-        }
-
-        @media (max-width: 700px) {
-
-            nav {
-                padding: 18px 5%;
+                    repeat(2,1fr);
             }
 
             .nav-links {
                 display: none;
             }
 
-            section {
+        }
+
+        @media (max-width: 700px) {
+
+            nav {
                 padding:
-                    100px 6%;
+                    18px 5%;
             }
 
             .hero h1 {
@@ -1407,11 +1718,17 @@
                     -4px;
             }
 
+            section {
+                padding:
+                    100px 6%;
+            }
+
+            .about-grid,
+            .university-grid,
+            .featured-work,
             .cards-grid,
             .products,
-            .video-grid,
-            .university-grid,
-            .featured-work {
+            .video-grid {
                 grid-template-columns:
                     1fr;
             }
@@ -1419,7 +1736,7 @@
             .creative-gallery,
             .philosophy-gallery {
                 grid-template-columns:
-                    repeat(2, 1fr);
+                    repeat(2,1fr);
             }
 
             .payment-methods {
@@ -1427,14 +1744,27 @@
                     1fr;
             }
 
-            .design-card img {
-                height: 220px;
+            .top-controls {
+                gap: 5px;
+            }
+
+            .language-button,
+            .login-button {
+                padding:
+                    8px 9px;
+
+                font-size: 8px;
             }
 
             .university-photo,
             .university-photo img {
                 min-height: 350px;
             }
+
+            .featured-work img {
+                height: 350px;
+            }
+
         }
 
     </style>
@@ -1449,7 +1779,6 @@
 
     <div class="cinematic-background"></div>
     <div class="noise"></div>
-
     <div class="scroll-progress"></div>
 
 
@@ -1463,37 +1792,73 @@
             ANAS AYMAN
         </a>
 
+
         <ul class="nav-links">
 
             <li>
-                <a href="#about">About</a>
+                <a href="#about" data-i18n="navAbout">
+                    About
+                </a>
             </li>
 
             <li>
-                <a href="#university">O6U</a>
+                <a href="#university" data-i18n="navUniversity">
+                    O6U
+                </a>
             </li>
 
             <li>
-                <a href="#philosophy">Philosophy</a>
+                <a href="#philosophy" data-i18n="navPhilosophy">
+                    Philosophy
+                </a>
             </li>
 
             <li>
-                <a href="#acting">Acting</a>
+                <a href="#acting" data-i18n="navActing">
+                    Acting
+                </a>
             </li>
 
             <li>
-                <a href="#creative">Creative</a>
+                <a href="#creative" data-i18n="navCreative">
+                    Creative
+                </a>
             </li>
 
             <li>
-                <a href="#shop">Shop</a>
+                <a href="#shop" data-i18n="navShop">
+                    Shop
+                </a>
             </li>
 
             <li>
-                <a href="#contact">Contact</a>
+                <a href="#contact" data-i18n="navContact">
+                    Contact
+                </a>
             </li>
 
         </ul>
+
+
+        <div class="top-controls">
+
+            <button
+                class="language-button"
+                onclick="changeLanguage()"
+                id="languageButton"
+            >
+                AR
+            </button>
+
+            <button
+                class="login-button"
+                onclick="openLogin()"
+                data-i18n="login"
+            >
+                Login
+            </button>
+
+        </div>
 
     </nav>
 
@@ -1506,16 +1871,19 @@
 
         <div class="hero-content">
 
-            <div class="eyebrow">
+            <div class="eyebrow" data-i18n="eyebrow">
                 Independent Creative Brand
             </div>
 
             <h1>
-                <span class="green">Anas</span>
-                <span class="green">Ayman</span>
+                <span class="yellow">Anas</span>
+                <span class="yellow">Ayman</span>
             </h1>
 
-            <p class="hero-description">
+            <p
+                class="hero-description"
+                data-i18n="heroDescription"
+            >
                 Computer Science student, actor, philosopher
                 and creative entrepreneur building a distinctive
                 personal brand across technology, performance,
@@ -1527,6 +1895,7 @@
                 <a
                     href="#about"
                     class="btn primary"
+                    data-i18n="discover"
                 >
                     Discover
                 </a>
@@ -1534,6 +1903,7 @@
                 <a
                     href="#contact"
                     class="btn secondary"
+                    data-i18n="connect"
                 >
                     Connect
                 </a>
@@ -1543,6 +1913,67 @@
         </div>
 
     </section>
+
+
+    <!-- =========================================================
+         MOVING BRAND TEXT
+    ========================================================= -->
+
+    <div class="marquee">
+
+        <div class="marquee-track">
+
+            <span data-i18n="marquee1">
+                About Me
+            </span>
+
+            <span data-i18n="marquee2">
+                My Brand
+            </span>
+
+            <span data-i18n="marquee3">
+                Computer Science
+            </span>
+
+            <span data-i18n="marquee4">
+                Acting
+            </span>
+
+            <span data-i18n="marquee5">
+                Philosophy
+            </span>
+
+            <span data-i18n="marquee6">
+                Creative Direction
+            </span>
+
+            <span data-i18n="marquee1">
+                About Me
+            </span>
+
+            <span data-i18n="marquee2">
+                My Brand
+            </span>
+
+            <span data-i18n="marquee3">
+                Computer Science
+            </span>
+
+            <span data-i18n="marquee4">
+                Acting
+            </span>
+
+            <span data-i18n="marquee5">
+                Philosophy
+            </span>
+
+            <span data-i18n="marquee6">
+                Creative Direction
+            </span>
+
+        </div>
+
+    </div>
 
 
     <!-- =========================================================
@@ -1558,11 +1989,21 @@
             </div>
 
             <h2 class="section-title">
-                Built with
-                <span class="green">purpose.</span>
+                <span data-i18n="aboutTitle">
+                    Built with
+                </span>
+
+                <span class="yellow">
+                    <span data-i18n="purpose">
+                        purpose.
+                    </span>
+                </span>
             </h2>
 
-            <p class="section-description">
+            <p
+                class="section-description"
+                data-i18n="aboutDescription"
+            >
                 A personal brand designed around technology,
                 performance, philosophy and creative collaboration.
             </p>
@@ -1574,20 +2015,23 @@
 
             <div class="about-text reveal-left">
 
-                <p>
+                <p data-i18n="aboutP1">
                     Anas Ayman is developing a multidisciplinary
                     creative identity that connects Computer Science
                     with acting, philosophy and modern visual culture.
                 </p>
 
-                <p>
+                <p data-i18n="aboutP2">
                     His approach combines technical thinking with
                     storytelling, performance and creative direction
                     to build projects that are distinctive,
                     contemporary and memorable.
                 </p>
 
-                <div class="about-highlight">
+                <div
+                    class="about-highlight"
+                    data-i18n="aboutQuote"
+                >
                     Technology is the discipline.
                     Creativity is the identity.
                     Performance is the expression.
@@ -1598,11 +2042,11 @@
 
             <div class="about-card reveal-right">
 
-                <h3>
+                <h3 data-i18n="brandTitle">
                     THE BRAND
                 </h3>
 
-                <p>
+                <p data-i18n="brandText1">
                     Anas Ayman represents an evolving independent
                     creative brand focused on collaboration,
                     personal development and original work.
@@ -1610,7 +2054,7 @@
 
                 <br>
 
-                <p>
+                <p data-i18n="brandText2">
                     The brand welcomes collaboration with actors,
                     directors, fashion models, graphic designers,
                     applied-arts professionals and creative teams.
@@ -1624,7 +2068,7 @@
 
 
     <!-- =========================================================
-         COMPUTER SCIENCE
+         DISCIPLINES
     ========================================================= -->
 
     <section id="skills">
@@ -1636,8 +2080,13 @@
             </div>
 
             <h2 class="section-title">
-                Multiple
-                <span class="green">dimensions.</span>
+                <span data-i18n="multiple">
+                    Multiple
+                </span>
+
+                <span class="yellow" data-i18n="dimensions">
+                    dimensions.
+                </span>
             </h2>
 
         </div>
@@ -1651,11 +2100,11 @@
                     01
                 </div>
 
-                <h3>
+                <h3 data-i18n="csTitle">
                     Computer Science
                 </h3>
 
-                <p>
+                <p data-i18n="csText">
                     Developing technical knowledge through
                     programming, software concepts, problem solving
                     and digital projects.
@@ -1670,11 +2119,11 @@
                     02
                 </div>
 
-                <h3>
+                <h3 data-i18n="actingTitle">
                     Acting
                 </h3>
 
-                <p>
+                <p data-i18n="actingText">
                     Exploring performance through university theatre,
                     acting scenes and stage experience.
                 </p>
@@ -1688,11 +2137,11 @@
                     03
                 </div>
 
-                <h3>
+                <h3 data-i18n="philosophyTitle">
                     Philosophy
                 </h3>
 
-                <p>
+                <p data-i18n="philosophyText">
                     Developing an original perspective on life,
                     meaning, adaptation, strength and personal value.
                 </p>
@@ -1706,11 +2155,11 @@
                     04
                 </div>
 
-                <h3>
+                <h3 data-i18n="creativeTitle">
                     Creative Direction
                 </h3>
 
-                <p>
+                <p data-i18n="creativeText">
                     Connecting visual concepts, fashion, graphic
                     design and storytelling into coherent creative
                     experiences.
@@ -1725,11 +2174,11 @@
                     05
                 </div>
 
-                <h3>
+                <h3 data-i18n="brandDevelopment">
                     Brand Development
                 </h3>
 
-                <p>
+                <p data-i18n="brandDevelopmentText">
                     Building a recognizable identity through
                     consistency, presentation and meaningful
                     creative partnerships.
@@ -1744,11 +2193,11 @@
                     06
                 </div>
 
-                <h3>
+                <h3 data-i18n="collaboration">
                     Collaboration
                 </h3>
 
-                <p>
+                <p data-i18n="collaborationText">
                     Creating opportunities for artists, designers,
                     models, engineers and creative professionals
                     to work together.
@@ -1762,7 +2211,7 @@
 
 
     <!-- =========================================================
-         O6U UNIVERSITY
+         O6U
     ========================================================= -->
 
     <section id="university">
@@ -1774,11 +2223,21 @@
             </div>
 
             <h2 class="section-title">
-                <span class="green">O6U</span>
-                Experience.
+
+                <span class="yellow">
+                    O6U
+                </span>
+
+                <span data-i18n="experience">
+                    Experience.
+                </span>
+
             </h2>
 
-            <p class="section-description">
+            <p
+                class="section-description"
+                data-i18n="universityDescription"
+            >
                 University life is part of the foundation behind
                 the brand — combining academic development,
                 technology and creative performance.
@@ -1789,7 +2248,6 @@
 
         <div class="university-grid">
 
-            <!-- O6U PHOTO 1 -->
 
             <div class="university-photo reveal-left">
 
@@ -1814,13 +2272,11 @@
             </div>
 
 
-            <!-- O6U PHOTO 2 -->
-
             <div class="university-photo reveal-right">
 
                 <img
                     src="images/o6u-2.jpg"
-                    alt="6th October University O6U university"
+                    alt="6th October University O6U"
                     loading="lazy"
                 >
 
@@ -1843,8 +2299,8 @@
 
         <div class="university-info reveal">
 
-            <p>
-                <strong class="green">
+            <p data-i18n="universityInfo">
+                <strong class="yellow">
                     6th October University — O6U
                 </strong>
                 represents an important part of Anas Ayman's
@@ -1871,42 +2327,50 @@
             </div>
 
             <h2 class="section-title">
-                A personal
-                <span class="green">philosophy.</span>
+
+                <span data-i18n="personal">
+                    A personal
+                </span>
+
+                <span
+                    class="yellow"
+                    data-i18n="philosophyWord"
+                >
+                    philosophy.
+                </span>
+
             </h2>
 
         </div>
 
-
-        <!-- PHILOSOPHY IMAGES -->
 
         <div class="philosophy-gallery">
 
             <img
                 class="reveal"
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHxwfeU_w7o96APAA2UF-PYTlCJaKu5fZxRRkfVhhqyQ&s=10"
-                alt="Philosophy visual 1"
+                alt="Philosophy visual"
                 loading="lazy"
             >
 
             <img
                 class="reveal"
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMus2Y2cPqZmv5r5KdZHYohljXxU9JHcTKakDlKvufMA&s=10"
-                alt="Philosophy visual 2"
+                alt="Philosophy visual"
                 loading="lazy"
             >
 
             <img
                 class="reveal"
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRabe5Lk4jcqx7VB6lTxZfBCAigWAQrggu-pjtszgyLg&s=10"
-                alt="Philosophy visual 3"
+                alt="Philosophy visual"
                 loading="lazy"
             >
 
             <img
                 class="reveal"
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT82zLOwGF_UsswF8lbDKQf8Nm-6oMcO83pVs38WUIRiw&s=10"
-                alt="Philosophy visual 4"
+                alt="Philosophy visual"
                 loading="lazy"
             >
 
@@ -1960,10 +2424,9 @@
             </p>
 
             <p class="reveal">
-                He alone possesses perfection.
-                We are all dead within the sea of life.
-                Our purpose is simply to reach the closest possible
-                distance to perfection and idealism.
+                He alone possesses perfection. We are all dead within
+                the sea of life. Our purpose is simply to reach the
+                closest possible distance to perfection and idealism.
             </p>
 
 
@@ -1994,9 +2457,9 @@
             </p>
 
             <p class="reveal">
-                At the same time, water gives life when you drink it.
-                It can also drown you if you underestimate its value
-                and enter its depths without respect.
+                Water gives life when you drink it. It can also
+                overwhelm you if you underestimate its power and
+                enter its depths without respect.
             </p>
 
             <p class="reveal">
@@ -2023,18 +2486,6 @@
                 as we can.”
             </div>
 
-
-            <h3 class="reveal">
-                My Perspective
-            </h3>
-
-            <p class="reveal">
-                This philosophy represents the perspective through
-                which I choose to understand life. It is a framework
-                built around meaning, adaptation, personal value,
-                strength and the awareness of mortality.
-            </p>
-
         </div>
 
     </section>
@@ -2054,10 +2505,15 @@
 
             <h2 class="section-title">
                 Theatre.
-                <span class="green">Performance.</span>
+                <span class="yellow">
+                    Performance.
+                </span>
             </h2>
 
-            <p class="section-description">
+            <p
+                class="section-description"
+                data-i18n="actingDescription"
+            >
                 Selected university performance work documenting
                 acting scenes and stage experience.
             </p>
@@ -2068,20 +2524,20 @@
         <div class="video-grid">
 
 
-            <!-- VIDEO 1 -->
-
             <div class="video-card reveal">
 
                 <video
                     controls
                     preload="metadata"
                 >
+
                     <source
                         src="videos/acting-scene-1.mp4"
                         type="video/mp4"
                     >
 
                     Your browser does not support video playback.
+
                 </video>
 
                 <div class="video-info">
@@ -2104,20 +2560,20 @@
             </div>
 
 
-            <!-- VIDEO 2 -->
-
             <div class="video-card reveal">
 
                 <video
                     controls
                     preload="metadata"
                 >
+
                     <source
                         src="videos/acting-scene-2.mp4"
                         type="video/mp4"
                     >
 
                     Your browser does not support video playback.
+
                 </video>
 
                 <div class="video-info">
@@ -2131,8 +2587,7 @@
                     </h3>
 
                     <p>
-                        A second university acting performance
-                        demonstrating character and delivery.
+                        A second university acting performance.
                     </p>
 
                 </div>
@@ -2140,20 +2595,20 @@
             </div>
 
 
-            <!-- STAGE -->
-
             <div class="video-card reveal">
 
                 <video
                     controls
                     preload="metadata"
                 >
+
                     <source
                         src="videos/university-stage.mp4"
                         type="video/mp4"
                     >
 
                     Your browser does not support video playback.
+
                 </video>
 
                 <div class="video-info">
@@ -2167,8 +2622,7 @@
                     </h3>
 
                     <p>
-                        A visual record of the university stage
-                        environment and theatrical experience.
+                        A visual record of the university stage.
                     </p>
 
                 </div>
@@ -2181,7 +2635,7 @@
 
 
     <!-- =========================================================
-         CREATIVE / GRAPHIC DESIGN
+         CREATIVE
     ========================================================= -->
 
     <section id="creative">
@@ -2194,10 +2648,15 @@
 
             <h2 class="section-title">
                 Visual
-                <span class="green">culture.</span>
+                <span class="yellow">
+                    culture.
+                </span>
             </h2>
 
-            <p class="section-description">
+            <p
+                class="section-description"
+                data-i18n="creativeDescription"
+            >
                 Creative collaborations connecting graphic design,
                 fashion, applied arts and brand communication.
             </p>
@@ -2212,7 +2671,7 @@
 
                 <img
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYfd1WIXMOaiAA_HMNxKjty64vkOuCPzup8e8Au4sP7Q&s=10"
-                    alt="Graphic design project 1"
+                    alt="Graphic design 1"
                     loading="lazy"
                 >
 
@@ -2235,7 +2694,7 @@
 
                 <img
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-X6DWZVLodF2eEqn3TiFTayNlRhL28-32RA2CaomUDA&s=10"
-                    alt="Graphic design project 2"
+                    alt="Graphic design 2"
                     loading="lazy"
                 >
 
@@ -2246,7 +2705,7 @@
                     </h3>
 
                     <div class="design-price">
-                        EGP 450
+                        EGP 650
                     </div>
 
                 </div>
@@ -2258,7 +2717,7 @@
 
                 <img
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqKTWwNOfrSL2NNPZ1FwTrXxAI9HFIjWOTwAh0oyvcWA&s=10"
-                    alt="Graphic design project 3"
+                    alt="Graphic design 3"
                     loading="lazy"
                 >
 
@@ -2269,7 +2728,7 @@
                     </h3>
 
                     <div class="design-price">
-                        EGP 450
+                        EGP 800
                     </div>
 
                 </div>
@@ -2281,7 +2740,7 @@
 
                 <img
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO6Zp6DX9a7Yc4W5YhPM45JDRa2J-JlfVETf3If-Hbxw&s=10"
-                    alt="Graphic design project 4"
+                    alt="Graphic design 4"
                     loading="lazy"
                 >
 
@@ -2292,7 +2751,7 @@
                     </h3>
 
                     <div class="design-price">
-                        EGP 450
+                        EGP 950
                     </div>
 
                 </div>
@@ -2304,7 +2763,7 @@
 
                 <img
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1L95aqZrKI-3jUoR1kqPZgJF5FwfneN1KZpNOjM3M0Q&s=10"
-                    alt="Graphic design project 5"
+                    alt="Graphic design 5"
                     loading="lazy"
                 >
 
@@ -2315,7 +2774,7 @@
                     </h3>
 
                     <div class="design-price">
-                        EGP 450
+                        EGP 1,200
                     </div>
 
                 </div>
@@ -2325,10 +2784,7 @@
         </div>
 
 
-        <!-- FEATURED WORK -->
-
         <div class="featured-work">
-
 
             <figure class="reveal-left">
 
@@ -2359,7 +2815,6 @@
 
             </figure>
 
-
         </div>
 
     </section>
@@ -2379,13 +2834,15 @@
 
             <h2 class="section-title">
                 Built through
-                <span class="green">collaboration.</span>
+                <span class="yellow">
+                    collaboration.
+                </span>
             </h2>
 
             <p class="section-description">
                 The brand is open to meaningful creative partnerships
-                with professionals who share a commitment to
-                originality and quality.
+                with professionals who share a commitment to originality
+                and quality.
             </p>
 
         </div>
@@ -2394,110 +2851,57 @@
         <div class="cards-grid">
 
             <div class="card reveal">
-
-                <div class="card-number">
-                    01
-                </div>
-
-                <h3>
-                    Graphic Designers
-                </h3>
-
+                <div class="card-number">01</div>
+                <h3>Graphic Designers</h3>
                 <p>
                     Visual identity, campaigns, posters,
                     digital artwork and creative communication.
                 </p>
-
             </div>
 
-
             <div class="card reveal">
-
-                <div class="card-number">
-                    02
-                </div>
-
-                <h3>
-                    Applied Arts
-                </h3>
-
+                <div class="card-number">02</div>
+                <h3>Applied Arts</h3>
                 <p>
                     Collaboration with applied-arts designers,
                     engineers and creative specialists.
                 </p>
-
             </div>
 
-
             <div class="card reveal">
-
-                <div class="card-number">
-                    03
-                </div>
-
-                <h3>
-                    Fashion Models
-                </h3>
-
+                <div class="card-number">03</div>
+                <h3>Fashion Models</h3>
                 <p>
                     Fashion campaigns, product presentation
                     and visual brand storytelling.
                 </p>
-
             </div>
 
-
             <div class="card reveal">
-
-                <div class="card-number">
-                    04
-                </div>
-
-                <h3>
-                    Actors & Directors
-                </h3>
-
+                <div class="card-number">04</div>
+                <h3>Actors & Directors</h3>
                 <p>
                     Performance projects, short scenes,
                     theatre productions and creative direction.
                 </p>
-
             </div>
 
-
             <div class="card reveal">
-
-                <div class="card-number">
-                    05
-                </div>
-
-                <h3>
-                    Creative Teams
-                </h3>
-
+                <div class="card-number">05</div>
+                <h3>Creative Teams</h3>
                 <p>
-                    Cross-disciplinary projects bringing technology,
-                    design and performance together.
+                    Cross-disciplinary projects bringing
+                    technology, design and performance together.
                 </p>
-
             </div>
 
-
             <div class="card reveal">
-
-                <div class="card-number">
-                    06
-                </div>
-
-                <h3>
-                    Brands
-                </h3>
-
+                <div class="card-number">06</div>
+                <h3>Brands</h3>
                 <p>
                     Product campaigns, creative partnerships
                     and modern brand communication.
                 </p>
-
             </div>
 
         </div>
@@ -2519,12 +2923,10 @@
 
             <h2 class="section-title">
                 Selected
-                <span class="green">work.</span>
+                <span class="yellow">
+                    work.
+                </span>
             </h2>
-
-            <p class="section-description">
-                Selected creative products and services.
-            </p>
 
         </div>
 
@@ -2619,12 +3021,11 @@
                     </h3>
 
                     <p>
-                        A creative package for personal or
-                        emerging brands.
+                        A creative package for emerging brands.
                     </p>
 
                     <div class="product-price">
-                        EGP 1,200
+                        EGP 1,350
                     </div>
 
                     <button
@@ -2632,7 +3033,7 @@
                         onclick="
                             addToChart(
                                 'Brand Creative Package',
-                                1200
+                                1350
                             )
                         "
                     >
@@ -2661,7 +3062,7 @@
                     </p>
 
                     <div class="product-price">
-                        EGP 1,500
+                        EGP 1,750
                     </div>
 
                     <button
@@ -2669,7 +3070,7 @@
                         onclick="
                             addToChart(
                                 'Fashion Model Campaign',
-                                1500
+                                1750
                             )
                         "
                     >
@@ -2698,7 +3099,7 @@
                     </p>
 
                     <div class="product-price">
-                        EGP 2,000
+                        EGP 2,250
                     </div>
 
                     <button
@@ -2706,7 +3107,7 @@
                         onclick="
                             addToChart(
                                 'Graphic Identity',
-                                2000
+                                2250
                             )
                         "
                     >
@@ -2731,8 +3132,7 @@
                     </h3>
 
                     <p>
-                        A focused consultation for creative
-                        direction and brand development.
+                        Focused creative direction and brand development.
                     </p>
 
                     <div class="product-price">
@@ -2757,8 +3157,6 @@
 
         </div>
 
-
-        <!-- CHART -->
 
         <div class="chart-box reveal">
 
@@ -2793,12 +3191,10 @@
 
             <h2 class="section-title">
                 Secure
-                <span class="green">checkout.</span>
+                <span class="yellow">
+                    checkout.
+                </span>
             </h2>
-
-            <p class="section-description">
-                Select your preferred payment method.
-            </p>
 
         </div>
 
@@ -2846,8 +3242,6 @@
             </div>
 
 
-            <!-- INSTAPAY -->
-
             <div
                 id="instapay"
                 class="payment-panel active"
@@ -2877,8 +3271,6 @@
             </div>
 
 
-            <!-- VISA -->
-
             <div
                 id="visa"
                 class="payment-panel"
@@ -2888,8 +3280,9 @@
                     class="payment-form"
                     onsubmit="
                         event.preventDefault();
+
                         alert(
-                            'Visa checkout is a front-end demonstration. A real payment gateway is required to process cards.'
+                            'Visa checkout is currently a front-end demonstration. Connect a real payment gateway before accepting card payments.'
                         );
                     "
                 >
@@ -2932,8 +3325,8 @@
 
                 <p class="demo-note">
                     This interface does not process or store real
-                    card information. For production use, connect
-                    the website to a certified payment provider.
+                    card information. A certified payment provider
+                    is required for production.
                 </p>
 
             </div>
@@ -2957,15 +3350,17 @@
 
             <h2>
                 Let's create
-                <span class="green">something</span>
+                <span class="yellow">
+                    something
+                </span>
                 meaningful.
             </h2>
 
             <p>
                 For creative collaborations, acting projects,
-                graphic design, fashion campaigns, brand
-                partnerships or technology-related opportunities,
-                connect with Anas Ayman.
+                graphic design, fashion campaigns, brand partnerships
+                or technology-related opportunities, connect with
+                Anas Ayman.
             </p>
 
             <div class="contact-links">
@@ -2975,7 +3370,7 @@
                     class="btn primary"
                     onclick="
                         alert(
-                            'Add your Instagram or professional contact link here.'
+                            'Add your Instagram URL here.'
                         );
                         return false;
                     "
@@ -3020,37 +3415,650 @@
 
 
     <!-- =========================================================
+         LOGIN MODAL
+    ========================================================= -->
+
+    <div
+        class="login-overlay"
+        id="loginOverlay"
+        onclick="closeLoginOutside(event)"
+    >
+
+        <div class="login-box">
+
+            <button
+                class="close-login"
+                onclick="closeLogin()"
+            >
+                ×
+            </button>
+
+            <h2>
+                Welcome.
+            </h2>
+
+            <p>
+                Sign in to your Anas Ayman account.
+            </p>
+
+
+            <div class="social-login">
+
+                <button
+                    class="social-button"
+                    onclick="socialLogin('Google')"
+                >
+                    Continue with Google
+                </button>
+
+                <button
+                    class="social-button"
+                    onclick="socialLogin('Facebook')"
+                >
+                    Continue with Facebook
+                </button>
+
+                <button
+                    class="social-button"
+                    onclick="socialLogin('Gmail')"
+                >
+                    Continue with Gmail
+                </button>
+
+            </div>
+
+
+            <div class="divider">
+                OR
+            </div>
+
+
+            <form
+                onsubmit="
+                    event.preventDefault();
+
+                    alert(
+                        'Demo login submitted. Connect authentication to make this functional.'
+                    );
+                "
+            >
+
+                <input
+                    class="login-input"
+                    type="email"
+                    placeholder="Email address"
+                    required
+                >
+
+                <input
+                    class="login-input"
+                    type="password"
+                    placeholder="Password"
+                    required
+                >
+
+                <button
+                    class="login-submit"
+                    type="submit"
+                >
+                    Login
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
          JAVASCRIPT
     ========================================================= -->
 
     <script>
 
+
         /* =========================================================
-           CINEMATIC GREEN → BLACK SCROLL SYSTEM
+           LANGUAGE SYSTEM
         ========================================================= */
 
-        const root =
-            document.documentElement;
+        let currentLanguage = "en";
 
-        const background =
-            document.querySelector(
-                '.cinematic-background'
+
+        const translations = {
+
+            en: {
+
+                navAbout: "About",
+                navUniversity: "O6U",
+                navPhilosophy: "Philosophy",
+                navActing: "Acting",
+                navCreative: "Creative",
+                navShop: "Shop",
+                navContact: "Contact",
+
+                login: "Login",
+
+                eyebrow:
+                    "Independent Creative Brand",
+
+                heroDescription:
+                    "Computer Science student, actor, philosopher and creative entrepreneur building a distinctive personal brand across technology, performance, culture and visual creativity.",
+
+                discover:
+                    "Discover",
+
+                connect:
+                    "Connect",
+
+                marquee1:
+                    "About Me",
+
+                marquee2:
+                    "My Brand",
+
+                marquee3:
+                    "Computer Science",
+
+                marquee4:
+                    "Acting",
+
+                marquee5:
+                    "Philosophy",
+
+                marquee6:
+                    "Creative Direction",
+
+                aboutTitle:
+                    "Built with",
+
+                purpose:
+                    "purpose.",
+
+                aboutDescription:
+                    "A personal brand designed around technology, performance, philosophy and creative collaboration.",
+
+                aboutP1:
+                    "Anas Ayman is developing a multidisciplinary creative identity that connects Computer Science with acting, philosophy and modern visual culture.",
+
+                aboutP2:
+                    "His approach combines technical thinking with storytelling, performance and creative direction to build projects that are distinctive, contemporary and memorable.",
+
+                aboutQuote:
+                    "Technology is the discipline. Creativity is the identity. Performance is the expression.",
+
+                brandTitle:
+                    "THE BRAND",
+
+                brandText1:
+                    "Anas Ayman represents an evolving independent creative brand focused on collaboration, personal development and original work.",
+
+                brandText2:
+                    "The brand welcomes collaboration with actors, directors, fashion models, graphic designers, applied-arts professionals and creative teams.",
+
+                multiple:
+                    "Multiple",
+
+                dimensions:
+                    "dimensions.",
+
+                csTitle:
+                    "Computer Science",
+
+                csText:
+                    "Developing technical knowledge through programming, software concepts, problem solving and digital projects.",
+
+                actingTitle:
+                    "Acting",
+
+                actingText:
+                    "Exploring performance through university theatre, acting scenes and stage experience.",
+
+                philosophyTitle:
+                    "Philosophy",
+
+                philosophyText:
+                    "Developing an original perspective on life, meaning, adaptation, strength and personal value.",
+
+                creativeTitle:
+                    "Creative Direction",
+
+                creativeText:
+                    "Connecting visual concepts, fashion, graphic design and storytelling into coherent creative experiences.",
+
+                brandDevelopment:
+                    "Brand Development",
+
+                brandDevelopmentText:
+                    "Building a recognizable identity through consistency, presentation and meaningful creative partnerships.",
+
+                collaboration:
+                    "Collaboration",
+
+                collaborationText:
+                    "Creating opportunities for artists, designers, models, engineers and creative professionals to work together.",
+
+                experience:
+                    "Experience.",
+
+                universityDescription:
+                    "University life is part of the foundation behind the brand — combining academic development, technology and creative performance.",
+
+                universityInfo:
+                    "6th October University — O6U represents an important part of Anas Ayman's academic journey, where Computer Science, university theatre and creative development come together.",
+
+                personal:
+                    "A personal",
+
+                philosophyWord:
+                    "philosophy.",
+
+                actingDescription:
+                    "Selected university performance work documenting acting scenes and stage experience.",
+
+                creativeDescription:
+                    "Creative collaborations connecting graphic design, fashion, applied arts and brand communication."
+
+            },
+
+
+            ar: {
+
+                navAbout: "نبذة عني",
+                navUniversity: "أكتوبر",
+                navPhilosophy: "الفلسفة",
+                navActing: "التمثيل",
+                navCreative: "الإبداع",
+                navShop: "المتجر",
+                navContact: "تواصل",
+
+                login: "تسجيل الدخول",
+
+                eyebrow:
+                    "علامة إبداعية مستقلة",
+
+                heroDescription:
+                    "طالب علوم حاسب، ممثل، وفيلسوف ورائد أعمال إبداعي أبني هوية شخصية مميزة تجمع بين التكنولوجيا والأداء والثقافة والإبداع البصري.",
+
+                discover:
+                    "اكتشف",
+
+                connect:
+                    "تواصل",
+
+                marquee1:
+                    "نبذة عني",
+
+                marquee2:
+                    "علامتي التجارية",
+
+                marquee3:
+                    "علوم الحاسب",
+
+                marquee4:
+                    "التمثيل",
+
+                marquee5:
+                    "الفلسفة",
+
+                marquee6:
+                    "الإبداع",
+
+                aboutTitle:
+                    "نبني بـ",
+
+                purpose:
+                    "هدف.",
+
+                aboutDescription:
+                    "علامة شخصية تقوم على التكنولوجيا والأداء والفلسفة والتعاون الإبداعي.",
+
+                aboutP1:
+                    "يطور أنس أيمن هوية إبداعية متعددة المجالات تربط بين علوم الحاسب والتمثيل والفلسفة والثقافة البصرية الحديثة.",
+
+                aboutP2:
+                    "يجمع أسلوبه بين التفكير التقني والسرد والأداء والتوجيه الإبداعي لبناء مشاريع مميزة وعصرية ولا تُنسى.",
+
+                aboutQuote:
+                    "التكنولوجيا هي التخصص. الإبداع هو الهوية. والأداء هو التعبير.",
+
+                brandTitle:
+                    "العلامة التجارية",
+
+                brandText1:
+                    "أنس أيمن يمثل علامة إبداعية مستقلة ومتطورة تركز على التعاون والتطور الشخصي والعمل الأصلي.",
+
+                brandText2:
+                    "العلامة ترحب بالتعاون مع الممثلين والمخرجين وعارضات وعارضي الأزياء والمصممين والمتخصصين في الفنون التطبيقية والفرق الإبداعية.",
+
+                multiple:
+                    "أبعاد",
+
+                dimensions:
+                    "متعددة.",
+
+                csTitle:
+                    "علوم الحاسب",
+
+                csText:
+                    "تطوير المعرفة التقنية من خلال البرمجة ومفاهيم البرمجيات وحل المشكلات والمشاريع الرقمية.",
+
+                actingTitle:
+                    "التمثيل",
+
+                actingText:
+                    "تطوير الأداء من خلال مسرح الجامعة والمشاهد التمثيلية والخبرة المسرحية.",
+
+                philosophyTitle:
+                    "الفلسفة",
+
+                philosophyText:
+                    "تطوير رؤية شخصية للحياة والمعنى والتكيف والقوة والقيمة الذاتية.",
+
+                creativeTitle:
+                    "الإخراج الإبداعي",
+
+                creativeText:
+                    "ربط الأفكار البصرية والموضة والتصميم الجرافيكي والسرد في تجارب إبداعية متكاملة.",
+
+                brandDevelopment:
+                    "تطوير العلامة",
+
+                brandDevelopmentText:
+                    "بناء هوية يمكن التعرف عليها من خلال الاستمرارية والتقديم والشراكات الإبداعية.",
+
+                collaboration:
+                    "التعاون",
+
+                collaborationText:
+                    "خلق فرص تجمع الفنانين والمصممين وعارضي الأزياء والمهندسين والمحترفين في المجالات الإبداعية.",
+
+                experience:
+                    "التجربة.",
+
+                universityDescription:
+                    "الحياة الجامعية جزء من الأساس الذي تقوم عليه العلامة، حيث تجمع بين التطور الأكاديمي والتكنولوجيا والأداء الإبداعي.",
+
+                universityInfo:
+                    "جامعة 6 أكتوبر — O6U تمثل جزءًا مهمًا من رحلة أنس أيمن الأكاديمية، حيث تجتمع علوم الحاسب ومسرح الجامعة والتطور الإبداعي.",
+
+                personal:
+                    "فلسفتي",
+
+                philosophyWord:
+                    "الشخصية.",
+
+                actingDescription:
+                    "مجموعة مختارة من أعمال الأداء المسرحي في الجامعة، وتشمل مشاهد تمثيلية وتجارب على المسرح.",
+
+                creativeDescription:
+                    "تعاونات إبداعية تجمع بين التصميم الجرافيكي والموضة والفنون التطبيقية والتواصل البصري للعلامات التجارية."
+
+            },
+
+
+            fr: {
+
+                navAbout: "À propos",
+                navUniversity: "O6U",
+                navPhilosophy: "Philosophie",
+                navActing: "Acting",
+                navCreative: "Créatif",
+                navShop: "Boutique",
+                navContact: "Contact",
+
+                login: "Connexion",
+
+                eyebrow:
+                    "Marque créative indépendante",
+
+                heroDescription:
+                    "Étudiant en informatique, acteur, philosophe et entrepreneur créatif développant une identité personnelle distinctive entre technologie, performance, culture et création visuelle.",
+
+                discover:
+                    "Découvrir",
+
+                connect:
+                    "Contact",
+
+                marquee1:
+                    "À propos de moi",
+
+                marquee2:
+                    "Ma marque",
+
+                marquee3:
+                    "Informatique",
+
+                marquee4:
+                    "Acting",
+
+                marquee5:
+                    "Philosophie",
+
+                marquee6:
+                    "Direction créative",
+
+                aboutTitle:
+                    "Construit avec",
+
+                purpose:
+                    "une vision.",
+
+                aboutDescription:
+                    "Une marque personnelle fondée sur la technologie, la performance, la philosophie et la collaboration créative.",
+
+                aboutP1:
+                    "Anas Ayman développe une identité créative multidisciplinaire reliant l'informatique, le théâtre, la philosophie et la culture visuelle contemporaine.",
+
+                aboutP2:
+                    "Son approche associe réflexion technique, narration, performance et direction créative afin de créer des projets distinctifs et contemporains.",
+
+                aboutQuote:
+                    "La technologie est la discipline. La créativité est l'identité. La performance est l'expression.",
+
+                brandTitle:
+                    "LA MARQUE",
+
+                brandText1:
+                    "Anas Ayman représente une marque créative indépendante en évolution, axée sur la collaboration, le développement personnel et les projets originaux.",
+
+                brandText2:
+                    "La marque accueille les collaborations avec acteurs, réalisateurs, mannequins, graphistes, professionnels des arts appliqués et équipes créatives.",
+
+                multiple:
+                    "Plusieurs",
+
+                dimensions:
+                    "dimensions.",
+
+                csTitle:
+                    "Informatique",
+
+                csText:
+                    "Développement des compétences techniques à travers la programmation, les logiciels, la résolution de problèmes et les projets numériques.",
+
+                actingTitle:
+                    "Acting",
+
+                actingText:
+                    "Exploration de la performance à travers le théâtre universitaire et les scènes d'interprétation.",
+
+                philosophyTitle:
+                    "Philosophie",
+
+                philosophyText:
+                    "Développement d'une perspective personnelle sur la vie, le sens, l'adaptation, la force et la valeur personnelle.",
+
+                creativeTitle:
+                    "Direction créative",
+
+                creativeText:
+                    "Association de concepts visuels, mode, design graphique et narration dans des expériences créatives cohérentes.",
+
+                brandDevelopment:
+                    "Développement de marque",
+
+                brandDevelopmentText:
+                    "Construction d'une identité reconnaissable grâce à la cohérence, la présentation et les partenariats créatifs.",
+
+                collaboration:
+                    "Collaboration",
+
+                collaborationText:
+                    "Créer des opportunités réunissant artistes, designers, mannequins, ingénieurs et professionnels créatifs.",
+
+                experience:
+                    "Expérience.",
+
+                universityDescription:
+                    "La vie universitaire constitue une partie importante de la fondation de la marque, réunissant développement académique, technologie et performance créative.",
+
+                universityInfo:
+                    "L'Université du 6 Octobre — O6U représente une partie importante du parcours académique d'Anas Ayman, où informatique, théâtre universitaire et développement créatif se rencontrent.",
+
+                personal:
+                    "Une",
+
+                philosophyWord:
+                    "philosophie.",
+
+                actingDescription:
+                    "Une sélection de performances universitaires présentant des scènes d'acting et des expériences sur scène.",
+
+                creativeDescription:
+                    "Des collaborations créatives réunissant design graphique, mode, arts appliqués et communication de marque."
+
+            }
+
+        };
+
+
+        const languageOrder =
+            ["en", "ar", "fr"];
+
+
+        function changeLanguage() {
+
+            const currentIndex =
+                languageOrder.indexOf(
+                    currentLanguage
+                );
+
+            const nextIndex =
+                (
+                    currentIndex + 1
+                )
+                %
+                languageOrder.length;
+
+
+            currentLanguage =
+                languageOrder[nextIndex];
+
+
+            applyLanguage();
+
+        }
+
+
+        function applyLanguage() {
+
+            const language =
+                translations[
+                    currentLanguage
+                ];
+
+
+            document
+                .querySelectorAll(
+                    "[data-i18n]"
+                )
+                .forEach(
+                    element => {
+
+                        const key =
+                            element.dataset.i18n;
+
+                        if (
+                            language[key]
+                        ) {
+
+                            element.textContent =
+                                language[key];
+
+                        }
+
+                    }
+                );
+
+
+            const isArabic =
+                currentLanguage === "ar";
+
+
+            document.documentElement.lang =
+                currentLanguage;
+
+            document.documentElement.dir =
+                isArabic
+                    ? "rtl"
+                    : "ltr";
+
+
+            document.body.classList.toggle(
+                "rtl",
+                isArabic
             );
 
-        const progressBar =
-            document.querySelector(
-                '.scroll-progress'
-            );
+
+            const languageButton =
+                document.getElementById(
+                    "languageButton"
+                );
 
 
-        function updateScroll() {
+            if (
+                currentLanguage === "en"
+            ) {
+
+                languageButton.textContent =
+                    "AR";
+
+            } else if (
+                currentLanguage === "ar"
+            ) {
+
+                languageButton.textContent =
+                    "FR";
+
+            } else {
+
+                languageButton.textContent =
+                    "EN";
+
+            }
+
+        }
+
+
+        /* =========================================================
+           CINEMATIC SCROLL COLOR
+           
+           DOWN:
+           Yellow -> Black
+
+           UP:
+           Black -> Yellow
+        ========================================================= */
+
+        function updateScrollColor() {
 
             const scrollTop =
                 window.scrollY;
 
             const maxScroll =
-                document.documentElement
-                    .scrollHeight
+                document.documentElement.scrollHeight
                 -
                 window.innerHeight;
 
@@ -3072,20 +4080,17 @@
 
 
             /*
-             * TOP:
-             * Deep cinematic green
-             *
-             * BOTTOM:
-             * Almost pure black
-             */
+                TOP = very dark yellow
+                BOTTOM = pure black
+            */
 
-            const startR = 4;
-            const startG = 65;
-            const startB = 28;
+            const startR = 35;
+            const startG = 30;
+            const startB = 0;
 
-            const endR = 2;
-            const endG = 2;
-            const endB = 2;
+            const endR = 3;
+            const endG = 3;
+            const endB = 3;
 
 
             const r =
@@ -3094,9 +4099,11 @@
                     (
                         endR -
                         startR
-                    ) *
+                    )
+                    *
                     progress
                 );
+
 
             const g =
                 Math.round(
@@ -3104,9 +4111,11 @@
                     (
                         endG -
                         startG
-                    ) *
+                    )
+                    *
                     progress
                 );
+
 
             const b =
                 Math.round(
@@ -3114,70 +4123,107 @@
                     (
                         endB -
                         startB
-                    ) *
+                    )
+                    *
                     progress
                 );
 
 
             document.body.style.backgroundColor =
-                `rgb(${r}, ${g}, ${b})`;
+                `rgb(${r},${g},${b})`;
 
 
-            background.style.background =
+            /*
+                Yellow glow gradually disappears
+                as we reach the bottom.
+            */
+
+            const glow =
+                0.16 -
+                (
+                    progress * 0.13
+                );
+
+
+            document
+                .querySelector(
+                    ".cinematic-background"
+                )
+                .style.background =
+
                 `
                 radial-gradient(
                     circle at
                     ${50 + Math.sin(progress * Math.PI) * 25}%
                     ${25 + progress * 35}%,
                     rgba(
-                        0,
                         255,
-                        102,
-                        ${0.16 - progress * 0.12}
+                        213,
+                        0,
+                        ${glow}
                     ),
                     transparent 42%
                 )
                 `;
 
 
-            progressBar.style.width =
+            document
+                .querySelector(
+                    ".scroll-progress"
+                )
+                .style.width =
                 `${progress * 100}%`;
-
-
-            /* NAVIGATION */
-
-            const navbar =
-                document.getElementById(
-                    'navbar'
-                );
-
-            if (scrollTop > 50) {
-
-                navbar.classList.add(
-                    'scrolled'
-                );
-
-            } else {
-
-                navbar.classList.remove(
-                    'scrolled'
-                );
-
-            }
 
         }
 
 
         window.addEventListener(
-            'scroll',
-            updateScroll,
+            "scroll",
+            updateScrollColor,
             {
                 passive: true
             }
         );
 
 
-        updateScroll();
+        updateScrollColor();
+
+
+        /* =========================================================
+           NAVIGATION SCROLL
+        ========================================================= */
+
+        const navbar =
+            document.getElementById(
+                "navbar"
+            );
+
+
+        window.addEventListener(
+            "scroll",
+            () => {
+
+                if (
+                    window.scrollY > 50
+                ) {
+
+                    navbar.classList.add(
+                        "scrolled"
+                    );
+
+                } else {
+
+                    navbar.classList.remove(
+                        "scrolled"
+                    );
+
+                }
+
+            },
+            {
+                passive: true
+            }
+        );
 
 
         /* =========================================================
@@ -3186,12 +4232,13 @@
 
         const revealElements =
             document.querySelectorAll(
-                '.reveal, .reveal-left, .reveal-right'
+                ".reveal, .reveal-left, .reveal-right"
             );
 
 
         const revealObserver =
             new IntersectionObserver(
+
                 entries => {
 
                     entries.forEach(
@@ -3204,22 +4251,15 @@
                                 entry.target
                                     .classList
                                     .add(
-                                        'active'
+                                        "active"
                                     );
 
                             } else {
 
-                                /*
-                                 * Remove the class when
-                                 * leaving the screen so
-                                 * the cinematic effect
-                                 * happens again.
-                                 */
-
                                 entry.target
                                     .classList
                                     .remove(
-                                        'active'
+                                        "active"
                                     );
 
                             }
@@ -3228,12 +4268,14 @@
                     );
 
                 },
+
                 {
-                    threshold: 0.12,
+                    threshold: .12,
 
                     rootMargin:
-                        '0px 0px -60px 0px'
+                        "0px 0px -60px 0px"
                 }
+
             );
 
 
@@ -3249,7 +4291,7 @@
 
 
         /* =========================================================
-           PAYMENT
+           PAYMENT SWITCH
         ========================================================= */
 
         function showPayment(
@@ -3259,13 +4301,13 @@
 
             document
                 .querySelectorAll(
-                    '.payment-method'
+                    ".payment-method"
                 )
                 .forEach(
                     item => {
 
                         item.classList.remove(
-                            'active'
+                            "active"
                         );
 
                     }
@@ -3274,13 +4316,13 @@
 
             document
                 .querySelectorAll(
-                    '.payment-panel'
+                    ".payment-panel"
                 )
                 .forEach(
                     panel => {
 
                         panel.classList.remove(
-                            'active'
+                            "active"
                         );
 
                     }
@@ -3288,7 +4330,7 @@
 
 
             element.classList.add(
-                'active'
+                "active"
             );
 
 
@@ -3297,27 +4339,27 @@
                     method
                 )
                 .classList.add(
-                    'active'
+                    "active"
                 );
 
         }
 
 
         /* =========================================================
-           INSTAPAY COPY
+           INSTAPAY
         ========================================================= */
 
         function copyInstaPay() {
 
             navigator.clipboard
                 .writeText(
-                    '01080128925'
+                    "01080128925"
                 )
                 .then(
                     () => {
 
                         alert(
-                            'InstaPay number copied.'
+                            "InstaPay number copied."
                         );
 
                     }
@@ -3326,7 +4368,7 @@
                     () => {
 
                         alert(
-                            'InstaPay number: 01080128925'
+                            "InstaPay number: 01080128925"
                         );
 
                     }
@@ -3336,7 +4378,7 @@
 
 
         /* =========================================================
-           SHOPPING CHART
+           CHART
         ========================================================= */
 
         let chart = [];
@@ -3358,7 +4400,7 @@
 
             alert(
                 name +
-                ' has been added to your chart.'
+                " has been added to your chart."
             );
 
         }
@@ -3368,12 +4410,13 @@
 
             const items =
                 document.getElementById(
-                    'chartItems'
+                    "chartItems"
                 );
+
 
             const totalElement =
                 document.getElementById(
-                    'chartTotal'
+                    "chartTotal"
                 );
 
 
@@ -3382,10 +4425,10 @@
             ) {
 
                 items.innerHTML =
-                    'Your chart is currently empty.';
+                    "Your chart is currently empty.";
 
                 totalElement.innerHTML =
-                    'Total: EGP 0';
+                    "Total: EGP 0";
 
                 return;
 
@@ -3408,48 +4451,111 @@
                                     ${index + 1}.
                                     ${item.name}
                                     —
-                                    EGP ${item.price.toLocaleString()}
+                                    EGP
+                                    ${item.price.toLocaleString()}
                                 </div>
                             `;
 
                         }
                     )
-                    .join('');
+                    .join("");
 
 
             totalElement.innerHTML =
                 `
                     Total:
-                    EGP ${total.toLocaleString()}
+                    EGP
+                    ${total.toLocaleString()}
                 `;
 
         }
 
 
         /* =========================================================
-           IMAGE ERROR HANDLING
-           
-           Broken images are hidden instead of showing
-           ugly broken-image icons.
+           LOGIN
         ========================================================= */
 
-        document
-            .querySelectorAll('img')
-            .forEach(
-                image => {
+        function openLogin() {
 
-                    image.addEventListener(
-                        'error',
-                        function() {
+            document
+                .getElementById(
+                    "loginOverlay"
+                )
+                .classList
+                .add(
+                    "active"
+                );
 
-                            this.style.display =
-                                'none';
+        }
 
-                        }
-                    );
+
+        function closeLogin() {
+
+            document
+                .getElementById(
+                    "loginOverlay"
+                )
+                .classList
+                .remove(
+                    "active"
+                );
+
+        }
+
+
+        function closeLoginOutside(
+            event
+        ) {
+
+            if (
+                event.target.id ===
+                "loginOverlay"
+            ) {
+
+                closeLogin();
+
+            }
+
+        }
+
+
+        function socialLogin(
+            provider
+        ) {
+
+            alert(
+                provider +
+                " login requires OAuth authentication and a connected backend."
+            );
+
+        }
+
+
+        /* =========================================================
+           ESCAPE KEY CLOSES LOGIN
+        ========================================================= */
+
+        document.addEventListener(
+            "keydown",
+            event => {
+
+                if (
+                    event.key === "Escape"
+                ) {
+
+                    closeLogin();
 
                 }
-            );
+
+            }
+        );
+
+
+        /* =========================================================
+           INITIAL LANGUAGE
+        ========================================================= */
+
+        applyLanguage();
 
     </script>
 
