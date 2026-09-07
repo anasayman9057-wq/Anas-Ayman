@@ -8,615 +8,407 @@
 
 <style>
 
-/* ==============================
-   RESET
-============================== */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-    background: #000000;
+html{
+    scroll-behavior:smooth;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-
-    background: #000000 !important;
-    color: #ffffff;
-
-    font-family: Arial, Helvetica, sans-serif;
-
-    overflow-x: hidden;
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#000;
+    color:#fff;
+    overflow-x:hidden;
+    transition:background-color 1.2s ease,
+               color 1.2s ease;
 }
 
-
-/* ==============================
+/* =========================
    INTRO
-============================== */
+========================= */
 
-#intro {
-    position: fixed;
-    inset: 0;
+#intro{
+    position:fixed;
+    inset:0;
+    z-index:9999;
 
-    width: 100%;
-    height: 100vh;
+    background:#000;
 
-    background: #000000 !important;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    z-index: 999999;
-
-    transition: opacity 1s ease;
-}
-
-#intro.hide {
-    opacity: 0;
-    pointer-events: none;
-}
-
-
-/* ==============================
-   INTRO NAME
-============================== */
-
-#introName {
-    color: #ffd400;
-
-    font-size: clamp(45px, 10vw, 110px);
-
-    font-weight: 900;
-
-    letter-spacing: 3px;
-
-    display: flex;
-
-    perspective: 1000px;
-
-    transform-style: preserve-3d;
-}
-
-
-/* Individual letters */
-
-.letter {
-    display: inline-block;
-
-    opacity: 0;
-
-    transform:
-        translateY(60px)
-        rotateX(-90deg);
-
-    animation:
-        letterIn
-        0.7s
-        ease forwards;
-}
-
-
-/* Letter animation */
-
-@keyframes letterIn {
-
-    0% {
-        opacity: 0;
-
-        transform:
-            translateY(60px)
-            rotateX(-90deg);
-    }
-
-    100% {
-        opacity: 1;
-
-        transform:
-            translateY(0)
-            rotateX(0deg);
-    }
-
-}
-
-
-/* ==============================
-   WHOLE NAME ROTATION
-============================== */
-
-#introName.rotate {
-
-    animation:
-        rotateName
-        1.8s
-        ease-in-out
-        forwards;
-
-}
-
-
-@keyframes rotateName {
-
-    0% {
-        transform:
-            perspective(1000px)
-            rotateY(0deg);
-    }
-
-    50% {
-        transform:
-            perspective(1000px)
-            rotateY(180deg);
-    }
-
-    100% {
-        transform:
-            perspective(1000px)
-            rotateY(360deg);
-    }
-
-}
-
-
-/* ==============================
-   WEBSITE
-============================== */
-
-#website {
-
-    opacity: 0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
     transition:
-        opacity 1.2s ease;
-
-    background: #000000 !important;
+        opacity 1.2s ease,
+        visibility 1.2s ease;
 }
 
-#website.show {
-    opacity: 1;
+#intro.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.intro-name{
+    font-size:clamp(45px,10vw,110px);
+    font-weight:900;
+    letter-spacing:4px;
+
+    color:#ffd400;
+
+    transform-style:preserve-3d;
+
+    animation:
+        nameTurn 2.8s cubic-bezier(.77,0,.18,1) forwards;
+}
+
+@keyframes nameTurn{
+
+    0%{
+        opacity:0;
+        transform:
+            perspective(1000px)
+            rotateY(0deg)
+            scale(.7);
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    75%{
+        transform:
+            perspective(1000px)
+            rotateY(360deg)
+            scale(1);
+    }
+
+    100%{
+        opacity:1;
+        transform:
+            perspective(1000px)
+            rotateY(720deg)
+            scale(1);
+    }
 }
 
 
-/* ==============================
+/* =========================
+   MAIN WEBSITE
+========================= */
+
+#website{
+    opacity:0;
+    transform:translateY(25px);
+
+    transition:
+        opacity 1.3s ease,
+        transform 1.3s ease;
+}
+
+#website.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+
+/* =========================
    NAVIGATION
-============================== */
+========================= */
 
-nav {
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
 
-    position: fixed;
+    z-index:1000;
 
-    top: 0;
-    left: 0;
+    padding:22px 6%;
 
-    width: 100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 
-    height: 75px;
+    background:rgba(0,0,0,.75);
 
-    padding: 0 6%;
+    backdrop-filter:blur(15px);
 
-    display: flex;
+    border-bottom:1px solid rgba(255,212,0,.25);
+}
 
-    align-items: center;
+.logo{
+    color:#ffd400;
+    font-size:24px;
+    font-weight:900;
+    letter-spacing:2px;
+}
 
-    justify-content: space-between;
+nav ul{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
 
-    z-index: 1000;
+nav a{
+    color:#ffd400;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
 
-    background: rgba(0, 0, 0, 0.95) !important;
-
-    border-bottom:
-        1px solid
-        rgba(255, 212, 0, 0.25);
-
-    backdrop-filter: blur(10px);
+nav a:hover{
+    opacity:.6;
 }
 
 
-.logo {
+/* =========================
+   GENERAL
+========================= */
 
-    color: #ffd400;
-
-    font-size: 23px;
-
-    font-weight: 900;
-
-    letter-spacing: 2px;
-}
-
-
-nav ul {
-
-    display: flex;
-
-    gap: 25px;
-
-    list-style: none;
-}
-
-
-nav ul li a {
-
-    color: #ffd400;
-
-    text-decoration: none;
-
-    font-size: 14px;
-
-    font-weight: bold;
-
-    transition: 0.3s;
-}
-
-
-nav ul li a:hover {
-
-    opacity: 0.55;
-}
-
-
-/* ==============================
-   ALL SECTIONS
-============================== */
-
-section {
-
-    min-height: 100vh;
-
-    width: 100%;
+section{
+    min-height:100vh;
 
     padding:
-        130px 8%
+        120px 8%
         80px;
 
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    background: #000000 !important;
-
-    color: #ffffff !important;
-}
-
-
-/* ==============================
-   TITLES
-============================== */
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-
-    color: #ffd400 !important;
-
-}
-
-
-h1 {
-
-    font-size:
-        clamp(55px, 9vw, 120px);
-
-    font-weight: 900;
-
-    margin-bottom: 25px;
-}
-
-
-h2 {
-
-    font-size:
-        clamp(40px, 6vw, 75px);
-
-    font-weight: 900;
-
-    margin-bottom: 25px;
-}
-
-
-h3 {
-
-    font-size: 25px;
-
-    margin-bottom: 15px;
-}
-
-
-/* ==============================
-   PARAGRAPHS
-============================== */
-
-p {
-
-    color: #ffffff !important;
-
-    max-width: 900px;
-
-    font-size: 18px;
-
-    line-height: 1.9;
-}
-
-
-/* ==============================
-   HERO
-============================== */
-
-.hero {
-
-    min-height: 100vh;
-
-    background: #000000 !important;
-
-    position: relative;
-}
-
-
-.hero h1 {
-
-    color: #ffd400 !important;
-
-}
-
-
-.hero p {
-
-    color: #ffd400 !important;
-
-    font-size: 20px;
-
-    font-weight: bold;
-}
-
-
-/* ==============================
-   BUTTONS
-============================== */
-
-.btn {
-
-    display: inline-block;
-
-    width: fit-content;
-
-    margin-top: 30px;
-
-    padding:
-        15px 30px;
-
-    background: #ffd400;
-
-    color: #000000 !important;
-
-    text-decoration: none;
-
-    font-weight: 900;
-
-    border:
-        2px solid
-        #ffd400;
-
-    transition: 0.3s;
-}
-
-
-.btn:hover {
-
-    background: transparent;
-
-    color: #ffd400 !important;
-
-}
-
-
-/* ==============================
-   CARDS
-============================== */
-
-.cards {
-
-    width: 100%;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(250px, 1fr)
-        );
-
-    gap: 25px;
-
-    margin-top: 45px;
-}
-
-
-.card {
-
-    background: #050505 !important;
-
-    color: #ffffff !important;
-
-    border:
-        1px solid
-        #ffd400;
-
-    padding: 30px;
-
-    min-height: 200px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
 
     transition:
-        transform 0.4s ease,
-        box-shadow 0.4s ease;
+        background-color 1.2s ease,
+        color 1.2s ease;
+}
+
+section h1,
+section h2,
+section h3{
+    color:#ffd400;
+}
+
+section h1{
+    font-size:clamp(45px,7vw,90px);
+    margin-bottom:25px;
+}
+
+section h2{
+    font-size:clamp(35px,5vw,65px);
+    margin-bottom:25px;
+}
+
+section h3{
+    font-size:25px;
+    margin-bottom:15px;
+}
+
+p{
+    max-width:850px;
+    line-height:1.9;
+    font-size:18px;
 }
 
 
-.card:hover {
+/* =========================
+   HERO
+========================= */
 
-    transform:
-        translateY(-8px);
+.hero{
+    background:#000;
+}
 
-    box-shadow:
-        0 15px 40px
-        rgba(255, 212, 0, 0.12);
+.hero h1{
+    font-size:clamp(55px,10vw,130px);
+}
+
+.hero p{
+    color:#ffd400;
+    font-size:22px;
 }
 
 
-.card h3 {
+/* =========================
+   CONTENT CARDS
+========================= */
 
-    color: #ffd400 !important;
-}
-
-
-.card p {
-
-    color: #ffffff !important;
-
-    font-size: 16px;
-}
-
-
-/* ==============================
-   THEATRE VIDEOS
-============================== */
-
-.video-grid {
-
-    display: grid;
-
+.cards{
+    display:grid;
     grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(280px, 1fr)
-        );
+        repeat(auto-fit,minmax(250px,1fr));
 
-    gap: 25px;
+    gap:25px;
 
-    margin-top: 40px;
+    margin-top:45px;
+}
+
+.card{
+    border:1px solid #ffd400;
+
+    padding:30px;
+
+    min-height:220px;
+
+    background:rgba(255,212,0,.04);
+
+    transition:
+        transform .4s ease,
+        background .4s ease;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    background:rgba(255,212,0,.1);
+}
+
+.card p{
+    font-size:16px;
 }
 
 
-.video-grid video {
+/* =========================
+   BUTTON
+========================= */
 
-    width: 100%;
+.btn{
+    display:inline-block;
 
-    background: #000000 !important;
+    margin-top:30px;
 
-    border:
-        1px solid
-        #ffd400;
+    padding:15px 30px;
+
+    background:#ffd400;
+    color:#000;
+
+    text-decoration:none;
+
+    font-weight:900;
+
+    border:2px solid #ffd400;
+
+    transition:.3s;
+}
+
+.btn:hover{
+    background:transparent;
+    color:#ffd400;
 }
 
 
-/* ==============================
+/* =========================
+   BLACK / YELLOW SECTIONS
+========================= */
+
+/* Yellow sections */
+
+.yellow-section{
+    background:#ffd400;
+    color:#000;
+}
+
+.yellow-section h1,
+.yellow-section h2,
+.yellow-section h3{
+    color:#000;
+}
+
+.yellow-section p{
+    color:#000;
+}
+
+.yellow-section .card{
+    border-color:#000;
+    background:rgba(0,0,0,.04);
+}
+
+.yellow-section .btn{
+    background:#000;
+    color:#ffd400;
+    border-color:#000;
+}
+
+.yellow-section .btn:hover{
+    background:transparent;
+    color:#000;
+}
+
+
+/* =========================
    GALLERY
-============================== */
+========================= */
 
-.gallery {
-
-    display: grid;
+.gallery{
+    display:grid;
 
     grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(250px, 1fr)
-        );
+        repeat(auto-fit,minmax(250px,1fr));
 
-    gap: 20px;
+    gap:20px;
 
-    margin-top: 40px;
+    margin-top:40px;
+}
+
+.gallery img{
+    width:100%;
+    height:300px;
+
+    object-fit:cover;
+
+    border:2px solid #ffd400;
+
+    transition:
+        transform .5s ease,
+        filter .5s ease;
+}
+
+.gallery img:hover{
+    transform:scale(1.04);
+    filter:brightness(1.2);
 }
 
 
-.gallery img {
-
-    width: 100%;
-
-    height: 300px;
-
-    object-fit: cover;
-
-    border:
-        1px solid
-        #ffd400;
-}
-
-
-/* ==============================
-   PRICE
-============================== */
-
-.price {
-
-    color: #ffd400 !important;
-
-    font-size: 22px;
-
-    font-weight: 900;
-
-    margin-top: 15px;
-}
-
-
-/* ==============================
+/* =========================
    FOOTER
-============================== */
+========================= */
 
-footer {
+footer{
+    padding:50px 8%;
+    text-align:center;
 
-    width: 100%;
+    background:#000;
 
-    padding: 50px 20px;
+    color:#ffd400;
 
-    text-align: center;
-
-    background: #000000 !important;
-
-    color: #ffd400 !important;
-
-    border-top:
-        1px solid
-        rgba(255, 212, 0, 0.5);
+    border-top:1px solid #ffd400;
 }
 
 
-/* ==============================
+/* =========================
    MOBILE
-============================== */
+========================= */
 
-@media (max-width: 750px) {
+@media(max-width:700px){
 
-    nav {
-        padding: 0 5%;
+    nav{
+        padding:18px 5%;
     }
 
-    nav ul {
-        display: none;
+    nav ul{
+        display:none;
     }
 
-    section {
+    section{
         padding:
             110px 6%
             70px;
     }
 
-    #introName {
-        font-size:
-            clamp(40px, 11vw, 70px);
-    }
-
-    p {
-        font-size: 16px;
+    p{
+        font-size:16px;
     }
 
 }
@@ -628,27 +420,27 @@ footer {
 <body>
 
 
-<!-- ==========================================
+<!-- =========================
      INTRO
-========================================== -->
+========================= -->
 
 <div id="intro">
 
-    <div id="introName"></div>
+    <div class="intro-name">
+        Anas Ayman
+    </div>
 
 </div>
 
 
-<!-- ==========================================
+<!-- =========================
      WEBSITE
-========================================== -->
+========================= -->
 
 <div id="website">
 
 
-<!-- ==========================================
-     NAVIGATION
-========================================== -->
+<!-- NAV -->
 
 <nav>
 
@@ -687,9 +479,9 @@ footer {
 </nav>
 
 
-<!-- ==========================================
+<!-- =========================
      HERO
-========================================== -->
+========================= -->
 
 <section class="hero">
 
@@ -701,19 +493,16 @@ footer {
         Computer Science Student • Actor • Creative Mind • Personal Brand
     </p>
 
-    <a
-        href="#about"
-        class="btn"
-    >
+    <a class="btn" href="#about">
         Explore
     </a>
 
 </section>
 
 
-<!-- ==========================================
+<!-- =========================
      ABOUT
-========================================== -->
+========================= -->
 
 <section id="about">
 
@@ -722,11 +511,11 @@ footer {
     </h2>
 
     <p>
-        I am Anas Ayman, a Computer Science student
-        with a strong interest in acting, theatre,
-        philosophy, creative work and digital technology.
+        I am Anas Ayman, a Computer Science student with a strong interest
+        in acting, theatre, philosophy, creative work and digital technology.
+        I believe that identity is built through experience, discipline,
+        creativity and continuous development.
     </p>
-
 
     <div class="cards">
 
@@ -737,9 +526,8 @@ footer {
             </h3>
 
             <p>
-                Building a distinctive personal identity
-                through creativity, discipline and
-                continuous self-development.
+                Building a distinctive personal identity through creativity,
+                discipline and continuous self-development.
             </p>
 
         </div>
@@ -752,8 +540,8 @@ footer {
             </h3>
 
             <p>
-                Exploring acting, visual concepts,
-                branding and creative storytelling.
+                Exploring acting, visual concepts, branding and creative
+                storytelling.
             </p>
 
         </div>
@@ -766,8 +554,8 @@ footer {
             </h3>
 
             <p>
-                Combining technology, art and philosophy
-                into one personal creative direction.
+                Combining technology, art and philosophy into one personal
+                creative direction.
             </p>
 
         </div>
@@ -777,20 +565,19 @@ footer {
 </section>
 
 
-<!-- ==========================================
+<!-- =========================
      COMPUTER SCIENCE
-========================================== -->
+========================= -->
 
-<section id="cs">
+<section id="cs" class="yellow-section">
 
     <h2>
         Computer Science
     </h2>
 
     <p>
-        My academic journey in Computer Science focuses
-        on programming, problem solving, technology and
-        building practical digital projects.
+        My academic journey in Computer Science focuses on programming,
+        problem solving, technology and building practical digital projects.
     </p>
 
 
@@ -803,8 +590,8 @@ footer {
             </h3>
 
             <p>
-                C++ programming, algorithms and
-                fundamental programming concepts.
+                C++ programming, algorithms and fundamental programming
+                concepts.
             </p>
 
         </div>
@@ -817,8 +604,8 @@ footer {
             </h3>
 
             <p>
-                Developing practical projects and
-                experimenting with software development.
+                Developing practical projects and experimenting with
+                software development.
             </p>
 
         </div>
@@ -831,8 +618,8 @@ footer {
             </h3>
 
             <p>
-                Building technical experience through
-                courses, internships and real-world projects.
+                Building technical experience through courses, internships
+                and real-world projects.
             </p>
 
         </div>
@@ -842,9 +629,9 @@ footer {
 </section>
 
 
-<!-- ==========================================
+<!-- =========================
      THEATRE
-========================================== -->
+========================= -->
 
 <section id="theatre">
 
@@ -853,54 +640,64 @@ footer {
     </h2>
 
     <p>
-        Acting is one of the strongest creative
-        directions in my journey.
-        Theatre provides a space to develop presence,
-        expression, storytelling and character.
+        Acting is one of the strongest creative directions in my journey.
+        Theatre provides a space to develop presence, expression,
+        storytelling and character.
     </p>
 
 
-    <div class="video-grid">
+    <div class="cards">
 
-        <video controls>
+        <div class="card">
 
-            <source
-                src="videos/acting-scene-1.mp4"
-                type="video/mp4"
-            >
+            <h3>
+                Acting
+            </h3>
 
-        </video>
+            <p>
+                Character development, performance and dramatic expression.
+            </p>
 
-
-        <video controls>
-
-            <source
-                src="videos/acting-scene-2.mp4"
-                type="video/mp4"
-            >
-
-        </video>
+        </div>
 
 
-        <video controls>
+        <div class="card">
 
-            <source
-                src="videos/university-stage.mp4"
-                type="video/mp4"
-            >
+            <h3>
+                University Stage
+            </h3>
 
-        </video>
+            <p>
+                Exploring theatre and performance through university
+                activities.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                Screen
+            </h3>
+
+            <p>
+                Developing performance skills for future film and screen
+                opportunities.
+            </p>
+
+        </div>
 
     </div>
 
 </section>
 
 
-<!-- ==========================================
+<!-- =========================
      PHILOSOPHY
-========================================== -->
+========================= -->
 
-<section id="philosophy">
+<section id="philosophy" class="yellow-section">
 
     <h2>
         Philosophy
@@ -908,21 +705,18 @@ footer {
 
     <p>
 
-        We are all, in one way or another,
-        swimmers in the sea of life,
-        looking toward the sun while moving
-        through uncertainty.
+        We are all, in one way or another, swimmers in the sea of life,
+        looking toward the sun while moving through uncertainty.
 
-        Life is not about reaching a perfect
-        destination.
-
-        It is about learning how to move
-        through change, adapting to circumstances
-        and continuing forward.
+        Life is not about reaching a perfect destination.
+        It is about learning how to move through change,
+        adapting to circumstances and continuing forward.
 
         Strength does not always mean resistance.
-
         Sometimes strength means adaptation.
+
+        Human beings constantly change through experience,
+        failure, success, relationships and time.
 
     </p>
 
@@ -936,8 +730,7 @@ footer {
             </h3>
 
             <p>
-                Life is movement, change and
-                continuous experience.
+                Life is movement, change and continuous experience.
             </p>
 
         </div>
@@ -950,8 +743,8 @@ footer {
             </h3>
 
             <p>
-                The ability to adapt is one of
-                the strongest forms of growth.
+                The ability to adapt is one of the strongest forms of
+                survival and growth.
             </p>
 
         </div>
@@ -964,8 +757,8 @@ footer {
             </h3>
 
             <p>
-                Identity develops through experience
-                and conscious decisions.
+                Identity is not simply discovered. It is developed through
+                experience and conscious decisions.
             </p>
 
         </div>
@@ -975,9 +768,9 @@ footer {
 </section>
 
 
-<!-- ==========================================
+<!-- =========================
      CREATIVE WORK
-========================================== -->
+========================= -->
 
 <section id="creative">
 
@@ -986,53 +779,40 @@ footer {
     </h2>
 
     <p>
-        A collection of creative experiments involving
-        visual design, branding, digital concepts
-        and artistic direction.
+        A collection of creative experiments involving visual design,
+        branding, digital concepts and artistic direction.
     </p>
 
 
-    <div class="cards">
+    <div class="gallery">
 
         <div class="card">
-
             <h3>
                 Visual Identity
             </h3>
-
             <p>
-                Developing visual concepts and
-                distinctive identities.
+                Developing visual concepts and distinctive identities.
             </p>
-
         </div>
 
 
         <div class="card">
-
             <h3>
                 Graphic Design
             </h3>
-
             <p>
-                Creating visual material for creative
-                and commercial ideas.
+                Creating visual material for creative and commercial ideas.
             </p>
-
         </div>
 
 
         <div class="card">
-
             <h3>
                 Brand Concepts
             </h3>
-
             <p>
-                Exploring branding, marketing and
-                personal identity.
+                Exploring branding, marketing and personal identity.
             </p>
-
         </div>
 
     </div>
@@ -1040,11 +820,11 @@ footer {
 </section>
 
 
-<!-- ==========================================
+<!-- =========================
      SHOP
-========================================== -->
+========================= -->
 
-<section id="shop">
+<section id="shop" class="yellow-section">
 
     <h2>
         Shop
@@ -1063,9 +843,9 @@ footer {
                 Premium Fashion Piece
             </h3>
 
-            <div class="price">
+            <p>
                 EGP 850
-            </div>
+            </p>
 
             <a href="#" class="btn">
                 Add to Chart
@@ -1080,9 +860,9 @@ footer {
                 Creative Graphic Poster
             </h3>
 
-            <div class="price">
+            <p>
                 EGP 450
-            </div>
+            </p>
 
             <a href="#" class="btn">
                 Add to Chart
@@ -1097,9 +877,9 @@ footer {
                 Brand Creative Package
             </h3>
 
-            <div class="price">
+            <p>
                 EGP 1,200
-            </div>
+            </p>
 
             <a href="#" class="btn">
                 Add to Chart
@@ -1114,9 +894,9 @@ footer {
                 Creative Consultation
             </h3>
 
-            <div class="price">
+            <p>
                 EGP 700
-            </div>
+            </p>
 
             <a href="#" class="btn">
                 Add to Chart
@@ -1129,11 +909,11 @@ footer {
 </section>
 
 
-<!-- ==========================================
+<!-- =========================
      CONTACT
-========================================== -->
+========================= -->
 
-<section id="contact">
+<section>
 
     <h2>
         Contact
@@ -1145,8 +925,8 @@ footer {
     </p>
 
     <a
-        href="mailto:contact@example.com"
         class="btn"
+        href="mailto:contact@example.com"
     >
         Contact Anas
     </a>
@@ -1154,9 +934,7 @@ footer {
 </section>
 
 
-<!-- ==========================================
-     FOOTER
-========================================== -->
+<!-- FOOTER -->
 
 <footer>
 
@@ -1168,85 +946,67 @@ footer {
 </div>
 
 
-<!-- ==========================================
-     JAVASCRIPT
-========================================== -->
-
 <script>
 
-/* ==========================================
-   CREATE INTRO NAME
-========================================== */
+/* =========================
+   INTRO
+========================= */
 
-const introName =
-    document.getElementById("introName");
+window.addEventListener("load", function(){
 
-const text = "Anas Ayman";
+    setTimeout(function(){
+
+        document
+            .getElementById("intro")
+            .classList.add("hide");
+
+        document
+            .getElementById("website")
+            .classList.add("show");
+
+    }, 3200);
+
+});
 
 
-for (
-    let i = 0;
-    i < text.length;
-    i++
-) {
+/* =========================
+   BLACK ↔ YELLOW
+   SCROLL ONLY
+========================= */
 
-    const letter =
-        document.createElement("span");
+let lastScroll = window.scrollY;
 
-    letter.className = "letter";
+window.addEventListener("scroll", function(){
 
-    if (text[i] === " ") {
+    const currentScroll = window.scrollY;
 
-        letter.innerHTML = "&nbsp;";
+    /*
+       Scrolling DOWN
+       → Yellow
+    */
 
-    } else {
+    if(currentScroll > lastScroll){
 
-        letter.textContent = text[i];
+        document.body.style.backgroundColor = "#ffd400";
+        document.body.style.color = "#000";
 
     }
 
-    letter.style.animationDelay =
-        (i * 0.10) + "s";
+    /*
+       Scrolling UP
+       → Black
+    */
 
-    introName.appendChild(letter);
-}
+    else if(currentScroll < lastScroll){
 
+        document.body.style.backgroundColor = "#000";
+        document.body.style.color = "#fff";
 
-/* ==========================================
-   TURN NAME
-========================================== */
+    }
 
-setTimeout(function() {
+    lastScroll = currentScroll;
 
-    introName.classList.add("rotate");
-
-}, 1900);
-
-
-/* ==========================================
-   SHOW WEBSITE
-========================================== */
-
-setTimeout(function() {
-
-    document
-        .getElementById("intro")
-        .classList.add("hide");
-
-    document
-        .getElementById("website")
-        .classList.add("show");
-
-}, 4000);
-
-
-/*
-   THAT'S IT.
-
-   There is NO scroll color code.
-   There is NO automatic background code.
-   The website background is ALWAYS BLACK.
-*/
+});
 
 </script>
 
